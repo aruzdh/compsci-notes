@@ -1,0 +1,79 @@
+\section{Subspaces}
+
+In the study of any algebraic structure, it's of interest to examine subsets that posses the same structure as the set under consideration.
+
+\dfn{}{
+  A subset \textit W of a vector space \textit V over a field \textit K is called a \textbf{subspace} of \textit V ($W \le V$) if \textit W is a vector space over \textit K with the operations of addition and scalar multiplication defined on \textit V.
+}
+
+\nt{
+  In any vector space \textit V, note that \textit V and $\{\overline0\}$ are subspaces. The latter is called the \textbf{zero subspace} of \textit V.
+}
+
+\noindent Fortunately, it isn't necessary to verify all of the vector space properties to prove that a subset is a subspace. Since properties (VS 1), (VS 2), (VS 5), (VS 6), (VS 7), and (VS 8) hold for all vectors in the vector space, these properties automatically hold for the vectors in any subset. Thus a $W \subseteq V$ is a subspace of \textit V if and only if the following four properties hold
+
+\begin{enumerate}
+  \item $\forall x, y \in W,~ x + y \in W$ (\textit W is \textbf{closed under addition})
+  \item $\forall x \in W,~ \lambda \in K, ~ \lambda x  \in W$ (\textit W is \textbf{closed under scalar multiplication})
+  \item \textit W has a zero vector.
+  \item Each vector in \textit W has an additive inverse in \textit W.
+\end{enumerate}
+
+The next theorem shows that the zero vector of \textit W must be the same as the zero vector of \textit V, and the property 4 is redundant.
+
+\thm{}{
+  Let \textit V be a vector space and $W \subseteq V$. Then \textit W is a subspace of \textit V ($W \le V$) if and only if the following three conditions hold for the operations defined on \textit V.
+  \begin{enumerate}[a)]
+    \item $\overline 0 \in W$
+    \item $\forall x,y \in W,~ x + y \in W$.
+    \item $\forall x \in W,~ \lambda \in K,~ \lambda x \in W$.
+  \end{enumerate}
+}
+
+\noindent The preceding theorem provides a simple method for determining whether or not a given subset of a vector space is a subspace.
+
+The next theorem shows how to form a new subspace of a vcetor space \textit V from other subspaces.
+
+\thm{}{
+  Any intersection of subspaces of a vector space \textit V is a subspace of \textit V.
+}
+
+Let's define some important concepts.
+
+\dfn{}{
+  If $S_1, S_2 \subseteq V$ (they must be nonempty sets), then the \textbf{sum} of $S_1$ and $S_2$, denoted $S_1 + S_2$, is the set $\{x + y \mid x \in S_1 \land y \in S_2\}$.
+}
+
+\dfn{}{
+  A vector space \textit V is called the \textbf{direct sum} of $W_1$ and $W_2$ if $w_1$ and $W_2$ are subspaces of \textit V such that $W_1 \cap W_2 = \{\overline 0\}$ and $W_1 + W_2 = V$. We denote that \textit V is the dirct sum of $W_1$ and $W_2$ by writting $V = W_1 \oplus W_2$.
+}
+
+\nt{
+  Let $W_1, W_2 \le V. ~ W_1 + W_2 \le V \mid W_1, W_2 \subseteq W_1 + W_2$. Moreover, any subspace of \textit V that contains both $W_1$ and $W_2$ must also contain $W_1 + W_2$.
+}
+
+\dfn{}{
+  Let $W \le V$ (\textit V over a field K). $\forall v \in V$ the set $\{v\} + W = \{v + w \mid w \in W\}$ is called the \textbf{coset} of \textit W \textbf{containing} \textit v. It's customary to denote this coset by $v + W$ rather than $\{v\} + W$.
+}
+
+\nt{
+  $v + W$ is a subspace of \textit V if and only if $v \in W$. Plus, $v_1 + W = v_2 + W$ if and only if $v_1 - v_2 \in W$.
+}
+
+\dfn{}{
+  Addition and scalar multiplication by scalars of \textit K can be defined in the collection $S = \{v + W \mid v \in V\}$ of all cosets of \textit W as follows:
+  \begin{itemize}
+    \item $\forall v_1, v_2 \in V,~ (v_1 + W) + (v_2 + W) = (v_1 + v_2) + W$
+    \item $\forall v \in V,~ \lambda \in K,~ \lambda(v + W) = \lambda v + W$
+  \end{itemize}
+  This vector space is called the \textbf{quotient space of V modulo W} and is denoted by $V/W$.
+}
+
+\nt {
+  The preceding operations are well defined, i.e., if $w_1 + W = v_1' + W$ and $v_2 + W = v_2' + W$, then
+  \begin{itemize}
+    \item $(v_1 + W) + (v_2 + W) = (v_1' + W) + (v_2' + W)$
+    \item $\lambda (v_1 + W) = \lambda (v_1' + W)$
+  \end{itemize}
+  for all $\lambda \in K$.
+}
