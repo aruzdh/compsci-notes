@@ -1,0 +1,28 @@
+\chapter{Técnicas de Conteo}
+\section{Probabilidad de un evento}
+\dfn{Probabilidad de un evento}{
+  Sea \textit A un evento y $\Omega$ el espacio muestral, la \textbf{probabilidad de A} es $$P(A) = \frac{\mid A \mid}{\mid \Omega \mid}$$
+}
+
+\section{Principios de Conteo}
+\begin{itemize}
+  \item Si tenemos \textit m objetos y \textit n objetos (diferente tipo respecto a \textit m), entonces tenemos $m + n$ objetos en total.
+  \item Si tenemos \textit m objetos diferentes y \textit n objetos diferentes (diferente tipo respecto a \textit m), entonces tenemos \textit{mn} distintas maneras de tener un objeto de tipo \textit m y uno de tipo \textit n.
+\end{itemize}
+
+\section{Permutaciones}
+Sin restricciones:
+$$n!~~~(\text{o hasta donde sea necesario)}$$
+
+\noindent Circulares:
+$$(n - 1)!$$
+
+\noindent Indistinguibles:
+$$\frac{n!}{n_1!n_2!\cdots n_r!},~$$ con \textit n objetos totales; de los cuales $n_1,n_2, \cdots, n_r$ son Indistinguibles; y $n_1 + n_2 + \cdots + n_r \le n$
+
+\section{Combinaciones}
+Coficiente binomial:
+$$\binom{n}{r} = \frac{n!}{r!(n - r)!},$$ con \textit r objetos tomados de \textit n totales.
+\newline
+\noindent Coficiente multinomial:
+$$\binom{n}{n_1,n_2,\cdots,n_r} = \frac{n!}{n_1!n_2!\cdots n_r!},$$ con \textit n diferentes objetos divididos en \textit r diferentes grupos; donde $n_1 + n_2 + \cdots + n_r = n$

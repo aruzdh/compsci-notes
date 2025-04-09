@@ -1,0 +1,56 @@
+\chapter{Espacio de Probabilidad}
+Sean \textit{A, B} eventos, y $\Omega$ el espacio muestral.
+\section{Axiomas}
+\begin{enumerate}
+  \item $0 \le P(A) \le 1$
+  \item $P(\Omega) = 1$
+  \item Sean $A_1, A_2, \cdots \in \mathcal F \text{ (eventos) tales que } A_i \cap A_j = \varnothing, ~\forall i \neq j.$ Entonces $$P(\cup A_i) = \sum_i P(A_i)$$
+\end{enumerate}
+
+\section{Proposiciones}
+
+\begin{enumerate}
+  \item $P(A^c) = 1 - P(A)$
+  \item Si $A \subseteq B$, entonces $P(A) \le P(B)$
+  \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+\end{enumerate}
+
+\section{Probabilidad Condicional}
+
+Se lee como la \textbf{probabilidad de \textit A dado \textit B}
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)} \Longrightarrow P(A \cap B) = P(B)P(A \mid B)$$
+
+\section{Independencia}
+Se puede decir que \textbf{la occurrencia de B no afecta en la probabilidad de A}.
+$$P(A \mid B) = P(A)$$
+
+\noindent De manera equivalente tenemos $$P(A \cap B) = P(A)P(B)$$
+
+\section{Probabilidad Total}
+Sea $\{B_i\}_i$ una partición.
+$$P(A) = \sum_{i = 1}^n P(A \mid B_i)P(B_i)$$
+\noindent Es decir, \textit A está distribuido sobre diferentes partes \textbf{disjuntas} de la partición.
+
+\section{Teorema de Bayes}
+Sea $\{B_i\}_i$ una partición.
+$$P(B_j \mid A) = \frac{P(A \mid B_j)P(B_j)}{\sum_{i = 1}^n P(A \mid B_i)P(B_i)}$$
+donde el denominador es la probabilidad total mencionadad en la sección anterior. En este caso, se nos pregunta la probabilidad de un evento que ocurre \textbf{primero} que el evento que condiciona.
+
+\section{Sucesiones monótonas}
+Sucesión creciente:\\
+Sea $A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots A_n \subseteq \cdots$
+$$\lim_{n \rightarrow \infty} A_n = \bigcup_{i=1}^{\infty} A_i$$
+
+\noindent Sucesión decreciente:\\
+Sea $A_1 \supseteq A_2 \supseteq A_3 \supseteq \cdots A_n \supseteq \cdots$
+$$\lim_{n \rightarrow \infty} A_n = \bigcap_{i=1}^{\infty} A_i$$
+
+\thm{}{
+  Sea $\{A_n\}_{n \ge 1}$ una sucesión de eventos, entonces
+$$\lim\limits_{n \to \infty} P(A_n) = P\left( \lim\limits_{n \to \infty} A_n \right) =
+ \begin{cases}
+ P\left(\bigcup\limits_{i=1}^{\infty} A_i ~~~~~\{A_{n} \} \text{ es creciente}  \right) & \\
+ P\left(\bigcap\limits_{i=1}^{\infty} A_i ~~~~~\{ A_{n} \} \text{ es decreciente} \right) & \\
+ \end{cases}
+$$
+}
