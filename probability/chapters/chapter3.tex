@@ -1,1 +1,66 @@
-\chapter{Variables aleatorias}
+\chapter{Variables Aleatorias}
+\section{Variable aleatoria}
+\dfn{}{
+  Se define la función 
+  $$\mathcal X : \Omega \longrightarrow \mathbb R \backepsilon \{w \in \Omega \mid \mathcal X(w) \le a\} \in \mathcal F,~ \forall a \in \mathbb R$$
+}
+
+\section{Tipos de Variables Aleatorias}
+Discretas: Toman un \textbf{número finito o infinito numerable} de valores.\\
+Continuas: Toman un \textbf{número infinito no numerable} de valores.\\
+Mixtas: Una mezcla de las dos anteriores.
+
+\section{Función de Distribución}
+\dfn{}{
+  Dada $\mathcal X$ una variable aleatoria \textit{discreta o continua}, su \textbf{función de distribución} se define como
+  $$F(a) = P(\mathcal X \le a) = P(\{w \in \Omega \mid \mathcal X(w) \le a\}),~ a \in \mathbb R$$
+  Notemos que $F : \mathbb R \longrightarrow [0,1]$
+}
+
+Las siguientes son propiedades de las funciones de distribución.
+\begin{enumerate}
+  \item $$\text{Es una función no-decreciente.}$$
+  \item \[ \lim_{x \to \infty} F(x) = 1 \]
+  \item \[ \lim_{x \to -\infty} F(x) = 0 \]
+  \item $$\text{Es una función continua por la derecha.}$$
+  \item \[ P(\mathcal X < a) = F(a^-) \text{limite por la izquierda}\]
+  \item \[ P(\mathcal X = a) = P(\mathcal X \le a) - P(\mathcal X < a) = F(a) - F(a^-) \]
+  \item \[ P(a< \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X \le a) = F(b) - F(a) \]
+  \item \[ P(a \le \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X < a) = F(b) - F(a^-) \]
+  \item \[ P(a < \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X \le a) = F(b^-) - F(a) \]
+  \item \[ P(a \le \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X < a) = F(b^-) - F(a^-) \]
+\end{enumerate}
+
+\section{Variables Aleatorias Discretas}
+\dfn{}{
+  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Entonces su \textbf{función de probabilidad} es
+  \[f_{\mathcal X} (a) = P(\mathcal X = a),\] con \textit a en la imagen de $\mathcal X$
+}
+
+\noindent Notemos que si $\mathcal X$ es una variable aleatoria \textit{continua}, su función de distribución es continua, y por la tanto
+\[P(\mathcal X = a) = F(a) - F(a^-) = F(a) - F(a) = 0\]
+para cualquier $a \in \mathbb R$. Es decir, no tiene utilidad en el caso continuo.
+
+Las siguientes son propiedades de las funciones de probabilidad.
+\begin{enumerate}
+  \item \[f(x) > 0\]
+  \item \[\sum_x f(x) = 1,\] donde \textit x representa todos los valores que toma la variable aleatoria \textbf{discreta}.
+\end{enumerate}
+
+\section{Variables aleatoria Absolutamente Continuas}
+
+\dfn{}{
+  Sea $\mathcal X$ una \textit{variable aleatoria continua} con función de distribución $F_{\mathcal X}$, se le llama \textbf{absolutamente continua} \textit{si existe} una función \textit f tal que
+  \[F_{\mathcal X}(a) = \int_{-\infty}^a f(x)~dx = P(\mathcal X \le a)\]
+}
+A la función \textit f se le conoce como \textbf{función de densidad} de la variable aleatoria $\mathcal X$ y satisface las siguientes propiedades.
+
+\begin{enumerate}
+  \item \[ f \ge 0, ~ \forall x \in \mathbb R \]
+  \item \[ \int_{-\infty}^{\infty}f(x)~dx = 1 \]
+\end{enumerate}
+
+\nt{
+  Si la función de densidad \textit f es continua, el \textit{Teorema Fundamental del Cálculo} nos dice que \[\frac{d}{dx} F(x) = f(x)\]
+}
+
