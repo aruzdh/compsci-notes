@@ -1,3 +1,6 @@
+#MacOs
+.DS_Store
+
 # LaTeX generated files
 *.aux
 *.log
@@ -12,7 +15,7 @@
 *.lot
 pdflatex*.fls
 
-# PDF files (optional, see note below)
+# PDF files 
 *.pdf
 
 # Build directories
@@ -20,6 +23,6 @@ build/
 linear-algebra/build/
 probability/build/
 automata/tarea5/build/
+automata/build/
+math-III/build/
 
-# Editor-specific files
-*.latexmain
