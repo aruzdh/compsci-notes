@@ -2,7 +2,7 @@
 
 This directory contains my computer science notes, organized by subject. Each subject is a separate LaTeX project with a modular structure for easy management and compilation.
 
-![preview](preview.JPG)
+![preview](preview.jpg)
 
 ## Structure
 
