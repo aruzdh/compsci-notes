@@ -1,0 +1,260 @@
+\section{Cadenas}
+\subsection{Conceptos Básicos}
+\dfn{Símbolo}{
+  Un \textbf{símbolo} o \textbf{caracter} es una entidad indivisible.
+}
+
+\ex{Símbolos}{
+  a, b, c, 1, 0, z, @, *
+}
+
+\dfn{Alfabeto}{
+  Un \textbf{alfabeto} es un conjunto \textit{finito} y \textit{no vacío} de símbolos. Normalmente es denotado por $\Sigma$.
+}
+
+\ex{Alfabetos}{
+  \begin{itemize}
+    \item $\Sigma_1 = \{0,1\}$
+    \item $\Sigma_2 = \{a,b,c\}$
+    \item $\Sigma_3 = \{a,b,c\}$
+    \item $\Sigma_4 = \{0,1,\cdots, 9\}$
+  \end{itemize}
+}
+
+\ex{Alfabetos}{
+  El codigo \textit{ASCII} es un alfabeto.
+}
+
+\dfn{Cadena}{
+  Una \textbf{cadena} es una sucesión finita de símbolos de un alfabeto.
+}
+
+\ex{Cadenas}{
+  Sea $\Sigma = \{0, 1\}$ un alfabeto. Las siguientes son cadenas sobre $\Sigma$: \textit{0,1, 00, 10, 101010, 101010100}
+}
+
+\dfn{Cadena vacía}{
+Denotamos por $\varepsilon$ a la \textbf{cadena vacía.}
+}
+
+\nt{
+  $\varepsilon$ us una cadena de \textbf{cualquier alfabeto}
+}
+
+\dfn{Estrella de Klenne}{
+  El \textit{conjunto de todas las cadenas} sobre un alfabeto $\Sigma$ es infinito y se denota por $\Sigma^*$, llamado \textbf{Estrella de Klenne}.
+}
+
+\ex{Estrella de Klenne}{
+  Sea $\Sigma = \{a\}$. Entonces $\Sigma^* = \{a_i\cdots a_n \mid n \in \mathbb N\}$
+}
+
+\subsection{Operaciones de cadenas}
+
+\dfn{Longitud}{
+  Sea $w = a_i\cdots a_n$ una cadena. La \textbf{longitud} de \textit{w}, denotada por $\mid w \mid$, es el número de símbolos que la forman.
+}
+
+\ex{Longitud}{
+  Sea $w = 010101$. Su longitud es $\mid w \mid = \mid 010101 \mid = 6$
+}
+
+\ex{Longitud}{
+  Sea $w = \varepsilon$. Su longitud es $\mid \varepsilon \mid = 0$
+}
+
+\dfn{Concatenación}{
+  Sea $w = a_i\cdots a_n,~ x = b_1 \cdots b_m$ cadenas. La \textbf{concatenación} de \textit{w} con \textit{x} es la cadena que resulta de pegar \textit{w} con \textit{x}. Es decir \[wx = a_1a_2\cdots a_n b_1b_2 \cdots b_m\]
+}
+
+\nt{
+  Se usará la notación $w \cdot x$ y $wx$ de manera indistinta para denotar la concatenación de dos cadenas.
+}
+
+\ex{Concatenación}{
+  Sea $w = bronquio, ~ x = saurio$ cadenas. La concatenación de \textit{w} con \textit{x} es $wx = bronquiosaurio$.
+}
+
+Las siguientes son propiedades de la concatenación de cadenas.
+\begin{itemize}
+  \item Asociatividad \[(xy) z = x(yz)\]
+  \item Elemento identidad \[w\varepsilon = w = \varepsilon w\]
+  \item Longitud \[\mid wx\mid = \mid w \mid + \mid x \mid \]
+  \item Potencia \[w^n = w \cdot w \cdot w \cdots w,~ \text{ n veces}\]
+\end{itemize}
+\nt {
+  Sea \textit{a} un símbolo arbitrario. Se tiene que $a^0 = \varepsilon$.
+}
+\nt{
+  La conmutatividad \textbf{no} es una propiedad de la concatenación.
+}
+
+\dfn{Reversa}{
+  Sea $w = a_1a_2\cdots a_n$ una cadena. La \textbf{reversa} de \textit{w}, denotada por $w^R$, es la cadena que resulta de invertir los símbolos de \textit{w}. Es decir, \[w^R = a_na_{n-1}\cdots a_2a_1\]
+}
+
+\ex{Reversa}{
+  Sea $w = carlos$. Se tiene que $w^R = solrac$.
+}
+Las siguientes son propiedades de la reversa de cadenas.
+\begin{itemize}
+  \item $(w^R)^R = w$
+  \item $(wx)^R = x^R w^R$
+\end{itemize}
+
+\subsection{Subcadenas, prefijos y sufijos}
+
+\dfn{Subcadenas}{
+  Sea \textit{w} una cadena sobre $\Sigma$ tal que $w = xyz$ donde $x,y,z \in \Sigma^*$. Entonces \textit{x,y,z} son \textbf{subcadenas} de \textit{w}.
+}
+\nt{
+  Dada \textit{w} una cadena arbitraria. Una cadena de \textit{x} es subcadena de \textit{w} \textbf{si y solo si} \textit{x} está formada de símbolos \textbf{contiguos} de \textit{w}.
+}
+\nt{
+  Dada \textit{w} una cadena arbitraria. Se tiene que $\varepsilon$ es una subcadena de \textit{w}.
+}
+
+\ex{SUbcadenas}{
+  Sea $w = patosaurio$. Una descomposición en subcadenas de \textit{w} es la siguiente: $x = pato, y = sau,~ z = rio$. Por otra lado, $n = pario$ \textbf{no} es subcadena.
+}
+
+\dfn{Prefijos}{
+  Sea \textit{w} una cadena tal que $w = xyz$ donde $x,y,z \in \Sigma^*$. Se tiene que \textit{x} es un \textbf{prefijo} de \textit{w}. Es decir, \textit{x} es una subcadena que contiene el inicio de \textit{w} (incluyendo a $\varepsilon$).
+}
+
+\dfn{Prefijos propios}{
+  Sea \textit{w} una cadena. Todo prefijo \textit{x} de \textit{w} es un \textbf{prefijo propio} si $x \neq w$
+}
+
+\ex{Prefijos}{
+  Sea $w = patosaurio$. Se tienen los siguientes prefijos.
+  \begin{itemize}
+    \item $\varepsilon$
+    \item p
+    \item pa
+    \item pat
+    \item pato
+    \item patos
+    \item patosa
+    \item patosau
+    \item patosaur
+    \item patosauri
+    \item patosaurio
+  \end{itemize}
+  Donde el último prefijo listado (\textit{x = patosaurio = w}) no es un prefijo propio.
+}
+
+\dfn{Sufijos}{
+  Sea \textit{w} una cadena tal que $w = xyz$ donde $x,y,z \in \Sigma^*$. Se tiene que \textit{z} es un \textbf{sufijo} de \textit{w}. Es decir, \textit{z} es una subcadena que contiene el final de \textit{w} (incluyendo a $\varepsilon$).
+}
+
+\dfn{Prefijos propios}{
+  Sea \textit{w} una cadena. Todo sufijo \textit{z} de \textit{w} es un \textbf{sufijo propio} si $z \neq w$
+}
+
+\ex{Prefijos}{
+  Sea $w = patosaurio$. Se tienen los siguientes prefijos.
+  \begin{itemize}
+    \item $\varepsilon$
+    \item o
+    \item io
+    \item rio
+    \item urio
+    \item aurio
+    \item saurio
+    \item osaurio
+    \item tosaurio
+    \item atosaurio
+    \item patosaurio
+
+  \end{itemize}
+  Donde el último sufijo listado (\textit{z = patosaurio = w}) no es un sufijo propio.
+}
+
+\subsection{Definiciones Recursivas}
+
+\dfn{Def. Recursiva de Estrella de Klenne}{
+  Dado un alfabeto $\Sigma$. Definimos $\Sigma^*$ de la siguient manera.
+  \begin{itemize}
+    \item $\varepsilon \in \Sigma^*$
+    \item Sea $a \in \Sigma$ y $w \in \Sigma^*$. Entonces $wa \in \Sigma^*$
+    \item Solo las anteriores son cadenas de $\Sigma^*$
+  \end{itemize}
+}
+
+\dfn{Def. Recursiva de la Concatenación}{
+  \begin{itemize}
+    \item $w \varepsilon = w$
+    \item $w(xa) = (wx)a$
+  \end{itemize}
+}
+
+\ex{Concatenación Recursiva}{
+  Sea $x = 01$ y $y = 210$. Se tiene que
+  \begin{align*}
+    (01)\cdot(210) &= (01\cdot 21)0\\
+               &= ((01 \cdot 2)1)0\\
+               &= (((01 \cdot \varepsilon)2)1)0\\
+               &= (((01)2)1)0\\
+               &= ((012)1)0\\
+               &= (0121)0\\
+               &= 01210\\
+  \end{align*}
+}
+
+\dfn{Def. Recursiva de la Longitud}{
+  \begin{itemize}
+    \item $\mid \varepsilon \mid = 0$
+    \item $\mid w a \mid = \mid w \mid + 1$
+  \end{itemize}
+}
+
+\ex{Longitud Recursiva}{
+  Sea $x = 010$. Se tiene que 
+  \begin{align*}
+    \mid x \mid = \mid 010 \mid &= \mid 01 \mid + 1\\
+                    &= (\mid 0 \mid + 1) + 1\\
+                    &= ((\mid \varepsilon \mid + 1) + 1) + 1\\
+                    &= ((0 + 1) + 1) + 1\\
+                    &= (1 + 1) + 1\\
+                    &= 2 + 1\\
+                    &= 3\\
+  \end{align*}
+}
+
+\dfn{Def. Recursiva de Reversa}{
+  \begin{itemize}
+    \item $\varepsilon^R = \varepsilon$
+    \item $(wa)^R = a \cdot w^R$
+  \end{itemize}
+}
+
+\ex{Reversa Recursiva}{
+  Sea $w = 012$. Se tiene que
+  \begin{align*}
+    w^R = (012)^R &= 2 \cdot (01)^R\\
+                &= 2 \cdot (1 \cdot 0^R)\\
+                &= 2 \cdot (1 \cdot (0 \cdot \varepsilon^R))\\
+                &= 2 \cdot (1 \cdot (0 \cdot \varepsilon))\\
+                &= 2 \cdot (1 \cdot (0))\\
+                &= 2 \cdot (10)\\
+                &= 210\\
+  \end{align*}
+}
+
+\subsection{Demostraciones por Inducción}
+Las propiedades enunciadas en las secciones anteriores pueden ser demostradas mediante el \textit{Principo de Inducción}.
+
+\dfn{Principo de Inducción}{
+  Para demostrar que una propiedad \textit{P} se cumple para toda $w \in \Sigma^*$, es decir, \textit{P(w)}, se procede de la siguiente forma.
+  \begin{enumerate}[a)]
+    \item Caso Base. Se demuestra $P(\varepsilon)$
+    \item Hipotesis Inductiva. Se toma $w \in \Sigma^*$ arbitraria y se supone \textit{P(w)}.
+    \item Paso Inductivo. Se toma $a \in \Sigma,~ w \in \Sigma^*$ y se demuestra \textit{P(wa)} \textbf{usando la Hipotesis Inductiva} del paso anterior.
+  \end{enumerate}
+  Hecho lo anterior, se concluye que \[\forall w \in \Sigma^*,~ P(w)\]
+}
+
+\nt{
+  Sea \textit{w} una cadena arbitraria. Se usa de manera indistinta \textit{P(w)} y \textit{P(w) verdadera} para indicar que \textit{w} cumple la propiedad \textit{P}.
+} 
