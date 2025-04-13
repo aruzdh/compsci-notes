@@ -76,8 +76,10 @@ Dado el autómata del ejemplo anterior, su tabla de transiciones es la siguiente
   \end{itemize}
 }
 
-\dfn{Lenguaje de un AF}{
-  Sea $M = (Q, \Sigma, \delta, q_0, F$ un \textit{AF}, el \textbf{lenguaje aceptado} por \textit{M} se define como
+\subsection{Lenguaje de un AFD}
+
+\dfn{Lenguaje de un AFD}{
+  Sea $M = (Q, \Sigma, \delta, q_0, F$ un \textit{AFD}, el \textbf{lenguaje aceptado} por \textit{M} se define como
   \[L(M) = \{w \in \Sigma^* \mid \delta^*(q_0,w) \in F\}\]
 }
 
@@ -138,7 +140,7 @@ Dado un lenguaje \textit{L} a veces es más facil diseñar un autómata para el 
           \tikzset{initial text={}}
           
           \node[state, initial, accepting] (q0) {$q_0$}; 
-          \node[state, accepting] (q1) [right=of q0] {$q_1$}; 
+          \node[state, accepting] (q1) [right=of q0] {$q_1$};
           \node[state] (q11) [right=of q1] {$q_{11}$}; 
 
           \path[->]

@@ -1,1 +1,246 @@
-\section{Autómatas Finitas No Deterministas}
+\section{Autómatas Finitos No Deterministas}
+
+\dfn{Autómata Finito No Determinista}{
+  Un \textbf{Autómata Finito No Determinista (AFN)} es una \textit{5-tupla}
+  \[M = (Q, \Sigma, \delta, q_0, F),\]
+  donde
+  \begin{itemize}
+  \item \textit{Q} es un \textit{conjunto finito y no vacío de estados}.
+    \item $\Sigma$ es el \textit{alfabeto} de entrada.
+    \item $\delta$ es una \textit{función de transición} (función total) definida como
+      \[\delta : Q \times \Sigma \longrightarrow \mathcal P(Q)\]
+    \item $q_0$ es el \textit{estado inicial}.
+    \item \textit{F} es el conjunto de \textit{estados finales} ($F \subseteq Q$).
+  \end{itemize}
+}
+
+\nt{
+  Cuando se hable de un \textit{AFD} y un \textit{AFN} se usará la notación $\delta_D$ y $\delta_N$ para denotar sus funciones de transición, respectivamente.
+}
+
+\ex{Autómata Finito Determinista}{
+  Sea $\Sigma = \{0, 1\}$. Se busca construir un autómata que reconzca el lenguaje de cadenas sobre $\Sigma$ que tengan como prefijo \textit{000} \textbf{o} \textit{111}
+
+  Un autómata que resuelve el problema anterior se puede ver de la siguiente manera.
+  \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+          \tikzset{initial text={}}
+          
+          \node[state, initial] (qi) {$q_i$}; 
+          \node[state] (q0) [above right=of qi] {$q_0$}; 
+          \node[state] (q00) [right=of q0] {$q_{00}$}; 
+          \node[state, accepting] (q000) [right=of q00] {$q_{000}$}; 
+
+          \node[state] (q1) [below right=of qi] {$q_1$}; 
+          \node[state] (q11) [right=of q1] {$q_{11}$}; 
+          \node[state,accepting] (q111) [right=of q11] {$q_{111}$}; 
+          \path[->]
+            (qi) edge node {$0$} (q0)
+            (q0) edge node {$0$} (q00)
+            (q00) edge node {$0$} (q000)
+            (qi) edge node {$1$} (q1)
+            (q1) edge node {$1$} (q11)
+            (q11) edge node {$1$} (q111);
+          
+          \node (start) [left=of qi] {};
+          \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
+      \end{tikzpicture}
+  \end{center}
+}
+
+\nt{
+  Ciertamente, en el ejemplo anterior hay un abuso de notación, pero se mira lindo.
+  Una versión más correcta se da a continuación.
+}
+
+Dado el autómata del ejemplo anterior. La tabla de transiciones del autómata es la siguiente.
+\begin{table}[h]
+\centering
+  \begin{tabular}{c | c | c}
+  & 0 & 1 \\
+  \hline
+    *$\rightarrow$ $q_i$ & $q_0$ & $q_1$ \\
+    $q_0$ & $q_{00}$ & $\varnothing$ \\
+    $q_{00}$ & $q_{000}$ & $\varnothing$ \\
+    $q_{000}$ & $q_{000}$ & $q_{000}$ \\
+    $q_1$ & $\varnothing$ & $q_{11}$ \\
+    $q_{11}$ & $\varnothing$ & $q_{111}$ \\
+    $q_{111}$ & $q_{111}$ & $q_{111}$ \\
+  \end{tabular}
+\end{table}
+
+\subsection{Función extendida \texorpdfstring{$\delta^*$}{delta*}}
+
+\dfn{Función extendida $\delta^*$}{
+  Se define la \textbf{función extendida $\delta^*$} de la siguiente forma.
+  \[ \delta^* : Q \times \Sigma^* \longrightarrow \mathcal P(Q)\]
+  tal que
+  \begin{itemize}
+    \item $\delta^*(q, \varepsilon) = \{q\}$ 
+    \item $\delta^*(q, wa) = \bigcup_{p \in \delta^*(q, w)}\delta(p,a)$
+  \end{itemize}
+}
+
+\subsection{Lenguaje de un AFN}
+
+\dfn{Lenguaje de un AFN}{
+  Sea $M = (Q, \Sigma, \delta, q_0, F$ un \textit{AFN}, el \textbf{lenguaje aceptado} por \textit{M} se define como
+  \[L(M) = \{w \in \Sigma^* \mid \delta^*(q_0,w) \cap F \neq \varnothing \}\]
+}
+
+\nt{
+  Todo \textit{AFD} es a su vez un \textit{AFN} con la particularidad de que $\delta_D^*(p,w)$ consta de un \textbf{solo estado}, mientras que $\delta^*(p',w')$ es un \textbf{conjunto de estados}.
+}
+
+\newpage
+\ex{AFN}{
+    Sean $\Sigma = \{a,b\}$ y $L = \mathcal{L}(\alpha)$ donde $\alpha = (a + b)^*(aaa + bbb)(a + b)^*$.
+
+    Se diseña un \textit{AFN $M$} que acepte a \textit{L}
+
+    \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+        \tikzset{initial text={}}
+        
+        % INITIAL STATE
+        \node[state, initial] (qi) {$q_i$}; 
+        
+        % STATES
+        \node[state] (qa) [right=of qi] {$q_a$}; 
+        \node[state] (qaa) [right=of qa] {$q_{aa}$}; 
+        \node[state, accepting] (qf) [right=of qaa] {$q_{f}$}; 
+        \node[state] (qb) [below=of qi] {$q_b$};
+        \node[state] (qbb) [right=of qb] {$q_{bb}$};
+
+        % TRANSITIONS
+        \path[->]
+            (qi) edge node {a} (qa) 
+            (qi) edge node {b} (qb) 
+            (qi) edge [loop above] node {a,b} (qi) 
+            (qa) edge node {a} (qaa)
+            (qaa) edge node {a} (qf)
+            (qf) edge [loop above] node {a,b} (qf)
+            (qb) edge node {b} (qbb)
+            (qbb) edge node {b} (qf);
+        
+      \end{tikzpicture}
+    \end{center}
+    
+    Ahora se muestra, usando $\delta^*$, la aceptación de la cadena $abbbb$\\
+    Por un lado tenemos:
+    \begin{align*}
+      &\delta^*(q_i, abbbb) = \bigcup_{p \in \delta^*(q_i, abbb)} \delta(p,b) \\
+      &\delta^*(q_i, abbb) = \bigcup_{p \in \delta^*(q_i, abb)} \delta(p,b)\\
+      &\delta^*(q_i, abb) = \bigcup_{p \in \delta^*(q_i, ab)} \delta(p,b)\\
+      &\delta^*(q_i, ab) = \bigcup_{p \in \delta^*(q_i, a)} \delta(p,b)\\
+      &\delta^*(q_i, a) = \bigcup_{p \in \delta^*(q_i, \epsilon)} \delta(p,a)\\
+    \end{align*}
+
+    Sustituyendo de abajo hacia arriba:
+    \begin{align*}
+      &\delta^*(q_i, a) = \delta(qi,a) = \{q_i, q_a\}\\
+      &\delta^*(q_i, ab) = \delta(q_i, b) \cup \delta(q_a,b) = \{q_i, q_b\}\\
+      &\delta^*(q_i, abb) = \delta(q_i, b) \cup \delta(q_b,b) = \{q_i, q_b, q_{bb}\}\\
+      &\delta^*(q_i, abbb) = \delta(q_i, b) \cup \delta(q_b, b) \cup \delta(q_{bb},b) = \{q_i, q_b, q_{bb},q_f\}\\
+      &\delta^*(q_i, abbbb) = \delta(q_i,b) \cup \delta(q_b, b) \cup \delta(q_{bb},b) \cup \delta(q_f,b) = \{q_i, q_b, q_{bb}, q_f\}\\
+    \end{align*}
+
+    \textbf{Dado que hemos llegado al estado $q_f$ desde $q_i$, la cadena es aceptada.}
+}
+
+\newpage
+\subsection{ELiminación del no-determinismo}
+
+Es posible tener un \textit{AFN} y eliminar el \textit{no-determinismo} sin modificar el lenguaje aceptado.
+
+\dfn{AFD a partir de un AFN}{
+  Un \textit{AFD} \textbf{construido a partir} de un \textit{AFN} $M_N = (Q_N, \Sigma, \delta_N, q_0^N, F_N)$ es una \textit{5-tupla}
+  \[M = (Q, \Sigma, \delta, q_0, F),\]
+  donde
+  \begin{itemize}
+  \item $Q = \mathcal P(Q_N)$
+    \item $\Sigma$ es el \textit{alfabeto} de entrada.
+    \item $\delta(S,a)= \delta_N(S,a) =  \bigcup_{q \in S}\delta_N(q,a)$
+    \item $q_0 = \{q_0^N\}$
+    \item $F = \{S \subseteq Q \mid S \cup P \neq \varnothing\}$
+  \end{itemize}
+}
+
+\nt {
+
+  Dado un AFD $M_D$ construido a partir de un AFN $M_N$ usando la definición previa. Se tiene que \[L(M_D) = L(M_N)\]. Dicho de otra forma, $M_D$ y $M_N$ son \textit{autómatas equivalentes}.
+}
+
+Dado el autómata del ejemplo anterior. Se transforma \textit{M} a un \textit{AFD} mediante la construcción de subconjuntos.
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c|c}
+    \hline
+    & a & b \\
+    \hline
+    $\rightarrow q_i$ & $q_i\,q_a$ & $q_i\,q_b$ \\
+    $q_a$             & $q_{aa}$   & $\varnothing$ \\
+    $q_{aa}$          & $q_f$      & $\varnothing$ \\
+    $q_b$             & $\varnothing$ & $q_{bb}$ \\
+    $q_{bb}$          & $\varnothing$ & $q_f$ \\
+    $*q_f$             & $q_f$      & $q_f$ \\
+    \hline
+    $\,q_i\,q_a$     & $q_i\,q_a\,q_{aa}$ & $q_i\,q_b$ \\
+    $\,q_i\,q_b$     & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}$ \\
+    $\,q_i\,q_a\,q_{aa}$ & $q_i\,q_a\,q_{aa}\,q_f$ & $q_i\,q_b$ \\
+    $\,q_i\,q_b\,q_{bb}$ & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
+    $*\,q_i\,q_a\,q_{aa}\,q_f$    & $q_i\,q_a\,q_{aa}\,q_f$      & $q_i\,q_b\,q_f$ \\
+    $*\,q_i\,q_b\,q_{bb}\,q_f$ & $q_i\,q_a\,q_f$ & $q_i\,q_b\,q_{bb}\,q_f$ \\
+    $*\,q_i\,q_b\,q_f$ & $q_i\,q_a\,q_f$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
+    $*\,q_i\,q_a\,q_f$ & $q_i\,q_a\,q_{aa}\,q_f$         & $q_i\,q_b\,q_f$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\nt{
+  Analizando la definición anterior junto con el ejemplo dado, se puede observar que \textit{no siempre} se necesita dar las transiciones para cada $S \in \mathcal P(Q)$. Notemos que parte de los estados son \textbf{inalcanzables}. Por tanto, no es necesario darlos.
+}
+
+\newpage
+\ex{AFD a partir de un AFN}{
+  Así, el diagrama del autómata para el ejemplo que venimos realizando queda de la siguiente manera
+  \begin{center}
+    \begin{tikzpicture}[->,>=stealth,node distance=3.2cm,on grid,auto]
+      \node[state,initial] (qi) {$q_i$};
+  
+      \node[state] (qiqa)       [right=3cm of qi] {$q_i\,q_a$};
+      \node[state] (qiqb)       [above=5cm of qiqa] {$q_i\,q_b$};
+      \node[state] (qiqaqaa)    [right=3cm of qiqa] {$q_i\,q_a\,q_{aa}$};
+      \node[state] (qiqbqbb)    [right=3cm of qiqb] {$q_i\,q_b\,q_{bb}$};
+  
+      \node[state,accepting] (qiqaqaaf) [right=3cm of qiqaqaa] {$q_i\,q_a\,q_{aa}\,q_f$};
+      \node[state,accepting] (qiqbqbbf) [right=3cm of qiqbqbb] {$q_i\,q_b\,q_{bb}\,q_f$};
+      \node[state,accepting] (qiqaqf)   [right=3cm of qiqbqbbf] {$q_i\,q_a\,q_f$};
+      \node[state,accepting] (qiqbqf)   [right=3cm of qiqaqaaf] {$q_i\,q_b\,q_f$};
+  
+      \path
+      (qi)   edge node {a} (qiqa)
+              edge [bend left] node {b} (qiqb);
+  
+      \path
+      (qiqa)       edge node {a} (qiqaqaa)
+                    edge node {b} (qiqb)
+      (qiqb)       edge [bend right=50] node {a} (qiqa)
+                    edge node {b} (qiqbqbb)
+      (qiqaqaa)    edge node {a} (qiqaqaaf)
+                    edge [bend right] node {b} (qiqb)
+      (qiqbqbb)    edge node {a} (qiqa)
+                    edge node {b} (qiqbqbbf);
+  
+      \path
+      (qiqaqaaf)   edge [loop below] node {a} (qiqaqaaf)
+                    edge node {b} (qiqbqf)
+      (qiqbqbbf)   edge node {a} (qiqaqf)
+                    edge [loop above] node {b} (qiqbqbbqf)
+      (qiqbqf)     edge [bend right=50] node {a} (qiqaqf)
+                    edge [bend right] node {b} (qiqbqbbf)
+      (qiqaqf)     edge node {a} (qiqaqaaf)
+                    edge node {b} (qiqbqf);
+    \end{tikzpicture}
+  \end{center}
+}
