@@ -46,28 +46,27 @@
           \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
       \end{tikzpicture}
   \end{center}
+
+  La tabla de transiciones del autómata es la siguiente.
+  \begin{center}
+    \begin{tabular}{c | c | c}
+    & 0 & 1 \\
+    \hline
+      *$\rightarrow$ $q_i$ & $q_0$ & $q_1$ \\
+      $q_0$ & $q_{00}$ & $\varnothing$ \\
+      $q_{00}$ & $q_{000}$ & $\varnothing$ \\
+      $q_{000}$ & $q_{000}$ & $q_{000}$ \\
+      $q_1$ & $\varnothing$ & $q_{11}$ \\
+      $q_{11}$ & $\varnothing$ & $q_{111}$ \\
+      $q_{111}$ & $q_{111}$ & $q_{111}$ \\
+    \end{tabular}
+  \end{center}
 }
 
 \nt{
-  Ciertamente, en el ejemplo anterior hay un abuso de notación, pero se mira lindo.
-  Una versión más correcta se da a continuación.
+  Ciertamente, el diagrama anterior tiene un abuso de notación, pero se mira lindo.
+  Una versión más correcta está representada por su tabla de transiciones.
 }
-
-Dado el autómata del ejemplo anterior. La tabla de transiciones del autómata es la siguiente.
-\begin{table}[h]
-\centering
-  \begin{tabular}{c | c | c}
-  & 0 & 1 \\
-  \hline
-    *$\rightarrow$ $q_i$ & $q_0$ & $q_1$ \\
-    $q_0$ & $q_{00}$ & $\varnothing$ \\
-    $q_{00}$ & $q_{000}$ & $\varnothing$ \\
-    $q_{000}$ & $q_{000}$ & $q_{000}$ \\
-    $q_1$ & $\varnothing$ & $q_{11}$ \\
-    $q_{11}$ & $\varnothing$ & $q_{111}$ \\
-    $q_{111}$ & $q_{111}$ & $q_{111}$ \\
-  \end{tabular}
-\end{table}
 
 \subsection{Función extendida \texorpdfstring{$\delta^*$}{delta*}}
 
@@ -171,31 +170,32 @@ Es posible tener un \textit{AFN} y eliminar el \textit{no-determinismo} sin modi
   Dado un AFD $M_D$ construido a partir de un AFN $M_N$ usando la definición previa. Se tiene que \[L(M_D) = L(M_N)\]. Dicho de otra forma, $M_D$ y $M_N$ son \textit{autómatas equivalentes}.
 }
 
-Dado el autómata del ejemplo anterior. Se transforma \textit{M} a un \textit{AFD} mediante la construcción de subconjuntos.
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c|c|c}
-    \hline
-    & a & b \\
-    \hline
-    $\rightarrow q_i$ & $q_i\,q_a$ & $q_i\,q_b$ \\
-    $q_a$             & $q_{aa}$   & $\varnothing$ \\
-    $q_{aa}$          & $q_f$      & $\varnothing$ \\
-    $q_b$             & $\varnothing$ & $q_{bb}$ \\
-    $q_{bb}$          & $\varnothing$ & $q_f$ \\
-    $*q_f$             & $q_f$      & $q_f$ \\
-    \hline
-    $\,q_i\,q_a$     & $q_i\,q_a\,q_{aa}$ & $q_i\,q_b$ \\
-    $\,q_i\,q_b$     & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}$ \\
-    $\,q_i\,q_a\,q_{aa}$ & $q_i\,q_a\,q_{aa}\,q_f$ & $q_i\,q_b$ \\
-    $\,q_i\,q_b\,q_{bb}$ & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
-    $*\,q_i\,q_a\,q_{aa}\,q_f$    & $q_i\,q_a\,q_{aa}\,q_f$      & $q_i\,q_b\,q_f$ \\
-    $*\,q_i\,q_b\,q_{bb}\,q_f$ & $q_i\,q_a\,q_f$ & $q_i\,q_b\,q_{bb}\,q_f$ \\
-    $*\,q_i\,q_b\,q_f$ & $q_i\,q_a\,q_f$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
-    $*\,q_i\,q_a\,q_f$ & $q_i\,q_a\,q_{aa}\,q_f$         & $q_i\,q_b\,q_f$ \\
-    \hline
-  \end{tabular}
-\end{table}
+\ex{AFD a partir de AFN}{
+  Dado el autómata del ejemplo anterior. Se transforma \textit{M} a un \textit{AFD} mediante la construcción de subconjuntos.
+  \begin{center}
+    \begin{tabular}{c|c|c}
+      \hline
+      & a & b \\
+      \hline
+      $\rightarrow q_i$ & $q_i\,q_a$ & $q_i\,q_b$ \\
+      $q_a$             & $q_{aa}$   & $\varnothing$ \\
+      $q_{aa}$          & $q_f$      & $\varnothing$ \\
+      $q_b$             & $\varnothing$ & $q_{bb}$ \\
+      $q_{bb}$          & $\varnothing$ & $q_f$ \\
+      $*q_f$             & $q_f$      & $q_f$ \\
+      \hline
+      $\,q_i\,q_a$     & $q_i\,q_a\,q_{aa}$ & $q_i\,q_b$ \\
+      $\,q_i\,q_b$     & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}$ \\
+      $\,q_i\,q_a\,q_{aa}$ & $q_i\,q_a\,q_{aa}\,q_f$ & $q_i\,q_b$ \\
+      $\,q_i\,q_b\,q_{bb}$ & $q_i\,q_a$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
+      $*\,q_i\,q_a\,q_{aa}\,q_f$    & $q_i\,q_a\,q_{aa}\,q_f$      & $q_i\,q_b\,q_f$ \\
+      $*\,q_i\,q_b\,q_{bb}\,q_f$ & $q_i\,q_a\,q_f$ & $q_i\,q_b\,q_{bb}\,q_f$ \\
+      $*\,q_i\,q_b\,q_f$ & $q_i\,q_a\,q_f$         & $q_i\,q_b\,q_{bb}\,q_f$ \\
+      $*\,q_i\,q_a\,q_f$ & $q_i\,q_a\,q_{aa}\,q_f$         & $q_i\,q_b\,q_f$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+}
 
 \nt{
   Analizando la definición anterior junto con el ejemplo dado, se puede observar que \textit{no siempre} se necesita dar las transiciones para cada $S \in \mathcal P(Q)$. Notemos que parte de los estados son \textbf{inalcanzables}. Por tanto, no es necesario darlos.

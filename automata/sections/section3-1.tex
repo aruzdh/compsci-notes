@@ -40,25 +40,26 @@ Dado un \textit{Autómata Finito (AF)}, podemos representarlo de las siguientes 
           \draw[->] ([xshift=-.5cm] q0.west) -- (q0.west) node[midway, above] {};
       \end{tikzpicture}
   \end{center}
+
+  La tabla de transiciones del autómata es la siguiente.
+  \begin{center}
+  \centering
+    \begin{tabular}{c | c | c}
+    & 0 & 1 \\
+    \hline
+      *$\rightarrow$ $q_0$ & $q_1$ & $q_1$ \\
+      $q_1 $& $q_0$ & $q_0$ \\
+    \end{tabular}
+  \end{center}
 }
+
 \nt{
   Dado un \textit{AFD} mediante su diagrama. Se tiene que \textbf{solo existe una transición por cada símbolo del alfabeto}.
 }
-\newpage
+
 \nt{
   Dado un \textit{AF} mediante su diagrama. Si alguna transición no está difinida explicitamenete (no hay "flecha" de un estado a otro para algún símbolo), se da por entendido que si el AF lee el símbolo correspondiente a la transición, este se detiene y no acepta la cadena actual.
 }
-
-Dado el autómata del ejemplo anterior, su tabla de transiciones es la siguiente.
-\begin{table}[h]
-\centering
-  \begin{tabular}{c | c | c}
-  & 0 & 1 \\
-  \hline
-    *$\rightarrow$ $q_0$ & $q_1$ & $q_1$ \\
-    $q_1 $& $q_0$ & $q_0$ \\
-  \end{tabular}
-\end{table}
 
 \nt{
   Cuando damos la tabla de transiciones de un \textit{AF}, usamos \textit{*} para denotar los \textit{estados finales} del autómata, y $\rightarrow$ para identificar al \textit{estado inicial}.
