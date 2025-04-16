@@ -1,291 +1,66 @@
-\chapter{Distribuciones}
-\section{Distribuciones Aleatorias Discretas}
-\subsection{Destribución Bernoulli}
-
+\chapter{Variables Aleatorias}
+\section{Variable aleatoria}
 \dfn{}{
-  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Diremos que $\mathcal X$ tiene \textbf{distribución Bernoulli} ($\mathcal X \sim Ber(p)$) con parámetro \textit p, donde $p \in [0,1]$ si satisface lo siguiente
-  \[
-    \mathcal X = 
-    \begin{cases}
-    0 ~~~~~ \text{con probabilidad } (1 - p) & \\
-    1 ~~~~~ \text{con probabilidad } p & \\
-    \end{cases}
-  \]
+  Se define la función 
+  $$\mathcal X : \Omega \longrightarrow \mathbb R \backepsilon \{w \in \Omega \mid \mathcal X(w) \le a\} \in \mathcal F,~ \forall a \in \mathbb R$$
 }
 
-\noindent Generalmente decimos que si $\mathcal X(w) = 1$, entonces "\textit{ocurrió un éxito}", y si $\mathcal X(w) = 0$, "\textit{ocurrió un fracaso"}.
-\nt{
-  A \textit p se le conoce como la \textbf{probabilidad de éxito}
-}
+\section{Tipos de Variables Aleatorias}
+Discretas: Toman un \textbf{número finito o infinito numerable} de valores.\\
+Continuas: Toman un \textbf{número infinito no numerable} de valores.\\
+Mixtas: Una mezcla de las dos anteriores.
 
+\section{Función de Distribución}
 \dfn{}{
-  Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
-  \[f(k) = P(\mathcal X = k) = 
- \begin{cases}
-   P ~~~~~~~~\text{si } k = 1 \\
-   1-P ~~~\text{si } k = 0\\
- \end{cases}\]
+  Dada $\mathcal X$ una variable aleatoria \textit{discreta o continua}, su \textbf{función de distribución} se define como
+  $$F(a) = P(\mathcal X \le a) = P(\{w \in \Omega \mid \mathcal X(w) \le a\}),~ a \in \mathbb R$$
+  Notemos que $F : \mathbb R \longrightarrow [0,1]$
 }
 
-\dfn{}{
-  Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de distribución} como
-  \[
-  F_{\mathcal X}(k) = P(\chi \le k)= 
-  \begin{cases}
-  0 ~~~~~~~~~~~~~~~ \text{si } k < 0 & \\
-  1 - p ~~~~~~~~~~ \text{si } 0 \le k < 1 & \\
-  1 ~~~~~~~~~~~~~~~ \text{si } 1 \le k & \\
-  \end{cases}
-\]
-}
-
-\subsection{Variable Aleatoria Binomial}
-\dfn{}{
-  Sea $\mathcal X$ una \textit{variable aleatoria} tal que cuenta el número de éxitos en \textit {n experimentos Bernoulli independientes}. Entonces $\mathcal X$ tiene \textbf{distribución Binomial} con parámetros \textit{p, n}. Se denota como
-  \[\mathcal X \sim Bin(n,p)\]
-  donde \textit n es el \textit{número de experimentos Bernoulli}, y \textit p es la \textit{probabilidad de éxito de cada experimento}.
-}
-
-\dfn{}{
-  Si $\mathcal X \sim Bin(n,p)$. Definimos la \textbf{función de probabilidad de masa binomial} como
-  \[f(k) = P(\mathcal X = k) = \binom{n}{k}p^n(1-p)^{n - k}\]
-}
-
-\dfn{}{
-  Si $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de distribución} como
-  \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k \binom{n}{i}p^i(1-p)^{n - i}\]
-}
-
-\subsection{Variable Aleatoria Poisson}
-
-\dfn{}{
-  Sea $Y \sim Bin(n, \frac{\lambda}{n})$ con $\lambda > 0$, es decir, \textit {Y es una variable aleatorial binomial} donde la probabilidad de éxito es $\frac{\lambda}{n}$.
-  \[ \lim_{n \to \infty}P(Y = k) = \frac{\lambda^k}{k!}e^{-\lambda} = P(Z = k) = f(k)\]
-  donde \textit f es la \textbf{función de probabilidad de masa} de una variable aleatoria $Z \sim Poi(\lambda)$
-}
-
-\nt{
-  Si $Y \sim Bin(n,p)$ y \textit {p es pequeño} y \textit {n suficientemente grande}. Entonces se puede calcular la distribución de \textit Y unsando la \textbf{distribución de Poisson}.
-}
-
-\dfn{}{
-  Una \textit{variable aleatoria con distribución poisson} $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$ tiene función de probabilidad de masa
-  \[P(\mathcal X = k) = f(k) = \frac{e^{-\lambda}\lambda^k}{k!},~ k = 0, 1, \cdots\]
-}
-
-\subsection{Variable Aleatoria Geométrica}
-Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
-
-\dfn{}{
-  La \textbf{variable aleatoria geométrica} se define como
-  \[\mathcal X = \text{"\# de fracasos antes de obtener un el primer éxito"}\]
-}
-
-Entonces
-\begin{align*}
-  &f(0) = P(\mathcal X = 0) = P(\text{"Éxito"}) = p \\
-  &f(1) = P(\mathcal X = 1) = P(\text{F~E}) = (1 - p) p \\
-  &f(2) = P(\mathcal X = 2) = P(\text{F~F~E}) = (1 - p)^2 p \\
-  &\cdots \\
-  &f(k) = P(\mathcal X = k) = (1-p)^k p \\
-\end{align*}
-
-\dfn{}{
-  Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos la \textbf{función de probabilidad} como
-
-  \[f(k) = P(\mathcal X = k) = (1-p)^k p\]
-}
-
-\noindent \textit f satisface las propiedades de una función de probabilidad
+Las siguientes son propiedades de las funciones de distribución.
 \begin{enumerate}
-  \item \[f(k) \le 0\]
-  \item \[\sum_{k = 0}^{\infty} f(k) = 1\]
+  \item $$\text{Es una función no-decreciente.}$$
+  \item \[ \lim_{x \to \infty} F(x) = 1 \]
+  \item \[ \lim_{x \to -\infty} F(x) = 0 \]
+  \item $$\text{Es una función continua por la derecha.}$$
+  \item \[ P(\mathcal X < a) = F(a^-) \text{limite por la izquierda}\]
+  \item \[ P(\mathcal X = a) = P(\mathcal X \le a) - P(\mathcal X < a) = F(a) - F(a^-) \]
+  \item \[ P(a< \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X \le a) = F(b) - F(a) \]
+  \item \[ P(a \le \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X < a) = F(b) - F(a^-) \]
+  \item \[ P(a < \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X \le a) = F(b^-) - F(a) \]
+  \item \[ P(a \le \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X < a) = F(b^-) - F(a^-) \]
 \end{enumerate}
 
+\section{Variables Aleatorias Discretas}
 \dfn{}{
-  Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos su \textbf{función de distribución} como
-
-  \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k(1-p)^i p\]
+  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Entonces su \textbf{función de probabilidad} es
+  \[f_{\mathcal X} (a) = P(\mathcal X = a),\] con \textit a en la imagen de $\mathcal X$
 }
 
+\noindent Notemos que si $\mathcal X$ es una variable aleatoria \textit{continua}, su función de distribución es continua, y por la tanto
+\[P(\mathcal X = a) = F(a) - F(a^-) = F(a) - F(a) = 0\]
+para cualquier $a \in \mathbb R$. Es decir, no tiene utilidad en el caso continuo.
 
-\subsection{Variable Aleatoria Binomial Negativa}
+Las siguientes son propiedades de las funciones de probabilidad.
+\begin{enumerate}
+  \item \[f(x) > 0\]
+  \item \[\sum_x f(x) = 1,\] donde \textit x representa todos los valores que toma la variable aleatoria \textbf{discreta}.
+\end{enumerate}
 
-Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
-\dfn{}{
-  La \textbf{variable aleatoria binomial negativa} se define como
-  \[\mathcal X = \text{\# de ensayos hasta obtener r éxitos}\]
-}
-
-\dfn{}{
-  Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos la \textbf{función de probabilidad} como
-
-  \[f(k) = P(\mathcal X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r} = \frac{(k-1)!}{(k-r)!(r-1)!}p^r(1-p)^{k-r} \]
-  donde \textit r es el número de éxitos, y \textit k el número de ensayos.
-}
+\section{Variables aleatoria Absolutamente Continuas}
 
 \dfn{}{
-  Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de distribución} como
-
-  \[F_{\mathcal X}(k) = P(\mathcal X \le k) =\sum_{i = 0}^k \binom{i-1}{r-1}p^r(1-p)^{i-r} = \sum_{i = 0}^k \frac{(i-1)!}{(i-r)!(r-1)!}p^r(1-p)^{i-r} \]
-  donde \textit r es el número de éxitos, y \textit k el número de ensayos.
+  Sea $\mathcal X$ una \textit{variable aleatoria continua} con función de distribución $F_{\mathcal X}$, se le llama \textbf{absolutamente continua} \textit{si existe} una función \textit f tal que
+  \[F_{\mathcal X}(a) = \int_{-\infty}^a f(x)~dx = P(\mathcal X \le a)\]
 }
+A la función \textit f se le conoce como \textbf{función de densidad} de la variable aleatoria $\mathcal X$ y satisface las siguientes propiedades.
 
-\subsection{Variable Aleatoria Uniforme}
-\dfn{}{
-  Una \textit{variable aleatoria $\mathcal X$} se dice que es \textbf{uniforme} sobre $\{a_1, a_2, \cdots, a_n\}$ donde $a_i \in \mathbb R$ si
-  \[P(\mathcal X = a_i) = \frac{1}{n},~ \forall i \in \{1, 2, \cdots n\}\]
-}
-
-\subsection{Variable Aleatoria Hipergeométrica}
-
-Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar.
-
-\[P(\mathcal X = k) = \frac{\binom{m}{k} \binom{N - m}{n-k} }{\binom{N}{n}}\]
-
-\noindent Todos los experimentos que tengan un contexto similar se modelan con una variable aleatoria hipergeométrica.
-
-\section{Distribuciones Absolutamente Continuas}
-Dada una variable aleatoria \textit{continua}, su correspondiente función de distribución es \textbf{continua}.\\
-Se tienen los siguientes casos:
-\begin{itemize}
-  \item Singulares: La función de densidad \textbf{no existe}.
-  \item Absolutamente continuas: \[F'(x) = f(x)\] \[P(a < \mathcal X < b) = \int_a^b f(x)~dx\]
-\end{itemize}
-
-\subsection{Variable Aleatoria Uniforme Continua}
-\dfn{}{
-  Una \textit{variable aleatoria $\mathcal X$} tiene \textbf{distribución Uniforme Continua} y se denota $\mathcal X \sim unif(a,b)$ si su \textbf{función de densidad} es la siguiente
-  \[f(x) = 
-    \begin{cases} 
-      \frac{1}{b-a} ~~~\text{si } x \in (a,b)\\
-      0 ~~~~~\text{ otro caso}
-    \end{cases} 
-    = f(x) = \frac{1}{b-a}\mathbb 1_{(a,b)}^{(x)}
-    \]
-}
+\begin{enumerate}
+  \item \[ f \ge 0, ~ \forall x \in \mathbb R \]
+  \item \[ \int_{-\infty}^{\infty}f(x)~dx = 1 \]
+\end{enumerate}
 
 \nt{
-  Se observa que $f(x) \ge 0$ y $\int_{-\infty}^{\infty}f(x) ~dx = 1$
+  Si la función de densidad \textit f es continua, el \textit{Teorema Fundamental del Cálculo} nos dice que \[\frac{d}{dx} F(x) = f(x)\]
 }
-
-\dfn{}{
-  Dada $\mathcal X \sim unif(a,b)$. Su \textbf{función de distribución} está dada por
-  \[
-    F_{\mathcal X}(c) =
-    \begin{cases}
-      0~~~~~~~ \text{si } c \le a\\
-      \frac{c-a}{b-a}~~~~ \text{si } c \in (a,b)\\
-      1~~~~~~~ \text{si } c \ge b
-    \end{cases}
-  \]
-}
-
-\subsection{Variable Aleatoria Simétrica}
-
-\dfn{Función de densidad simétrica}{
-  Una función de densidad \textit{f} es \textbf{simétrica} si \textit{f} es una función \textit{par}, es decir, \[f(x) = f(-x),~ \forall x \in \mathbb R\]
-}
-
-\dfn{}{
-  Una \textit{variable aleatoria $\mathcal X$} es \textbf{simétrica} si $\mathcal X$ y $-\mathcal X$ tienen la misma función de distribución, es decir,
-  \[F_{\mathcal X}(a) = F_{-\mathcal X} (a),~ \forall a \in \mathbb R\]
-  Lo anterior se denota como ($\mathcal X \stackrel{\text{d}}{\sim} \mathcal {-X}$)
-}
-
-\thm{}{
-  Una \textit{variable aleatoria $\mathcal X$} \textbf{simétrica si y solo si su función de densidad es simétrica} (su función de densidad es par).
-}
-
-\subsection{Variable Aleatoria Normal o Gaussiana}
-
-\dfn{}{
-  Decimos que una \textit{variable aleatoria $\mathcal X$} tiene \textbf{distribución Normal Estándar} si su función de densidad es \[\phi(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}},~ x \in \mathbb R\]
-  Observemos que $\mathcal X$ es una \textit{variable aleatoria simétrica} porque $\phi(x) = \phi(-x)$
-}
-
-\nt{
-  Se tiene que
-  \begin{itemize}
-    \item \[\phi(x) \ge 0\]
-    \item \[\int_{-\infty}^{\infty}\phi(x)~dx = 1\]
-  \end{itemize}
-}
-
-\mlemma{}{
-  Si $\mathcal X$ es una \textit{variable aleatoria simétrica}, entonces \[F_{\mathcal X}(0) = \frac{1}{2}\]
-}
-
-\mlemma{}{
-  Si $\mathcal X$ es una \textit{variable aleatoria simétrica}, entonces \[F_{\mathcal X}(-a) = 1 - F_{\mathcal X}(a)\]
-}
-
-\nt{
-  Recordemos que la función de densidad Normal
-  \[\phi(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}\]
-  no tiene antiderivada.
-}
-
-\thm{Teorema de Cambio de Variable}{
-  Sea $\mathcal X$ una \textit{variable aleatoria absolutamente continua} con valores en $(a,b) \subseteq \mathbb R$. Sea $g : (a,b) \longrightarrow \mathbb R$ una función continua estrictamente creciente o decreciente con inversa diferenciable. Entocnes la variable aleatoria $\mathcal Y= g(\mathcal X) = g \circ \mathcal X : \Omega \longrightarrow \mathcal R$ tinee la función de densidad
-
-  \[f_{\mathcal Y}(y) = 
-    \begin{cases}
-      f_{\mathcal X} (g^{-1}(y)) \mid \frac{d}{dy} g^{-1}(y)\mid,~~~~ y \in g(a,b)\\
-      0, ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otro caso}
-    \end{cases}
-  \]
-}
-
-\ex{}{
-  Sea $\mathcal X$ una \textit{variable aleatoria} Normal Estándar, y definimos $\mathcal Y = y + \sigma \mathcal X$ con $y \in \mathbb R, ~ \sigma \neq 0,~ \sigma > 0$.
-  Calculemos la función de densidad de $\mathcal Y$
-
-  Se tiene $\mathcal Y = g(\mathcal X)$ donde $\mathcal X$ es Normal Estándar
-  \[f_{\mathcal X}(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}\]
-
-  Notemos que
-  \[
-    g(s) = y + \sigma s \Longrightarrow g^{-1}(s) = \frac{s-y}{\sigma}
-  \]
-
-  Aplicando el teorema de cambio de variable.
-  \begin{align*}
-    f_{\mathcal Y}(x) &= f_{\mathcal X}(g^{-1}(x)) \mid \frac{d}{dx} g^{-1}(x) \mid\\
-             &= \frac{e^{-\frac{g^{-1}(x)^2}{2}}}{\sqrt{2\pi}}\mid \frac{d}{dx} g^{-1}(x) \mid\\
-             &= \frac{e^{-\frac{1}{2} (\frac{s - y}{\sigma})^2}}{\sqrt{2\pi}}\mid \frac{d}{dx} (\frac{x-y}{\sigma}) \mid\\
-             &= \frac{e^{-\frac{1}{2}(\frac{s-y}{\sigma})^2}}{\sqrt{2\pi}\sigma}
-  \end{align*}
-
-  Entonces, la función de densidad de $\mathcal Y = y + \sigma \mathcal X, ~ y \in \mathbb R,~ \sigma > 0$ es 
-  \[f_{\mathcal Y}(x) = \frac{e^{-\frac{1}{2}(\frac{x-y}{\sigma})^2}}{\sqrt{2\pi}\sigma} \]
-
-  Por tanto, $\mathcal Y$ es una variable aleatoria con distribución Normal
-}
-
-\dfn{}{
-  Si $\mathcal X \sim N(0,1)$, entonces $\mathcal X$ es \textbf{variable aleatoria normal estándar}.
-
-  Si $\mathcal X \sim N(y,\sigma)$, entonces $\mathcal X$ es \textbf{variable aleatoria normal con parámetros} $y \in \mathbb R$ y $\sigma \neq 0$.
-}
-\nt{
-  Observemos que si $\mathcal X \sim N(0,1)$ entonces $y \equiv 0,~ \sigma \equiv 0$
-}
-
-Usualmente se trabaja con una \textit{Tabla De La Distribución Normal}
-
-\ex{}{
-  Sea $\mathcal X \sim N(-1,3)$, donde $y = -1, ~ \sigma = 3$
-  Entonces $\mathcal X = -1 + 3 \mathcal Z$, con $\mathcal Z\sim N(0,1)$
-
-  Se tiene
-  \begin{align*}
-    P(\mathcal X \le -1.06) &= P(-1 + 3 \mathcal Z \le -1.06)\\
-                 &= P(3 \mathcal Z \le -1.06 + 1)\\
-                 &= P(\mathcal Z \le \frac{-1.06+1}{3})\\
-                 &= P(\mathcal Z \le 0.02)\\
-                 &= 0.5080\\
-  \end{align*}
-}
-
 

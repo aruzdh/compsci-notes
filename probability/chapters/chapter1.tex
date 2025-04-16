@@ -1,28 +1,134 @@
-\chapter{Técnicas de Conteo}
+\chapter{Conceptos Básicos}
+\section{Experimentos}
+
+\dfn{Experimento}{
+  Un \textbf{experimento} es una secuencia de pasos que llevan a un resultado.
+}
+
+\subsection{Experimento Determinista}
+\dfn{Experimento Determinista}{
+    Es un experimento que siempre que se repite bajo las mismas condiciones obtenemos el \textit{mismo} resultado.
+}
+
+\subsection{Experimento Aleatorio}
+\dfn{Experimento Aleatorio}{
+    Es un experimento que siempre que se repite bajo las mismas condiciones obtenemos \textit{diferentes} resultados.
+}
+
 \section{Probabilidad de un evento}
 \dfn{Probabilidad de un evento}{
   Sea \textit A un evento y $\Omega$ el espacio muestral, la \textbf{probabilidad de A} es $$P(A) = \frac{\mid A \mid}{\mid \Omega \mid}$$
 }
 
-\section{Principios de Conteo}
-\begin{itemize}
-  \item Si tenemos \textit m objetos y \textit n objetos (diferente tipo respecto a \textit m), entonces tenemos $m + n$ objetos en total.
-  \item Si tenemos \textit m objetos diferentes y \textit n objetos diferentes (diferente tipo respecto a \textit m), entonces tenemos \textit{mn} distintas maneras de tener un objeto de tipo \textit m y uno de tipo \textit n.
-\end{itemize}
+\section{Espacio Muestral}
 
-\section{Permutaciones}
-Sin restricciones:
-$$n!~~~(\text{o hasta donde sea necesario)}$$
+\dfn{Espacio Muestral}{
+  Es el conjunto de \textit{todos los posibles resultados} de un experimento aleatorio. Se denota por $\Omega$.
+}
 
-\noindent Circulares:
-$$(n - 1)!$$
+\ex{Espacio Muestral}{
+  Sea el experimento de lanzar una moneda. Se tiene que el espacio muestral es $\Omega = \{\text{sol}, \text{águila}\}$
+}
 
-\noindent Indistinguibles:
-$$\frac{n!}{n_1!n_2!\cdots n_r!},~$$ con \textit n objetos totales; de los cuales $n_1,n_2, \cdots, n_r$ son Indistinguibles; y $n_1 + n_2 + \cdots + n_r \le n$
+\ex{Espacio Muestral}{
+  Sea el experimento de lanzar un dado de 6 caras. Se tiene que el espacio muestral es $\Omega = \{1,2,3,4,5,6\}$
+}
 
-\section{Combinaciones}
-Coficiente binomial:
-$$\binom{n}{r} = \frac{n!}{r!(n - r)!},$$ con \textit r objetos tomados de \textit n totales.
-\newline
-\noindent Coficiente multinomial:
-$$\binom{n}{n_1,n_2,\cdots,n_r} = \frac{n!}{n_1!n_2!\cdots n_r!},$$ con \textit n diferentes objetos divididos en \textit r diferentes grupos; donde $n_1 + n_2 + \cdots + n_r = n$
+\ex{Espacio Muestral}{
+  Sea el experimento de contar la duración de una llamada telefónica. Se tiene que el espacio muestral es $\Omega = [0, \infty]$
+}
+
+\subsection{Eventos}
+
+\dfn{Evento}{
+  Se le denomina \textbf{evento} a \textit{cualquier subconjunto} de $\Omega$.
+}
+
+\nt{
+  Los \textit{eventos} suelen denotarse con letras mayúsculas.
+}
+
+\qs{Eventos}{
+  Supongamos que se lanza un par de dados de 6 caras. Encuentra los elementos del evento:
+
+  \begin{itemize}
+    \item \textit{A = "En ambos dados se obtuvo el mismo número"}
+    \item \textit{B = "Se obtuvo al menos un 3"}
+    \item \textit{C = "La suma de los números obtenidos es 5"}
+  \end{itemize}
+
+  \sol{
+    \begin{itemize}
+      \item $A = \{(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)\}$
+      \item $B = \{(1,3), (2,3), (3,3), (4,3), (5,3), (6,3)\}$
+      \item $C = \{(1, 4), (2, 3), (3, 2), (4, 1)\}$
+    \end{itemize}
+  }
+}
+
+Decimos que un \textit{evento ocurrió} si al realizar el experimento aleatorio, el elemento $w \in \Omega$ ocurre y $w \in A$, decimos que \textit{A ocurrió}.
+
+\nt{
+  $\Omega$ es el evento seguro.
+}
+
+\section{Interpretación de las operaciones de conjuntos en probabilidad}
+
+Dado $A, B, C \in \Omega$ eventos.
+\subsection{Unión}
+Dado $A \cup B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{ó} el evento \textit{B} \textit{ocurrió}.
+
+\subsection{Intersección}
+Dado $A \cap B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{y} el evento \textit{B} \textit{ocurrió}. Dicho de otra manera, \textit{ambos eventos ocurrieron}.
+
+\subsection{Complemento}
+Dado $B^c$. Decimos que \textit{B} \textbf{no} \textit{ocurrió}.
+
+\subsection{Diferencia}
+Dade $C - B$. Decimos que \textit{C} \textit{ocurrió} pero \textbf{no} ocurrió \textit{B}.
+
+\ex{Eventos con conjuntos}{
+  Considerando el ejercicio anterior.
+
+  \begin{itemize}
+    \item \textit{A = "En ambos dados se obtuvo el mismo número"} $= \{(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)\}$
+    \item \textit{B = "Se obtuvo al menos un 3"} $= \{(1,3), (2,3), (3,3), (4,3), (5,3), (6,3)\}$
+    \item \textit{C = "La suma de los números obtenidos es 5"} $= \{(1, 4), (2, 3), (3, 2), (4, 1)\}$
+  \end{itemize}
+  Se tiene lo siguiente.
+  \begin{itemize}
+    \item $A - B = \text{"En ambos dados se obtuvo el mismo número pero no 3"} = \{(1,1), (2,2), (4,4), (5,5), (6,6)\}$
+    \item $B^c = \text{No se obtuvo ningún 3}$
+    \item $A \cap C = \text{En ambos dados se obtuvo el mismo número y la suma es 5} = \varnothing$
+  \end{itemize}
+}
+
+\section{Calcular la probabilidad de un evento}
+Sea $\Omega$ el espacio muestral de un Experimento aleatorio. Supongamos que $\Omega$ es un conjunto numerable finito. Si \textit{A} es un evento, entonces \textbf{la probabilidad de A} se calcula como sigue.
+
+\[P(A) = \frac{\mid A \mid}{\mid \Omega \mid}\]
+
+\newpage
+\section{Ejercicios}
+
+\qs{Conceptos Básicos}{
+  Determina el espacio muestral $\Omega$ de los siguientes Experimentos aleatorios.
+  \begin{enumerate}[a)]
+    \item Lanzar un dado hasta que se obtiene un \textit{5}.
+    \item Observar el número de años que le restan de vida a una persona escogida al azar dentro del conjunto de asegurados de una compañia aseguradora.
+  \end{enumerate}
+}
+\qs{Conceptos Básicos}{
+  ¿Cuál es el número de elementos del espacio muestral del experimento aleatorio que consiste en lanzar 3 veces una moneda?
+}
+\qs{Conceptos Básicos}{
+  Se extraen aleatoriamente una carta de una baraja de 52. Sea \textit{A = "se extrae un rey"} y \textit{B = "se extrae un trébol"} eventos. Describe los siguientes sucesos o eventos.
+  \begin{enumerate}[a)]
+    \item $A \cup B$
+    \item $A \cap B$
+    \item $A \cup B^c$
+    \item $A^c \cup B^c$
+    \item $A - B$
+    \item $A^c - B^c$
+  \end{enumerate}
+}
