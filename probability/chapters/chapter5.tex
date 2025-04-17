@@ -7,8 +7,8 @@
   \[
     \mathcal X = 
     \begin{cases}
-    0 ~~~~~ \text{con probabilidad } (1 - p) & \\
-    1 ~~~~~ \text{con probabilidad } p & \\
+      0 , & \text{con probabilidad } (1 - p) \\
+      1  ,& \text{con probabilidad } p \\
     \end{cases}
   \]
 }
@@ -22,8 +22,8 @@
   Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
   \[f(k) = P(\mathcal X = k) = 
  \begin{cases}
-   P ~~~~~~~~\text{si } k = 1 \\
-   1-P ~~~\text{si } k = 0\\
+   P &\text{si } k = 1 \\
+   1-P &\text{si } k = 0\\
  \end{cases}\]
 }
 
@@ -32,9 +32,9 @@
   \[
   F_{\mathcal X}(k) = P(\chi \le k)= 
   \begin{cases}
-  0 ~~~~~~~~~~~~~~~ \text{si } k < 0 & \\
-  1 - p ~~~~~~~~~~ \text{si } 0 \le k < 1 & \\
-  1 ~~~~~~~~~~~~~~~ \text{si } 1 \le k & \\
+    0  &\text{si } k < 0  \\
+    1 - p  &\text{si } 0 \le k < 1  \\
+    1 &\text{si } 1 \le k \\
   \end{cases}
 \]
 }
@@ -174,9 +174,9 @@ Se tienen los siguientes casos:
   \[
     F_{\mathcal X}(c) =
     \begin{cases}
-      0~~~~~~~ \text{si } c \le a\\
-      \frac{c-a}{b-a}~~~~ \text{si } c \in (a,b)\\
-      1~~~~~~~ \text{si } c \ge b
+      0 &\text{si } c \le a\\
+      \frac{c-a}{b-a} &\text{si } c \in (a,b)\\
+      1 &\text{si } c \ge b
     \end{cases}
   \]
 }
@@ -288,4 +288,75 @@ Usualmente se trabaja con una \textit{Tabla De La Distribución Normal}
   \end{align*}
 }
 
+\newpage
+\section{Ejercicios}
+
+\qs{Distribuciones}{
+  Una empresa que produce cristal fino sabe por experiencia que el 10\% de sus copas tienen defectos estéticos y deben clasificarse como "segundos".
+  De 6 copas elegidas al azar:
+  \begin{itemize}
+    \item ¿Cuál es la probabilidad de que solo una sea una segunda?
+    \item ¿Cuál es la probabilidad de que al menos 2 sean segundas?
+  \end{itemize}
+}
+
+\qs{Distribuciones}{
+  Supongamos que el 30\% de todos los estudiantes que tienen que comprar un texto para un curso en particular quiere una nueva copia, mientras que el 70\% restante quiere una copia usada.Considerando que se seleccionan al azar 25 compradores, ¿cuál es la probabilidad de que más de 5 de ellos haya comprado una copia usada?
+}
+
+\qs{Distribuciones}{
+  Demuestra que:
+  \[\sum_{k=0}^{n}f(k)=1\]
+  donde f es la función de probabilidad de masa binomial.
+}
+
+\qs{Distribuciones}{
+  Un ingeniero de seguridad automotriz afirma que 1 de cada 10 accidentes automovilísticos son causados por fatiga del conductor. ¿Cuál es la probabilidad de que al menos 3 de 5 accidentes sean causados por esta razón?
+}
+
+\qs{Distribuciones}{
+  En determinada demarcación, la incompatibilidad se da como la razón legal en el 70\% de todos los casos de divorcio. Encuentra la probabilidad de que 5 de los 6 casos siguientes de divorcio registrados en esta ciudad den la incompatibilidad como razón legal.
+}
+
+\qs{Distribuciones}{
+  Una empresa que produce cristal fino sabe por experiencia que el 10\% de sus copas tienen defectos estéticos y deben clasificarse como "segundos". De 6 copas elegidas al azar ¿cuál es la probabilidad de que se elijan a los más 5 copas para encontrar una segunda?
+}
+
+\qs{Distribuciones}{
+  Suponga que en una caja hay N pelotas, de las cuales m son azules y $N-m$ son amarillas. Se escogen al azar n pelotas. Sea X la v.a. que denota el número de pelotas azules seleccionadas. Encuentra la función de probabilidad de masa de X.
+}
+
+\qs{Distribuciones}{
+  La probabilidad de que una persona crea una noticia falsa que proviene de redes sociales es de 0.75.Encuentra las probabilidades de que:
+  \begin{itemize}
+    \item La octava persona que lea esta noticia falsa sea la quinta en creerla.
+    \item La décima quinta en leerla sea la décima en creerla.
+  \end{itemize}
+}
+
+\qs{Distribuciones}{
+  Sea $X\sim geo(p)$. Demuestra que:
+  \[P(X= n+k |X > n) = P(X = k)\]
+}
+
+\qs{Distribuciones}{
+  La variable X tiene la densidad dada por
+  \[f(x)=\frac{1}{2}e^{-|x|},~ -\infty<x<\infty\]
+  Encuentra $P(1\le|X|\le2)$.
+}
+
+\qs{Distribuciones}{
+  Encuentra la función de distribución de la v.a. X cuya densidad de probabilidad está dada por
+  \[f(x)=
+    \begin{cases}
+      x, &x\in(0,1)\\ 
+      2-x, &x\in[1,2)\\ 
+      0, &otro~caso
+    \end{cases}\]
+    También bosqueja las gráficas de ambas funciones.
+}
+
+\qs{Distribuciones}{
+  Si $X\sim N(\mu,\sigma^{2})$ Encuentra la densidad de $Y=e^{X}$
+}
 
