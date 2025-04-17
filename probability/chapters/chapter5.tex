@@ -2,7 +2,7 @@
 \section{Distribuciones Aleatorias Discretas}
 \subsection{Destribución Bernoulli}
 
-\dfn{}{
+\dfn{Distribución Bernoulli}{
   Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Diremos que $\mathcal X$ tiene \textbf{distribución Bernoulli} ($\mathcal X \sim Ber(p)$) con parámetro \textit p, donde $p \in [0,1]$ si satisface lo siguiente
   \[
     \mathcal X = 
@@ -13,21 +13,32 @@
   \]
 }
 
+\ex{Distribución Bernoulli}{
+  Sea el experimento de lanzar una moneda. Se tiene
+  \[\mathcal X (w) = 
+    \begin{cases}
+      1 & w = \text{águila}\\
+      0 & w = \text{sol}\\
+    \end{cases},
+    \text{ donde } p = \frac12
+  \]
+}
+
 \noindent Generalmente decimos que si $\mathcal X(w) = 1$, entonces "\textit{ocurrió un éxito}", y si $\mathcal X(w) = 0$, "\textit{ocurrió un fracaso"}.
 \nt{
   A \textit p se le conoce como la \textbf{probabilidad de éxito}
 }
 
-\dfn{}{
+\dfn{Función de Probabilidad}{
   Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
   \[f(k) = P(\mathcal X = k) = 
  \begin{cases}
-   P &\text{si } k = 1 \\
-   1-P &\text{si } k = 0\\
+   p &\text{si } k = 1 \\
+   1-p &\text{si } k = 0\\
  \end{cases}\]
 }
 
-\dfn{}{
+\dfn{Función de Distribución}{
   Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de distribución} como
   \[
   F_{\mathcal X}(k) = P(\chi \le k)= 
@@ -40,45 +51,93 @@
 }
 
 \subsection{Variable Aleatoria Binomial}
-\dfn{}{
+\dfn{Distribución Binomial}{
   Sea $\mathcal X$ una \textit{variable aleatoria} tal que cuenta el número de éxitos en \textit {n experimentos Bernoulli independientes}. Entonces $\mathcal X$ tiene \textbf{distribución Binomial} con parámetros \textit{p, n}. Se denota como
   \[\mathcal X \sim Bin(n,p)\]
   donde \textit n es el \textit{número de experimentos Bernoulli}, y \textit p es la \textit{probabilidad de éxito de cada experimento}.
 }
 
-\dfn{}{
+\dfn{Función de Probabilidad de Masa}{
   Si $\mathcal X \sim Bin(n,p)$. Definimos la \textbf{función de probabilidad de masa binomial} como
-  \[f(k) = P(\mathcal X = k) = \binom{n}{k}p^n(1-p)^{n - k}\]
+  \[f(k) = P(\mathcal X = k) = \binom{n}{k}p^k(1-p)^{n - k},~~~ k = 0, 1, 2, \cdots, n\]
 }
 
-\dfn{}{
+\dfn{Función de Distribución}{
   Si $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de distribución} como
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k \binom{n}{i}p^i(1-p)^{n - i}\]
 }
 
+\ex{Distribución Binomial}{
+  Es sabido que los tornillos producidos por una compañia serán defectuosos con probabilidad del \textit{0.01} y que esto es \textit{independiente} de un tornillo a otro. La compañia vende tornillos en paquetes de 10 y ofrece una garantía de devolver el dinero si al menos 1 de los 10 tornillos está defectuoso. Si compras un paquete de tornillos, ¿Cuál es la probabilidad de que te devuelvan el dinero?\\
+  Sea $\mathcal X = \text{"\# de tornillos defectuosos"}$, donde $\mathcal X(w) \in \{0, 1, \cdots, 10\}$. Entonces $\mathcal X \sim Bin(10, 0.01)$.
+  Entonces
+  \begin{align*}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X \le 0) \\
+             &= 1 - F_{\mathcal X}(0)\\
+             &= 1 - P(\mathcal X = 0)\\
+             &= 1 - (\binom n0 p^0 (1-p)^{n-0})\\
+             &= 1 - ((1-p)^n)\\
+             &= 1 - (1-0.01)^{10}\\
+             &= 0.0956\\
+  \end{align*}
+  Alternativamente podemos calcularlo de la siguiente manera.
+  \[P(\mathcal X \ge 1) = \sum_{i = 1}^{10} \binom{10}i (0.01)^i (1 - 0.01)^{10 - i} = 0.0956 \]
+}
+
 \subsection{Variable Aleatoria Poisson}
 
-\dfn{}{
-  Sea $Y \sim Bin(n, \frac{\lambda}{n})$ con $\lambda > 0$, es decir, \textit {Y es una variable aleatorial binomial} donde la probabilidad de éxito es $\frac{\lambda}{n}$.
-  \[ \lim_{n \to \infty}P(Y = k) = \frac{\lambda^k}{k!}e^{-\lambda} = P(Z = k) = f(k)\]
+\dfn{Distribución Poisson}{
+  Sea $\mathcal Y \sim Bin(n, \frac{\lambda}{n})$ con $\lambda > 0$, es decir, \textit {$\mathcal Y$ es una variable aleatorial binomial} donde la probabilidad de éxito es $\frac{\lambda}{n}$.
+  \[ \lim_{n \to \infty}P (\mathcal Y = k) = \frac{\lambda^k}{k!}e^{-\lambda} = P(Z = k) = f(k)\]
   donde \textit f es la \textbf{función de probabilidad de masa} de una variable aleatoria $Z \sim Poi(\lambda)$
 }
 
 \nt{
-  Si $Y \sim Bin(n,p)$ y \textit {p es pequeño} y \textit {n suficientemente grande}. Entonces se puede calcular la distribución de \textit Y unsando la \textbf{distribución de Poisson}.
+  Si $\mathcal Y \sim Bin(n,p)$ y \textit {p es pequeño} y \textit {n suficientemente grande}. Entonces se puede calcular la distribución de $\mathcal Y$ usando la \textbf{distribución de Poisson}.
 }
 
-\dfn{}{
-  Una \textit{variable aleatoria con distribución poisson} $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$ tiene función de probabilidad de masa
+\dfn{Función de Probabilidad de Masa}{
+  Una \textit{variable aleatoria con distribución poisson} $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$ tiene \textbf{función de probabilidad de masa}
   \[P(\mathcal X = k) = f(k) = \frac{e^{-\lambda}\lambda^k}{k!},~ k = 0, 1, \cdots\]
+}
+
+\nt {
+  Efectivamente $f(k) = \frac{e^{-\lambda}\lambda^k}{k!}$ es función de probabilidad.
+  \begin{itemize}
+    \item $f(k) \ge 0$
+    \item $\sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} = 1$
+      \begin{align*}
+        \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} &= e^{-\lambda} \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}\\
+        &= e^{-\lambda}e^{\lambda}\\
+        &= e^0 = 1\\
+      \end{align*}
+  \end{itemize}
+}
+
+\ex{Distribución Poisson}{
+  Supangamos que la probabilidad de que un objeto producido por una máquina sea defectuoso es de \textit{0.01} y que el hecho de que un objeto salga defectuoso o no, no afecta a los demás objetos. Se toman 10 objetos al azar. Encuentra la probabilidad de que al menos uno de ellos sea defectuoso.\\
+  Sea $\mathcal X = \text{"número de objetos defectuosos"}$ una v.a.\\
+  Usando la distribución Binomial se tiene lo siguiente.
+  $X \sim Bin(10, 0.01)$
+  \begin{align*}
+    P(\mathcal X \ge 1) = 1 - P(\mathcal X < 1) = 1 - P(\mathcal X = 0) = 0.956 ~\text{(resultado de ejemplo anterior)}
+  \end{align*}
+  Usando la distribución Poisson se tiene lo siguiente.
+  $\frac{\lambda}{10} = 0.01 \Rightarrow \lambda = 0.1$. Entonces $\mathcal X \sim Poi(0.1)$
+  \begin{align*}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X = 0) = 1 - \frac{e^{-0.1}(0.1)^0}{0!}\\
+                        &= 1 - e^{-0.1} = 0.095\\
+  \end{align*}
+  Por tanto, el resultado es practicamente el mismo.
 }
 
 \subsection{Variable Aleatoria Geométrica}
 Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
 
-\dfn{}{
+\dfn{Variable Aleatoria Geométrica}{
+  
   La \textbf{variable aleatoria geométrica} se define como
-  \[\mathcal X = \text{"\# de fracasos antes de obtener un el primer éxito"}\]
+  \[\mathcal X = \text{"\# de fracasos antes de obtener el primer éxito"}\]
 }
 
 Entonces
@@ -90,19 +149,19 @@ Entonces
   &f(k) = P(\mathcal X = k) = (1-p)^k p \\
 \end{align*}
 
-\dfn{}{
+\dfn{Función de Probabilidad}{
   Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos la \textbf{función de probabilidad} como
 
   \[f(k) = P(\mathcal X = k) = (1-p)^k p\]
 }
 
-\noindent \textit f satisface las propiedades de una función de probabilidad
+\noindent \textit Se tiene que f satisface las propiedades de una función de probabilidad
 \begin{enumerate}
-  \item \[f(k) \le 0\]
+  \item \[f(k) \ge 0\]
   \item \[\sum_{k = 0}^{\infty} f(k) = 1\]
 \end{enumerate}
 
-\dfn{}{
+\dfn{Función de Distribución}{
   Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos su \textbf{función de distribución} como
 
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k(1-p)^i p\]
@@ -112,19 +171,19 @@ Entonces
 \subsection{Variable Aleatoria Binomial Negativa}
 
 Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
-\dfn{}{
+\dfn{Variable Aleatoria Binomial Negativa}{
   La \textbf{variable aleatoria binomial negativa} se define como
-  \[\mathcal X = \text{\# de ensayos hasta obtener r éxitos}\]
+  \[\mathcal X = \text{"\# de ensayos hasta obtener r éxitos"}\]
 }
 
-\dfn{}{
+\dfn{Función de Probabilidad}{
   Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos la \textbf{función de probabilidad} como
 
   \[f(k) = P(\mathcal X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r} = \frac{(k-1)!}{(k-r)!(r-1)!}p^r(1-p)^{k-r} \]
   donde \textit r es el número de éxitos, y \textit k el número de ensayos.
 }
 
-\dfn{}{
+\dfn{Función de Distribución}{
   Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de distribución} como
 
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) =\sum_{i = 0}^k \binom{i-1}{r-1}p^r(1-p)^{i-r} = \sum_{i = 0}^k \frac{(i-1)!}{(i-r)!(r-1)!}p^r(1-p)^{i-r} \]
@@ -132,29 +191,52 @@ Supongamos que van a desarrollarse experimentos Bernoulli independientes con par
 }
 
 \subsection{Variable Aleatoria Uniforme}
-\dfn{}{
+\dfn{Variable Aleatoria Uniforme}{
   Una \textit{variable aleatoria $\mathcal X$} se dice que es \textbf{uniforme} sobre $\{a_1, a_2, \cdots, a_n\}$ donde $a_i \in \mathbb R$ si
   \[P(\mathcal X = a_i) = \frac{1}{n},~ \forall i \in \{1, 2, \cdots n\}\]
 }
 
+\ex{Variable Aleatoria Uniforme}{
+  \begin{enumerate}
+    \item Lanzar una moneda justa
+
+      $\mathcal X(w) \in  \{0, 1\}$, es decir, $a_1 = 0,~ a_2 = 1$\\
+      $P(\mathcal 0) = P(\mathcal 1) = \frac12$
+
+    \item Lanzar un dado justo.
+
+      $\mathcal X \in \{1, \cdots 6\}$, es decir, $a_1 = 1, a_2 = 2, \cdots, a_6 = 6$\\
+      $P(\mathcal X = i) = \frac16,~ \forall i = 1, \cdots 6$
+  \end{enumerate}
+
+}
+
 \subsection{Variable Aleatoria Hipergeométrica}
 
-Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar.
+Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar. Sea $\mathcal X \text{"\# pelotas azules seleccionadas"}$. Se tiene lo siguiente.
 
 \[P(\mathcal X = k) = \frac{\binom{m}{k} \binom{N - m}{n-k} }{\binom{N}{n}}\]
 
 \noindent Todos los experimentos que tengan un contexto similar se modelan con una variable aleatoria hipergeométrica.
 
+\qs{Variable Aleatoria Hipergeométrica}{
+  Cinco individuos de una población animal que se cree que está al borde de la extinción en una determinada región han sido capturados, etiquetados y liberados para mezclarse con la población. Después de haber tenido la oportunidad de mezclarse, se toma una muestra aleatoria de 10 de estos animales. Si hay 25 animales de este tipo en la región, ¿cuál es la probabilidad de que se tomaran a lo más 2 animales etiquetados?
+}
+
+\qs{Variable Aleatoria Hipergeométrica}{
+  Si un editor de libros no técnicos hace todo lo posible porque sus libres estén libres de errores tipográficos, de modo que la probabilidad de que cualquier página dada contenga por la menos uno de esos errores es de 0.005 y los errores son independientes de una página a otra, ¿cuál es la probabilidad d que una de sus novelas de 400 páginas contenga exactamente una página con errores? ¿Cuál es la probabilidad de que máximo tres páginas tengan errores?
+}
+
 \section{Distribuciones Absolutamente Continuas}
 Dada una variable aleatoria \textit{continua}, su correspondiente función de distribución es \textbf{continua}.\\
 Se tienen los siguientes casos:
 \begin{itemize}
-  \item Singulares: La función de densidad \textbf{no existe}.
+  \item Singulares: La función de densidad \textbf{no existe}. 
   \item Absolutamente continuas: \[F'(x) = f(x)\] \[P(a < \mathcal X < b) = \int_a^b f(x)~dx\]
 \end{itemize}
 
 \subsection{Variable Aleatoria Uniforme Continua}
-\dfn{}{
+\dfn{Variable Aleatoria Uniforme continua}{
   Una \textit{variable aleatoria $\mathcal X$} tiene \textbf{distribución Uniforme Continua} y se denota $\mathcal X \sim unif(a,b)$ si su \textbf{función de densidad} es la siguiente
   \[f(x) = 
     \begin{cases} 
@@ -167,9 +249,27 @@ Se tienen los siguientes casos:
 
 \nt{
   Se observa que $f(x) \ge 0$ y $\int_{-\infty}^{\infty}f(x) ~dx = 1$
+  \begin{align*}
+    \int_{-\infty}^{\infty} f(x)~ \mathbb 1_{(a,b)}^{(x)} ~dx &= \int_{-\infty}^a \frac1{b-a} \cdot 0~dx + \int_a^b \frac1{b-a}~dx + \int_b^{\infty}\frac1{b-a}\cdot 0 ~dx\\
+    &= \int_{a}^b \frac{dx}{b-a} \\
+    &= \frac1{b-a}\int_{a}^b dx = \frac1{b-a} (b-a) = \frac{b-a}{b-a} = 1
+  \end{align*}
 }
 
-\dfn{}{
+Calculemos la función de distribución Uniforme.
+
+\[F_{\mathcal X}(c) = P(\mathcal X \ge c) = \int_{-\infty}^c \frac1{b-a} \mathbb 1_{(a,b)}^{(x)}~dx\]
+
+Si $c \le a$
+\[F_{\mathcal X}(c) = \int_{-\infty}^c \frac1{b-a} \mathbb 1_{(a,b)}^{(x)}~dx = \int_{-\infty}^c \frac1{b-a} \cdot 0~dx = 0\]
+
+Si $c \in (a,b)$
+\[F_{\mathcal X}(c) = \int_{-\infty}^c \frac1{b-a} \mathbb 1_{(a,b)}^{(x)}~dx = \int_{a}^c \frac1{b-a}~dx = \frac{c-a}{b-a} \]
+
+Si $c \ge b$
+\[F_{\mathcal X}(c) = \int_{-\infty}^b \frac1{b-a} \mathbb 1_{(a,b)}^{(x)}~dx + \int_b^c \frac1{b-a} \mathbb 1_{(a,b)}^{(x)}~dx = \int_a^b \frac1{b-a} ~dx = 1\]
+
+\dfn{Función de Distribución}{
   Dada $\mathcal X \sim unif(a,b)$. Su \textbf{función de distribución} está dada por
   \[
     F_{\mathcal X}(c) =
@@ -187,7 +287,7 @@ Se tienen los siguientes casos:
   Una función de densidad \textit{f} es \textbf{simétrica} si \textit{f} es una función \textit{par}, es decir, \[f(x) = f(-x),~ \forall x \in \mathbb R\]
 }
 
-\dfn{}{
+\dfn{Variable Aleatoria Simétrica}{
   Una \textit{variable aleatoria $\mathcal X$} es \textbf{simétrica} si $\mathcal X$ y $-\mathcal X$ tienen la misma función de distribución, es decir,
   \[F_{\mathcal X}(a) = F_{-\mathcal X} (a),~ \forall a \in \mathbb R\]
   Lo anterior se denota como ($\mathcal X \stackrel{\text{d}}{\sim} \mathcal {-X}$)
@@ -197,10 +297,24 @@ Se tienen los siguientes casos:
   Una \textit{variable aleatoria $\mathcal X$} \textbf{simétrica si y solo si su función de densidad es simétrica} (su función de densidad es par).
 }
 
+\begin{myproof}
+  \boxed{\Leftarrow} Hipótesis: La función de densidad es par (simétrica). \\Buscamos probar que $F_{\mathcal {-X}}(a) = F_{\mathcal X}(x),~ \forall a \in \mathbb R$\\
+  Observemos que $w \in \{-\mathcal X \le a\},~ -\mathcal X (w)\le a \Leftrightarrow \mathcal X(w) \ge -a$
+  \[F_{-\mathcal X}(a) = P(-\mathcal X \le a) = P(\mathcal X \ge -a) = \int_{-a}^{\infty} f(u)~du\] donde $u = -v$ y $du = -dv$
+
+  \[F_{-\mathcal X}(a) = - \int_{a}^{-\infty} = f(-v)~dv = \int_{-\infty}^a = f(-v)~dv = \int_{-\infty}^a = f(v)~dv = P(\mathcal X \le a) = F_{\mathcal X}(a)\]
+  $\therefore \mathcal X$ es simétrica.\\
+  El regreso es ejercicio
+
+\end{myproof}
+
 \subsection{Variable Aleatoria Normal o Gaussiana}
 
-\dfn{}{
+\dfn{Distribución Normal Estándar}{
   Decimos que una \textit{variable aleatoria $\mathcal X$} tiene \textbf{distribución Normal Estándar} si su función de densidad es \[\phi(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}},~ x \in \mathbb R\]
+}
+
+\nt {
   Observemos que $\mathcal X$ es una \textit{variable aleatoria simétrica} porque $\phi(x) = \phi(-x)$
 }
 
@@ -216,29 +330,45 @@ Se tienen los siguientes casos:
   Si $\mathcal X$ es una \textit{variable aleatoria simétrica}, entonces \[F_{\mathcal X}(0) = \frac{1}{2}\]
 }
 
+\begin{myproof}
+  \[F_{\mathcal X}(0) = P(\mathcal X \le 0) = 1 - P(\mathcal X \ge 0) = 1 - P(-\mathcal X \ge 0) = 1 - P(\mathcal X \le 0)\]
+  Este hecho se justfica porque
+  \[w \in \{-\mathcal X  \ge 0\} \Leftrightarrow -\mathcal X(w) \ge 0 \Leftrightarrow \mathcal X(w) \le 0 \Leftrightarrow w \in \{\mathcal X \le 0\}\]
+  Entonces
+  \[P(\mathcal X \le 0) = 1 - P(\mathcal X \le 0) \Rightarrow 2P(\mathcal X \le 0)= 1 \Rightarrow P(\mathcal X \le 0) = \frac12\]
+\end{myproof}
+
 \mlemma{}{
   Si $\mathcal X$ es una \textit{variable aleatoria simétrica}, entonces \[F_{\mathcal X}(-a) = 1 - F_{\mathcal X}(a)\]
 }
 
+\begin{myproof}
+  \[F_{\mathcal X}(-a) = P(\mathcal X \le -a) = P(-\mathcal X \le -a) = P(\mathcal X \ge a)= 1 - P(\mathcal X \le a) = 1 - F_{\mathcal X}(a)\]
+\end{myproof}
+
 \nt{
   Recordemos que la función de densidad Normal
   \[\phi(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi}}\]
-  no tiene antiderivada.
+  \textbf{no} tiene antiderivada.
 }
 
 \thm{Teorema de Cambio de Variable}{
-  Sea $\mathcal X$ una \textit{variable aleatoria absolutamente continua} con valores en $(a,b) \subseteq \mathbb R$. Sea $g : (a,b) \longrightarrow \mathbb R$ una función continua estrictamente creciente o decreciente con inversa diferenciable. Entocnes la variable aleatoria $\mathcal Y= g(\mathcal X) = g \circ \mathcal X : \Omega \longrightarrow \mathcal R$ tinee la función de densidad
+  Sea $\mathcal X$ una \textit{variable aleatoria absolutamente continua} con valores en $(a,b) \subseteq \mathbb R$. Sea $g : (a,b) \longrightarrow \mathbb R$ una función continua estrictamente creciente o decreciente con inversa diferenciable. Entonces la variable aleatoria $\mathcal Y= g(\mathcal X) = g \circ \mathcal X : \Omega \longrightarrow \mathcal R$ tiene la función de densidad
 
   \[f_{\mathcal Y}(y) = 
     \begin{cases}
-      f_{\mathcal X} (g^{-1}(y)) \mid \frac{d}{dy} g^{-1}(y)\mid,~~~~ y \in g(a,b)\\
-      0, ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \text{otro caso}
+      f_{\mathcal X} (g^{-1}(y)) \mid \frac{d}{dy} g^{-1}(y)\mid, &y \in g(a,b)\\
+      0, & \text{otro caso}
     \end{cases}
   \]
 }
 
+\begin{myproof}
+  Tan evidende que no se muestra (es mucho, está en las notas).
+\end{myproof}
+
 \ex{}{
-  Sea $\mathcal X$ una \textit{variable aleatoria} Normal Estándar, y definimos $\mathcal Y = y + \sigma \mathcal X$ con $y \in \mathbb R, ~ \sigma \neq 0,~ \sigma > 0$.
+  Sea $\mathcal X$ una \textit{variable aleatoria} Normal Estándar, y definimos $\mathcal Y = y + \sigma \mathcal X$ con $y \in \mathbb R,~ \sigma > 0$.
   Calculemos la función de densidad de $\mathcal Y$
 
   Se tiene $\mathcal Y = g(\mathcal X)$ donde $\mathcal X$ es Normal Estándar
@@ -253,8 +383,8 @@ Se tienen los siguientes casos:
   \begin{align*}
     f_{\mathcal Y}(x) &= f_{\mathcal X}(g^{-1}(x)) \mid \frac{d}{dx} g^{-1}(x) \mid\\
              &= \frac{e^{-\frac{g^{-1}(x)^2}{2}}}{\sqrt{2\pi}}\mid \frac{d}{dx} g^{-1}(x) \mid\\
-             &= \frac{e^{-\frac{1}{2} (\frac{s - y}{\sigma})^2}}{\sqrt{2\pi}}\mid \frac{d}{dx} (\frac{x-y}{\sigma}) \mid\\
-             &= \frac{e^{-\frac{1}{2}(\frac{s-y}{\sigma})^2}}{\sqrt{2\pi}\sigma}
+             &= \frac{e^{-\frac{1}{2} (\frac{x - y}{\sigma})^2}}{\sqrt{2\pi}}\mid \frac{d}{dx} (\frac{x-y}{\sigma}) \mid\\
+             &= \frac{e^{-\frac{1}{2}(\frac{x-y}{\sigma})^2}}{\sqrt{2\pi}\sigma}
   \end{align*}
 
   Entonces, la función de densidad de $\mathcal Y = y + \sigma \mathcal X, ~ y \in \mathbb R,~ \sigma > 0$ es 
@@ -288,12 +418,141 @@ Usualmente se trabaja con una \textit{Tabla De La Distribución Normal}
   \end{align*}
 }
 
+\section{Variable Aleatoria Exponencial}
+Esta distribución es el \textit{equivalente continuo} a la distribución geométrica. Entonces, esta distribución modela el tiempo que transcurre hasta que ocurre un evento determinado.
+
+\dfn{Distribución Exponencial}{
+  Una variable aleatoria $\mathcal X$ tiene \textbf{distribución exponencial} con parámetros $\lambda > 0$ si su función de densidad es:
+  \[f(x) = 
+    \begin{cases}
+      \lambda e^{-\lambda x} & x>0\\
+      0 & x \le 0
+    \end{cases}
+  \]
+  Se donota como $\mathcal X \sim exp(\lambda)$
+}
+
+\subsection{Propiedad de Pérdida de Memoria}
+
+La variable aleatoria exponencial y geométrica son las unicas que satisfacen la siguiente propiedad.
+
+Sea $\mathcal X \sim exp(\lambda)$ y sean $a,b \ge 0$. Entonces se satisface lo siguiente.
+\[P(\mathcal X > a + b \mid \mathcal X > b) = P(\mathcal X > a)\]
+
+Lo anterior se puede entender como "la probabilidad de que un evento ocurra en el futuro no depende del tiempo transcurrido sin que este evento haya sucedido". Entonces, este tipo de variables aleatoria nos permiten modelar fenomenos donde su riesgo de ocurrencia no cambia con el tiempo.
+
+\nt{
+  Dado que estamos trabajando con probabilidad condicional, se tiene lo siguiente.
+  \[P(\mathcal X > a + b \mid \mathcal X > b) = \frac{P(\mathcal X > a + b), P(\mathcal X > b)}{P(X > b)} = \frac{P(\mathcal X > a + b)}{P(X > b)} = P(\mathcal X > a)\]
+  Por tanto
+  \[P(\mathcal X > a + b) = P(\mathcal X > a)~P(\mathcal X > b)\]
+  Lo anterior se justfica de manera gráfica y usando la propiedad de perdida de memoria.
+}
+
+\thm{}{
+  Sea $\mathcal X$ una variable aleatoria tal que satisface
+  \[P(\mathcal X > a + b \mid \mathcal X > b) = P(\mathcal X > a),~ a,b \ge 0\]
+  Entonces
+  \[P(\mathcal X > 0) = 0 ~o~ \mathcal X \sim exp(\lambda)\]
+}
+
+\begin{myproof}
+  No viene en las notas y no hay tiempo (momentaneamente) para hacerlo.
+\end{myproof}
+
+Las siguientes propiedades se cumplen.
+\begin{itemize}
+  \item $f(x) \ge 0,~ \forall x \in \mathbb R$
+  \item $\int_{-\infty}^{\infty} f(x)~dx = 1$
+\end{itemize}
+
+\qs{Distribución Exponencial}{
+  Calcular
+  \[F_{\mathcal X}(x) = \int_{-\infty}^x f(r)~dr\]
+}
+
+\qs{Distribución Exponencial}{
+  Usando lo anterior, verificar que la variable aleatoria exponencial satisface lo siguiente.
+  \[P(\mathcal X > a + b) = P(\mathcal X > a)~P(\mathcal X > b)\]
+}
+
+\section{Variable Aleatorias Gamma}
+
+Definamos una función \textit{g} de la siguiente manera.
+\[g(x) = 
+  \begin{cases}
+    x^{\alpha - 1}e^{-\lambda x} & x > 0\\
+    0 & \text{otro caso}
+  \end{cases}
+\]
+Para que \textit{g} sea integrable, requerimos que $\alpha, \lambda > 0$.\\
+Notemos que $g(x) \ge 0,~ \forall x \in \mathbb R$ (su soporte son los números positivos)\\
+Ahora encontremos el valor de \textit{c} tal que
+\[\int_{-\infty}^{\infty}cg(x)~dx = 1\]
+
+Procediendo.
+\begin{align*}
+  \int_{-\infty}^{\infty}cg(x)~dx &= \int_{-\infty}^{\infty}c x^{\alpha -1}e^{-\lambda x} ~ \mathbb 1_{(0, \infty)}^{(x)} ~dx\\
+                                  &= c\int_0^{\infty} x^{\alpha -1}e^{-\lambda x} ~dx\\
+                                  &= c\int_0^{\infty}(\frac  u\lambda)^{\alpha-1}e^{-u}~ \frac{du}\lambda \\
+                                  &= \frac c{\lambda^\alpha} \int_0^{\infty} u^{\alpha - 1}e^{-u}~du
+\end{align*}
+Dado que buscamos 
+\[\frac c{\lambda^\alpha} \int_0^{\infty} u^{\alpha - 1}e^{-u}~du = 1\] y que 
+\[\int_0^{\infty} u^{\alpha - 1}e^{-u}~du\] es la \textbf{Función Gamma} $\Gamma(\alpha)$
+\[\boxed{\therefore c = \frac{\lambda^\alpha}{\Gamma(\alpha)}}\]
+
+\dfn{Densidad Gamma}{
+  La siguiente función se conoce como la \textbf{densidad gamma}.
+  \[g(x) =
+    \begin{cases}
+      \frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x} &x >0\\
+      0 & x \le 0\\
+    \end{cases}
+  \]
+  donde
+  \[\Gamma(\alpha) = \int_0^{\infty} u^{\alpha - 1}e^{-u}~du\]
+}
+
+\dfn{Variable Aleatoria Gamma}{
+  Dada una variable aleatoria, $\mathcal X$ tiene \textbf{distribución gamma} con parámetros $\lambda > 0$ y $\alpha > 0$ denotado por $\mathcal X \sim \Gamma(\alpha, \lambda)$
+}
+
+\nt{
+  Si tomamos $\alpha = 1$ se tiene que
+  \[\Gamma(1) = \int_0^{\infty} u^{1 - 1}e^{-u}~du = \int_0^{\infty} e^{-u}~du = - e^{-u}\Big|_0^{\infty} = 1\]
+  Reemplazando en la densidad se obtiene
+  \[g(x) =
+    \begin{cases}
+      \frac{\lambda^1}{\Gamma(1)}x^{1-1}e^{-\lambda x} &x >0\\
+      0 & x \le 0\\
+    \end{cases}
+  \]
+  Por tanto
+  \[g(x) =
+    \begin{cases}
+      \lambda e^{-\lambda x} &x >0\\
+      0 & x \le 0\\
+    \end{cases}
+  \]
+  Donde la función obtenida es la \textit{distribución exponencial}. Así que la distribución exponencial es un caso particular de la densidad gamma.
+}
+
+Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente de la densidad gamma).
+
+\begin{itemize}
+  \item $\Gamma(1) = 1$
+  \item $\Gamma(1, \lambda) \sim exp(\lambda)$
+  \item $\Gamma(\frac12) = \sqrt \pi$
+  \item $\Gamma(x + 1) = x \Gamma(x),~ \forall x\in \mathbb R^+$. Si $n \in \mathbb N \Rightarrow \Gamma(n + 1) = n!$
+\end{itemize}
+
 \newpage
 \section{Ejercicios}
 
 \qs{Distribuciones}{
   Una empresa que produce cristal fino sabe por experiencia que el 10\% de sus copas tienen defectos estéticos y deben clasificarse como "segundos".
-  De 6 copas elegidas al azar:
+  De 6 copas elegidas al azar:                                                e
   \begin{itemize}
     \item ¿Cuál es la probabilidad de que solo una sea una segunda?
     \item ¿Cuál es la probabilidad de que al menos 2 sean segundas?
