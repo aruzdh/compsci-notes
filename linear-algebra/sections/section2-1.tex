@@ -1,1 +1,145 @@
 \section{Linear transformations, null spaces, and ranges}
+Recall that a function \textit{T} with domain \textit{V} and codomain \textit{W} is denoted by $T : V \longrightarrow W$.
+
+\dfn{Linear Transformation}{
+  Let \textit{V} and \textit{W} be vector spaces (over \textit{K}). We call a function $T : V \longrightarrow W$ a \textbf{linear transformation from \textit{V} to \textit{W}} if, for all $x, y \in V,~ \lambda \in K$, we have
+  \begin{enumerate}[a)]
+    \item $T(x + y) = T(x) + T(y)$ and
+    \item $T(\lambda x) = \lambda T(x)$
+  \end{enumerate}
+}
+
+We often simply call \textbf{\textit{T} linear}. A linear transformation holds the following properties.
+
+\begin{enumerate}
+  \item If \textit{T} is linear, then $T(\overline0_V) = \overline0_W$
+  \item \textit{T} is linear if and only if $T(\lambda x + y) = \lambda T(x) + T(y),~ \forall x,y \in V,~ \lambda \in K$
+  \item If \textit{T} is linear, then $T(x - y) = T(x) - T(y),~ \forall x,y \in V,~ \lambda \in K$
+  \item \textit{T} is linear if and only if, for $x_1, x_2, \cdots, x_n \in V$ and $\lambda_1, \lambda_2, \cdots, \lambda_n \in K$, we have
+    \[T(\sum_{i = 1}^n \lambda_i x_i) = \sum_{i = 1}^n \lambda_i T(x_i)\]
+\end{enumerate}
+
+\nt{
+  We generally use \textit{property 2} to prove that a given transformation is linear.
+}
+
+\ex{Linear Transformation}{
+  Define
+  \[T: \mathbb R^2 \longrightarrow \mathbb R^2 \text{ by } T(a_1, a_2) = (2a_1 + a_2, a_1)\]
+  To show that \textit{T} is linear, let $\lambda \in \mathbb R$ and $x, y \in \mathbb R^2$ where $x = (b_1, b_2)$ and $y = (d_1, d_2)$. Since
+  \[\lambda x + y = (\lambda b_1 + d_1, \lambda b_2 + d_2)\]
+  we have
+  \[T(\lambda x + y) = (2(\lambda b_1 + d_1) + \lambda b_2 + d_2, \lambda b_1 + d_1)\]
+  Also
+  \begin{align*}
+    \lambda T(x) + T(y) &= \lambda (2b_1 + b_2, b_1) + (2d_1 + d_2, d_1)\\
+                  &= (2\lambda b_1 + \lambda b_2 + 2d_1 + d_2, \lambda b_1 + d_1)\\
+                  &= (2(\lambda b_1 + d_1) + \lambda b_2 + d_2, \lambda b_1 + d_1)\\
+  \end{align*}
+  So \textit{T} is linear $\blacksquare$
+}
+
+Two very important examples of linear transformation are the following.\\
+For vector spaces \textit{V} and \textit{W} (over \textit{K}), we define the \textbf{identity transformation} $I_V : V \longrightarrow V$ by $I_V (x) = x,~ \forall x \in V$, and the \textbf{zero transformation} $T_{\overline0} : V \longrightarrow W$ by $T_{\overline0} (x) = \overline0,~ \forall x \in V$.
+
+\nt{
+  We often write \textit{I} instead of $I_V$.
+}
+
+\dfn{Kernel and Range}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. We define the \textbf{null space} (or \textbf{kernel}) \textit{N(T)} of \textit{T} to be the set of all vectors $x \in V$ such that $T(x) = \overline0$; that is, $N(T) = \{x \in V \mid T(x) = \overline0\}$.
+  \vskip 0.2in
+  We define the \textbf{range} (or \textbf{image}) \textit{R(T)} of \textit{T} to be the subset of \textit{W} consisting of all images (under \textit{T}) of vectors in \textit{V}; that is, $R(T) = \{T(x) \mid x \in V\}$.
+}
+
+\ex{Kernel and Range}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $I : V \longrightarrow V$ and $T_{\overline0} : V \longrightarrow W$ be the identity and zero transformations, respectively. Then $N(I) = \{ \overline0 \}$, $R(I) = V$, $N(T_{\overline0}) = V$, and $R(T_{\overline0}) = \{\overline0\}$
+}
+
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces and $T : V \longrightarrow W$ be linear. Then \textit{N(T)} and \textit{R(T)} are subspaces of \textit{V} and \textit{W}, respectively.
+}
+
+The next theorem provides a method for finding a spanning set for the range of a linear transformation. With this accomplished, a basis for the range is easy to discover.
+
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. If $\beta = \{v_1, v_2, \cdots, v_n\}$ is a basis for \textit{V}, then
+  \[R(T) = \text{span}(T(\beta)) = \text{span}(\{T(v_1), T(v_2), \cdots, T(v_n)\})\]
+}
+
+The next example illustrates the usefulness of the previous theorem.
+\ex{}{
+  Define the linear transformation $T: P_2(\mathbb{R}) \rightarrow M_{2\times 2}(\mathbb{R})$ by
+  $$T(f(x)) = \begin{pmatrix} f(1) - f(2) & 0 \\ 0 & f(0) \end{pmatrix}.$$
+  Since $\beta = \{1, x, x^2\}$ is a basis for $P_2(\mathbb{R})$, we have
+  \begin{align*}
+    R(T) &= \text{span}(T(\beta)) = \text{span}(\{T(1), T(x), T(x^2)\}) \\
+         &= \text{span}\left(\left\{ \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} -1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} -3 & 0 \\ 0 & 0 \end{pmatrix} \right\}\right) \\
+         &= \text{span}\left(\left\{ \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} -1 & 0 \\ 0 & 0 \end{pmatrix} \right\}\right).
+  \end{align*}
+  Thus we have found a basis for \textit{R(T)}, and so dim(\textit{R(T)}) = 2.
+}
+
+As in Chapter 1, we measure the "size" of a subspace by its dimension. The null space and range are so important that we attach spacial names to their respective dimensions. 
+
+
+\dfn{Nullity and Rank}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. If \textit{N(T)} and \textit{R(T)} are finite-dimensional, then we define the \textbf{nullity} of \textit{T}, denoted nullity(\textit{T}), and the \textbf{rank} of \textit{T}, denoted rank(\textit{T}), to be the dimensions of \textit{N(T)} and \textit{R(T)}, respectively.
+}
+
+Reflecting on the action of a linear transformation, we see intuitively that the larger the nullity, the smaller the rank. In other words, the more vectors that are carried into $\overline0$, the smaller the range. The same heuristic reasoning tells us that the larger the rank, the smaller the nullity. This balance between rank and nullity is made precise in the next theorem, appropriately called the \textit{dimension theorem}.
+
+\thm{Dimension Theorem}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. If \textit{V} is finite-dimensional, then
+  \[\text{nullity}(T) + \text{rank}(T) = \text{dim}(V)\]
+}
+
+Interestingly, for a linear transformation, the concepts of \textit{one-to-one} and \textit{onto} are intimately connected to the rank and nullity of the transformation. This is demostrated in the next two theorems.
+
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. Then \textit{T} is \textit{one-to-one} if and only if $N(T) = \{\overline0\}$ (nullity(\textit{T}) = 0)
+}
+
+Surprisingly, the conditions of one-to-one and onto are equivalent in an important special case.
+
+\thm{}{
+
+  Let \textit{V} and \textit{W} be vector spaces of equal (finite) dimension, and let $T : V \longrightarrow W$ be linear. Then the following are equivalent.
+
+  \begin{enumerate}[a)]
+    \item \textit{T} is \textit{one-to-one}
+    \item \textit{T} is \textit{onto}
+    \item rank(\textit{T}) = dim(\textit{V})
+  \end{enumerate}
+}
+
+\mlemma{}{
+  Let \textit{V} and \textit{W} be finite-dimensional vector spaces, and $T : V \longrightarrow W$ be linear.
+  \begin{itemize}
+    \item If dim(\textit{V}) $<$ dim(\textit{W}), then \textit{T} cannot be onto.
+    \item If dim(\textit{V}) $>$ dim(\textit{W}), then \textit{T} cannot be one-to-one.
+  \end{itemize}
+}
+
+\ex{}{
+  Let $T : F^2 \longrightarrow F^2$ be the linear transformation defined by
+  \[T(a_1, a_2) = (a_1 + a_2, a_1)\]
+  It's easy to see that $N(T) = \{\overline0\}$; so \textit{T} is one-to-one. Hence \textit{T} must be onto.
+}
+
+One of the most important properties of a linear transformation is that it's completely determined by its action on a basis. This result, which following from the next theorem and corollary, is used frequently.
+
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces over \textit{K}, and suppose that $\{v_1, v_2, \cdots, v_n\}$ is a basis for \textit{V}. For $w_1, w_2, \cdots, w_n \in W$, there exists exactly one linear transformation $T : V \longrightarrow W$ such that $T(v_i) = w_i$ for $i = 1, 2, \cdots, n$.
+}
+
+\cor{}{
+  Let \textit{V} and \textit{W} be vector spaces, and suppose that \textit{V} has a finite basis $\{v_1, v_2, \cdots, v_n\}$. If $U, T : V \longrightarrow W$ are linear, and $U(v_i) = T(v_i)$ for $i = 1, 2, \cdots, n$, then $U = T$.
+}
+
+\ex{}{
+  Let $T : \mathbb R^2 \longrightarrow \mathbb R^2$ be the linear transformation defined by
+  \[T(a_1, a_2) = (2a_2 - a_1, 3a_1),\]
+  and suppose that $U : \mathbb R^2 \longrightarrow \mathbb R^2$ is linear. If we know that $U(1,2) = (3,3)$ and $U(1,1) = (1,3)$, then $U = T$. This follows from the corollary and from the fact that $\{(1,2), (1,1)\}$ is a basis for $\mathbb R^2$.
+}
+

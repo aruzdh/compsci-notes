@@ -1,0 +1,239 @@
+\section{The matrix representation of a linear transformation}
+
+In this section, we embark on one of the most useful approaches to the analysis of a linear transformation on a finite-dimensional vector space: the representation of a linear transformation by a matrix. In fact, we develop a one-to-one correspondence between matrices and linear transformations that allows us to utilize properties of one to study properties of the other.
+
+We first need the concept of and \textit{ordered basis} for a vector space.
+
+\dfn{Ordered Basis}{
+  Let \textit{V} be a finite-dimensional vector space. An \textbf{ordered basis} for \textit{V} is a basis for \textit{V} endowed with a specific order; that is, an ordered basis for \textit{V} is a finite sequence of linearly independent vectors in \textit{V} that generates \textit{V}.
+}
+
+\ex{Ordered Basis}{
+  In $F^3$, $\beta = \{e_1, e_2, e_3\}$ can be considered an ordered basis. Also $\gamma = \{e_2, e_1, e_3\}$ is an ordered basis, but $\beta \neq \gamma$ as ordered basis.
+}
+
+\nt{
+  For the vector space $F^n$, we call $\{e_1, e_2, \cdots, e_n\}$ the \textbf{standard ordered basis} for $F^n$. Similarly, for the vector space $P_n(F)$, we call $\{1, x, \cdots, x^n\}$ the \textbf{standard ordered basis} for $P_n(F)$.
+}
+
+Now, we can identify abstract vectors in an \textit{n}-dimensional vector space with \textit{n}-tuples. This identification is provided through the use of \textit{coordinate vectors}, as introduced next.
+
+\dfn{Coordinate Vector}{
+  Let $\beta = \{u_1, u_2, \cdots, u_n\}$ be an ordered basis for a finite-dimensional vector space \textit{V}. For $x \in V$, let $\lambda_1, \lambda_2, \cdots, \lambda_n$ be the unique scalars such that
+  \[x = \sum_{i = 1}^n \lambda_i u_i\]
+
+  We define the \textbf{coordinate vector of $x$ relative to $\beta$}, denoted $[x]_\beta$, by
+
+  \[[x]_\beta = \begin{pmatrix}
+    \lambda_1 \\
+    \lambda_2\\
+    \vdots \\
+    \lambda_n
+  \end{pmatrix}\]
+}
+
+\nt{
+  Notice that $[u_i]_\beta = e_i$ in the preceding definition.
+}
+
+\ex{}{
+  Let $V = P_2(\mathbb R)$, and let $\beta = \{1, x, x^2\}$ be the standard ordered basis for \textit{V}. If $f(x) = 4 + 6x - 7x^2$,
+  \[[f]_\beta = \begin{pmatrix}
+    4\\
+    6\\
+    -7
+  \end{pmatrix}\]
+}
+
+Now, suppose that \textit{V} and \textit{W} are finite-dimensional vector spaces with ordered basis $\beta = \{v_1, v_2, \cdots, v_n\}$ and $\gamma = \{w_1, w_2, \cdots, w_n\}$, respectively. Let $T : V \longrightarrow W$ be linear. Then for each $j, 1 \le j \le n$, there exist unique scalars $\lambda_{ij} \in K, ~ 1 \le i \le m$, such that
+
+\[T(v_j) = \sum_{i = 1}^m \lambda_{ij} w_i,~ \text{for} 1 \le j \le n\]
+
+\dfn{Matrix Representation}{
+  Using the notation above, we call the  $m \times n$ matrix \textit{A} defined by $A_{ij} = a_{ij}$ the \textbf{matrix representation of \textit{T} in the ordered basis $\beta$ and $\gamma$}, and write $A = [T]_\beta^\gamma$. If $V = W$ and $\beta = \gamma$, then we write $A = [T]_\beta$.
+}
+
+\nt{
+  Notice that the \textit{jth} columm of \textit{A} is simply $[T(v_j)]_\gamma$. Also observe that if $U : V \longrightarrow W$ is a linear transformation such that $[U]_\beta^\gamma = [T]_\beta^\gamma$, then $U = T$ by the last corollary in the previous section.
+}
+
+\ex{example}{
+  Let $T:\mathbb{R}^2 \longrightarrow \mathbb{R}^3$ be the linear transformation defined by
+  \[
+    T(a_1,a_2) \;=\; (\,a_1 + 3a_2,\;0,\;2a_1 - 4a_2\,).
+  \]
+  Let $\beta$ and $\gamma$ be the standard ordered bases for $\mathbb{R}^2$ and $\mathbb{R}^3$, respectively.  Then
+  \[
+    T(1,0) \;=\; (1,0,2) \;=\; 1\,e_1 + 0\,e_2 + 2\,e_3,
+    \qquad
+    T(0,1) \;=\; (3,0,-4) \;=\; 3\,e_1 + 0\,e_2 - 4\,e_3,
+  \]
+  and hence the matrix of $T$ with respect to $\beta$ and $\gamma$ is
+  \[
+    [T]^\gamma_\beta
+    \;=\;
+    \begin{pmatrix}
+      1 & 3\\
+      0 & 0\\
+      2 & -4
+    \end{pmatrix}.
+  \]
+  If we instead take
+  \[
+    \gamma' = \{\,e_3,\;e_2,\;e_1\},
+  \]
+  then
+  \[
+    [T]^{\gamma'}_\beta
+    \;=\;
+    \begin{pmatrix}
+      2 & -4\\
+      0 & 0\\
+      1 & 3
+    \end{pmatrix}.
+  \]
+}
+
+\ex{}{
+  Let $T:P_3(\mathbb{R})\longrightarrow P_2(\mathbb{R})$ be the linear transformation defined by
+  \[
+    T\bigl(f(x)\bigr) = f'(x).
+  \]
+  Let $\beta$ and $\gamma$ be the standard ordered bases
+  \[
+    \beta = \{1,\,x,\,x^2,\,x^3\}
+    \quad\text{for }P_3(\mathbb{R}),
+    \qquad
+    \gamma = \{1,\,x,\,x^2\}
+    \quad\text{for }P_2(\mathbb{R}).
+  \]
+  We compute:
+  \begin{align*}
+    T(1)   &= 0\cdot1 + 0\cdot x + 0\cdot x^2,\\
+    T(x)   &= 1\cdot1 + 0\cdot x + 0\cdot x^2,\\
+    T(x^2) &= 0\cdot1 + 2\cdot x + 0\cdot x^2,\\
+    T(x^3) &= 0\cdot1 + 0\cdot x + 3\cdot x^2.
+  \end{align*}
+  Therefore,
+  \[
+    [T]^\gamma_\beta
+    \;=\;
+    \begin{pmatrix}
+      0 & 1 & 0 & 0\\
+      0 & 0 & 2 & 0\\
+      0 & 0 & 0 & 3
+    \end{pmatrix}.
+  \]
+  \emph{Note:}  When $T(x^j)$ is written as a linear combination of the vectors of $\gamma$, its coefficients give the entries of the $j$th column of $[T]^\gamma_\beta$.
+}
+
+Now, let's talk about the addition and scalar multiplication of linear transformations.
+
+\dfn{}{
+  Let $T, U : V \longrightarrow W$ be arbitrary functions, where \textit{V} and \textit{W} are vector spaces over \textit{K}, and let $\lambda \in K$. We define $T + U: V \longrightarrow W$ by
+  \[ (T + U)(x) = T(x) + U(x),~ \forall x \in V,\]
+  and $\lambda T : V \longrightarrow W$ by
+  \[(\lambda T)(x) = \lambda T(x),~ \forall x \in V\]
+}
+
+Of course, these are just the usual definitions of addition and scalar multiplication of functions. We are fortunate, however, to have the result that both sums and scalar multiplication of linear transformations are also linear.
+
+\newpage
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces over a field \textit{K}, and let $T, U : V \longrightarrow W$ be linear.
+
+  \begin{enumerate}[a)]
+    \item $\forall \lambda \in K,~ \lambda T + U$ is linear.
+    \item Using the operations of addition and scalar multiplication in the preceding definition, the collection of \textbf{all linear transformations} from \textit{V} to \textit{W} is a vector space over \textit{K}.
+  \end{enumerate}
+}
+
+\nt {
+  Notice that $T_{\overline0}$, the zero transformation, plays the role of the zero vector.
+}
+
+\dfn{}{
+  Let \textit{V} and \textit{W} be vector spaces over \textit{K}, We denote the vector space of \textbf{all linear transformations} from \textit{V} into \textit{W} by $\mathcal L(V,W)$. In the case that $V = W$, we write $\mathcal L(V)$ instead of $\mathcal L(V,W)$.
+}
+
+\mprop{}{
+  Let \textit{V} and \textit{W} be vector spaces with ordered basis $\beta$ and $\gamma$, respectively. Then $\Phi : \mathcal L(V,W) \longrightarrow M_{m\times n}(K)$ defined by
+  \[\Phi (T) = [T]_\beta^\gamma\]
+  is linear. That is,
+  \begin{itemize}
+    \item $\Phi(T + R) = \Phi(T) + \Phi(R),~ \forall T,R \in \mathcal L(V,W)$
+    \item $\Phi(\lambda T) = \lambda \Phi(T),~ \forall T \in \mathcal (L,W),~ \lambda \in K$
+  \end{itemize}
+}
+
+\thm{}{
+  Let \textit{V} and \textit{W} be finite-dimensional vector spaces with ordered basis $\beta$ and $\gamma$, respectively, and let $T, U : V \longrightarrow W$ be linear transformations. Then
+  \begin{enumerate}[a)]
+    \item $[T + U]_\beta^\gamma = [T]_\beta^\gamma + [U]_\beta^\gamma$ and 
+    \item $[\lambda T]_\beta^\gamma = \lambda [T]_\beta^\gamma$ for all scalars $\lambda$.
+  \end{enumerate}
+}
+
+\ex{}{
+  Let $\mathbf{T}: \mathbb{R}^2 \to \mathbb{R}^3$ and $\mathbf{U}: \mathbb{R}^2 \to \mathbb{R}^3$ be the linear transformations respectively defined by
+  \[
+  \mathbf{T}(a_1, a_2) = (a_1 + 3a_2, 0, 2a_1 - 4a_2) \quad \text{and} \quad \mathbf{U}(a_1, a_2) = (a_1 - a_2, 2a_1, 3a_1 + 2a_2).
+  \]
+
+  Let $\beta$ and $\gamma$ be the standard ordered bases of $\mathbb{R}^2$ and $\mathbb{R}^3$, respectively. Then
+  \[
+  [\mathbf{T}]_{\beta}^{\gamma} =
+  \begin{pmatrix}
+  1 & 3 \\
+  0 & 0 \\
+  2 & -4
+  \end{pmatrix},
+  \qquad
+  \text{(as computed in an latest example), and}
+  \]
+  \[
+  [\mathbf{U}]_{\beta}^{\gamma} =
+  \begin{pmatrix}
+  1 & -1 \\
+  2 & 0 \\
+  3 & 2
+  \end{pmatrix}.
+  \]
+
+  If we compute $\mathbf{T} + \mathbf{U}$ using the preceding definitions, we obtain
+  \[
+  (\mathbf{T} + \mathbf{U})(a_1, a_2) = (2a_1 + 2a_2, 2a_1, 5a_1 - 2a_2).
+  \]
+
+  So
+  \[
+  [\mathbf{T} + \mathbf{U}]_{\beta}^{\gamma} =
+  \begin{pmatrix}
+  2 & 2 \\
+  2 & 0 \\
+  5 & -2
+  \end{pmatrix},
+  \]
+
+  which is simply $[\mathbf{T}]_{\beta}^{\gamma} + [\mathbf{U}]_{\beta}^{\gamma}$, illustrating the preceding theorem.
+}
+
+\mprop{}{
+  Let \textit{V} and \textit{W} be vector spaces over the field \textit{K}. Then $V \times W$ is a vector space over \textit{K} with the following operations.
+
+  \begin{itemize}
+    \item $+_V \times +_W: (V \times W) \times (V \times W) \longrightarrow V \times W$. That is, 
+      \[(v_1, w_1) + (v_2, w_2) = (v_1 +_V v_2, w_1 +_W w_2)\]
+    \item $\cdot_V \times \cdot_W : K \times (V \times W) \longrightarrow V \times W$. That is, 
+      \[\lambda(v, w) = (\lambda \cdot_V v, \lambda \cdot_W w)\]
+  \end{itemize}
+}
+
+\dfn{}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $S \subseteq V$. Define $S^0 = \{T \in \mathcal L(V,W) \mid T(x) = \overline0,~ \forall x \in S\}$. The following properties hold for the prior set.
+  \begin{itemize}
+    \item $S^0$ is a subspace of $\mathcal L(V,W)$
+    \item If $S_1, S_2 \subseteq V$ and $S_1 \subseteq S_2$, then $S_2^0 \subseteq S_1^0$
+    \item If $V_1, V_2$ are subspaces of \textit{V}, then $(V_1 + V_2)^0 = V_1^0 \cap V_2^0$
+  \end{itemize}
+}
