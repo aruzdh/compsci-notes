@@ -1,0 +1,111 @@
+\section{Gramáticas Regulares}
+
+\dfn{Gramática Regular}{
+  Una \textbf{gramática regular} es una gramática lineal por la derecha o por la izquierda, donde no se permite una mezcla de ambos.
+  \begin{itemize}
+    \item \textbf{Lineal por la derecha}: todas las producciones son de la forma
+      \[A \rightarrow aB \qquad A \rightarrow a \qquad \varepsilon\]
+      con $A,B \in V,~ a \in T$
+    \item \textbf{Lineal por la izquierda}: todas las producciones de la forma
+      \[A \rightarrow Ba \qquad A \rightarrow a \qquad A \rightarrow \varepsilon\]
+      con $A,B \in V,~ a \in T$
+  \end{itemize}
+}
+
+\dfn{Lenguaje regular}{
+  Decimos que un lenguaje \textit{L} es regular si \textit{existe una gramática regular G que lo genere}. Es decir, si $L = \mathcal L(G)$
+}
+
+\ex{Lenguaje regular}{
+  El lenguaje $L = (a + b)^*$ es generade por la siguiente gramática.
+  \begin{align*}
+    &S \rightarrow aS \mid bC\\
+    &C \rightarrow bC \mid aS \mid \varepsilon
+  \end{align*}
+}
+
+\subsection{Equivalencia entre gramáticas y lenguajes regulares}
+Esta equivalencia involucra a los \textit{autómatas finitos}.
+
+\begin{enumerate}
+  \item Autómata Finito $\Longrightarrow$ Gramática regular.
+
+    Dado un autómata finito \textit{M}, existe una gramática regular \textit{G} tal que $\mathcal L(M) = \mathcal L(G)$. Asî, todo lenguaje regular es generado por una gramática regular.
+
+    \vskip 0.2in
+    Lo construción de una gramática regular \textit{G} dado un autómata finito \textit{M} es de la siguiente manera.
+
+    \begin{itemize}
+      \item Suponemos, \textit{sin pérdida de generalidad}, que no hay $\varepsilon$-transciones en \textit{M} (\textit{M} puede ser \textit{no-determinista}).
+      \item Se definen las partes de \textit{G}, $V = Q,~ T = \Sigma, ~ S = q_0$.
+      \item Las reglas de producción se definen de la siguiente forma.
+        \begin{itemize}
+          \item Si $p \in \delta(q,a)$, entonces agregamos $q \rightarrow ap$ a \textit{P}.
+          \item Si $q_f \in \delta(q,a)$, con $q_f \in F$, entonces agregamos $q \rightarrow a$.
+          \item Si $q_0 \in F$, entonces agregamos $q_0 \rightarrow \varepsilon$
+        \end{itemize}
+    \end{itemize}
+
+  \item Gramática Regular $\Longrightarrow$ Autómata Finito
+
+    Dada una gramática regular \textit{G}, existe un autómata finito \textit{M} tal que $\mathcal L(M) = \mathcal L(G)$. Así, todo lenguaje generado por una gramática regular es regular.
+
+    \vskip 0.2in
+    Definimos al autómata \textit{M} siguiendo lo siguiente.
+
+    \begin{itemize}
+      \item Suponemos, \textit{sin pérdida de generalidad}, que \textit{G} es lineal derecha.
+      \item Se definen los siguientes conjuntos: $\Sigma = T,~ Q = V \cup \{q_F\}, ~ q_0 = S,~ F = \{q_F\}$
+      \item La función de transición es la siguiente.
+        \begin{itemize}
+          \item Si $A \rightarrow aB \in P$, entonces $B \in \delta(A,a)$
+          \item Si $A \rightarrow a \in P$, entonces $q_F \in \delta(A,a)$
+          \item Si $A \rightarrow \varepsilon \in P$, entonces $q_F \in \delta(A,\varepsilon)$
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\ex{Equivalencia}{
+  Considerando el siguiente autómata.
+  \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto]
+          \tikzset{initial text={}}
+          
+          % Estados
+          \node[state, initial] (q0) {$q_0$}; 
+          \node[state] (q1) [right=of q0] {$q_1$}; 
+          \node[state, accepting] (q2) [below=of q0] {$q_2$};
+          
+          % Transiciones
+          \path[->]
+              (q0) edge [loop above] node {0} (q0)
+              (q1) edge [loop above] node {1} (q1)
+              (q0) edge node {1} (q1)
+              (q0) edge node [left] {0} (q2)
+              (q2) edge [bend left] node {1} (q1)
+              (q1) edge [bend left] node {0} (q2);
+      \end{tikzpicture}
+  \end{center}
+  La gramática correspondiente obtenida con el método antorior es la siguiente.
+  \begin{align*}
+    &q_0 \rightarrow 0q_0 \mid 1q_1\\
+    &q_1 \rightarrow 1q_1 \mid 0q_2 \mid 0\\
+    &q_2 \rightarrow 0q_0 \mid 1q_1
+  \end{align*}
+}
+
+\subsection{Equivalencia entre gramáticas lineales}
+Se puede probar que toda gramática lineal por la izquierda es equivalente a una gramática lineal por la derecha. Veamos cómo convertir gramáticas lineales por la izquierda a lineales por la derecha y viceversa, para ello utilizamos las transformaciones a autómatas finitos.
+
+\begin{enumerate}
+    \item Dada una gramática lineal por la derecha se debe construir un autómata finito que reconozca al mismo lenguaje.
+    \item Para construir la gramática lineal por la izquierda se debe obtener un autómata dual:
+    \begin{itemize}
+        \item intercambiar los estados inicial y final
+        \item invertir las transiciones
+    \end{itemize}
+    \item Obtener una nueva gramática del autómata nuevo y después reordenar las reglas de producción $A \rightarrow aB$ en $A \rightarrow Ba$.
+\end{enumerate}
+
+El método anterior se puede usar cuando el autómata tiene un sólo estado final. Para la transformación de lineal izquierda a lineal derecha se siguen los mismos pasos que antes.
+
