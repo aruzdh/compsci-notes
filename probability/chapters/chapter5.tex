@@ -418,7 +418,7 @@ Usualmente se trabaja con una \textit{Tabla De La Distribución Normal}
   \end{align*}
 }
 
-\section{Variable Aleatoria Exponencial}
+\subsection{Variable Aleatoria Exponencial}
 Esta distribución es el \textit{equivalente continuo} a la distribución geométrica. Entonces, esta distribución modela el tiempo que transcurre hasta que ocurre un evento determinado.
 
 \dfn{Distribución Exponencial}{
@@ -476,7 +476,7 @@ Las siguientes propiedades se cumplen.
   \[P(\mathcal X > a + b) = P(\mathcal X > a)~P(\mathcal X > b)\]
 }
 
-\section{Variable Aleatorias Gamma}
+\subsection{Variable Aleatorias Gamma}
 
 Definamos una función \textit{g} de la siguiente manera.
 \[g(x) = 
@@ -547,12 +547,11 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
   \item $\Gamma(x + 1) = x \Gamma(x),~ \forall x\in \mathbb R^+$. Si $n \in \mathbb N \Rightarrow \Gamma(n + 1) = n!$
 \end{itemize}
 
-\newpage
 \section{Ejercicios}
 
 \qs{Distribuciones}{
   Una empresa que produce cristal fino sabe por experiencia que el 10\% de sus copas tienen defectos estéticos y deben clasificarse como "segundos".
-  De 6 copas elegidas al azar:                                                e
+  De 6 copas elegidas al azar:
   \begin{itemize}
     \item ¿Cuál es la probabilidad de que solo una sea una segunda?
     \item ¿Cuál es la probabilidad de que al menos 2 sean segundas?
@@ -582,7 +581,7 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
 }
 
 \qs{Distribuciones}{
-  Suponga que en una caja hay N pelotas, de las cuales m son azules y $N-m$ son amarillas. Se escogen al azar n pelotas. Sea X la v.a. que denota el número de pelotas azules seleccionadas. Encuentra la función de probabilidad de masa de X.
+  Suponga que en una caja hay N pelotas, de las cuales m son azules y $N-m$ son amarillas. Se escogen al azar n pelotas. Sea $\mathcal X$ la v.a. que denota el número de pelotas azules seleccionadas. Encuentra la función de probabilidad de masa de $\mathcal X$.
 }
 
 \qs{Distribuciones}{
@@ -594,18 +593,18 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
 }
 
 \qs{Distribuciones}{
-  Sea $X\sim geo(p)$. Demuestra que:
-  \[P(X= n+k |X > n) = P(X = k)\]
+  Sea $\mathcal X\sim geo(p)$. Demuestra que:
+  \[P(\mathcal X= n+k |\mathcal X > n) = P(\mathcal X = k)\]
 }
 
 \qs{Distribuciones}{
-  La variable X tiene la densidad dada por
+  La variable $\mathcal X$ tiene la densidad dada por
   \[f(x)=\frac{1}{2}e^{-|x|},~ -\infty<x<\infty\]
-  Encuentra $P(1\le|X|\le2)$.
+  Encuentra $P(1\le|\mathcal X|\le2)$.
 }
 
 \qs{Distribuciones}{
-  Encuentra la función de distribución de la v.a. X cuya densidad de probabilidad está dada por
+  Encuentra la función de distribución de la v.a. $\mathcal X$ cuya densidad de probabilidad está dada por
   \[f(x)=
     \begin{cases}
       x, &x\in(0,1)\\ 
@@ -616,6 +615,24 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
 }
 
 \qs{Distribuciones}{
-  Si $X\sim N(\mu,\sigma^{2})$ Encuentra la densidad de $Y=e^{X}$
+  Si $\mathcal X\sim N(\mu,\sigma^{2})$ Encuentra la densidad de $Y=e^{\mathcal X}$
+}
+
+\qs{Distribuciones}{
+  Sea $\mathcal X$ una variable aleatoria con función de densidad $f_{\mathcal X}$. Encuentra la función de densidad de la variable aleatoria $\mathcal Y = \mathcal X^2$
+}
+
+\qs{Distribuciones}{
+  Sea $\mathcal X \sim unif(0,1)$. Encuentra las funciones de densidad y distribución de la variable aleatoria
+  \[\mathcal Y = \frac{-\ln(1- \mathcal X)}{\lambda}\]
+  para $\lambda > 0$
+}
+
+\qs{Distribuciones}{
+  Sea $\mathcal X \sim N(1,4)$. Calcula $P(0 \le \mathcal X \le 3)$.
+}
+
+\qs{Distribuciones}{
+  Sea $\mathcal X \sim unif(0,1)$. Encuentra la función de densidad de $\mathcal Y = x^{\frac1\alpha}$ con $\alpha \neq 0$
 }
 
