@@ -1,0 +1,130 @@
+\chapter{Esperanza o Valor esperado}
+\dfn{Esperanza (caso discreto)}{
+  Si $\mathcal X$ es una variable aleatoria \textit{discreta} con función de probabilidad $f(x) = P(\mathcal X = x)$ (o función de probabilidad de masa). Entonces la \textbf{esperanza o valer esperado} de $\mathcal X$, denotada $E(\mathcal X)$, está definida de la siguiente manera.
+  \[E(\mathcal X) = \sum_i i P(\mathcal X = i)\]
+  Donde la suma es sobre todos los valores que toma la variable aleatoria $\mathcal X$, y por ende, $E(\mathcal X)$, es un valor real, no una variable aleatoria.
+}
+
+\nt{
+  El valor esperado es un \textit{promedio ponderado} de los posibles valores que $\mathcal X$ puede tomar. Cada valor que $\mathcal X$ puede tomar se pondera por su respectiva probabilidad.
+}
+
+\ex{Esperanza}{
+  Sea la variable aleatoria $\mathcal \sim Bern(p)$.
+  \[E(\mathcal X) = 0 \cdot P(\mathcal X = 0) + 1 \cdot P(\mathcal X = 1) = 0 \cdot (1-p) + 1 \cdot p = p\]
+}
+
+\ex{Esperanza}{
+  Encuentra el valor esperado de $\mathcal X$ donde $\mathcal X$ es el resultado del lanzamiento de un dado justo.
+  \begin{align*}
+    E(\mathcal X) &= \sum_{i = 1}^6 i P(\mathcal X = i) = \sum_{i = 1}^6 i \frac16 = \frac16 \sum_{i = 1}^6\\
+                  &= \frac16 (1+2+3+4+5+6) = \frac{21}6 = 3.5 \in \mathbb R
+  \end{align*}
+}
+
+\nt{
+  Aunque una variable aleatoria $\mathcal X$ solo tome valores enteros, $E(\mathcal X)$ no necesariamente es un número entero.
+}
+
+\dfn{Esperanza (caso continuo)}{
+  Si $\mathcal X$ es una variable aleatoria continua con función de densidad $f(x)$. Definimos su valor esperado como sigue a continuación.
+  \[E(\mathcal X) = \int_{-\infty}^{\infty}x f(x)~dx\]
+}
+
+\ex{Esperanza}{
+  Sea $\mathcal X \sim exp(\lambda)$ con $f(x) = \lambda e^{-\lambda x}~ \mathbb 1_{(0, \infty)}^{(x)}$. Se tiene lo siguiente.
+  \begin{align*}
+    E(\mathcal X) &= \lambda \int_{-\infty}^{\infty} x e^{-\lambda x} 1_{(0, \infty)}^{(x)}~dx\\
+                  &= \lambda \int_0^{\infty}x e^{-\lambda x}~dx\\
+                  &= \lambda [- \frac{x}{\lambda}e^{- \lambda x} \Big |_0^{\infty} + \frac1{\lambda}\int_0^{\infty}e^{-\lambda x}~dx]\\
+                  &= -\frac1{\lambda}e^{-\lambda x} \Big |_0^{\infty} = \frac{e^{\lambda (0)}}{\lambda} = \frac1 \lambda
+  \end{align*}
+
+  \[\therefore{\text{Si } \mathcal X \sim exp(\lambda), \text{ entonces } E(\mathcal X) = \frac1 \lambda}\]
+}
+
+\ex{Esperanza}{
+  Sea $\mathcal X \sim Bin(n,p)$. Demuestra que $E(\mathcal X) = np$
+  \begin{align*}
+    E(\mathcal X) = \sum_{i=0}^{n} i \binom{n}{i} p^i (1-p)^{n-i} &= \sum_{i=1}^{n} \binom{n}{i} i p^i (1-p)^{n-i} \\
+    &= \sum_{i=1}^{n} \frac{n!}{i!(n-i)!} i p^i (1-p)^{n-i} \\
+    &= \sum_{i=1}^{n} \frac{n!}{(i-1)!(n-i)!} p^i (1-p)^{n-i} \\
+    &= np \sum_{i=1}^{n} \frac{(n-1)!}{(i-1)!(n-i)!} p^{i-1} (1-p)^{n-i} \\
+    &= np \sum_{i=1}^{n} \binom{n-1}{i-1} p^{i-1} (1-p)^{n-i} \\
+    &= np \sum_{j=0}^{n-1} \binom{n-1}{j} p^{j} (1-p)^{n-1-j} \quad k = i-1 \\
+    &= np (p + (1-p))^{n-1} = np
+  \end{align*}
+}
+
+\mprop{}{
+  Sea $\mathcal X$ una variable aleatoria discreta, y \textit{g} una función real. Entonces
+  \[E(g(\mathcal X)) = \sum_i g(i)P(\mathcal X = i)\]
+  donde $\mathcal Y = g(\mathcal X)$
+}
+
+\mprop{}{
+  Sea $\mathcal X$ una variable aleatoria continua con función de densidad $f_{\mathcal X}$, y \textit{g} una función real. Entonces
+  \[E(g(\mathcal X)) = \int_{-\infty}^{\infty}g(x)f_{\mathcal X}(x)~dx\]
+  donde $\mathcal Y = g(\mathcal X)$
+}
+
+\ex{Proposición}{
+  Sea $\mathcal X$ una variable aleatoria tal que
+  \[P(\mathcal X = -1) = 0.2 \qquad P(\mathcal X = 0) = 0.5 \qquad P(\mathcal X = 1) = 0.3\]
+  Calcula la $E(\mathcal X^2)$.
+  \begin{enumerate}[a)]
+    \item Usando $\mathcal Y = \mathcal X^2$ y calculando $P(\mathcal Y = i)$
+
+      $\mathcal X^2 = \mathcal Y \in \{0,1\}$
+      \[P(\mathcal Y = 0) = P(\mathcal X = 0) = 0.5\]
+      \[P(\mathcal Y = 1) = P(\mathcal X = 1) + P(\mathcal X = -1) = 0.3 + 0.2 = 0.5\]
+      Así,
+      \[E(\mathcal X^2) = 0 \cdot P(\mathcal X^2 = 0) + 1 \cdot P(\mathcal X^2 = 1) = 1 \cdot P(\mathcal Y = 1) = 0.5\]
+    \item Usando la proposición
+      \begin{align*}
+        E(\mathcal X^2) &= \sum_{i = -1}^1 (i)^2 P(\mathcal X = i)\\
+                        &= (-1)^2 \cdot P(\mathcal X = -1) + 0^2 \cdot P(\mathcal X = 0) + 1^2 \cdot P(\mathcal X = 1)\\
+                        &= 1 \cdot (0.2) + 0 \cdot (0.5) + 1 \cdot (0.3)\\
+                        &= 0.5
+      \end{align*}
+
+  \end{enumerate}
+}
+
+Las siguientes son propiedades de la esperanza o valor esperado. Sea $\mathcal X,~ \mathcal Y$ variables aleatoria con función de densidad $f_{\mathcal X},~ f_{\mathcal Y}$, respectivamente.
+\begin{enumerate}
+  \item $E(c) = c,~ c \in \mathbb R$
+    \begin{myproof}
+      \[E(c) = \int_{-\infty}^{\infty} c f_{\mathcal X}(x)~dx = c \int_{-\infty}^{\infty} f_{\mathcal X}(x)~dx = c \cdot 1 = c\]
+    \end{myproof}
+  \item $E(c \mathcal X) = c E(\mathcal X),~ c \in \mathbb R$
+    \begin{myproof}
+      \[E(c\mathcal X) = \int_{-\infty}^{\infty} cx f_{\mathcal X}(x)~dx = c \int_{-\infty}^{\infty} xf_{\mathcal X}(x)~dx = c E(\mathcal X)\]
+    \end{myproof}
+  \item $E(\mathcal X + \mathcal Y) = E(\mathcal X) + E(\mathcal Y)$
+  \item Si $P(\mathcal X \ge 0) = 1$ (es decir, $\mathcal X \ge 0$ casi seguramente), entonces $E(\mathcal X) \ge 0$
+    \begin{myproof}
+      \[E(\mathcal X) = \int_{-\infty}^{\infty} x f_{\mathcal X}(x)~dx = \int_{-\infty}^{0} xf_{\mathcal X}(x)~dx + \int_{0}^{\infty} xf_{\mathcal X}(x)~dx\]
+      Por hipótesis se concluye lo siguiente.
+      \[E(\mathcal X) = \int_{0}^{\infty} xf_{\mathcal X}(x)~dx \ge 0\]
+    \end{myproof}
+  \item Si $P(\mathcal X \le \mathcal Y) = 1$ (es decir, $\mathcal X \le \mathcal Y$ casi seguramente), entonces $E(\mathcal X) \le E(\mathcal Y)$
+    \begin{myproof}
+      \[P(\mathcal X \le \mathcal Y) = 1 \Longrightarrow P(\mathcal Y - \mathcal X \ge 0) = 1 \Longrightarrow E(\mathcal Y - \mathcal X) \ge 0 ~~~(por \textit{(4)})\]
+      Por \textit{(3)} se tiene lo siguiente.
+      \[E(\mathcal Y - \mathcal X) = E(\mathcal Y) + E(\mathcal {-X}) = E(\mathcal Y) - E(\mathcal X) \ge 0 \Longrightarrow E(\mathcal X) \le E(\mathcal Y) \]
+    \end{myproof}
+  \item $|E(\mathcal X)| \le E(|\mathcal X|)$
+    \begin{myproof}
+      Notemos que $- |\mathcal X| \le \mathcal X \le |\mathcal X|$ casi seguramente.
+      Por \textit{(5)} se tiene que
+      \[-E(|\mathcal X|) \le E(\mathcal X) \le E(|\mathcal X|)
+        \Longleftrightarrow
+      |E(\mathcal X)| \le E(|\mathcal X|)|\]
+    \end{myproof}
+\end{enumerate}
+
+
+\nt{
+  La propiedad \textit{2} y \textit{3} nos dicen que \textit{la esperanza es lineal}.
+}
