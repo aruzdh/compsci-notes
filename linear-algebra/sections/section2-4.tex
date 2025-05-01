@@ -1,0 +1,53 @@
+\section{Invertibily and Isomorphisms}
+We see in this section that the inverse of a linear transformation is also linear. This result greatly aids us  in the study of \textit{inverses} of matrices.
+
+\dfn{Inverse of a function}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear. A function $U : W \longrightarrow V$ is said to be an \textbf{inverse} of \textit{T} if $TU = I_W$ and $UT = I_V$. If \textit{T} has an inverse, then \textit{T} is said to be \textbf{invertible}. Moreover, if \textit{T} is invertible, then the inverse of \textit{T} is unique and is denoted by $T^{-1}$
+}
+
+The following facts hold for invertible functions \textit{T} and \textit{U}.
+\begin{enumerate}
+  \item $(TU)^{-1} = U^{-1} T^{-1}$
+  \item $(T^{-1})^{-1} = T$; in particular, $T^{-1}$ is invertible.
+  \item Let $T : V \longrightarrow W$ be a linear transformation, where \textit{V} and \textit{W} are finite-dimensional spaces of equal dimension. Then \textit{T} is invertible \textit{if and only if} rank(\textit{T}) $=$ dim(\textit{V}).
+\end{enumerate}
+
+\thm{}{
+  Let \textit{V} and \textit{W} be vector spaces, and let $T : V \longrightarrow W$ be linear and invertible. Then $T^{-1} : W \longrightarrow V$ is linear.
+}
+
+It now follows immediately that if \textit{T} is a linear transformation between vector spaces of equal (finite) dimension, then the conditions of being invertible, one-to-one, and onto are all equivalent.
+
+\dfn{Inverse of a matrix}{
+  Let \textit{A} be a $n \times n$ matrix. Then \textit{A} is \textbf{invertible} if there exists and $n \times n$ matrix \textit{B} such that $AB = BA = I$.
+}
+
+\ex{inverse of a matrix}{
+  It's easy to verify that the invese of
+  \[
+  \begin{pmatrix}
+    5 & 7\\
+    2 & 3\\
+  \end{pmatrix}
+  \qquad \text{ is } \qquad
+  \begin{pmatrix}
+    3 & -7\\
+    -2 & 5\\
+  \end{pmatrix}
+  \]
+}
+
+At this point, we develop a number of results that relate the invese of matrices to the inverses of linear transformations.
+
+\mlemma{}{
+  Let \textit{T} be an invertible linear transformation from \textit{V} to \textit{W}. Then \textit{V} is finite-dimensional \textit{if and only if} \textit{W} is finite-dimensional. In this case, dim(\textit{V}) $=$ dim(\textit{W}).
+}
+
+\thm{}{
+  Let \textit{V} and \textit{W} be finite-dimensional vector spaces with ordered bases $\beta$ and $\gamma$, respectively. Let $T : V \longrightarrow W$ be linear. Then \textit{T} is invertible \textit{if and only if} $[T]_\beta^\gamma$ is invertible. Furthermore, $[T^{-1}]_\gamma^\beta = ([T]_\beta^\gamma)^{-1}$.
+}
+
+\cor{}{
+  Let \textit{V} be a finite-dimensional vector space with and ordered basis $\beta$, and let $T : V \longrightarrow V$ be linear. Then \textit{T} is invertible \textit{if and only if} $[T]_\beta$ is invertible. Furthermore, $[T^{-1}]_\beta = ([T]_\beta)^{-1}$.
+}
+
