@@ -1,71 +1,79 @@
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% === Page Layout ===
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
-\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+
+% === Math & Symbols ===
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
 \usepackage[varbb]{newpxmath}
 \usepackage{xfrac}
 \usepackage[makeroom]{cancel}
-\usepackage{mathtools}
-\usepackage{bookmark}
+
+% === Lists ===
 \usepackage[shortlabels]{enumitem}
 % \usepackage{enumitem}
+
+% === Referencing ===
+\usepackage{bookmark}
+\usepackage{nameref}
 \usepackage{hyperref,theoremref}
 \hypersetup{
-	pdftitle={assignment},
-	colorlinks=true, linkcolor=doc!90,
-	bookmarksnumbered=true,
-	bookmarksopen=true
+  pdftitle={assignment},
+  colorlinks=true,
+  linkcolor=doc!90,
+  bookmarksnumbered=true,
+  bookmarksopen=true
 }
-\usepackage[most,many,breakable]{tcolorbox}
+
+% === Colors & Boxes ===
 \usepackage{xcolor}
+\usepackage[most,many,breakable]{tcolorbox}
 \usepackage{varwidth}
 \usepackage{varwidth}
-\usepackage{etoolbox}
-%\usepackage{authblk}
-\usepackage{nameref}
-\usepackage{multicol,array}
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
-\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+
+% === Figures & Graphics ===
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usetikzlibrary{automata,positioning}
+\usepackage{pdfpages}
+% \usepackage{transparent} % Requires PDF mode
 \usepackage{import}
 \usepackage{xifthen}
-\usepackage{pdfpages}
-\usepackage{transparent}
+
+% === Utility Packages ===
+\usepackage{etoolbox}
 \usepackage{chngcntr}
-\usepackage{tikz}
+\usepackage{comment}
 \usepackage{titletoc}
-\usetikzlibrary{automata,positioning}
+\usepackage{multicol,array}
+% \usepackage{authblk}
 
-\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
-\SetCommentSty{mycommfont}
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
-}
+% === Font & Encoding ===
+% \usepackage[T1]{fontenc}           % <-- Only for pdfLaTeX
+% \usepackage{lmodern}              % <-- Only for pdfLaTeX
+\usepackage{fontspec}             % <-- For XeLaTeX / LuaLaTeX
+\setmainfont{JetBrains Mono}[Contextuals=Alternate]
 
-\usepackage{tikzsymbols}
+% === Algorithms ===
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% === TikZ Custom Styles ===
 \tikzset{
-	symbol/.style={
-			draw=none,
-			every to/.append style={
-					edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-		}
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
 }
 \tikzstyle{c} = [circle,fill=black,scale=0.5]
 \tikzstyle{b} = [draw, thick, black, -]
 \tikzset{
-    vertex/.style={
-        circle,
-        draw,
-        minimum size=6mm,
-        inner sep=0pt
-    }
+  vertex/.style={
+    circle,
+    draw,
+    minimum size=6mm,
+    inner sep=0pt
+  }
 }
-\renewcommand\qedsymbol{$\blacksquare$}
-
-%\usepackage{import}
-%\usepackage{xifthen}
-%\usepackage{pdfpages}
-%\usepackage{transparent}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -567,42 +575,52 @@
 \tcbuselibrary{skins}
 \newtcolorbox{note}[1][]{%
 	enhanced jigsaw,
-	colback=gray!20!white,%
-	colframe=gray!80!black,
+	colback=orange!10!white, % light orange background
+	colframe=orange!80!black, % darker orange frame
 	size=small,
 	boxrule=1pt,
 	title=\textbf{Note:-},
 	halign title=flush center,
-	coltitle=black,
+	coltitle=black, % can be changed to orange!50!black if desired
 	breakable,
 	drop shadow=black!50!white,
 	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
 	minipage boxed title=1.5cm,
 	boxed title style={%
-			colback=white,
-			size=fbox,
-			boxrule=1pt,
-			boxsep=2pt,
-			underlay={%
-					\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
-					\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
-					\begin{scope}
-						\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
-						\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
-					\end{scope}
-					\begin{scope}[gray!80!black]
-						\fill (dotA) circle (2pt);
-						\fill (dotB) circle (2pt);
-					\end{scope}
-				},
+		colback=orange!30!white, % orange title box background
+		size=fbox,
+		boxrule=1pt,
+		boxsep=2pt,
+		underlay={%
+			\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
+			\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
+			\begin{scope}
+				\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
+				\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
+			\end{scope}
+			\begin{scope}[orange!80!black] % orange dots
+				\fill (dotA) circle (2pt);
+				\fill (dotB) circle (2pt);
+			\end{scope}
 		},
+	},
 	#1,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\newpara}{
+  \vskip 0.2in
+}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
 
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+\renewcommand\qedsymbol{$\blacksquare$}
 \newcommand{\thm}[2]{\begin{Theorem}{#1}{}#2\end{Theorem}}
 \newcommand{\cor}[2]{\begin{Corollary}{#1}{}#2\end{Corollary}}
 \newcommand{\mlemma}[2]{\begin{Lemma}{#1}{}#2\end{Lemma}}
