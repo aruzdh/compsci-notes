@@ -51,3 +51,18 @@ At this point, we develop a number of results that relate the invese of matrices
   Let \textit{V} be a finite-dimensional vector space with and ordered basis $\beta$, and let $T : V \longrightarrow V$ be linear. Then \textit{T} is invertible \textit{if and only if} $[T]_\beta$ is invertible. Furthermore, $[T^{-1}]_\beta = ([T]_\beta)^{-1}$.
 }
 
+\cor{}{
+  Let \textit{A} be an $n \times n$ matrix. Then \textit{A} is invertible \textit{if and only if} $L_A$ is invertible. Furthermore, $(L_A)^{-1} = L_{A^{-1}}$
+}
+
+The notion of invertibility may be used to formalize what we've been already observerd, that is, that certain vector spaces strongly resemble one another except for the form of their vectors.
+
+\dfn{Isomorphism}{
+  Let \textit{V} and \textit{W} be vector spaces. We say that \textit{V} is \textbf{isomorphic} to \textit{W} if there exists a linear transformation $T : V \rightarrow W$ that's invertible. Such a linear transformation is called an \textbf{Isomorphism} from \textit{V} onto \textit{W}.
+}
+
+\ex{Isomorphism}{
+  Define $T : F^2 \rightarrow P_1(F)$ by $T(a_1, a_2) = a_1 + a_2x$. It's easily checked that \textit{T} us an Isomorphism; so $F^2$ is isomorphic to $P_1(F).$
+}
+
+\typeout{Engine: \ifxetex XeLaTeX\else\ifluatex LuaLaTeX\else pdfTeX\fi\fi}
