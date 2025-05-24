@@ -21,9 +21,9 @@
     $$\delta^*(q,xy) = \delta^*(\delta^*(q,x),y)$$
     Concluya a partir de esto la definición alternativa de $\delta^*$, es decir, que si $a \in \Sigma$ y $x \in \Sigma^*$, entonces $$\delta^*(q,ax) = \delta^*(\delta(q,a),x)$$
 
-    \textbf{Demostración por inducción sobre $y$:} \\ \\
+    \textbf{Demostración por inducción sobre $y$:}
     $$\underline{\text{Caso Base}}$$ Sea $y = \epsilon.~ \text{Por demostrar: }$
-    $$\delta^*(q,x\epsilon) = \delta^*(\delta^*(q,x),\epsilon)$$\\ \\
+    $$\delta^*(q,x\epsilon) = \delta^*(\delta^*(q,x),\epsilon)$$\\
     Por definición de $\delta^*$ (caso base de la definición), $$\delta^*(q,x \epsilon) = \delta^*(q,x) =\delta^*(\delta^*(q,x),\epsilon)$$
 
     $$\underline{\text{Hipotesis de Inducción}}$$ Supongamos que $\forall x,y \in \Sigma^*$ se cumple que $$\delta^* (q,xy) = \delta^*(\delta^*(q,x),y)$$
@@ -44,7 +44,8 @@
     \end{align*}:q
     $$\boxed{\therefore \delta^*(q,ax) = \delta^*(\delta(q,a),x)}$$
     
-    \item (3 pts.) Diseñar AFD's para que reconozcan cada uno de los siguientes lenguajes: \\\\
+    \item (3 pts.) Diseñar AFD's para que reconozcan cada uno de los siguientes lenguajes:
+
     \textbf{NOTA:} En los automas construidos se omiten estados de error, y se da por hecho que si un estado no cuenta con una transción en particular, el automata se detiene y no acepta la cadena.  
 
     \begin{enumerate}
@@ -265,7 +266,7 @@
         \end{center}
     \end{enumerate}
     \newpage
-    \item (3 pts) Para el autómata siguiente, describir informalmente el lenguaje aceptado par $M$ y demostrar por inducción sobre la longitud de una cadena que la descripción es correcta. \\
+    \item (3 pts) Para el autómata siguiente, describir informalmente el lenguaje aceptado par $M$ y demostrar por inducción sobre la longitud de una cadena que la descripción es correcta.
     
     \begin{table}[h]
         \centering
@@ -278,7 +279,7 @@
         \end{tabular}
     \end{table}
     \textbf{Descripción del leguaje aceptado}: \\
-    El autómata acepta cadenas formadas por $a$'s y/o $b$'s, o incluso la cadena vacía, pero con la condición de que la subcadena $aa$ no esté presente.\\
+    El autómata acepta cadenas formadas por $a$'s y/o $b$'s, o incluso la cadena vacía, pero con la condición de que la subcadena $aa$ no esté presente.
     
     \textbf{Demostración por inducción sobre $|w|$}
     
@@ -294,13 +295,15 @@
     $$\underline{\text{Paso Inductivo}}$$  
     Sea $w = sx$, con $s \in \Sigma^*,~x \in \Sigma$, tal que $|sx| = n + 1,~ n >0$. Por demostrar: $$\text{La cadena $sx$ es aceptada por el autómata si $sx$ cumple con la descripción dada. }$$
 
-    Por la construcción de la cadena $sx$, sabemos que $|s| = n$. Por la hipótesis de inducción tenemos que $s$ es aceptada por $M$, y por ende, $s$ no contiene la subcadena $aa$.\\
+    Por la construcción de la cadena $sx$, sabemos que $|s| = n$. Por la hipótesis de inducción tenemos que $s$ es aceptada por $M$, y por ende, $s$ no contiene la subcadena $aa$.
     
     Por otro lado, si $x = a$ tenemos diferentes casos:
     \begin{enumerate}
-        \item $s$ es aceptada y estamos en $q_0$\\
-        La única manera de estar en $q_0$ con $s$ aceptada es cuando el último símbolo visto fue una $b$. Por tanto, al leer una $a$ llegamos a $q_1$. Lo que significa que $sa$ es aceptada y cumple la descripción.\\ 
-        \item $s$ es aceptada y estamos en $q_1$\\
+        \item $s$ es aceptada y estamos en $q_0$
+
+        La única manera de estar en $q_0$ con $s$ aceptada es cuando el último símbolo visto fue una $b$. Por tanto, al leer una $a$ llegamos a $q_1$. Lo que significa que $sa$ es aceptada y cumple la descripción.
+        \item $s$ es aceptada y estamos en $q_1$
+
         Si estamos en $q_1$ con $s$ aceptada y procesamos una $a$, llegamos a $q_2$, indicando que $sa$ no es aceptada debido a que contiene algua $aa$. Lo anterior refuerza la descripción dada anteriormente sobre las cadenas que son aceptadas: solo las cadenas que no contengan $aa$ serán aceptadas.
     \end{enumerate}
 
@@ -346,8 +349,9 @@
             \end{tikzpicture}
         \end{center}
         
-        \item Muestra, usando $\delta^*$, la aceptación de la cadena $abbbb$\\
-        Por un lado tenemos:\\
+        \item Muestra, usando $\delta^*$, la aceptación de la cadena $abbbb$
+
+        Por un lado tenemos:
         \begin{align*}
         &\delta^*(q_i, abbbb) = \bigcup_{p \in \delta^*(q_i, abbb)} \delta(p,b) \\
         &\delta^*(q_i, abbb) = \bigcup_{p \in \delta^*(q_i, abb)} \delta(p,b)\\
@@ -365,10 +369,10 @@
         &\delta^*(q_i, abbbb) = \delta(q_i,b) \cup \delta(q_b, b) \cup \delta(q_{bb},b) \cup \delta(q_f,b) = \{q_i, q_b, q_{bb}, q_f\}\\
         \end{align*}
 
-        \textbf{Dado que hemos llegado al estado $q_f$ desde $q_i$, la cadena es aceptada.}\\
+        \textbf{Dado que hemos llegado al estado $q_f$ desde $q_i$, la cadena es aceptada.}
         
         \newpage
-        \item Transforma $M_3$ a un \textit{AFD} mediante la construcción de subconjuntos.\\
+        \item Transforma $M_3$ a un \textit{AFD} mediante la construcción de subconjuntos.
         
         Los conjuntos quedan definidos de la siguiente manera:
         
@@ -464,7 +468,7 @@
 
     \begin{enumerate}
     
-        \item Calcula paso a paso el reconocimiento de las siguientes cadenas y determina si son o no aceptadas: $\delta^*(q_1, abba)$ y $\delta^*(q_1, abab)$\\
+        \item Calcula paso a paso el reconocimiento de las siguientes cadenas y determina si son o no aceptadas: $\delta^*(q_1, abba)$ y $\delta^*(q_1, abab)$
         
         \textbf{Para la cadena $abba$}\\
         Por un lado tenemos:
@@ -506,9 +510,10 @@
         \end{align*}
         \underline{La cadena $abab$ \textbf{no} es aceptada.}
         
-        \item Da una expresión regular que exprese el lenguaje aceptado por el autómata $M_4$\\
+        \item Da una expresión regular que exprese el lenguaje aceptado por el autómata $M_4$
         
-        \textbf{Expresión regular:} $a^+b^*(a + b)a^*$\\
+        \textbf{Expresión regular:} $a^+b^*(a + b)a^*$
+
         \item Elimina las transiciones $\varepsilon$ para obtener un AFN $M'_4$ tal que $\mathcal{L}(M_4) = \mathcal{L}(M'_4)$\\
         Autómata con $\varepsilon$-transiciones:
         \begin{center}
