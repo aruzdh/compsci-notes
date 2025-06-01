@@ -1,0 +1,80 @@
+\chapter{Momentos de una variable aleatoria}
+
+Los momentos de una variable aleatoria son medidas que describen diferentes aspectos de su comportamiento. Nos ayudan a entender cosas como el promedio, la dispersión, y la forma de la distribución de los valores. En general, los momentos nos ofrecen una forma matemática de capturar información clave sobre cómo se comportan los datos o resultados asociados a esa variable.
+
+\section{Definición}
+\dfn{Momentos de una variable aleatoria}{
+  Sea $\mathcal X$ una variable aleatoria, definimos el \textbf{$n$-ésimo momento} de $\mathcal X$ como:
+  \[\mathbb E(\mathcal X^n), \quad n \in \mathbb N\]
+}
+
+\section{Momentos importantes de una variable aleatoria}
+Algunos de los momentos más importantes son los siguientes.
+\begin{itemize}
+  \item $\mathbb E(\mathcal X)$. La esperanza es el primer momento.
+  \item $\mathbb E([\mathcal X - \mu]^2)$. El segundo momento central.
+  \item $\mathbb E([\mathcal X - \mu]^n)$. El \textit{n}-ésimo momento central.
+  \item $\mathbb E(|\mathcal X |^n)$. El \textit{n}-ésimo momento absoluto.
+  \item $\mathbb E(|\mathcal X - \mu|^n)$. El \textit{n}-ésimo momento absoluto central.
+\end{itemize}
+
+\section{Función generadora de momentos}
+
+\dfn{Función generadora de momentos}{
+  La \textbf{función generadora de momentos} de una variable aleatoria $\mathcal X$ está definida por
+  \[M_\mathcal X = \mathbb E(e^{t\mathcal X})\]
+  Lo que implica que $M_\mathcal X (t)$ se encuentra bien definida para valores de $t$ tales que $\mathbb E(|e^{t \mathcal X}|) < \infty$
+}
+
+\ex{Función generadora de momentos}{
+  Calculemos $M_\mathcal X(t)$ si $\mathcal X \sim \Gamma(\alpha, \lambda)$ con $\alpha, \lambda > 0$.
+
+  \[
+    f_\mathcal X(x) =
+    \begin{cases}
+      \frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\lambda x} & x > 0 \\
+      0 &\text{otro caso}
+    \end{cases}
+  \]
+  Entonces
+  \begin{align*}
+    M_\mathcal X(t) &= \mathbb E(e^{t \mathcal X}) = \int_{-\infty}^{\infty} e^{tx}\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\lambda x} \mathbb 1_{(0, \infty)}^{(x)}dx = \int_0^{\infty} e^{tx}\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-\lambda x} dx\\
+                    &= \lambda^\alpha \int_0^{\infty} \frac1{\Gamma(\alpha)}x^{\alpha -1}e^{tx-\lambda x} dx
+  \end{align*}
+  Multiplicando por $\frac{(\lambda - t)^\alpha}{(\lambda - t)^\alpha}$
+  \begin{align*}
+  M_\mathcal X (t) &= \frac{\lambda^\alpha}{(\lambda - t)^\alpha} \int_0^{\infty} \frac{(\lambda - t)^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-(\lambda - t)x} dx = \frac{\lambda^\alpha}{(\lambda - t)^\alpha} \int_0^{\infty} f_{\mathcal X'}(x)dx = \frac{\lambda^\alpha}{(\lambda - t)^\alpha}
+  \end{align*}
+  Donde $\mathcal X' \sim \Gamma(\alpha, \lambda - t)$ y además $\lambda - t > 0 \Rightarrow \lambda > t$. Por lo tanto, la función generadora de momentos de $\mathcal X$ es
+  \[M_\mathcal X (t) = (\frac{\lambda}{\lambda - t})^2, \quad \lambda > t\]
+}
+
+\ex{Función generadora de momentos}{
+  Calcular $M_\mathcal X(t)$ donde $\mathcal X \sim \text{Poi}(\lambda)$
+  Primera recordemos que
+  \[f_\mathcal X(x) = \frac{e^{-\lambda} \lambda^x}{x!}, \quad x = 0, 1, 2, \cdots\]
+  Entonces
+  \[M_\mathcal X(t) = \mathbb E(e^{-\lambda \mathcal X}) = \sum_{i = 0}^\infty \frac{e^{ti}e^{-\lambda}\lambda^i}{i!} = e^{-\lambda} \sum_{i = 0}^\infty \frac{e^{ti}\lambda^i}{i!} = e^{-\lambda} \sum_{i = 0}^\infty \frac{(e^t \lambda)^i}{i!} = e^{-\lambda}e^{e^t\lambda}\]
+  Esto último se obtuvo usando la serie de la exponencial: 
+  \[e^x = \sum_{k = 0}^\infty \frac{x^k}{k!}\]
+  \[\therefore M_\mathcal X(t) = e^{-\lambda}e^{e^t \lambda} = e^{-\lambda(1 - e^t)}\]
+}
+
+\section{Propiedades de la función generadora de momentos}
+
+\mprop{}{
+  Sea $\mathcal X$ una variable aleatoria con función generadora de momentos $M_\mathcal X (t)$. Entonces se cumple lo siguiente.
+  \begin{enumerate}
+    \item \[\frac{d^n}{dt^n} M_\mathcal X(t) \bigg |_{t = 0} = \mathbb E(\mathcal X^n)\]
+    \item \[\mathbb E(\mathcal X^n) < \infty \text{ cuando } t \in (-s, s) \text{ con } s > 0 \text{ suficientemente pequeño}\]
+    \item \[M_\mathcal X(t) = \sum_{n = 0}^\infty \frac{t^n}{n!} \mathbb E(\mathcal X^n) \leftarrow \quad \text{Serie de Taylor} \]
+  \end{enumerate}
+}
+
+\section{Función característica}
+Aunque la función generadora de momentos no siempre existe, la siguiente existe para todo $t \in \mathbb R$.
+
+\dfn{Función característica}{
+  Sea $\mathcal X$, definimos la \textbf{función característica} de $\mathcal X$ como sigue.
+  \[\Phi_\mathcal X (t)=\mathbb E(e^{it \mathcal X}) = \mathbb E(\cos (t\mathcal X) + i \sin(t \mathcal X))\]
+}
