@@ -75,6 +75,7 @@
 }
 
 
+% \usepackage[spanish]{babel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COLORS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -107,12 +108,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{1cm}
+
 %================================
 % THEOREM BOX
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Theorem}{Theorem}
+\newtcbtheorem[number within=section]{Theorem}{Teorema}
 {%
 	enhanced,
 	breakable,
@@ -132,7 +134,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{theorem}{Theorem}
+\newtcbtheorem[number within=chapter]{theorem}{Teorema}
 {%
 	enhanced,
 	breakable,
@@ -167,10 +169,10 @@
 }
 
 %================================
-% Corollery
+% Corollary
 %================================
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Corollary}{Corollary}
+\newtcbtheorem[number within=section]{Corollary}{Corolario}
 {%
 	enhanced
 	,breakable
@@ -189,7 +191,7 @@
 }
 {th}
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{corollary}{Corollary}
+\newtcbtheorem[number within=chapter]{corollary}{Corolario}
 {%
 	enhanced
 	,breakable
@@ -214,7 +216,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Lemma}{Lemma}
+\newtcbtheorem[number within=section]{Lemma}{Lema}
 {%
 	enhanced,
 	breakable,
@@ -234,7 +236,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{lemma}{lemma}
+\newtcbtheorem[number within=chapter]{lemma}{Lema}
 {%
 	enhanced,
 	breakable,
@@ -258,7 +260,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Exercise}{Exercise}
+\newtcbtheorem[number within=section]{Exercise}{Ejercicio}
 {%
 	enhanced,
 	breakable,
@@ -278,7 +280,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{exercise}{Exercise}
+\newtcbtheorem[number within=chapter]{exercise}{Ejercicio}
 {%
 	enhanced,
 	breakable,
@@ -303,7 +305,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{Prop}{Proposition}
+\newtcbtheorem[number within=section]{Prop}{Proposición}
 {%
 	enhanced,
 	breakable,
@@ -323,7 +325,7 @@
 {th}
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=chapter]{prop}{Proposition}
+\newtcbtheorem[number within=chapter]{prop}{Proposición}
 {%
 	enhanced,
 	breakable,
@@ -348,7 +350,7 @@
 %================================
 
 \tcbuselibrary{theorems,skins,hooks}
-\newtcbtheorem[number within=section]{claim}{Claim}
+\newtcbtheorem[number within=section]{claim}{Afirmación}
 {%
 	enhanced
 	,breakable
@@ -373,7 +375,7 @@
 % EXAMPLE BOX
 %================================
 
-\newtcbtheorem[number within=section]{Example}{Example}
+\newtcbtheorem[number within=section]{Example}{Ejemplo}
 {%
 	colback = myexamplebg
 	,breakable
@@ -390,7 +392,7 @@
 }
 {ex}
 
-\newtcbtheorem[number within=chapter]{example}{Example}
+\newtcbtheorem[number within=chapter]{example}{Ejemplo}
 {%
 	colback = myexamplebg
 	,breakable
@@ -411,7 +413,7 @@
 % DEFINITION BOX
 %================================
 
-\newtcbtheorem[number within=section]{Definition}{Definition}{enhanced,
+\newtcbtheorem[number within=section]{Definition}{Definición}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
 	boxed title style={frame code={
@@ -431,7 +433,7 @@
 		},
 	fonttitle=\bfseries,
 	title={#2},#1}{def}
-\newtcbtheorem[number within=chapter]{definition}{Definition}{enhanced,
+\newtcbtheorem[number within=chapter]{definition}{Definición}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
 	boxed title style={frame code={
@@ -462,7 +464,7 @@
 % \counterwithin{questioncounter}{section}
 
 \makeatletter
-\newtcbtheorem[use counter=questioncounter]{question}{Question}{enhanced,
+\newtcbtheorem[use counter=questioncounter]{question}{Pregunta}{enhanced,
 	breakable,
 	colback=white,
 	colframe=myb!80!black,
@@ -497,7 +499,7 @@
 	colback=white,
 	colframe=myg!80!black,
 	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
-	title=Solution,
+	title=Solución,
 	boxed title size=title,
 	boxed title style={%
 			sharp corners,
@@ -520,7 +522,7 @@
 %================================
 
 \makeatletter
-\newtcbtheorem{qstion}{Question}{enhanced,
+\newtcbtheorem{qstion}{Pregunta}{enhanced,
 	breakable,
 	colback=white,
 	colframe=mygr,
@@ -545,7 +547,7 @@
 }{def}
 \makeatother
 
-\newtcbtheorem[number within=chapter]{wconc}{Wrong Concept}{
+\newtcbtheorem[number within=chapter]{wconc}{Concepto Erróneo}{
 	breakable,
 	enhanced,
 	colback=white,
@@ -578,7 +580,7 @@
 	colframe=orange!80!black, % darker orange frame
 	size=small,
 	boxrule=1pt,
-	title=\textbf{Note:-},
+	title=\textbf{Nota:-},
 	halign title=flush center,
 	coltitle=black, % can be changed to orange!50!black if desired
 	breakable,
