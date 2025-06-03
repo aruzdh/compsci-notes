@@ -1,4 +1,6 @@
 \chapter{Esperanza o Valor esperado}
+\section{Caso discreto}
+
 \dfn{Esperanza (caso discreto)}{
   Si $\mathcal X$ es una variable aleatoria \textit{discreta} con función de probabilidad $f(x) = P(\mathcal X = x)$ (o función de probabilidad de masa). Entonces la \textbf{esperanza o valer esperado} de $\mathcal X$, denotada $E(\mathcal X)$, está definida de la siguiente manera.
   \[E(\mathcal X) = \sum_i i P(\mathcal X = i)\]
@@ -26,6 +28,7 @@
   Aunque una variable aleatoria $\mathcal X$ solo tome valores enteros, $E(\mathcal X)$ no necesariamente es un número entero.
 }
 
+\section{Caso continuo}
 \dfn{Esperanza (caso continuo)}{
   Si $\mathcal X$ es una variable aleatoria continua con función de densidad $f(x)$. Definimos su valor esperado como sigue a continuación.
   \[E(\mathcal X) = \int_{-\infty}^{\infty}x f(x)~dx\]
@@ -56,6 +59,7 @@
   \end{align*}
 }
 
+\section{Esperanza de una composición}
 \mprop{}{
   Sea $\mathcal X$ una variable aleatoria discreta, y \textit{g} una función real. Entonces
   \[E(g(\mathcal X)) = \sum_i g(i)P(\mathcal X = i)\]
@@ -91,6 +95,7 @@
   \end{enumerate}
 }
 
+\section{Propiedades}
 Las siguientes son propiedades de la esperanza o valor esperado. Sea $\mathcal X,~ \mathcal Y$ variables aleatoria con función de densidad $f_{\mathcal X},~ f_{\mathcal Y}$, respectivamente.
 \begin{enumerate}
   \item $E(c) = c,~ c \in \mathbb R$
