@@ -1,21 +1,26 @@
+
 \documentclass{report}
 
-\input{preamble}
+\input{packages}
+\input{fonts}
+\input{colors}
+\input{custom-names}
+\input{box-definitions}
+\input{toc}
 \input{macros}
 \input{letterfonts}
 
-\title{\Huge{2025-2}\\Probability}
+\title{\Huge{2025-2}\\Probabilidad 1}
 \author{\huge{}}
 \date{}
 
 \begin{document}
 
 \maketitle
-\newpage% or \cleardoublepage
-% \pdfbookmark[<level>]{<title>}{<dest>}
+\cleardoublepage
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
-\pagebreak
+\cleardoublepage
 
 \include{chapters/chapter1}
 \include{chapters/chapter2}
