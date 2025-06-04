@@ -47,15 +47,17 @@
 \usepackage{multicol,array}
 
 % === Font & Encoding ===
-\usepackage{fontspec} % Essential for using system fonts
-\setmainfont{Iosevka} % Sets the main text font
+\usepackage{fontspec}            % Essential for using system fonts
+\setmainfont{STIX Two Text}[
+  Scale=MatchLowercase,          % Harmonize text size with math font
+  BoldFont = STIXTwoText_Bold
+]
 
-% Use warnings-off to suppress specific unicode-math warnings about mathtools conflicts
 \usepackage[
   mathrm=sym,
   warnings-off={mathtools-colon,mathtools-overbracket}
 ]{unicode-math}
-\setmathfont{STIX Two Math}
+\setmathfont[displaystyle, Scale=1.1]{STIX Two Math}
 
 % === Algorithms ===
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
