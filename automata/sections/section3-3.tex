@@ -88,7 +88,7 @@ Algunas caracteristicas de estos autómatas son las siguientes.
     &\delta^*(q_1, a) = Cl_{\varepsilon}(\bigcup_{q' \in \delta^*(q_1, \varepsilon)} \delta(q',a)) \\
     &\delta^*(q_1, \varepsilon) = Cl_{\varepsilon}(q_1) \\
   \end{align*}
-  
+
   Sustituyendo de abajo hacia arriba:
   \begin{align*}
     &\delta^*(q_1, \varepsilon) = Cl_{\varepsilon}(q_1) = \{q_1\} \\
@@ -99,8 +99,6 @@ Algunas caracteristicas de estos autómatas son las siguientes.
   \end{align*}
   \underline{La cadena $abba$ \textbf{si} es aceptada.}
 }
-
-\newpage 
 
 \subsection{Eliminación de \texorpdfstring{$\varepsilon$-transiciones}{ε-transiciones}}
 Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$} con la particularidad de que no tiene $\varepsilon$-transiciones.
@@ -130,10 +128,10 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
   \begin{center}
       \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
           \tikzset{initial text={}}
-          
+
           % INITIAL STATE
           \node[state, initial] (q1) {$q_1$}; 
-          
+
           % STATES
           \node[state] (q2) [right=of q1] {$q_2$}; 
           \node[state] (q3) [right=of q2] {$q_3$}; 
@@ -150,15 +148,15 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
               (q3) edge [loop above] node {b} (q3)
               (q4) edge node {$\varepsilon$} (q5)
               (q4) edge [loop below] node {a} (q4);
-          
+
           \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
-      
+
       \end{tikzpicture}
   \end{center}
-  
+
   Autómata sin $\varepsilon$-transiciones:\\
   - Tabla con las $\varepsilon$-transiciones de cada estado:
-  
+
   \begin{center}
       \begin{tabular}{c|c}
           & $Cl_{\varepsilon}(q_i)$ \\
@@ -170,10 +168,10 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
           $q_5$ & $\{q_5\}$ \\
       \end{tabular}
   \end{center}
-  \newpage
+
   Aplicando la nueva delta del AFN definida como: 
   $$\delta(q,a) = \delta^*(q,a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q)} \delta_{\varepsilon}(p,a))$$
-  
+
   \begin{align*}
     &\delta(q_1, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_1)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_1,a)) = Cl_\varepsilon(\{q_2\}) = \{q_2, q_3\} \\
     &\delta(q_1, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_1)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_1,b)) = Cl_\varepsilon(\varnothing) = \varnothing \\
@@ -192,10 +190,10 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
   \begin{center}
       \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
           \tikzset{initial text={}}
-          
+
           % INITIAL STATE
           \node[state, initial] (q1) {$q_1$}; 
-          
+
           % STATES
           \node[state] (q2) [right=of q1] {$q_2$}; 
           \node[state] (q3) [right=of q2] {$q_3$}; 
@@ -215,7 +213,7 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
               (q3) edge [bend left=50] node {a,b} (q5)
               (q4) edge node {a} (q5)
               (q4) edge [loop below] node {a} (q4);
-          
+
           \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
       \end{tikzpicture}\\
   \end{center}
@@ -225,7 +223,7 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
   Dado el \textit{AFN} obtenido en el ejemplo previo. 
   Se elimina el no-determinismo para encontrar un AFD $M''$ tal que $\mathcal{L}(M') = \mathcal{L}(M'')$\\
     Los conjuntos quedan definidos de la siguiente manera:
-    
+
     \begin{center}
       \begin{tabular}{c|c|c}
         \hline
@@ -244,19 +242,19 @@ Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$}
         \hline
       \end{tabular}
     \end{center}
-    
+
   Así, el autómata queda de la siguiente manera
   \begin{center}
       \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto]
           \tikzset{initial text={}}
-          
+
           % Estados
           \node[state, initial] (q1) {$q_1$}; 
           \node[state] (q23) [right=of q1] {$q_2 q_3$}; 
           \node[state, accepting] (q2345) [right=of q23] {$q_2 q_3 q_4 q_5$};
           \node[state, accepting] (q345) [below=of q2345] {$q_3 q_4 q_5$};
           \node[state, accepting] (q45) [below=of q345] {$q_4 q_5$};
-          
+
           % Transiciones
           \path[->]
               (q1) edge node {a} (q23)

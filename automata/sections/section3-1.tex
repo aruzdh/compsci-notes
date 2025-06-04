@@ -92,7 +92,7 @@ Definido lo anterior, podemos procesar \textit{cadenas} y saber si una cadena es
     &\delta^*(q_0, 101) = \delta(\delta^*(q_0, 10),1)\\
     &\delta^*(q_0, 10) = \delta(\delta^*(q_0, 1),0)\\
     &\delta^*(q_0, 1) = \delta(\delta^*(q_0, \varepsilon),1)\\
-    &\delta^*(q_0, \varepsilon) = q_0\\
+    &\delta^*(q_0, \varepsilon) = q_0
   \end{align*}
 
   Sustituyendo en sentido contrario obtenemos
@@ -106,7 +106,7 @@ Definido lo anterior, podemos procesar \textit{cadenas} y saber si una cadena es
 
 \subsection{Diseño de AFD por Complemento}
 
-Dado un lenguaje \textit{L} a veces es más facil diseñar un autómata para el complemento $\overline L = \Sigma^* - L$. Entonces, si $M = (Q, \Sigma, \delta, q_0, F)$ reconoce a \textit{L}, es decir $L(M) = L$, entonces $M^c = (Q, \Sigma, \delta, q_0, Q - F)$ reconoce a $\Sigma^* - L$, es decir $L(M^c) = \overline L$
+Dado un lenguaje \textit{L} a veces es más facil diseñar un autómata para el complemento $\overline{L}= \Sigma^* - L$. \\Entonces, si $M = (Q, \Sigma, \delta, q_0, F)$ reconoce a \textit{L}, es decir $L(M) = L$, entonces $M^c = (Q, \Sigma, \delta, q_0, Q - F)$ reconoce a $\Sigma^* - L$, es decir $L(M^c) = \overline{L}$
 
 \nt{
   El método anterior solo funciona para \textit{AFD}
@@ -162,7 +162,6 @@ Dado un lenguaje \textit{L} a veces es más facil diseñar un autómata para el 
   Si el \textit{AFD} no tiene todas sus transiciones de forma explicita, es casi seguro que para su complemento serán necesarias.
 }
 
-\newpage
 \subsection{Modularización}
 A veces la especificación de un lenguaje tiene una forma lógica que permite descomponerlo en lenguajes más sencillos.
 
