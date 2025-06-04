@@ -1,16 +1,15 @@
 % === Page Layout ===
-\usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage[margin=0.85in, bmargin=2cm, footskip=.2in]{geometry}
 
 % === Math & Symbols ===
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
 \usepackage{mathtools}
-\usepackage[varbb]{newpxmath}
+% \usepackage[varbb]{newpxmath} 
 \usepackage{xfrac}
 \usepackage[makeroom]{cancel}
 
 % === Lists ===
 \usepackage[shortlabels]{enumitem}
-% \usepackage{enumitem}
 
 % === Referencing ===
 \usepackage{bookmark}
@@ -28,7 +27,6 @@
 \usepackage{xcolor}
 \usepackage[most,many,breakable]{tcolorbox}
 \usepackage{varwidth}
-\usepackage{varwidth}
 
 % === Figures & Graphics ===
 \usepackage{tikz}
@@ -45,13 +43,17 @@
 \usepackage{comment}
 \usepackage{titletoc}
 \usepackage{multicol,array}
-% \usepackage{authblk}
 
 % === Font & Encoding ===
-% \usepackage[T1]{fontenc}           % <-- Only for pdfLaTeX
-% \usepackage{lmodern}              % <-- Only for pdfLaTeX
-\usepackage{fontspec}             % <-- For XeLaTeX / LuaLaTeX
-\setmainfont{Iosevka}[Contextuals=Alternate]
+\usepackage{fontspec} % Essential for using system fonts
+\setmainfont{Iosevka} % Sets the main text font
+
+% Use warnings-off to suppress specific unicode-math warnings about mathtools conflicts
+\usepackage[
+  mathrm=sym,
+  warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+\setmathfont{STIX Two Math}
 
 % === Algorithms ===
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
@@ -64,8 +66,8 @@
       edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
   }
 }
-\tikzstyle{c} = [circle,fill=black,scale=0.5]
-\tikzstyle{b} = [draw, thick, black, -]
+\tikzset{ c/.style={circle,fill=black,scale=0.5} }
+\tikzset{ b/.style={draw, thick, black, -} }
 \tikzset{
   vertex/.style={
     circle,
