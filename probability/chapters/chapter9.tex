@@ -3,14 +3,14 @@
 
 \dfn{Función generadora de probabilidad}{
   Sea $\mathcal X$ una variable aleatoria que toma valores enteros positivos $\mathbb Z^+$. La \textbf{función generadora de probabilidad} se define de la siguiente manera.
-  \[G(t) = \mathbb E(t^\mathcal X)\]
+  \[G(t) = \mathbb E(t^{\mathcal X})\]
 }
 
 \ex{Función generadora de probabilidad}{
   Calculemos la función generadora de probabilidad para $\mathcal X \sim \text{Poi}(\lambda)$
 
   \begin{align*}
-  G(t) &= \mathbb{E}(t^\mathcal X) = \sum_{n=0}^{\infty} t^n P(X = n) = \sum_{n=0}^{\infty} t^n \frac{e^{-\lambda}\lambda^n}{n!} \\
+    G(t) &= \mathbb{E}(t^{\mathcal X}) = \sum_{n=0}^{\infty} t^n P(X = n) = \sum_{n=0}^{\infty} t^n \frac{e^{-\lambda}\lambda^n}{n!} \\
   &= e^{-\lambda} \sum_{n=0}^{\infty} \frac{(t\lambda)^n}{n!} = e^{-\lambda}e^{\lambda t} = e^{-\lambda(1-t)}
   \end{align*}
 }
@@ -44,7 +44,7 @@ Definimos los siguientes experimentos:
         0 & \text{si sale un número par}
     \end{cases}$
 \end{itemize}
-En este caso observamos que $\mathcal X \neq \mathcal Y \neq \mathcal Z$, sin embargo, $\mathcal X \sim \text{Ber}(1/2)$, $\mathcal Y \sim \text{Ber}(1/2)$, $\mathcal Z \sim \text{Ber}(1/2)$. Lo anterior significa que las variables son iguales en distribución y lo denotamos por $\mathcal X \stackrel{d}{\sim} \mathcal Y \stackrel{d}{\sim} \mathcal Z$, es decir $F_\mathcal X(y)=F_\mathcal Y(y)=F_\mathcal Z(y) \quad \forall y \in \mathbb{R}$.
+En este caso observamos que $\mathcal X \neq \mathcal Y \neq \mathcal Z$, sin embargo, $\mathcal X \sim \text{Ber}(1/2)$, $\mathcal Y \sim \text{Ber}(1/2)$, $\mathcal Z \sim \text{Ber}(1/2)$. Lo anterior significa que las variables son iguales en distribución y lo denotamos por $\mathcal X \stackrel{d}{\sim} \mathcal Y \stackrel{d}{\sim} \mathcal Z$, es decir $F_{\mathcal X}(y)=F_{\mathcal Y}(y)=F_{\mathcal Z}(y) \quad \forall y \in \mathbb{R}$.
 
 \dfn{Variables aleatorias iguales en distribución}{
   Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias. Se dice que son iguales en distribución si
@@ -58,10 +58,10 @@ En este caso observamos que $\mathcal X \neq \mathcal Y \neq \mathcal Z$, sin em
 
 \section{Propiedad de igualdad en distribución}
 \mprop{Igualdad en distribución}{
-  Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias con función generadora de momentos $M_\mathcal X(t)$ y $M_\mathcal Y (t)$, respectivamente, y además se cumple que $M_\mathcal X(t) = M_\mathcal Y(t)$ para todo $t \in (-s, s), s > 0$. Entonces
+  Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias con función generadora de momentos $M_{\mathcal X}(t)$ y $M_{\mathcal Y} (t)$, respectivamente, y además se cumple que $M_{\mathcal X}(t) = M_{\mathcal Y}(t)$ para todo $t \in (-s, s), s > 0$. Entonces
   \[\mathcal X \stackrel{d}{=} \mathcal Y\]
 }
 
 \nt{
-  La proposición anterior también se cumple para la función generadora de probabilidad, es decir, si en lugar de usar $M_\mathcal X(t)$ y $M_\mathcal Y(t)$ usamos $G_\mathcal X(t)$ y $G_\mathcal Y(t)$ para todo $t \in (-s, s), s > 0$. Entonces $\mathcal X \stackrel{d}{=} \mathcal Y$.
+  La proposición anterior también se cumple para la función generadora de probabilidad, es decir, si en lugar de usar $M_{\mathcal X}(t)$ y $M_{\mathcal Y}(t)$ usamos $G_{\mathcal X}(t)$ y $G_{\mathcal Y}(t)$ para todo $t \in (-s, s), s > 0$. Entonces $\mathcal X \stackrel{d}{=} \mathcal Y$.
 }
