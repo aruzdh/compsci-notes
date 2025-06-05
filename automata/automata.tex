@@ -1,8 +1,6 @@
 \documentclass{report}
 
-\input{preamble}
-\input{macros}
-\input{letterfonts}
+\input{preamble/preamble}
 
 \title{\Huge{2025-2}\\Autómatas y Lenguajes Formales}
 \author{\huge{}}
@@ -11,11 +9,10 @@
 \begin{document}
 
 \maketitle
-\newpage% or \cleardoublepage
-% \pdfbookmark[<level>]{<title>}{<dest>}
+\cleardoublepage
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
-\pagebreak
+\cleardoublepage
 
 \include{chapters/chapter1}
 \include{chapters/chapter2}
