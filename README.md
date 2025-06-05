@@ -1,4 +1,4 @@
-# 🖥️ Computer Science Notes 📓
+# 🖥️ Comp. Sci. Notes 📓
 
 Computer science notes organized by subject, each as a separate LaTeX project with modular structure. Includes a robust LaTeX template for consistent formatting across all subjects.
 
@@ -13,7 +13,8 @@ Computer science notes organized by subject, each as a separate LaTeX project wi
 
 ## ⚠️ Compilation Requirements
 
-**This template MUST be compiled with XeLaTeX or LuaLaTeX.** Standard `pdflatex` will not work as it does not support OpenType fonts or the advanced features of `fontspec` and `unicode-math`.
+> [!CAUTION]  
+> **This template MUST be compiled with XeLaTeX or LuaLaTeX.** Standard `pdflatex` will not work as it does not support OpenType fonts or the advanced features of `fontspec` and `unicode-math`.
 
 ## Font Configuration
 
