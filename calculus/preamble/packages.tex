@@ -1,0 +1,73 @@
+
+% === Page Layout ===
+\usepackage[margin=0.85in, bmargin=2cm, footskip=.2in]{geometry}
+
+% === Math & Symbols ===
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+% \usepackage[varbb]{newpxmath} 
+\usepackage{xfrac}
+\usepackage[makeroom]{cancel}
+
+% === Lists ===
+\usepackage[shortlabels]{enumitem}
+
+% === Referencing ===
+\usepackage{bookmark}
+\usepackage{nameref}
+\usepackage{hyperref,theoremref}
+\hypersetup{
+  pdftitle={assignment},
+  colorlinks=true,
+  linkcolor=doc!90,
+  bookmarksnumbered=true,
+  bookmarksopen=true
+}
+
+% === Colors & Boxes ===
+\usepackage{xcolor}
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{varwidth}
+
+% === Figures & Graphics ===
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+\usetikzlibrary{automata,positioning}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{pdfpages}
+% \usepackage{transparent} % Requires PDF mode
+\usepackage{import}
+\usepackage{xifthen}
+
+% === Utility Packages ===
+\usepackage{etoolbox}
+\usepackage{chngcntr}
+\usepackage{comment}
+\usepackage{titletoc}
+\usepackage{multicol,array}
+
+% === Font & Encoding ===
+
+% === Algorithms ===
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% === TikZ Custom Styles ===
+\tikzset{
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
+}
+\tikzset{ c/.style={circle,fill=black,scale=0.5} }
+\tikzset{ b/.style={draw, thick, black, -} }
+\tikzset{
+  vertex/.style={
+    circle,
+    draw,
+    minimum size=6mm,
+    inner sep=0pt
+  }
+}
+

@@ -1,0 +1,13 @@
+
+\usepackage{fontspec}            % Essential for using system fonts
+\setmainfont{STIX Two Text}[
+  Scale=MatchLowercase,          % Harmonize text size with math font
+  BoldFont = STIXTwoText_Bold
+]
+
+\usepackage[
+  mathrm=sym,
+  warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+\setmathfont[displaystyle]{STIX Two Math}
+\usepackage[english, shorthands=off]{babel}
