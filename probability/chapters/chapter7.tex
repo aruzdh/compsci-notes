@@ -1,134 +1,393 @@
-\chapter{Varianza}
-\section{Definicion caso discreto y continuo}
+\chapter{Teorema del límite central}
+\section{Vectores aleatorios y función de probabilidad conjunta}
+\subsection{Vector aleatorio}
 
-\dfn{Varianza}{
-  La \textbf{varianza} de una variable aleatoria $\mathcal X$, denotada por $\Var(\mathcal X)$, se define de la siguiente forma.
-  \[\Var(\mathcal X) = \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2)\]
-  Cuando dicha esperanza existe.
+Se sabe que una \textit{variable aleatoria es una función} que tiene \textit{dominio en el espacio muestral} $\Omega$ y \textit{toma valores en} $\mathbb R$. Sin embargo, este concepto se puede expandir a $\mathbb R^n$, y por tanto, definir una función $f: \Omega \longrightarrow \mathbb R^n$. Visto de otra manera:
+\[w \mapsto (\mathcal X_1(w), \mathcal X_2(w), \cdots, \mathcal X_n(w)) = \mathcal X(w)\]
+A esta nueva función se le conoce como \textit{vector aleatorio}.
+
+\dfn{Vector aleatorio}{
+  Decimos que $\mathcal X$ es un \textbf{vector aleatorio} si
+  \[\mathcal X = (\mathcal X_1(w), \mathcal X_2(w), \cdots, \mathcal X_n(w))\]
+  donde cada $\mathcal X_i$ es una variable aleatoria.
+}
+
+\ex{Vector aleatorio}{
+  Se lanza un dado 2 veces. Definimos las siguientes variables aleatorias.
+  \[\mathcal X_1 := \text{Valor máximo de los lanzamientos}\]
+  \[\mathcal X_2 := \text{Valor mínimo de los lanzamientos}\]
+  \[\mathcal X_3 := \text{La suma de los valores en los lanzamientos}\]
+
+  Con lo anterior, nuestro espacio muestral es el siguiente.
+\[
+  \Omega = \left\{
+  \begin{matrix}
+  (1,1) & (1,2) & (1,3) & (1,4) & (1,5) & (1,6) \\
+  (2,1) & (2,2) & (2,3) & (2,4) & (2,5) & (2,6) \\
+  (3,1) & (3,2) & (3,3) & (3,4) & (3,5) & (3,6) \\
+  (4,1) & (4,2) & (4,3) & (4,4) & (4,5) & (4,6) \\
+  (5,1) & (5,2) & (5,3) & (5,4) & (5,5) & (5,6) \\
+  (6,1) & (6,2) & (6,3) & (6,4) & (6,5) & (6,6)
+  \end{matrix}
+  \right\}
+\]
+Supongamos que en los dados obtuvimos los valores de 4 y 3. En este caso nuestro vector $\mathcal X$ se ve como:
+\[\mathcal X((4,3)) = (\mathcal X_1((3,4)), \, \mathcal X_2((3,4)), \, \mathcal X_3((3,4))) = (4,3,7)\]
+Notese que se obtuvo un vector en $\mathbb R^3$.
+}
+
+Al igual que las variables aleatorias, los vectores aleatorios se dividen en \textit{discretos} y \textit{continuos} de acuerdo con las variables que los definen. 
+
+\dfn{Vector aleatorio discreto}{
+  Decimos que un \textit{vector aleatorio} $\mathcal X = (\mathcal X_1, \mathcal X_2, \cdots, \mathcal X_n)$ es \textbf{discreto} si $\forall i = 1, \cdots, n, \, \mathcal X_i$ es una variable aleatoria discreta.
+}
+
+\dfn{Vector aleatorio continuo}{
+  Decimos que un \textit{vector aleatorio} $\mathcal X = (\mathcal X_1, \mathcal X_2, \cdots, \mathcal X_n)$ es \textbf{continuo} si $\forall i = 1, \cdots, n, \, \mathcal X_i$ es una variable aleatoria continua.
+}
+
+\subsection{Función de probabilidad conjunta}
+De la misma manera, podemos calcular la probabilidad de que el vector aleatorio tome ciertos valores con la siguiente Definición.
+
+\dfn{Función de probabilidad conjunta}{
+  La \textbf{función de probabilidad conjunta} de dos variables aleatorias $\mathcal X$ y $\mathcal Y$, denotada $f_{\mathcal X, \mathcal Y}(x,y)$, es la función que asigna a cada par de valores $(x,y)$ la probabilidad de que las variables aleatorias $\mathcal X$ y $\mathcal Y$ tomen esos valores simultáneamente.
+
+  \[
+    f_{\mathcal X, \mathcal Y}(x,y) = P(\mathcal X = x, \, \mathcal Y = y)
+  \]
+  donde $(x,y)$ está en la imagen de $(\mathcal X, \, \mathcal Y)$. En caso contrario, la función vale 0.
+}
+
+\nt{
+  La definición anterior está dada para 2 variables aleatorias, pero se puede extender para \textit{n} variables con $P(\mathcal X_1 = x_1, \, \mathcal X_2 = x_2, \, \cdots, \, \mathcal X_n = x_n)$
+}
+
+\ex{Función de probabilidad conjunta}{
+  Se lanza una moneda justa tres veces consecutivas y deseamos analizar el comportamiento de las siguientes variables aleatorias.
+
+  \[\mathcal Y = \text{Número de soles obtenidos en las primeros dos lanzamientos}\]
+  \[\mathcal X = \text{Número de soles obtenidos en las últimos dos lanzamientos}\]
+
+  El espacio muestral se puede ver como
+  \[
+    \Omega = \left\{
+      \begin{matrix}
+        AAA & ASA \\
+        AAS & ASS \\
+        SAA & SAS \\
+        SSA & SSS \\
+      \end{matrix}
+    \right\}
+  \]
+  Con esto tenemos que nuestras variables pueden tomar los valores $\{0,1,2\}$, y entonces podemos obtener las siguientes probabilidades.
+
+  \begin{align*}
+    P(\mathcal X = 0, \, \mathcal Y = 0) = \sfrac18 \\
+    P(\mathcal X = 0, \, \mathcal Y = 1) = \sfrac18 \\ 
+    P(\mathcal X = 0, \, \mathcal Y = 2) = 0 \\ 
+    P(\mathcal X = 1, \, \mathcal Y = 0) = \sfrac18 \\ 
+    P(\mathcal X = 1, \, \mathcal Y = 1) = \sfrac14 \\ 
+    P(\mathcal X = 1, \, \mathcal Y = 2) = \sfrac18 \\ 
+    P(\mathcal X = 2, \, \mathcal Y = 0) = 0 \\ 
+    P(\mathcal X = 2, \, \mathcal Y = 1) = \sfrac18 \\ 
+    P(\mathcal X = 2, \, \mathcal Y = 2) = \sfrac18 \\ 
+  \end{align*}
+}
+
+\section{Independencia y distribuciones marginales}
+
+\subsection{Definición de variables aleatorias independientes}
+Recordemos que si dos eventos $A, B \in \mathcal F$ son independientes, entonces
+\[P(A \cap B) = P(A)P(B)\]
+
+\dfn{Variables aleatorias independientes}{
+  Decimos que las variables aleatorias $\mcX$ y $\mcY$ son \textbf{variables aleatorias independientes} si 
+  \[\forall B, C \subseteq \bbR,\, P(\mcX \in B, \, \mcY \in C) = P(\mcX \in B)P(\mcY \in C)\]
+}
+
+Ademas, podemos extenderlo de la siguiente manera.
+\[f_{\mcX, \mcY}(x,y) = P(\mcX = x, \, \mcY = y) = P(\mcX = x)P(\mcY = y) = f_{\mcX}(x) f_{\mcY}(y)\]
+
+\nt{
+  Si $\mcX$ y $\mcY$ son variables aleatorias \textit{discretas}, entonces $f_{\mcX}$, y $f_{\mcY}$ son funciones de probabilidad y $f_{\mcX, \mcY}$ es la función de probabilidad conjunta.
   \newpara
-  De este modo, existen dos casos.
-  \begin{itemize}
-    \item Caso discreto.
-      \[\Var(\mathcal X) = \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2) = \sum_i (i - \mathbb E(\mathcal X))^2 P(\mathcal X = i)\]
-    \item Caso continuo.
-      \[\Var(\mathcal X) = \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2) = \int_{-\infty}^\infty (x - \mathbb E(\mathcal X))^2 f_{\mathcal X} (x)dx\]
-  \end{itemize}
+  Si $\mcX$ y $\mcY$ son variables aleatorias \textit{continuas}, entonces $f_{\mcX}$, y $f_{\mcY}$ son funciones de densidad y $f_{\mcX, \mcY}$ es la función de densidad conjunta.
 }
 
-\nt {
-  Retomando el ejemplo de una variable aleatoria normal, podemos decir que la varianza ($\sigma ^2$) nos indica que tanto se alejan los datos del valor esperado (esperanza).
+\subsection{Distribuciones marginales}
+
+\dfn{Distribuciones marginales}{
+  Sea ($\mcX, \mcY$) un vector aleatorio \textit{discreto}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
+
+  \[f_{\mcX}(x) = P(\mcX = x) = \sum_j f(x,j) = \sum_j P(\mcX = x, \, \mcY = j)\]
+  \[f_{\mcY}(y) = P(\mcY = y) = \sum_i f(i,y) = \sum_i P(\mcX = i, \, \mcY = y)\]
+
+  Donde $j$ son todos los valores que toma $\mcY$, mientras que $i$ son todos los valores que toma $\mcX$.
 }
 
-\section{Propiedades}
-Las siguientes son propiedades de la varianza. Sean $\mathcal X, \mathcal Y$ variables aleatorias con varianza finita y $c \in \mathbb R$.
+\dfn{Distribuciones marginales}{
+  Sea ($\mcX, \mcY$) un vector aleatorio \textit{continuo}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
 
-\begin{enumerate}
-\item $\Var(\mathcal X) \ge 0$
-  \begin{myproof}
-    $\Var(\mathcal X) = \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2)$ donde podemos notar que $(\mathcal X - \mathbb E(\mathcal X))^2 \ge 0$
-    \[\therefore \, \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2) \ge 0 \]
-  %
-  \end{myproof}
-\item $\Var(c) = 0$
-  \begin{myproof}
-    \[\Var(c) = \mathbb E([c - \mathbb E(c)]^2) = \mathbb E([c - c]^2) = \mathbb E(0) = 0\]
-  \end{myproof}
-\item $\Var(c \mathcal X) = c^2 \Var(\mathcal X)$
-  \begin{myproof}
-    \[\Var(c\mathcal X) = \mathbb E([c\mathcal X - \mathbb E(c\mathcal X)]^2) = \mathbb E([c\mathcal X - c\mathbb E(\mathcal X)]^2) = \mathbb E(c^2[\mathcal X - \mathbb E(\mathcal X)]^2) = c^2\mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2) = c^2 \Var(\mathcal X)\]
-  \end{myproof}
-\item $\Var(\mathcal X + c) = \Var(\mathcal X)$
-  \begin{myproof}
-    \[\Var(\mathcal X + c) = \mathbb E([\mathcal X + c - \mathbb E(\mathcal X + c)]^2) = \mathbb E([\mathcal X + c - \mathbb E(\mathcal X) - c]^2) = \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2) = \Var(\mathcal X)\]
-  \end{myproof}
-\item $\Var(\mathcal X) = \mathbb E(\mathcal X^2) - [\mathbb E(\mathcal X)]^2$
-  \begin{myproof}
-    \begin{align*}
-      \Var(\mathcal X) &= \mathbb E([\mathcal X - \mathbb E(\mathcal X)]^2)\\
-                             &= \mathbb E(\mathcal X^2 - 2\mathcal X\mathbb E(\mathcal X) + (\mathbb E(\mathcal X))^2)
-                             &= \mathbb E(\mathcal X^2) - 2 \mathbb E(\mathcal X) \mathbb E(\mathcal X) + (\mathbb E(\mathcal X))^2 = \mathbb E(\mathcal X) - (\mathbb E(\mathcal X))^2
-    \end{align*}
-  \end{myproof}
-\item En general, $\Var(\mathcal X + \mathcal Y) \neq \Var(\mathcal X) +\Var(\mathcal Y)$
-  \begin{myproof}
-    \begin{align*}
-      \Var(\mathcal X + \mathcal Y) &= \mathbb E \left([(\mathcal X + \mathcal Y) - \mathbb E(\mathcal X + \mathcal Y)]^2\right) \\
-                      &= \mathbb E \left([(\mathcal X + \mathcal Y)]^2 - 2(\mathcal X + \mathcal Y)\mathbb E(\mathcal X + \mathcal Y) + (\mathbb E(\mathcal X + \mathcal Y))^2\right) \\
-                      &= \mathbb E \left([\mathcal X^2 + 2\mathcal X \mathcal Y + \mathcal Y^2] - 2(\mathcal X + \mathcal Y)(\mathbb E(\mathcal X) + \mathbb E(\mathcal Y)) + (\mathbb E(\mathcal X)^2 + 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y) + \mathbb E(\mathcal Y)^2)\right) \\
-                      &= \mathbb E \left(\mathcal X^2 + 2\mathcal X \mathcal Y + \mathcal Y^2 - [2\mathcal X\mathbb E(\mathcal X) + 2\mathcal X\mathbb E(\mathcal Y) + 2\mathcal Y\mathbb E(\mathcal X) + 2\mathcal Y\mathbb E(\mathcal Y)] \right. \\
-                      &\qquad\qquad \left. + [\mathbb E(\mathcal X)^2 + 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y) + \mathbb E(\mathcal Y)^2]\right) \\
-                      &= \mathbb E \left([\mathcal X - \mathbb E(\mathcal X)]^2 + [\mathcal Y - \mathbb E(\mathcal Y)]^2 + 2\mathcal X \mathcal Y - 2\mathcal X\mathbb E(\mathcal Y) - 2\mathcal Y\mathbb E(\mathcal X) + 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y)\right) \\
-                      &= \Var(\mathcal X) + \Var(\mathcal Y) + 2\mathbb E(\mathcal X \mathcal Y) - 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y) - 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y) + 2\mathbb E(\mathcal X)\mathbb E(\mathcal Y) \\
-                      &= \Var(\mathcal X) + \Var(\mathcal Y) + 2(\mathbb E(\mathcal X \mathcal Y) - \mathbb E(\mathcal X)\mathbb E(\mathcal Y)) \neq \Var(\mathcal X) + \Var(\mathcal Y)
-    \end{align*}
-  \end{myproof}
-\end{enumerate}
+  \[f_{\mcX}(x) = \int_{-\infty}^{\infty} f_{\mcX, \mcY}(x,y) \,dy \]
+  \[f_{\mcY}(y) = \int_{-\infty}^{\infty} f_{\mcX, \mcY}(x,y) \,dx \]
 
-\ex{Varianza}{
-  Calcular $\Var(\mathcal X)$ si $\mathcal X \sim \text{exp}(\lambda)$
-  De un ejemplo anterior sabemos que $\mathbb E(\mathcal X) = \frac1\lambda$. Usando la propiedad 5 podemos hacer lo siguiente.
-  \[\Var(\mathcal X) = \mathbb E(\mathcal X^2) - [\mathbb E(\mathcal X)]^2 = \mathbb E (\mathcal X^2) = (\frac1\lambda)^2\]
+  Donde $j$ son todos los valores que toma $\mcY$, mientras que $i$ son todos los valores que toma $\mcX$.
+}
 
-  Por otro lado,
-  \[
-    \mathbb E(\mathcal X^2) = \int_{-\infty}^\infty x^2 \lambda e^{-\lambda x}\mathbb 1_{(0, \infty)}^{(x)}dx = \lambda \int_0^\infty x^2 e^{-\lambda x}dx
-  \]
-  Usando la siguiente sustitución
-  \[
-    u = x^2 \Longrightarrow du = 2xdx \qquad dv = e^{-\lambda x}dx \Longrightarrow v = -\frac{e^{-\lambda x}}\lambda
-  \]
-  obtenemos
+\ex{Distribuciones marginales}{
+  Consideremos el mismo experimento del ejemplo anterior (lanzar 3 monedas justas) y las mismas variables aleatorias. Las probabilidades marginales se calculan como sigue.
+
   \begin{align*}
-    \mathbb{E}(X^2) &= \lambda \left[-\frac{x^2e^{-\lambda x}}{\lambda}\bigg|_0^\infty + \frac{2}{\lambda}\int_0^\infty xe^{-\lambda x}dx\right] = \lambda\left[\frac{2}{\lambda^2}\int_0^\infty x\lambda e^{-\lambda x}dx\right] \\
-    &= \lambda\left[\frac{2}{\lambda^2}\int_0^\infty xf_X(x)dx\right] = \lambda\left[\frac{2}{\lambda^2}\mathbb{E}(X)\right] = \lambda\left[\frac{2}{\lambda^2}\frac{1}{\lambda}\right] = \frac{2}{\lambda^2} = \mathbb{E}(X^2)
+    f_{\mcX}(0) &= \sum_{i=0}^2 f_{\mcX}(0,i)\\ 
+                &= \sum_{i=0}^2 P(\mcX = 0, \, \mcY = i)\\
+                &= P(\mcX = 0, \, \mcX = 0) + P(\mcX = 0, \, \mcX = 1) + P(\mcX = 0, \, \mcX = 2)\\
+                &= \frac18 + \frac18 + 0 = \frac14
+  \end{align*}
+  El resultado anterior nos dice que la probabilidad de obtener 0 soles en los últimos dos lanzamientos es de $\frac14$.
+
+  Usando el mismo método se obtiene lo siguiente.
+  \[
+    P(\mcX = 0) = P(\mcX = 0, \, \mcX = 0) + P(\mcX = 0, \, \mcX = 1) + P(\mcX = 0, \, \mcX = 2) = \frac18 + \frac18 + 0 = \frac14
+  \]
+  \[
+    P(\mcX = 1) = P(\mcX = 1, \, \mcX = 0) + P(\mcX = 1, \, \mcX = 1) + P(\mcX = 1, \, \mcX = 2) = \frac18 + \frac14 + \frac18 = \frac12
+  \]
+  \[
+    P(\mcX = 2) = P(\mcX = 2, \, \mcX = 0) + P(\mcX = 2, \, \mcX = 1) + P(\mcX = 2, \, \mcX = 2) = 0 + \frac18 + \frac18 = \frac14
+  \]
+  El caso para la variables aleatorias $\mcY$ es análogo.
+}
+
+Así, podemos afirmar que, dadas dos variables aleatorias independientes $\mcX$ y $\mcY$, se tiene que
+
+\begin{itemize}
+  \item Caso discreto: $P(\mcX = x, \, \mcY = y) = P(\mcX = x)P(\mcY = y)$
+  \item Caso continuo: $f_{\mcX, \mcY}(x,y) = f_{\mcX}(x) f_{\mcY}(y)$
+\end{itemize}
+
+\section{Independencia y valor esperado}
+Podemos establecer una relación entre la independencia y la esperanza (valor esperado). Si consideramos dos variables aleatorias discretas independientes con $g,h : \bbR \longrightarrow \bbR$ funciones reales, entones podemos desallorar
+
+\begin{align*}
+  \bbE(g(\mcX)h(\mcY)) &= \sum_i \sum_j g(i)h(j)P(\mcX = i, \, \mcY = j)\\
+                       &= \sum_i \sum_j g(i)h(j)P(\mcX = i)P(\mcY = j) \qquad (\text{por independencia}) \\
+                       &= \sum_i g(i) P(\mcX = i) \sum_j h(j) P(\mcY = j)\\
+                       &= \bbE(g(\mcX))\bbE(h(\mcY))
+\end{align*}
+
+\dfn{Independencia y esperanza}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
+  \[\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))\]
+}
+
+\nt{
+  Tener $\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))$, no necesariamente implica independencia.
+}
+
+Así, cuando hay independiencia
+\begin{itemize}
+  \item $\bbE(\mcX \mcY) = \bbE(\mcX) \bbE(\mcY)$
+  \item $\bbE(\mcX + \mcY) = \bbE(\mcX) + \bbE(\mcY)$
+\end{itemize}
+
+\subsection{Propiedad de la varianza cuando hay independiencia}
+Con las últimas observaciones podemos demostrar la siguiente proposición.
+
+\mprop{Varianza e Independencia}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
+  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
+}
+
+\begin{myproof}
+  De forma general sabemos que
+  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY) + 2(\bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY)) \neq \Var(\mcX) + \Var(\mcY)\]
+
+  Sin embargo, por independencia tenemos
+  \[\bbE(\mcX \mcY) = \bbE(\mcX)\bbE(\mcY) \Longrightarrow \bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY) = 0\]
+
+  \[\therefore \Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
+\end{myproof}
+
+De manera general, se cumple que si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variables aleatorias independientes, entonces
+\[
+  \bbE(f_1(\mcX_1)f_2(\mcX_2) \cdots f_n(\mcX_n)) = \prod_{i = 1}^n \bbE(f_i(\mcX_i)) = \bbE(f_1(\mcX_1))\bbE(f_2(\mcX_2))\cdots \bbE(f_n(\mcX_n))
+\]
+\subsection{Propiedad de la función generadora de momentos cuando hay independencia}
+
+\mprop{Independencia y Función generadora de momentos}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes con funciones generadoras do momentos $M_{\mcX}(t)$ y $M_{\mcY}(t)$, entonces
+  \[M_{\mcX + \mcY}(t) = M_{\mcX}(t)M_{\mcY}(t)\]
+
+  Además, si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son independientes con funciones generadoras de momentos $M_1(t), M_2(t), \cdots , M_n(t)$, entonces
+  \[\mcZ = \sum_{i = 1}^n \mcX_i\]
+  tiene función generadora de momentos
+  \[M_{\mcZ} = \prod_{i=1}^n M_i(t)\]
+}
+
+\begin{myproof}
+  \begin{align*}
+    M_{\mcX + \mcY}(t) &= \bbE(e^{t(\mcX + \mcY)})\\
+                       &= \bbE(e^{t\mcX}e^{t\mcY})\\
+                       &= \bbE(e^{t\mcX})\bbE(e^{t\mcY}) \quad (\text {por independencia})\\
+                       &= M_{\mcX}(t)M_{\mcY}(t)
   \end{align*}
 
+  El caso para la variable aleatoria $\mcZ$ es análogo.
+\end{myproof}
+
+\nt{
+  La proposición anterior se cumple para la función generadora de probabilidad.
+  \newpara
+  Si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variables aleatorias independientes, entonces la función de probabilidad de $\sum_{i=1}^n \mcX_i$ es
+  \[G_{\mcX_1 + \mcX_2 + \cdots + \mcX_n} = \prod_{i=1}^n G_i(t)\]
+}
+
+\ex{Función generadora de momentos de la suma de v.a.i}{
+  Encuentra la distribución de $\mcX + \mcY$ donde $\mcX \sim Poi(\lambda)$ y $\mcY \sim Poi(\mu)$ son independientes.
+
+  Primero calculamos la función generadora de momentos de $\mcX + \mcY$.
+  \[M_{\mcX + \mcY}(t)= M_{\mcX}(t)M_{\mcY}(t) \quad (\text{por independencia})\]
+
+  Por otro lado, sabemos que
+  \[M_{\mcX}(t) = e^{-\lambda(1-e^t)}\]
+  \[M_{\mcY}(t) = e^{-\mu(1-e^t)}\]
+
+  Lo anterior implica que
+
   \[
-  \therefore \Var(\mathcal X) = \mathbb E(\mathcal X^2) - (\frac1\lambda)^2 = \frac2{\lambda^2} - \frac1{\lambda^2} = \frac1{\lambda^2}
+    M_{\mcX + \mcY}(t) = e^{-\lambda(1-e^t)}e^{-\mu(1-e^t)} = e^{-(\lambda + \mu)(1-e^t)}
   \]
+  \[\, \therefore \mcX + \mcY \sim Poi(\lambda + \mu)\]
 }
 
-\section{Desviación estándar}
+\ex{Función generadora de momentos de la suma de v.a.i}{
+  Encuentra la distribución de $\mcX + \mcY$ donde $\mcX \sim Bin(n,p)$ y $\mcY \sim Bin(m,p)$ son independientes.
 
-\dfn{Desviación estándar}{
-  Sea $\mathcal X$ una variable aleatoria con varianza $\Var(\mathcal X)$, entonces se define la \textbf{desviación estándar} de $\mathcal X$ de la siguiente forma.
-  \[\sigma = \sqrt{\Var(\mathcal X)}\]
+  Se tiene lo siguiente.
+  \[M_{\mcX + \mcY}(t)= M_{\mcX}(t)M_{\mcY}(t)\]
+
+  Sabemos que
+  \[
+    M_{\mcX}(t) = \sum_{k=0}^n e^{tk} \binom nk p^k (1-p)^{n-k}
+    \sum_{k=0}^n \binom nk (e^t p)^k (1-p)^{n-k}
+    = (1-p + e^t p)^n
+  \]
+  Así
+
+  \[
+    M_{\mcX + \mcY}(t) = (1-p + e^t p)^n (1-p + e^t p)^m = (1-p + e^t p)^{m + n}
+  \]
+  \[\, \therefore \mcX + \mcY \sim Bin(n + m, p)\]
 }
 
-\section{Teorema de Chebyshev}
-\thm{Teorema de Chebyshev}{
-  Sea $\mathcal X$ una variable aleatoria con esperanza $\mu$ y desviación estándar $\sigma$, entonces para cualquier constante $k > 0$ la probabilidad es al menos $1 - \frac1{k^2}$ de que $\mathcal X$ asumirá un valor dentro de $k$ desviaciones estándar de la media (valor esperado), es decir,
-  \[P(|\mathcal X - \mu| \le k \sigma) = P(-k \sigma \le \mathcal X - \mu \le k \sigma) \ge 1 - \frac1{k^2}\]
+\section{Desigualdad de Markov}
+
+\mprop{Desigualdad de Markov}{
+  Si $\mcX$ es una variable aleatoria que solo toma valores no negativos, entonces para cualquier $a > 0$ se cumple lo siguiente.
+  \[P(\mcX \ge a) \le \frac{\bbE(\mcX)}a \]
 }
 
-\ex{Esperanza y Varianza}{
-  Sea $X \sim \Gamma(\alpha, \lambda)$. Calcula $\mathbb{E}(X)$ y $\Var(X)$.
-  \begin{itemize}
-  \item Por un lado
+\begin{myproof}
   \begin{align*}
-    \mathbb{E}(X) &= \int_{-\infty}^{\infty} x\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}\mathbb 1_{(0,\infty)}^{(x)}dx = \int_0^{\infty} x\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}dx \\
-  &= \frac{1}{\lambda}\int_0^{\infty} \frac{\lambda^{\alpha+1}}{\Gamma(\alpha)}x^{\alpha+1-1}e^{-\lambda x}dx \quad \text{Usando que } \Gamma(\alpha+1) = \alpha\Gamma(\alpha) \text{ sustituimos,}\\
-  &= \frac{\alpha}{\lambda}\int_0^{\infty} \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)}x^{\alpha+1-1}e^{-\lambda x}dx = \frac{\alpha}{\lambda}\int_0^{\infty} f_{X'}(x)dx \quad \text{Donde } X' \sim \Gamma(\alpha+1,\lambda)\\
-  &= \frac{\alpha}{\lambda}\int_0^{\infty} f_{X'}(x)dx = \frac{\alpha}{\lambda}
+  \bbE(\mcX) &= \int_{0}^{\infty} x f(x)dx = \int_{0}^{a} x f(x)dx + \int_{a}^{\infty} x f(x)dx \\[2ex]
+  &\geq \underbrace{\int_{0}^{a} x f(x)dx}_{\geq 0} + a \int_{a}^{\infty} f(x)dx \geq a \int_{a}^{\infty} f(x)dx \\
   \end{align*}
+  \[\therefore \, P(\mcX \ge a) \le \frac{\bbE(\mcX)}a \]
+\end{myproof}
 
-  \item Por otro lado para calcular $\Var(X)$ primero calculamos lo siguiente,
-  \begin{align*}
-  \mathbb{E}(X^2) &= \int_0^{\infty} \frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha+2-1}e^{-\lambda x}dx = \frac{1}{\lambda^2}\int_0^{\infty} \frac{\lambda^{\alpha+2}}{\Gamma(\alpha)}x^{\alpha+2-1}e^{-\lambda x}dx
-  \end{align*}
-  Realizamos una sustitución similar a la del inciso anterior usando que:
+\nt{
+  Si $\mcX = (\mcY - \mu)^2$ y $a = k^2 \sigma^2$ donde $\sigma^2 = \Var(\mcX) > 0$ se puede deducir el teorema de Chebyshev.
+}
 
-  \[\Gamma(\alpha + 2) = (\alpha + 1)\Gamma(\alpha + 1) = (\alpha + 1)(\alpha)\Gamma(\alpha)\]
+Estas desigualdades nos permiten encontrar cotas para las probabilidades cuando solo la esperanza y/o la varianza son conocidas.
 
-  \[\mathbb{E}(X^2) = \frac{\alpha(\alpha + 1)}{\lambda^2} \underbrace{\int_0^{\infty} \frac{\lambda^{\alpha+2}}{\Gamma(\alpha+2)}x^{\alpha+2-1}e^{-\lambda x}dx}_{1}\]
+\ex{Desigualdad de Markov}{
+  Supongamos que sabemos que el número de productos fabricados durante una semana es una variable aleatoria con esperanza de 500.
 
-  Usando el mismo argumento del inciso anterior: $(X' \sim \Gamma(\alpha + 2, \lambda))$.
+  1. ¿Qué podemos decir sobre la probabilidad de que la producción de una semana sea al menos de 1000?
 
-  \[ \mathbb E(\mathcal X^2) = \frac{\alpha(\alpha + 1)}{\lambda^2}\]
-  Finalmente usamos la propiedad 5 de la varianza.
+  2. Si la varianza de esta producción semanal es 100, ¿qué podemos decir sobre la probabilidad de que la producción semanal esté entre 400  y 600?
 
-  \[\Var(X) = \mathbb{E}(X^2) - [\mathbb{E}(X)]^2 = \frac{\alpha(\alpha + 1)}{\lambda^2} - \left(\frac{\alpha}{\lambda}\right)^2 = \frac{\alpha}{\lambda^2}\]
+  Primero definimos una variable aleatoria.
+  \[\mcX = \text{ \# productos fabricados por semana} \quad \text{ con } \quad \bbE(\mcX) = 500 \quad \text{ y } \quad \Var(\mcX) = 100\]
 
-  \end{itemize}
+  1. $P(\mcX \ge 1000) = \frac{\bbE(\mcX)}{1000} = \frac{500}{1000} = \frac12$
+
+  2. $\sigma^2 = \bbE(\abs*{\mcX - \mu}^2) = 100$
+
+  Queremos calcular $P(400 \le \mcX \le 600)$. Usando el teorema de Chebyshev.
+  \[P(\abs*{\mcX - \mu} \le k\sigma) \ge 1 - \frac1{k^2}\]
+  \[\Longrightarrow P(\abs*{\mcX - 500} \le k10) = P(-k10 \le \mcX - 500 \le k10) 
+  = P(-k10 + 500 \le \mcX \le k10 + 500) \]
+
+  Si sustituimos $k = 10$ obtenemos lo siguiente.
+  \[P(400 \le \mcX \le 600) = 1 - \frac{1}{100} = \frac{99}{100} = 0.99\]
+}
+
+\section{Ley fuerte de los grandes números}
+Antes de presentar el resultado principal de este aparto se da la siguiente definición.
+
+\subsection{Media muestral}
+\dfn{Media muestral}{
+  Sea $\{\mcX_n\}_{n = 1,2,\cdots}$ usa sucesión de variables aleatorias independientes e idénticamente distribuidas. Se define la \textbf{media muestral} como sigue.
+  \[\overline{\mcX} = \frac{S_n}n\]
+donde 
+\[S_n = \sum_{i=1}^n \mcX_i\]
+}
+
+\ex{Media muestral}{
+  Sea $\mcX_i \sim Ber(p)$ que vale 1 cuando ganamos un volado, y 0 cuando perdemos.
+  En este caso, la información que nos da $S_n$ es el número de volados ganados.
+}
+
+\subsection{Teorema} 
+\thm{Ley fuerte de los grandes números}{
+  Sea $\{\mcX_n\}$ variables aleatorias independientes e idénticamente distribuidas con media común $\mu \in \bbR,~ (\bbE(\mcX_n) = \mu~ \forall n \in \bbN)$. Entonces,
+  \[\overline{\mcX} \to \mu \qquad \text{casi seguramente}\]
+
+  Es decir,
+  \[\lim_{n \to \infty} \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n}n = \mu\]
+  Salvo un conjunto $N \in \mcF$ tal que $P(N) = 0$
+}
+
+Otra manera de observar el teorema es la siguiente.
+\[P\parens*{\lim_{n \to \infty} \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n}n = \mu} = 1\]
+Donde la convergencia dentro de la probabilidad es puntual.
+
+\ex{Ley fuerte de los grandes números}{
+  Supongamos que lanzamos un dado justo muchas veces. Sean $\mcX_i$ las variables aleatorias que representan el resultado del \textit{i}-ésimo lanzamiento. Como el dado es justo, el valor esperado de cada $\mcX_i$ es
+  \[\mu = \bbE(\mcX_i) = \frac{1 + 2 + 3 + 4 + 5 + 6}6 = 3.5\]
+  
+  En este caso, la Ley de los grandes números nos asegura que
+  \[\lim_{n \to \infty} \frac1n \sum_{i=1}^n \mcX_i = 3.5 \quad \text{casi seguramente}\]
+
+  Graficamente, se puede observar la convergencia del promedio $\frac1n \sum_{i=1}^n \mcX_i$ hacia $\mu = 3.5$ a medida que aumenta el número de lanzamientos $n$.
+}
+
+\nt{
+  Se llama ley "Fuerte" porque la convergencia es casi seguramente. La convergencia casi seguramente significa que la convergencia es puntual salvo en un conjunto $N$ tal que $P(N) = 0$
+}
+
+\subsection{Convergencia puntual}
+\dfn{Convergencia puntual}{
+  Sean $\{\mcX_n\}_{n \ge 1}$ una sucesión de variables aleatorias definidas sobre el mismo espacio de probabilidad, y sea $\mcX$ una variable aleatoria también definida en el mismo espacio.
+
+  $\mcX_n \to \mcX$ puntualmente si
+  \[\forall w \in \Omega \text{ se satisface que } \lim_{n \to \infty} \mcX_n(w) = \mcX(w)\]
+  Dados $w \in \Omega$ y $\epsilon > 0$, $\exists N = N(w, \epsilon) \in \bbN$ tal que si $n \ge N \Longrightarrow \abs*{\mcX_n(w) - \mcX(w)} < \epsilon$
+}
+
+\section{Teorema del límite central}
+Además de su importancia e interés teórica, este teorema nos proporciona un método simple para aproximar probabilidades de sumas de variables aleatorias independientes.
+
+\thm{Teorema del límite central}{
+  Sean $\mcX_1, \mcX_2, \cdots$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con $\bbE(\mcX_i) = \mu ~ \forall i$, y $\Var(\mcX_i) = \sigma^2~ \forall i$. Entonces la función de distribución de $F_n$ de la variable aleatoria $\mcY_n$ con
+  \[\mcY_n = \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n - n\mu}{\sigma \sqrt n}\]
+  converge a la distribución $N(0,1)$ si $n \to \infty$, es decir,
+  \[\lim_{n \to \infty}P\parens*{\frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n - n\mu}{\sigma \sqrt n} \le a} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\frac{x^2}2} \,dx\]
+}
+
+\nt{
+  Notemos que no necesitamos saber la distribución de las $\mcX_i$.
 }
 
