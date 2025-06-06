@@ -1,1 +1,115 @@
 \chapter{Independencia y valor esperado}
+Podemos establecer una relación entre la independencia y la esperanza (valor esperado). Si consideramos dos variables aleatorias discretas independientes con $g,h : \bbR \longrightarrow \bbR$ funciones reales, entones podemos desallorar
+
+\begin{align*}
+  \bbE(g(\mcX)h(\mcY)) &= \sum_i \sum_j g(i)h(j)P(\mcX = i, \, \mcY = j)\\
+                       &= \sum_i \sum_j g(i)h(j)P(\mcX = i)P(\mcY = j) \qquad (\text{por independencia}) \\
+                       &= \sum_i g(i) P(\mcX = i) \sum_j h(j) P(\mcY = j)\\
+                       &= \bbE(g(\mcX))\bbE(h(\mcY))
+\end{align*}
+
+\dfn{Independencia y esperanza}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
+  \[\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))\]
+}
+
+\nt{
+  Tener $\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))$, no necesariamente implica independencia.
+}
+
+Así, cuando hay independiencia
+\begin{itemize}
+  \item $\bbE(\mcX \mcY) = \bbE(\mcX) \bbE(\mcY)$
+  \item $\bbE(\mcX + \mcY) = \bbE(\mcX) + \bbE(\mcY)$
+\end{itemize}
+
+\section{Propiedad de la varianza cuando hay independiencia}
+Con las últimas observaciones podemos demostrar la siguiente proposición.
+
+\mprop{Varianza e Independencia}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
+  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
+}
+
+\begin{myproof}
+  De forma general sabemos que
+  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY) + 2(\bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY)) \neq \Var(\mcX) + \Var(\mcY)\]
+
+  Sin embargo, por independencia tenemos
+  \[\bbE(\mcX \mcY) = \bbE(\mcX)\bbE(\mcY) \Longrightarrow \bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY) = 0\]
+
+  \[\therefore \Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
+\end{myproof}
+
+De manera general, se cumple que si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variables aleatorias independientes, entonces
+\[
+  \bbE(f_1(\mcX_1)f_2(\mcX_2) \cdots f_n(\mcX_n)) = \prod_{i = 1}^n \bbE(f_i(\mcX_i)) = \bbE(f_1(\mcX_1))\bbE(f_2(\mcX_2))\cdots \bbE(f_n(\mcX_n))
+\]
+\subsection{Propiedad de la función generadora de momentos cuando hay independencia}
+
+\mprop{Independencia y Función generadora de momentos}{
+  Sean $\mcX$ y $\mcY$ variables aleatorias independientes con funciones generadoras do momentos $M_{\mcX}(t)$ y $M_{\mcY}(t)$, entonces
+  \[M_{\mcX + \mcY}(t) = M_{\mcX}(t)M_{\mcY}(t)\]
+
+  Además, si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son independientes con funciones generadoras de momentos $M_1(t), M_2(t), \cdots , M_n(t)$, entonces
+  \[\mcZ = \sum_{i = 1}^n \mcX_i\]
+  tiene función generadora de momentos
+  \[M_{\mcZ} = \prod_{i=1}^n M_i(t)\]
+}
+
+\begin{myproof}
+  \begin{align*}
+    M_{\mcX + \mcY}(t) &= \bbE(e^{t(\mcX + \mcY)})\\
+                       &= \bbE(e^{t\mcX}e^{t\mcY})\\
+                       &= \bbE(e^{t\mcX})\bbE(e^{t\mcY}) \quad (\text {por independencia})\\
+                       &= M_{\mcX}(t)M_{\mcY}(t)
+  \end{align*}
+
+  El caso para la variable aleatoria $\mcZ$ es análogo.
+\end{myproof}
+
+\nt{
+  La proposición anterior se cumple para la función generadora de probabilidad.
+  \newpara
+  Si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variables aleatorias independientes, entonces la función de probabilidad de $\sum_{i=1}^n \mcX_i$ es
+  \[G_{\mcX_1 + \mcX_2 + \cdots + \mcX_n} = \prod_{i=1}^n G_i(t)\]
+}
+
+\ex{Función generadora de momentos de la suma de v.a.i}{
+  Encuentra la distribución de $\mcX + \mcY$ donde $\mcX \sim Poi(\lambda)$ y $\mcY \sim Poi(\mu)$ son independientes.
+
+  Primero calculamos la función generadora de momentos de $\mcX + \mcY$.
+  \[M_{\mcX + \mcY}(t)= M_{\mcX}(t)M_{\mcY}(t) \quad (\text{por independencia})\]
+
+  Por otro lado, sabemos que
+  \[M_{\mcX}(t) = e^{-\lambda(1-e^t)}\]
+  \[M_{\mcY}(t) = e^{-\mu(1-e^t)}\]
+
+  Lo anterior implica que
+
+  \[
+    M_{\mcX + \mcY}(t) = e^{-\lambda(1-e^t)}e^{-\mu(1-e^t)} = e^{-(\lambda + \mu)(1-e^t)}
+  \]
+  \[\, \therefore \mcX + \mcY \sim Poi(\lambda + \mu)\]
+}
+
+\ex{Función generadora de momentos de la suma de v.a.i}{
+  Encuentra la distribución de $\mcX + \mcY$ donde $\mcX \sim Bin(n,p)$ y $\mcY \sim Bin(m,p)$ son independientes.
+
+  Se tiene lo siguiente.
+  \[M_{\mcX + \mcY}(t)= M_{\mcX}(t)M_{\mcY}(t)\]
+
+  Sabemos que
+  \[
+    M_{\mcX}(t) = \sum_{k=0}^n e^{tk} \binom nk p^k (1-p)^{n-k}
+    \sum_{k=0}^n \binom nk (e^t p)^k (1-p)^{n-k}
+    = (1-p + e^t p)^n
+  \]
+  Así
+
+  \[
+    M_{\mcX + \mcY}(t) = (1-p + e^t p)^n (1-p + e^t p)^m = (1-p + e^t p)^{m + n}
+  \]
+  \[\, \therefore \mcX + \mcY \sim Bin(n + m, p)\]
+}
+
