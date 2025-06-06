@@ -51,6 +51,7 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \DeclarePairedDelimiter{\round}{\lfloor}{\rceil}
+\DeclarePairedDelimiter{\parens}{(}{)}
 
 %================================
 % SLANTED CHARS
@@ -97,18 +98,21 @@
 \renewcommand{\geq}{\geqslant}
 
 %================================
-% MATH OPERATORS
+% MATH
 %================================
 
 \DeclareMathOperator{\Lap}{\mathcal{L}}
 \DeclareMathOperator{\Var}{Var} % varience
 \DeclareMathOperator{\Cov}{Cov} % covarience
 \DeclareMathOperator{\E}{E} % expected
+\newcommand{\nthroot}[2]{%
+  \sqrt[\uproot{3}\leftroot{-3}#1]{#2}%
+}
 
 %================================
 % SYMBOLS
 %================================
-%
+
 \newcommand{\eps}{\epsilon}
 \newcommand{\veps}{\varepsilon}
 \newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
