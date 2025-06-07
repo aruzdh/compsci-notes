@@ -62,3 +62,111 @@ where
 \end{align*}
 
 \subsection{Quadratic Formula}
+\[
+  \text{if } ax^2 + bx + c = 0, \text{ then } x = \frac{b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+\subsection{Inequalites and Absolute Value}
+\begin{itemize}
+  \item If $a < b$ and $b < c$, then $a < c$
+  \item If $a < b$, then $a + c < b + c$
+  \item If $a < b$ and $c > 0$, then $ac < bc$
+  \item If $a < b$ and $c < 0$, then $ac > bc$
+  \item If $a > 0$, then
+    \begin{itemize}
+      \item $\abs*{x} = a \quad$ means $\quad x = a$ or $x = -a$
+      \item $\abs*{x} < a \quad$ means $\quad -a < x < a$
+      \item $\abs*{x} > a \quad$ means $\quad x > a$ or $x < -a$
+    \end{itemize}
+\end{itemize}
+
+\section{Geometry}
+\subsection{Geometric Formulas}
+Formulas for area $A$, circumference $C$, and volume $V$.
+\begin{center}
+  \begin{tabular}{llllll}
+    Triangle & Circle & Sector of Circle & Sphere & Cylinder & Cone\\[0.3cm]
+    $A = \frac{1}{2}bh$ & $A = \pi r^2$ & $A = \frac{1}{2}r^2\theta$ & $V = \frac34 \pi r^3$ & $V = \pi r^2 h$ & $V = \frac13 \pi r^2 h$ \\[0.3cm]
+    $= \frac{1}{2}ab \sin \theta$ & $C = 2\pi r$ & $s = r\theta$ ($\theta$ in radians) & $A = 4 \pi r^2$ & & $A = \pi r \sqrt{r^2 + h^2}$
+  \end{tabular}
+\end{center}
+
+\subsection{Distance and Midpoint Formulas}
+Distance between $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$.
+\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]
+Midpoint of $\overline P_1 P_2$.
+\[\parens*{\frac{x_1 + x_2}2 , \frac{y_1 + y_2}2}\]
+
+\subsection{Lines}
+Slope of line through $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$.
+\[m = \frac{y_2 - y_1}{x_2 - x_1}\]
+Point-slope equation of line through $P_1(x_1, y_1)$ with slope $m$.
+\[y - y_1 = m(x - x_1)\]
+Slope-intercept equation of line with slope $m$ and $y$-intercept b.
+\[y = mx + b\]
+
+\subsection{Circles}
+Equation of the circle with center ($h,k$) and radious $r$.
+\[(x - h)^2 + (y-k)^2 = r^2\]
+
+\section{Trigonometry}
+\subsection{Angle Measurement}
+\[\pi \text{ radians } = 180^{\circ} \qquad 1^{\circ} = \frac{\pi}{180}rad \qquad s = r \theta \quad (\theta \text{ in radians}, s \text{ arc lenght})\]
+
+\subsection{Right Angle Trigonometry}
+\[
+  \sin \theta = \frac{\text{opp}}{\text{hyp}} \qquad
+  \cos \theta = \frac{\text{adj}}{\text{hyp}} \qquad
+  \tan \theta = \frac{\text{opp}}{\text{adj}}
+\]
+\[
+  \csc \theta = \frac{\text{hyp}}{\text{opp}} \qquad
+  \sec \theta = \frac{\text{hyp}}{\text{adj}} \qquad
+  \cot \theta = \frac{\text{adj}}{\text{opp}}
+\]
+
+\subsection{Trigonometric Functions}
+
+\[
+  \sin \theta = \frac yr \qquad
+  \cos \theta = \frac xr \qquad
+  \tan \theta = \frac yx
+\]
+\[
+  \sin \theta = \frac ry \qquad
+  \cos \theta = \frac rx \qquad
+  \tan \theta = \frac xy
+\]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[->] (0,0) -- (5,0) node[right] {$x$};
+      \draw[->] (0,0) -- (0,5) node[above] {$y$};
+      \draw[green, thick] (0,0) -- (4,4);
+      \fill (3,3) circle (2pt) node[right] {$(x,y)$};
+      \draw[dashed] (3,0) -- (3,3);
+      \draw (0.5,0) arc (0:45:0.5) node[anchor=west] {$\theta$};
+      \draw (1.5,1.5) node[right] {$r$};
+      \draw (3,0.2) -- (3,0) -- (2.8,0);
+    \end{tikzpicture}
+  \end{center}
+
+\subsection{Graphs of Trigonometric Functions}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{graphs-trig.jpg}
+\end{figure}
+
+\subsection{Trigonometric Functions of Important Angles}
+
+\begin{center}
+  \begin{tabular}{llllll}
+    $\theta$ & Radians & $\sin \theta$ & $\cos \theta$ & $\tan \theta$\\[0.3cm]
+    $0^{\circ}$ & $0$ & 0 & 1 & 0 \\[0.3cm]
+    $30^{\circ}$ & $\sfrac{\pi}6$ & $\sfrac12$ & $\sfrac{\sqrt 3}2$ & $\sfrac{\sqrt 3}3$ \\[0.3cm]
+    $45^{\circ}$ & $\sfrac{\pi}4$ & $\sfrac{\sqrt 2}2$ & $\sfrac{\sqrt 2}2$ & 1 \\[0.3cm]
+    $60^{\circ}$ & $\sfrac{\pi}3$ & $\sfrac{\sqrt 3}2$ & $\sfrac12$ & $\sqrt 3$ \\[0.3cm]
+    $90^{\circ}$ & $\sfrac{\pi}2$ & 1 & 0 & - \\[0.3cm]
+  \end{tabular}
+\end{center}
+
