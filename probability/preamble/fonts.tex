@@ -1,14 +1,14 @@
-
 \usepackage{fontspec}
-\setmainfont{STIX Two Text}[
-  BoldFont = /System/Library/Fonts/Supplemental/STIXGeneralBol.otf,
-  ItalicFont = /System/Library/Fonts/Supplemental/STIXGeneralItalic.otf,
-  BoldItalicFont = /System/Library/Fonts/Supplemental/STIXGeneralBolIta.otf
-]
-
+\usepackage[spanish, shorthands=off]{babel}
 \usepackage[
   mathrm=sym,
   warnings-off={mathtools-colon,mathtools-overbracket}
 ]{unicode-math}
+
 \setmathfont[displaystyle]{STIX Two Math}
-\usepackage[spanish, shorthands=off]{babel}
+\setmainfont[
+  UprightFont = {STIXTwoText-Regular.otf},
+  ItalicFont = {STIXTwoText-Italic.otf},
+  BoldFont = {STIXTwoText-Bold.otf},
+  BoldItalicFont = {STIXTwoText-BoldItalic.otf},
+]{STIX Two Text}
