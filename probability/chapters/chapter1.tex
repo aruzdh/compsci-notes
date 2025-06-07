@@ -1,6 +1,5 @@
 \chapter{Conceptos Básicos}
 \section{Experimentos}
-
 \dfn{Experimento}{
   Un \textbf{experimento} es una secuencia de pasos que llevan a un resultado.
 }
@@ -13,11 +12,6 @@
 \subsection{Experimento Aleatorio}
 \dfn{Experimento Aleatorio}{
     Es un experimento que siempre que se repite bajo las mismas condiciones obtenemos \textit{diferentes} resultados.
-}
-
-\section{Probabilidad de un evento}
-\dfn{Probabilidad de un evento}{
-  Sea \textit A un evento y $\Omega$ el espacio muestral, la \textbf{probabilidad de A} es $$P(A) = \frac{\mid A \mid}{\mid \Omega \mid}$$
 }
 
 \section{Espacio Muestral}
@@ -75,17 +69,21 @@ Decimos que un \textit{evento ocurrió} si al realizar el experimento aleatorio,
 \section{Interpretación de las operaciones de conjuntos en probabilidad}
 
 Dado $A, B, C \in \Omega$ eventos.
-\subsection{Unión}
-Dado $A \cup B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{ó} el evento \textit{B} \textit{ocurrió}.
+\begin{itemize}
+  \item Unión
 
-\subsection{Intersección}
-Dado $A \cap B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{y} el evento \textit{B} \textit{ocurrió}. Dicho de otra manera, \textit{ambos eventos ocurrieron}.
+    Dado $A \cup B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{ó} el evento \textit{B} \textit{ocurrió}.
+  \item Intersección
 
-\subsection{Complemento}
-Dado $B^c$. Decimos que \textit{B} \textbf{no} \textit{ocurrió}.
+    Dado $A \cap B$. Decimos que el evento \textit{A} \textit{ocurrió} \textbf{y} el evento \textit{B} \textit{ocurrió}. Dicho de otra manera, \textit{ambos eventos ocurrieron}.
+  \item Complemento
 
-\subsection{Diferencia}
-Dade $C - B$. Decimos que \textit{C} \textit{ocurrió} pero \textbf{no} ocurrió \textit{B}.
+    Dado $B^c$. Decimos que \textit{B} \textbf{no} \textit{ocurrió}.
+  \item Diferencia
+
+    Dado $C - B$. Decimos que \textit{C} \textit{ocurrió} pero \textbf{no} ocurrió \textit{B}.
+
+\end{itemize}
 
 \ex{Eventos con conjuntos}{
   Considerando el ejercicio anterior.
@@ -105,11 +103,10 @@ Dade $C - B$. Decimos que \textit{C} \textit{ocurrió} pero \textbf{no} ocurrió
 }
 
 \section{Calcular la probabilidad de un evento}
-Sea $\Omega$ el espacio muestral de un Experimento aleatorio. Supongamos que $\Omega$ es un conjunto numerable finito. Si \textit{A} es un evento, entonces \textbf{la probabilidad de A} se calcula como sigue.
+Sea $\Omega$ el espacio muestral de un experimento aleatorio. Supongamos que $\Omega$ es un conjunto numerable finito. Si \textit{A} es un evento, entonces \textbf{la probabilidad de A} se calcula como sigue.
 
-\[P(A) = \frac{\mid A \mid}{\mid \Omega \mid}\]
+\[P(A) = \frac{\abs{A}}{\abs{\Omega}}\]
 
-\newpage
 \section{Ejercicios}
 
 \qs{Conceptos Básicos}{
