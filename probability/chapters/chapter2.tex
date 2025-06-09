@@ -1,22 +1,21 @@
 \chapter{Técnicas de Conteo}
 
 \section{Principios de Conteo}
-\begin{itemize}
-  \item Si tenemos \textit m objetos y \textit n objetos (diferente tipo respecto a \textit m), entonces tenemos $m + n$ objetos en total.
-  \item Si tenemos \textit m objetos diferentes y \textit n objetos diferentes (diferente tipo respecto a \textit m), entonces tenemos \textit{mn} distintas maneras de tener un objeto de tipo \textit m y uno de tipo \textit n.
-\end{itemize}
+Si tenemos \textit m objetos de tipo $A$, y \textit n objetos de tipo $B$ ($A$ y $B$ tipos arbitrarios y distintos), entonces tenemos $m + n$ objetos en total.
+
+Si tenemos \textit m objetos diferentes de tipo $A$, y \textit n objetos diferentes de tipo $B$ ($A$ y $B$ tipos arbitrarios y distintos), entonces tenemos \textit{mn} distintas maneras de tener un objeto de tipo $A$ y uno de tipo $B$.
 
 \ex{Principios de Conteo}{
   Supongamos que tenemos 4 dados. ¿De cuantas maneras se pueden obtener \textit{4 números diferentes} al lanzar los 4 dados?\\
-  Notemas que en el primer lanzamiento tenemos 6 números diferente ($1,2, \cdots 6$), en el segundo tendremos 5 opciones, y así sucesivamente. \\
-  Por tanto, tenemos $6 \cdot 5 \cdot 4 \cdot 3$ diferentes formas.
+  Notemos que en el primer lanzamiento tenemos 6 números diferente ($1,2, \cdots, 6$), en el segundo tendremos 5 opciones, y así sucesivamente. \\
+  Por tanto, tenemos $6 \cdot 5 \cdot 4 \cdot 3 = 360$ diferentes formas.
 }
 
 Dado un problema como el anterior, podemos analizarlo de la siguiente manera.\\
 Supongamos que 2 etapas de un experimento se van a desarrollar. Entonces, si la etapa 1 puede resultar en cualquiera de \textit{m} posibilidades, y para cada salida de la etapa 1 hay \textit{n} posibles salidas de la etapa 2, entonces hay \textit{mn} posibles salidas de las dos etapas.
 
 \ex{Principios de Conteo}{
-  Una familia se acaba de cambiar a una ciudad nueva y requiere los servicios tante de un obstetra como de un pediatra. Existen dos clínicas médicas fácilmente accesibles y cada una tiene 2 obstetras y 3 pediatras. La familia obtendrá los máximos beneficios del seguro de salud si se une a una clínica y selecciona a ambos especialistas de dicha clínica. ¿De cuántas maneras se puede hacer lo anterior?\\
+  Una familia se acaba de cambiar a una ciudad nueva y requiere los servicios tanto de un obstetra como de un pediatra. Existen dos clínicas médicas fácilmente accesibles y cada una tiene 2 obstetras y 3 pediatras. La familia obtendrá los máximos beneficios del seguro de salud si se une a una clínica y selecciona a ambos especialistas de dicha clínica. ¿De cuántas maneras se puede hacer lo anterior?\\
   El experimento consta de seleccionar 1 obstetra y 1 pediatra de una clínica. Entonces podemos considerar las siguientes etapas del experimento.
   \begin{enumerate}
     \item Elegir una clínica: 2 posibilidades.
@@ -30,27 +29,39 @@ Supongamos que 2 etapas de un experimento se van a desarrollar. Entonces, si la 
 \ex{Principios de Conteo}{
   ¿Cuántas placas son posibles formar si las primeras 3 posiciones deben estar ocupadas por letras y las últimas 4 por dígitos?\\
   Se tienen las siguientes etapas.
-  \begin{enumerate}
+  \begin{itemize}
     \item Primera posición: 27 posibilidades.
-    \item Sugunda posición: 27 posibilidades.
+    \item Segunda posición: 27 posibilidades.
     \item Tercera posición: 27 posibilidades.
     \item Cuarta posición: 10 posibilidades.
     \item Quinta posición: 10 posibilidades.
     \item Sexta posición: 10 posibilidades.
-    \item Septima posición: 10 posibilidades.
-  \end{enumerate}
-  Son posibles $27 \cdot 27 \cdot 27 \cdot 10 \cdot 10 \cdot 10 \cdot 10 = 27^3 \cdot 10^4$ placas.
+    \item Séptima posición: 10 posibilidades.
+  \end{itemize}
+  Así, son posibles $27 \cdot 27 \cdot 27 \cdot 10 \cdot 10 \cdot 10 \cdot 10 = 27^3 \cdot 10^4$ placas.
 }
 
 \ex{Principios de Conteo}{
   Se lanza un dado y una moneda. ¿Cuántos elementos tiene $\Omega$?\\
-  Tenemos 6 posibilidades para el dado, y 2 para la moneda. Por tanto $\mid \Omega \mid = 12$
+Tenemos 6 posibilidades para el dado, y 2 para la moneda. Por tanto $\abs*{\Omega} = 12$
 }
 
 \section{Permutaciones}
 
-\subsection{Permutaciones sin restricciones}
-\[n!~~~(\text{o hasta donde sea necesario)}\]
+Las permutaciones son las distintas formas de ordenar un conjunto de objetos. Existen distintos tipos de ordenamientos dependiendo de las condiciones dadas o requeridas.
+
+\subsection{Permutaciones lineales}
+
+Como el nombre indica, no se establece ninguna restricción sobre la manera en que los objetos deben ser ordenados, por lo que buscamos \textbf{todas} los posibilidades. Para lograrlo usamos el factorial de $n$, donde $n$ es el total de objetos a ordenar.
+
+\[n! = n \cdot (n - 1) \cdot (n - 2) \cdot \cdots \cdot 2 \cdot 1\]
+
+Existen situaciones donde debemos ordenar $n$ objetos en $r$ distintas posiciones, con $r < n$. Para estos casos usamos la siguiente formula.
+\[\frac{n!}{(n-r)!}\]
+
+\nt{
+  Notemos que si $n = r$, $(n-r)! = 0! = 1$. Por tanto se obtiene la primera formula.
+}
 
 \ex{Permutaciones}{
   ¿De cuántas maneras se pueden ordenar las letras \textit{a, b, c}?\\
@@ -59,16 +70,18 @@ Supongamos que 2 etapas de un experimento se van a desarrollar. Entonces, si la 
 
 \ex{Permutaciones}{
   Si un equipo de baseball tiene 9 jugadores, ¿Cuántos alineamientos son posible?\\
-  Usando el mismo approach que en los ejemplos pasados se tiene que hay $9 \cdot 8 \cdot \cdots 2 \cdot 1 = 9!$ alineamientos.
+  Usando el mismo procedimiento que en el ejemplo pasado tenemos $9 \cdot 8 \cdot \cdots 2 \cdot 1 = 9!$ alineamientos.
 }
 
 \ex{Permutaciones}{
-  En una clase de probabilidad hay 6 mujeres y 4 hombres. Se les asigma un examen y son rakeados sugún su desempeño en el examen. Supongamos que hay 2 personas con la misma calificación. 
+  En una clase de probabilidad hay 6 mujeres y 4 hombres. Se les asigma un examen y son rakeados sugún su desempeño en el examen. Supongamos que no hay 2 personas con la misma calificación. 
   \begin{itemize}
     \item ¿Cuántos rakings son posible?
+
       Dado que hay $6 + 4 = 10$ personas en total, se tienen $10!$ rakings.
     \item ¿Cuántos rankings son posibles si los hombres son rankeados entre ellos y lo mismo sucede para las mujeres?
-      Para los hombres hay $6!$ rakings, y para las mujeres $4!$. Por tanto, hay $6! 4!$ rakings totales.
+
+      Para los hombres hay $6!$ rakings, y para las mujeres $4!$. Por tanto, hay $6! \cdot 4!$ rakings totales.
   \end{itemize}
 }
 
@@ -78,22 +91,36 @@ Supongamos que 2 etapas de un experimento se van a desarrollar. Entonces, si la 
 }
 
 \nt {
-  Dado el ejemplo pasado. Se observa que \textit{no siempre} se "necesita" todo el factorial. Es decir, dependiendo del contexto, necesitaremos o no eliminar datos.
+  En este último ejemplo se usa la formula donde $n \neq r$ dada al comienzo de la sección.
+}
+
+\nt {
+  Si tenemos \textit{A, B, C}, los ordenamientos \textit{ABC} y \textit{CBA} son distintos y ambos deben considerse.
+  Esta observación toma más sentido en el subsección de \textit{combinaciones}.
 }
 
 \subsection{Permutaciones Circulares}
 
-\[(n - 1)!\] es el número de Permutaciones circulares de \textit{n} elementos.
+A diferencia de las permutaciones lineales (donde hay un "principio" y un "fin"), en las permutaciones circulares los elementos se disponen alrededor de un círculo. La característica clave que las distingue es que las rotaciones de un mismo arreglo se consideran idénticas.
+
+Para calcular el número de permutaciones circulares de n objetos distintos, se utiliza la siguiente fórmula
+\[(n - 1)!\]
+
+\nt{
+  La lógica detrás de esta fórmula es que, para evitar contar los arreglos rotados como distintos, se "fija" la posición de uno de los elementos. Una vez que un elemento está fijo, los n−1 elementos restantes se pueden ordenar de (n−1)! maneras diferentes, como si estuvieran en una línea recta.
+}
 
 \subsection{Permutaciones Indistinguibles}
 En este caso, deseamos contar el número de ordenamientos cuando existen elementos repetidos indistinguibles.\\
-Tenemos \textit{n} objetos en total. Supongamos que de los \textit{n} objetos, $n_1,n_2, \cdots, n_r$ son indistinguibles con $n_1 + n_2 + \cdots + n_r \le n$. Entonces las permutaciones son
+Si tenemos \textit{n} objetos en total, y de los \textit{n} objetos, $n_1,n_2, \cdots, n_r$ son indistinguibles con $n_1 + n_2 + \cdots + n_r \le n$, entonces las permutaciones son
 \[\frac{n!}{n_1!n_2!\cdots n_r!}\]
 
 \ex{Permutaciones Indistinguibles}{
   Sea \textit{PEPPER} una palabra. ¿De cuántas formas se puede ordenar las letras de la palabra?\\
-  Dada la observación anterior. Se tiene que 
-  \[\frac{6!}{3! \cdot 2! \cdot 1!} = \frac{6 \cdot 5 \cdot 4}{2} = 60\] es el número de ordenamientos. Donde $3!$ representa las 3 \textit{p's}, $2!$ las \textit{E's}, y $1!$ la \textit{R}.
+  Dada la información que precede al ejemplo, se tiene que
+  \[\frac{6!}{3! \cdot 2! \cdot 1!} = \frac{6 \cdot 5 \cdot 4}{2} = 60\] es el número de ordenamientos, donde $3!$ representa las 3 \textit{P's}, $2!$ las 2 \textit{E's}, y $1!$ la \textit{R}.
+
+  Notemos que los factores $1!$ carecen de importancia ya que no aportan nada.
 }
 
 \section{Combinaciones}
@@ -103,6 +130,10 @@ Tenemos \textit{n} objetos en total. Supongamos que de los \textit{n} objetos, $
 Supongamos que estamos interesados en contar cuantos subconjuntos de \textit{r} elementos podemos tomar de \textit{n} objetos totales ($r \le n)$. Este número es el \textbf{coeficiente binomial}.
 \[\binom{n}{r} = \frac{n!}{r!(n - r)!}\]
 
+\nt{
+  Cuando hablamos de combinaciones, el orden de la selección \textbf{no} importa. Es decir, si eliges un grupo de objetos, y ese mismo grupo de objetos es reordenado, sigue siendo la misma combinación.
+}
+
 \ex{Coeficiente Binomial}{
   ¿Cuántos subconjuntos de 3 letras se pueden formar de las letras \textit{A,B,C,D,E}?\\
   Podemos observar las siguientes etapas del experimento.
@@ -111,8 +142,8 @@ Supongamos que estamos interesados en contar cuantos subconjuntos de \textit{r} 
     \item Tenemos cuatro posibilidades.
     \item Tenemos tres posibilidades.
   \end{enumerate}
-  Dado que dentro de estas tres etapas existen repeticiones, tenemos lo siguiente.
-  \[\frac{5 \cdot 4 \cdot 3}{3 \cdot 2 \cdot 1} \frac{2 \cdot 1}{2 \cdot 1} = \frac{5!}{3! \cdot 2!} = \binom53\]
+  Dado que dentro de estas tres etapas existen repeticiones (el conjunto \textit{ABC} es igual que \textit{BCA}), tenemos lo siguiente.
+  \[\frac{5 \cdot 4 \cdot 3}{3 \cdot 2 \cdot 1} \cdot \frac{2 \cdot 1}{2 \cdot 1} = \frac{5!}{3! \cdot 2!} = \binom53\]
 }
 
 \ex{Coeficiente Binomial}{
@@ -145,7 +176,7 @@ Un conjunto de \textit{n} distintos objetos va a ser dividido en \textit{r} dist
 }
 
 \thm{}{
-  \[(x_1 + x_2 + \cdots + x_r)^r = \sum_{n_1,\cdots, n_r} \binom{n}{n_1\cdots,n_r} x_1^{n_1}x_2^{n_2}\cdots x_r^{n_r} \]
+  \[(x_1 + x_2 + \cdots + x_r)^n = \sum_{n_1,\cdots, n_r} \binom{n}{n_1, \cdots,n_r} x_1^{n_1}x_2^{n_2}\cdots x_r^{n_r} \]
   Es decir, sumamos sobre todos los vectores cuyas entradas son enteras no negativas tales que $n_1 + \cdots + n_r = n$
 }
 
@@ -168,7 +199,7 @@ Un conjunto de \textit{n} distintos objetos va a ser dividido en \textit{r} dist
 }
 
 \qs{Conteo}{
-  Supongamos que tenemos 8 pelotas iguales que van a ser distribuidas en 3 urnas. Si todas las urnas deben tener al menos una pelota ¿De cuántas formas s pueden distribuir?
+  Supongamos que tenemos 8 pelotas iguales que van a ser distribuidas en 3 urnas. Si todas las urnas deben tener al menos una pelota ¿De cuántas formas se pueden distribuir?
 }
 
 \qs{Conteo}{
@@ -186,7 +217,7 @@ Un conjunto de \textit{n} distintos objetos va a ser dividido en \textit{r} dist
 }
 
 \qs{Conteo}{
-  De cuántas maneras se pueden sentar 8 personas una junto a la otra.
+  De cuántas maneras se pueden sentar 8 personas una junto a la otra en cada escenario.
   \begin{itemize}
     \item No hay restricciones.
     \item Las personas \textit{A} y \textit{B} deben estar sentadas una junto a la otra.
