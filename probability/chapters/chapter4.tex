@@ -9,40 +9,44 @@
 }
 
 \ex{Variable Aleatoria}{
-  Supongamos que lanzamos 3 monedas. Denotamos por \textit{$\mathcal Y$ = "El \# de soles que aparecen"}.
+  Supongamos que lanzamos 3 monedas. Denotamos por \textit{$\mathcal Y$ = "El \# de soles que aparecen"} (una variable aleatoria).
   \newpara
-  Entonces $\mathcal Y (AAS) = 1$, $\mathcal Y(SSS) = 3$.
+  Entonces $\mathcal Y (AAS) = 1$, $\mathcal Y(SSS) = 3$. Donde \textit{A = águila} y \textit{S = sol}
 }
 
 \section{Tipos de Variables Aleatorias}
-
 \subsection{Variables Aleatorias Discretas}
 
-\dfn{Variable aleatoria discreta}{
-  Una \textbf{variable aleatoria discreta} toman un \textit{número finito o infinito numerable} de valores.
+\dfn{Variable Aleatoria Discreta}{
+  Una \textbf{variable aleatoria discreta} toma un \textit{número finito o infinito numerable} de valores.
 }
 
 \subsection{Variables Aleatorias Continuas}
 
-\dfn{Variable aleatoria continuas}{
+\dfn{Variable Aleatoria Continuas}{
   Una \textbf{variable aleatoria continua} toma un \textit{número infinito no numerable} de valores.
 }
 
-\ex{Variable Aleatoria continua}{
+\ex{Variable Aleatoria Continua}{
   Sea $\mathcal X$ la variable aleatoria que registra la duración de una llamada telefónica. Entonces \[\mathcal X (w) \in (0, \infty)\]
 }
 
 \section{Función de Distribución}
-\dfn{}{
+\subsection{Definición}
+\dfn{Función de Distribución}{
   Dada $\mathcal X$ una variable aleatoria \textit{discreta o continua}, su \textbf{función de distribución} se define como
-  $$F(a) = P(\mathcal X \le a) = P(\{w \in \Omega \mid \mathcal X(w) \le a\}),~ a \in \mathbb R$$
+  \[F_{\mcX}(a) = P(\mathcal X \le a) = P(\{w \in \Omega \mid \mathcal X(w) \le a\}), \quad \text{con} \quad a \in \bbR\]
+}
+
+\nt{
+  Cuando se tiene una sola variable aleatoria o cuando es evidente sobre que variable aleatoria se habla, es normal omitir el subíndice de la función $F$.
 }
 
 \nt{
   Notemos que $F : \mathbb R \longrightarrow [0,1]$
 }
 
-\ex{función de Distribución}{
+\ex{Función de Distribución}{
   Consideremos el ejemplo anterior donde lanzamos 3 monedas justas. Dada $\mathcal Y$ definida anteriormente, se tiene lo siguiente.
   \begin{itemize}
     \item $F_{\mathcal Y} (x) = P(\mathcal Y \le x)$
@@ -58,23 +62,72 @@
   Notese que esta función es \textbf{acumulativa}.
 }
 
+\subsection{Propiedades}
 Las siguientes son propiedades de las funciones de distribución.
+
 \begin{enumerate}
   \item $$\text{Es una función no-decreciente.}$$
+    \begin{myproof}
+      Sea $x_1 \le x_2$. Queremos probar que $F_{\mcX}(x_1) \le F_{\mcX}(x_2)$.
+
+      Tenemos que $F_{\mcX}(x_1) = P(\mcX \le x_1)$ y $F_{\mcX}(x_2) = P(\mcX \le x_2)$.
+
+      Notemos que si $w_0 \in \{w \in \Omega \mid \mcX(w) \le x_1\}$, entonces $\mcX(w_0) \le \overbrace{x_1 \le x_2}^{\text{hipótesis}}$.
+
+    Así, se tiene que $w_0 \in \{w \in \Omega \mid \mcX(w) \le x_2\}$, implicando que $\{\mcX(w) \le x_1\} \subseteq \{\mcX(w) \le x_2\}$, y por tanto, por los axiomas de probabilidad, se concluye
+      \[F_{\mcX}(x_1) = P(\mcX \le x_1) \le P(\mcX \le x_2) = F_{\mcX}(x_2)\]
+      \[\therefore \, \text{$F$ es no-decreciente}\]
+
+    \end{myproof}
   \item \[ \lim_{x \to \infty} F(x) = 1 \]
-  \item \[ \lim_{x \to -\infty} F(x) = 0 \]
+    \begin{myproof}
+      Sea $\{a_n\}$ una sucesión de números reales tales que $a_n \le a_{n+1}$ y $\lim_{n\to \infty} a_n = \infty$
+
+      Tenemos que
+      \[\lim_{x \to \infty} F_{\mcX}(x) = \lim_{n \to \infty} F_{\mcX}(a_n) = \lim_{n \to \infty} P(\mcX \le a_n)\]
+
+      Observemos que $\{\mcX \le a_n\} \subseteq \{\mcX \le a_{n+1}\}$ es una sucesión de conjuntos monótona creciente. Entonces
+      \[\lim_{n\to \infty} P(\mcX \le a_n) = P\parens*{\lim_{n\to \infty}\{\mcX \le a_n\}} = P\parens*{\bigcup_{n=1}^{\infty} \{\mcX \le a_n\}} = P(\Omega) = 1 \]
+      \[\therefore \, \lim_{n\to \infty}F_{\mcX}(a_n) = 1\]
+    \end{myproof}
+  \item \[ \lim_{x \to -\infty} F(x) = 0\]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item $$\text{Es una función continua por la derecha.}$$
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(\mathcal X < a) = F(a^-) \text{limite por la izquierda}\]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(\mathcal X = a) = P(\mathcal X \le a) - P(\mathcal X < a) = F(a) - F(a^-) \]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(a< \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X \le a) = F(b) - F(a) \]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(a \le \mathcal X \le b) = P(\mathcal X \le b) - P(\mathcal X < a) = F(b) - F(a^-) \]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(a < \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X \le a) = F(b^-) - F(a) \]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
   \item \[ P(a \le \mathcal X < b) = P(\mathcal X < b) - P(\mathcal X < a) = F(b^-) - F(a^-) \]
+    \begin{myproof}
+      Ejercicio.
+    \end{myproof}
 \end{enumerate}
 
 \section{Variables Aleatorias Discretas}
-\dfn{Función de probabilidad o Función de probabilidad de masa}{
-  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Entonces su \textbf{función de probabilidad} es
+\subsection{Definición}
+\dfn{Función de Probabilidad o Función de Probabilidad de Masa}{
+  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Definimos su \textbf{función de probabilidad} como sigue a continuación.
   \[f_{\mathcal X} (a) = P(\mathcal X = a),\] con \textit a en la imagen de $\mathcal X$
 }
 
@@ -84,7 +137,7 @@ Las siguientes son propiedades de las funciones de distribución.
   para cualquier $a \in \mathbb R$. Es decir, no tiene utilidad en el caso continuo.
 }
 
-\ex{Función de probabilidad}{
+\ex{Variables Aleatorias Discretas}{
   Consideremos el ejemplo anterior donde lanzamos 3 monedas justas. Dada la $\mathcal Y$ definida anteriormente, se tiene lo siguiente.
   \begin{itemize}
     \item $f_{\mathcal Y} (a) = P(\mathcal Y = a)$
@@ -99,34 +152,39 @@ Las siguientes son propiedades de las funciones de distribución.
   Notese que esta función \textbf{no es acumulativa}.
 }
 
+\section{Propiedades}
 Las siguientes son propiedades de las funciones de probabilidad.
 \begin{enumerate}
-  \item \[f(x) \ge 0\]
-  \item \[\sum_x f(x) = 1,\] donde \textit x representa todos los valores que toma la variable aleatoria \textbf{discreta}.
+  \item \[f_{\mcX}(k) \ge 0\]
+  \item \[\sum_k f(k) = 1,\] donde \textit k representa todos los valores que toma la variable aleatoria.
 \end{enumerate}
 
-\ex{Función de probabilidad}{
+\ex{Variables Aleatorias Discretas}{
   Sea $f_{\mathcal X} (0) = \frac12 \ge 0$ y $f_{\mathcal X} (1) = \frac12 \ge 0$. Se tiene que 
   \[\sum_{i = 0}^1 f_{\mathcal X}(i) = P(\mathcal X = 0) + P(\mathcal X = 1) = \frac12 + \frac12 = 1\]
   Por tanto cumple las propiedades listadas anteriormente.
 }
 
-\section{Variables aleatoria Absolutamente Continuas}
+\section{Variables Aleatorias Absolutamente Continuas}
+\subsection{Definición}
 
 \dfn{Variables Aleatorias Absolutamente Continuas}{
   Sea $\mathcal X$ una \textit{variable Aleatorias continua} con función de distribución $F_{\mathcal X}$, se le llama \textbf{absolutamente continua} \textit{si existe} una función \textit f tal que
-  \[F_{\mathcal X}(a) = \int_{-\infty}^a f(x)~dx = P(\mathcal X \le a)\]
+  \[F_{\mathcal X}(a) = \int_{-\infty}^a f(x)_{\mcX}~dx = P(\mathcal X \le a)\]
 }
-A la función \textit f se le conoce como \textbf{función de densidad} de la variable aleatoria $\mathcal X$ y satisface las siguientes propiedades.
+
+\subsection{Función de Densidad y sus Propiedades}
+
+A la función $f_{\mcX}$ se le conoce como \textbf{función de densidad} de la variable aleatoria $\mathcal X$.
 
 \begin{enumerate}
-  \item \[ f(x) \ge 0, ~ \forall x \in \mathbb R \]
-  \item \[ \int_{-\infty}^{\infty}f(x)~dx = 1 \]
+  \item \[ f_{\mcX}(x) \ge 0, ~ \forall x \in \mathbb R \]
+  \item \[ \int_{-\infty}^{\infty}f_{\mcX}(x)~dx = 1 \]
 \end{enumerate}
 
 \nt{
-  Si la función de densidad \textit f es continua, el \textit{Teorema Fundamental del Cálculo} nos dice que
-  \[\frac{d}{dx} F(x) = f(x)\]
+  Si la función de densidad $f_{\mcX}$ es continua, el \textit{Teorema Fundamental del Cálculo} nos dice que
+  \[\frac{d}{dx} F_{\mcX}(x) = f_{\mcX}(x)\]
 }
 
 \section{Ejercicios}
@@ -185,5 +243,10 @@ A la función \textit f se le conoce como \textbf{función de densidad} de la va
 
 \qs{Variables Aleatorias}{
   Para cualesquiera A, $B\in\mathcal{F}$ demuestra que si $P(B|A)>P(B)$ entonces $P(B^{c}|A)<P(B^{c})$.
+}
+
+
+\qs{Variables Aleatorias}{
+  Demostrar las propiedades restantes de las funciones de distribución.
 }
 
