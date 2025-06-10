@@ -1,9 +1,9 @@
 \chapter{Distribuciones}
-\section{Distribuciones Aleatorias Discretas}
+\section{Distribuciones Discretas}
 \subsection{Destribución Bernoulli}
 
 \dfn{Distribución Bernoulli}{
-  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Diremos que $\mathcal X$ tiene \textbf{distribución Bernoulli} ($\mathcal X \sim Ber(p)$) con parámetro \textit p, donde $p \in [0,1]$ si satisface lo siguiente
+  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Diremos que $\mathcal X$ tiene \textbf{distribución Bernoulli} ($\mathcal X \sim Ber(p)$) con parámetro \textit p, donde $p \in [0,1]$ si satisface lo siguiente.
   \[
     \mathcal X = 
     \begin{cases}
@@ -11,6 +11,11 @@
       1  ,& \text{con probabilidad } p \\
     \end{cases}
   \]
+}
+Generalmente decimos que si $\mathcal X(w) = 1$, entonces "\textit{ocurrió un éxito}", y si $\mathcal X(w) = 0$, "\textit{ocurrió un fracaso"}.
+
+\nt{
+  A \textit p se le conoce como la \textbf{probabilidad de éxito}
 }
 
 \ex{Distribución Bernoulli}{
@@ -24,14 +29,9 @@
   \]
 }
 
-\noindent Generalmente decimos que si $\mathcal X(w) = 1$, entonces "\textit{ocurrió un éxito}", y si $\mathcal X(w) = 0$, "\textit{ocurrió un fracaso"}.
-\nt{
-  A \textit p se le conoce como la \textbf{probabilidad de éxito}
-}
-
 \dfn{Función de Probabilidad}{
-  Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
-  \[f(k) = P(\mathcal X = k) = 
+  Sea $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = 
  \begin{cases}
    p &\text{si } k = 1 \\
    1-p &\text{si } k = 0\\
@@ -39,7 +39,7 @@
 }
 
 \dfn{Función de Distribución}{
-  Si $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de distribución} como
+  Sea $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de distribución} como
   \[
   F_{\mathcal X}(k) = P(\chi \le k)= 
   \begin{cases}
@@ -50,83 +50,95 @@
 \]
 }
 
-\subsection{Variable Aleatoria Binomial}
+\subsection{Distribución Binomial}
 \dfn{Distribución Binomial}{
-  Sea $\mathcal X$ una \textit{variable aleatoria} tal que cuenta el número de éxitos en \textit {n experimentos Bernoulli independientes}. Entonces $\mathcal X$ tiene \textbf{distribución Binomial} con parámetros \textit{p, n}. Se denota como
+  Sea $\mathcal X$ una \textit{variable aleatoria} tal que cuenta el número de éxitos en \textit {n experimentos Bernoulli independientes}. Entonces $\mathcal X$ tiene \textbf{distribución Binomial} con parámetros $n,p$. Se denota como
   \[\mathcal X \sim Bin(n,p)\]
   donde \textit n es el \textit{número de experimentos Bernoulli}, y \textit p es la \textit{probabilidad de éxito de cada experimento}.
 }
 
-\dfn{Función de Probabilidad de Masa}{
-  Si $\mathcal X \sim Bin(n,p)$. Definimos la \textbf{función de probabilidad de masa binomial} como
-  \[f(k) = P(\mathcal X = k) = \binom{n}{k}p^k(1-p)^{n - k},~~~ k = 0, 1, 2, \cdots, n\]
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \binom{n}{k}p^k(1-p)^{n - k}\]
+  con $k = 0, 1, 2, \cdots, n$
 }
 
 \dfn{Función de Distribución}{
-  Si $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de distribución} como
+  Sea $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de distribución} como
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k \binom{n}{i}p^i(1-p)^{n - i}\]
 }
 
 \ex{Distribución Binomial}{
-  Es sabido que los tornillos producidos por una compañia serán defectuosos con probabilidad del \textit{0.01} y que esto es \textit{independiente} de un tornillo a otro. La compañia vende tornillos en paquetes de 10 y ofrece una garantía de devolver el dinero si al menos 1 de los 10 tornillos está defectuoso. Si compras un paquete de tornillos, ¿Cuál es la probabilidad de que te devuelvan el dinero?\\
+  Es sabido que los tornillos producidos por una compañia serán defectuosos con probabilidad del $0.01\%$ y que esto es \textit{independiente} de un tornillo a otro. La compañia vende tornillos en paquetes de 10 y ofrece una garantía de devolver el dinero si al menos 1 de los 10 tornillos está defectuoso. Si compras un paquete de tornillos, ¿Cuál es la probabilidad de que te devuelvan el dinero?
+  \newpara
   Sea $\mathcal X = \text{"\# de tornillos defectuosos"}$, donde $\mathcal X(w) \in \{0, 1, \cdots, 10\}$. Entonces $\mathcal X \sim Bin(10, 0.01)$.
-  Entonces
+  Así,
   \begin{align*}
     P(\mathcal X \ge 1) &= 1 - P(\mathcal X \le 0) \\
              &= 1 - F_{\mathcal X}(0)\\
              &= 1 - P(\mathcal X = 0)\\
-             &= 1 - (\binom n0 p^0 (1-p)^{n-0})\\
+             &= 1 - \parens*{\binom n0 p^0 (1-p)^{n-0}}\\
              &= 1 - ((1-p)^n)\\
              &= 1 - (1-0.01)^{10}\\
-             &= 0.0956\\
+             &= 0.0956
   \end{align*}
-  Alternativamente podemos calcularlo de la siguiente manera.
+  De manera equivalente, podemos calcularlo de la siguiente manera.
   \[P(\mathcal X \ge 1) = \sum_{i = 1}^{10} \binom{10}i (0.01)^i (1 - 0.01)^{10 - i} = 0.0956 \]
 }
 
-\subsection{Variable Aleatoria Poisson}
+\subsection{Distribución Poisson}
 
 \dfn{Distribución Poisson}{
   Sea $\mathcal Y \sim Bin(n, \frac{\lambda}{n})$ con $\lambda > 0$, es decir, \textit {$\mathcal Y$ es una variable aleatorial binomial} donde la probabilidad de éxito es $\frac{\lambda}{n}$.
   \[ \lim_{n \to \infty}P (\mathcal Y = k) = \frac{\lambda^k}{k!}e^{-\lambda} = P(Z = k) = f(k)\]
-  donde \textit f es la \textbf{función de probabilidad de masa} de una variable aleatoria $Z \sim Poi(\lambda)$
+  donde \textit f es la función de probabilidad de masa de una variable aleatoria $Z \sim Poi(\lambda)$, es decir, $X$ tiene \textbf{distribución Poisson}.
 }
 
 \nt{
-  Si $\mathcal Y \sim Bin(n,p)$ y \textit {p es pequeño} y \textit {n suficientemente grande}. Entonces se puede calcular la distribución de $\mathcal Y$ usando la \textbf{distribución de Poisson}.
+  Sea $\mathcal Y \sim Bin(n,p)$. Si \textit {p es pequeño} y \textit {n suficientemente grande}, entonces se puede calcular la distribución de $\mathcal Y$ usando la \textbf{distribución Poisson}.
 }
 
-\dfn{Función de Probabilidad de Masa}{
-  Una \textit{variable aleatoria con distribución poisson} $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$ tiene \textbf{función de probabilidad de masa}
-  \[P(\mathcal X = k) = f(k) = \frac{e^{-\lambda}\lambda^k}{k!},~ k = 0, 1, \cdots\]
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \frac{e^{-\lambda}\lambda^k}{k!}\]
+  con $k = 0, 1, \cdots$
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$. Definimos su \textbf{función de distribución} como
+  \[F_{\mcX}(k) = P(\mathcal X \le k) = \sum_{i=0}^k \frac{e^{-\lambda}\lambda^i}{i!}\]
+  con $k = 0, 1, \cdots$
 }
 
 \nt {
-  Efectivamente $f(k) = \frac{e^{-\lambda}\lambda^k}{k!}$ es función de probabilidad.
+  Efectivamente $f_{\mcX}(k) = \frac{e^{-\lambda}\lambda^k}{k!}$ es una función de probabilidad.
   \begin{itemize}
-    \item $f(k) \ge 0$
+    \item $f_{\mcX}(k) \ge 0$
     \item $\sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} = 1$
-      \begin{align*}
-        \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} &= e^{-\lambda} \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}\\
-        &= e^{-\lambda}e^{\lambda}\\
-        &= e^0 = 1\\
-      \end{align*}
+  \[
+    \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} = e^{-\lambda} \underbrace{\sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}}_{\substack{\text{Expansión en series} \\ \text{de Taylor de } e^{\lambda}}} = e^{-\lambda}e^{\lambda} = e^0 = 1
+  \]
   \end{itemize}
 }
 
 \ex{Distribución Poisson}{
-  Supangamos que la probabilidad de que un objeto producido por una máquina sea defectuoso es de \textit{0.01} y que el hecho de que un objeto salga defectuoso o no, no afecta a los demás objetos. Se toman 10 objetos al azar. Encuentra la probabilidad de que al menos uno de ellos sea defectuoso.\\
-  Sea $\mathcal X = \text{"número de objetos defectuosos"}$ una v.a.\\
-  Usando la distribución Binomial se tiene lo siguiente.
-  $X \sim Bin(10, 0.01)$
+  Supangamos que la probabilidad de que un objeto producido por una máquina sea defectuoso es de \textit{0.01} y que el hecho de que un objeto salga defectuoso o no, no afecta a los demás objetos. Se toman 10 objetos al azar. Encuentra la probabilidad de que al menos uno de ellos sea defectuoso.
+  \newpara
+  Sea $\mathcal X = \text{"número de objetos defectuosos"}$ una variable aleatoria.
+
+  Tenemos dos opciones.
+
+  Usando la distribución Binomial se tiene que $X \sim Bin(10, 0.01)$ y por tanto
   \begin{align*}
-    P(\mathcal X \ge 1) = 1 - P(\mathcal X < 1) = 1 - P(\mathcal X = 0) = 0.956 ~\text{(resultado de ejemplo anterior)}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X < 1)
+                        = 1 - P(\mathcal X = 0)\\
+                        &= 0.956 ~\text{(resultado de ejemplo anterior)}
   \end{align*}
-  Usando la distribución Poisson se tiene lo siguiente.
-  $\frac{\lambda}{10} = 0.01 \Rightarrow \lambda = 0.1$. Entonces $\mathcal X \sim Poi(0.1)$
+  Usando la distribución Poisson se tiene que $\frac{\lambda}{10} = 0.01 \Rightarrow \lambda = 0.1$, y entonces $\mathcal X \sim Poi(0.1)$. Se sigue que
   \begin{align*}
-    P(\mathcal X \ge 1) &= 1 - P(\mathcal X = 0) = 1 - \frac{e^{-0.1}(0.1)^0}{0!}\\
-                        &= 1 - e^{-0.1} = 0.095\\
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X = 0)
+                        = 1 - \frac{e^{-0.1}(0.1)^0}{0!}\\
+                        &= 1 - e^{-0.1} = 0.095
   \end{align*}
   Por tanto, el resultado es practicamente el mismo.
 }
@@ -134,98 +146,80 @@
 \subsection{Variable Aleatoria Geométrica}
 Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
 
-\dfn{Variable Aleatoria Geométrica}{
-  
-  La \textbf{variable aleatoria geométrica} se define como
-  \[\mathcal X = \text{"\# de fracasos antes de obtener el primer éxito"}\]
+\dfn{Distribución Geométrica}{
+  Sea $\mcX$ una variable aleatoria. $\mcX \sim Geo(p)$ tiene \textbf{distribución Geométrica} y se define como
+  \[\mathcal X = \text{"El \# de fracasos antes de obtener el primer éxito"}\]
 }
 
-Entonces
+Dado lo anterior, tenemos el siguiente resultado.
 \begin{align*}
   &f(0) = P(\mathcal X = 0) = P(\text{"Éxito"}) = p \\
   &f(1) = P(\mathcal X = 1) = P(\text{F~E}) = (1 - p) p \\
   &f(2) = P(\mathcal X = 2) = P(\text{F~F~E}) = (1 - p)^2 p \\
   &\cdots \\
-  &f(k) = P(\mathcal X = k) = (1-p)^k p \\
+  &f(k) = P(\mathcal X = k) = (1-p)^k p
 \end{align*}
 
 \dfn{Función de Probabilidad}{
-  Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos la \textbf{función de probabilidad} como
-
-  \[f(k) = P(\mathcal X = k) = (1-p)^k p\]
+  Sea $\mathcal X \sim Geo(p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = (1-p)^k p\]
+  con $k = 0, 1, \cdots$
 }
-
-\noindent \textit Se tiene que f satisface las propiedades de una función de probabilidad
-\begin{enumerate}
-  \item \[f(k) \ge 0\]
-  \item \[\sum_{k = 0}^{\infty} f(k) = 1\]
-\end{enumerate}
 
 \dfn{Función de Distribución}{
-  Si $\mathcal X$ en una \textit{variable aleatoria geométrica}. Definimos su \textbf{función de distribución} como
-
+  Sea $\mathcal X \sim Geo(p)$. Definimos su \textbf{función de distribución} como
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k(1-p)^i p\]
+  con $k = 0, 1, \cdots$
 }
 
+Se tiene que $f_{\mcX}$ satisface las propiedades de una función de probabilidad.
+\begin{enumerate}
+  \item \[f_{\mcX}(k) \ge 0\]
+  \item \[\sum_{k = 0}^{\infty} f_{\mcX}(k) = 1\]
+\end{enumerate}
 
-\subsection{Variable Aleatoria Binomial Negativa}
+\subsection{Distribución Binomial Negativa}
 
 Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
-\dfn{Variable Aleatoria Binomial Negativa}{
-  La \textbf{variable aleatoria binomial negativa} se define como
-  \[\mathcal X = \text{"\# de ensayos hasta obtener r éxitos"}\]
+\dfn{Distribución Binomial Negativa}{
+  Sea $\mcX$ una variable aleatoria. $\mcX$ tiene \textbf{distribución Binomial Negativa} y se define como
+  \[\mathcal X = \text{El "\# de ensayos hasta obtener r éxitos"}\]
 }
 
 \dfn{Función de Probabilidad}{
-  Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos la \textbf{función de probabilidad} como
-
-  \[f(k) = P(\mathcal X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r} = \frac{(k-1)!}{(k-r)!(r-1)!}p^r(1-p)^{k-r} \]
-  donde \textit r es el número de éxitos, y \textit k el número de ensayos.
+  Sea $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r} = \frac{(k-1)!}{(k-r)!(r-1)!}p^r(1-p)^{k-r} \]
+  donde $r$ es el número de éxitos, y $k$ número de ensayos.
 }
 
 \dfn{Función de Distribución}{
-  Si $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de distribución} como
+  Sea $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de distribución} como
 
   \[F_{\mathcal X}(k) = P(\mathcal X \le k) =\sum_{i = 0}^k \binom{i-1}{r-1}p^r(1-p)^{i-r} = \sum_{i = 0}^k \frac{(i-1)!}{(i-r)!(r-1)!}p^r(1-p)^{i-r} \]
   donde \textit r es el número de éxitos, y \textit k el número de ensayos.
 }
 
-\subsection{Variable Aleatoria Uniforme}
-\dfn{Variable Aleatoria Uniforme}{
-  Una \textit{variable aleatoria $\mathcal X$} se dice que es \textbf{uniforme} sobre $\{a_1, a_2, \cdots, a_n\}$ donde $a_i \in \mathbb R$ si
-  \[P(\mathcal X = a_i) = \frac{1}{n},~ \forall i \in \{1, 2, \cdots n\}\]
+\subsection{Distribución Uniforme}
+\dfn{Distribución Uniforme}{
+  Sea $\mcX$ una variable aleatoria. $\mcX \sim Uni(a_1, a_n)$ tiene \textbf{distribución Uniforme} sobre $\{a_1, a_2, \cdots, a_n\}$ donde $a_i \in \mathbb R$ si
+  \[P(\mathcal X = a_i) = \frac{1}{n},\, \forall i \in \{1, 2, \cdots n\}\]
 }
 
-\ex{Variable Aleatoria Uniforme}{
-  \begin{enumerate}
-    \item Lanzar una moneda justa
-
-      $\mathcal X(w) \in  \{0, 1\}$, es decir, $a_1 = 0,~ a_2 = 1$\\
-      $P(\mathcal 0) = P(\mathcal 1) = \frac12$
-
-    \item Lanzar un dado justo.
-
-      $\mathcal X \in \{1, \cdots 6\}$, es decir, $a_1 = 1, a_2 = 2, \cdots, a_6 = 6$\\
-      $P(\mathcal X = i) = \frac16,~ \forall i = 1, \cdots 6$
-  \end{enumerate}
-
+\ex{Distribución Uniforme}{
+  Lanzar un dado justo.
+  \newpara
+  $\mathcal X \in \{1, \cdots 6\}$, es decir, $a_1 = 1, a_2 = 2, \cdots, a_6 = 6$\\
+    $P(\mathcal X = i) = \frac16,~ \forall i = 1, \cdots 6$
 }
 
 \subsection{Variable Aleatoria Hipergeométrica}
 
-Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar. Sea $\mathcal X =$ "\#pelotas azules seleccionadas". Se tiene lo siguiente.
+Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar.  Sea $\mathcal X = \text{"El \#pelotas azules seleccionadas"}$. Se tiene lo siguiente.
 
 \[P(\mathcal X = k) = \frac{\binom{m}{k} \binom{N - m}{n-k} }{\binom{N}{n}}\]
 
-\noindent Todos los experimentos que tengan un contexto similar se modelan con una variable aleatoria hipergeométrica.
+Todos los experimentos que tengan un contexto similar se modelan con una variable aleatoria hipergeométrica.
 
-\qs{Variable Aleatoria Hipergeométrica}{
-  Cinco individuos de una población animal que se cree que está al borde de la extinción en una determinada región han sido capturados, etiquetados y liberados para mezclarse con la población. Después de haber tenido la oportunidad de mezclarse, se toma una muestra aleatoria de 10 de estos animales. Si hay 25 animales de este tipo en la región, ¿cuál es la probabilidad de que se tomaran a lo más 2 animales etiquetados?
-}
-
-\qs{Variable Aleatoria Hipergeométrica}{
-  Si un editor de libros no técnicos hace todo lo posible porque sus libros estén libres de errores tipográficos, de modo que la probabilidad de que cualquier página dada contenga por la menos uno de esos errores es de 0.005 y los errores son independientes de una página a otra, ¿cuál es la probabilidad de que una de sus novelas de 400 páginas contenga exactamente una página con errores? ¿Cuál es la probabilidad de que máximo tres páginas tengan errores?
-}
 
 \section{Distribuciones Absolutamente Continuas}
 Dada una variable aleatoria \textit{continua}, su correspondiente función de distribución es \textbf{continua}.\\
@@ -550,6 +544,10 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
 \section{Ejercicios}
 
 \qs{Distribuciones}{
+  Demostrar que todas las funciones de probabilidad dadadas en esta sección son, efectivamente, funciones de probabilidad.
+}
+
+\qs{Distribuciones}{
   Una empresa que produce cristal fino sabe por experiencia que el 10\% de sus copas tienen defectos estéticos y deben clasificarse como "segundos".
   De 6 copas elegidas al azar:
   \begin{itemize}
@@ -595,6 +593,14 @@ Las siguientes son propiedades de la \textit{Función Gamma} (no necesariamente 
 \qs{Distribuciones}{
   Sea $\mathcal X\sim geo(p)$. Demuestra que:
   \[P(\mathcal X= n+k |\mathcal X > n) = P(\mathcal X = k)\]
+}
+
+\qs{Distribuciones}{
+  Cinco individuos de una población animal que se cree que está al borde de la extinción en una determinada región han sido capturados, etiquetados y liberados para mezclarse con la población. Después de haber tenido la oportunidad de mezclarse, se toma una muestra aleatoria de 10 de estos animales. Si hay 25 animales de este tipo en la región, ¿cuál es la probabilidad de que se tomaran a lo más 2 animales etiquetados?
+}
+
+\qs{Distribuciones}{
+  Si un editor de libros no técnicos hace todo lo posible porque sus libros estén libres de errores tipográficos, de modo que la probabilidad de que cualquier página dada contenga por la menos uno de esos errores es de 0.005 y los errores son independientes de una página a otra, ¿cuál es la probabilidad de que una de sus novelas de 400 páginas contenga exactamente una página con errores? ¿Cuál es la probabilidad de que máximo tres páginas tengan errores?
 }
 
 \qs{Distribuciones}{
