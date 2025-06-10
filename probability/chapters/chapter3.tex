@@ -14,7 +14,7 @@
   \end{itemize}
 }
 
-\section{Axiomas de probabilidad}
+\section{Axiomas de Probabilidad}
 
 Sean \textit{A, B} eventos,$\Omega$ el espacio muestral, y $\mathcal F$ una $\sigma$-algebra.
 
@@ -57,31 +57,32 @@ Dado \textit{A, B} eventos.
 \end{enumerate}
 
 \ex{Proposiciones}{
-  Se sacan 3 pelotas de una urna que contiene 5 pelotas azules, 4 verdes, y 3 rojas. ¿Cuál es la probabilidad de no obtener ni verdes ni rojas?\\
+  Se sacan 3 pelotas de una urna que contiene 5 pelotas azules, 4 verdes, y 3 rojas. ¿Cuál es la probabilidad de no obtener ni verdes ni rojas?
+  \newpara
   Se tienen 12 pelotas en total. Sea \textit{A = "obtener 3 pelotas azules"} un evento.\\
   Entonces 
   \begin{align*}
     P(A) &= \frac{\abs*{A}}{\abs*{\Omega}} = \frac{\binom{5}{3}}{\binom{12}{3}}\\
          &= \frac{ \frac{5!}{3! 2!} }{ \frac{12!}{3! 9!} } = \frac{ \frac{5 \cdot 4 \cdot 3!}{3! \cdot 2 \cdot 1} }{ \frac{12 \cdot 11 \cdot 10 \cdot 9!}{3 \cdot 2 \cdot 1 \cdot 9!} } \\
-         &= \frac{ \sfrac{20}{2} }{\sfrac{1320}{6} } = \frac{10}{220} = \frac{1}{22}  \\
+         &= \frac{ \sfrac{20}{2} }{\sfrac{1320}{6} } = \frac{10}{220} = \frac{1}{22}
   \end{align*}
 }
 
 \ex{Proposiciones} {
   Tres pelotas son tomadas aleatoriamente de una caja que contiene 6 pelotas blancas y 5 negras. ¿Cuál es la probabilidad de que una de las pelotas sea blanca y las otras negras?
-
+  \newpara
   Se tienen 11 pelotas en total. Sean \textit{A = "sacar 1 pelota blanca"} y \textit{B = "sacar 2 pelotas negras"} eventos.
   Entonces 
   \begin{align*}
     P(A) &= \frac{\abs*{A} \abs*{B}}{\abs*{\Omega}} = \frac{ \binom61 \binom52} {\binom{11}3} \\ 
         &= \frac{ \frac{6!}{6!} \frac{5!}{2! 3!} } { \frac{11!}{3!8!} } \\ 
-        &= \frac{60} {165} = \frac{4}{11} \\ 
+        &= \frac{60} {165} = \frac{4}{11}
   \end{align*}
 }
 
 
 \section{Probabilidad Condicional}
-
+\subsection{Definición}
 \dfn{Probabilidad Condicional}{
   Sean $A, B \in \mathcal F$. La \textbf{probabilidad condicional} del evento \textit{A} \textit{dado} el evento \textit{B} se define como sigue.
   \[P(A \mid B) = \frac{P(A \cap B)}{P(B)} \]
@@ -89,12 +90,12 @@ Dado \textit{A, B} eventos.
 }
 
 \nt {
-  Lo anterir se puede leer como "la \textbf{probabilidad de \textit A dado \textit B"}
+  Lo anterior se puede leer como "la \textbf{probabilidad de $A$ dado $B$"}
 }
 
 \nt {
   De la definicón anterior se tiene que 
-  \[P(A \cap B) = P(B)~P(A \mid B)\]
+  \[P(A \cap B) = P(A \mid B)\,P(B)\]
 }
 
 \ex{Probabilidad Condicional}{
@@ -102,42 +103,42 @@ Dado \textit{A, B} eventos.
   \begin{itemize}
     \item Se reemplaza la carta (se regresa la carta sacada).
     \item No se reemplaza la carta.
-
-      Sea \textit{$A_1$ = "La primera carta es un As"}, \textit {$A_2$ = "La segunda carta es un As"} eventos. Entonces\\
-      $P(A_2 \cap A_1) = P(A_2 \mid A_1) ~P(A_1) = P(A_2 \mid A_1)~ \frac{4}{52}$
-
-      Si se reemplaza la carta. Tenemos que 
-      \[P(A_2 \cap A_1) = (\frac{4}{52})^2 = \frac{1}{169}\]
-     Si no se reemplaza. Tenemos que
-     \[P(A_2 \cap A_1) = \frac{3}{51} \frac{4}{52} = \frac{1}{221} \]
-
   \end{itemize}
+
+  Sea \textit{$A_1$ = "La primera carta es un As"}, \textit {$A_2$ = "La segunda carta es un As"} eventos. Entonces\\
+  $P(A_2 \cap A_1) = P(A_2 \mid A_1) ~P(A_1) = P(A_2 \mid A_1)~ \frac{4}{52}$
+
+  Si se reemplaza la carta tenemos que 
+  \[P(A_2 \cap A_1) = (\frac{4}{52})^2 = \frac{1}{169}\]
+  Si no se reemplaza tenemos que
+  \[P(A_2 \cap A_1) = \frac{3}{51} \cdot \frac{4}{52} = \frac{1}{221} \]
 }
 
 \section{Independencia}
+\subsection{Definición}
+
 \dfn{Independencia}{
   Sean $A, B \in \mathcal F$. Decimos que \textit{A} y \textit{B} son \textbf{independientes} si
-  \[P(A \mid B) = P(A)\]
-  o
-  \[P(B \mid A) = P(B)\]
+  \[P(A \mid B) = P(A) \qquad \text{ó} \qquad P(B \mid A) = P(B)\]
   dependiendo del contexto.
 }
 
 \nt {
   De la definicón anterior se tiene que 
-  \[P(A \cap B) = P(A)P(B)\]
+  \[P(A \cap B) = P(A)\,P(B)\]
   por definicón de probabilidad condicional.
 }
 
 \nt {
-  Dado $P(A \mid B) = P(A)$, se puede decir que "\textbf{la occurrencia de B no afecta en la probabilidad de A}".
+  Dado $P(A \mid B) = P(A)$, se puede decir que "\textbf{la occurrencia de $B$ no afecta en la probabilidad de $B$}".
 }
 
 \nt {
-  La independencia \textbf{no} significa que $A \cap B = \varnothing$
+  La independencia \textbf{no} implica que $A \cap B = \varnothing$
 }
 
 \section{Probabilidad Total}
+\subsection{Partición del Espacio Muestral}
 
 \dfn{Partición del Espacio Muestral}{
   Sean $B_1, B_2, \cdots, B_n \in \mathcal F$. Decimos que $\{B_i\}_i$ es una \textbf{partición de $\Omega$} si se satisface lo siguiente.
@@ -147,9 +148,10 @@ Dado \textit{A, B} eventos.
   \end{itemize}
 }
 
+\subsection{Probabilidad Total}
 \dfn{Probabilidad Total}{
-  Si $\{B_i\}_i$ es una partición de $\Omega$, y $A \in \mathcal F$ un evento. Entonces
-  \[P(A) = \sum_{i = 1}^n P(B_i \cap A) = \sum_{i = 1}^n P(A \mid B_i)P(B_i)\]
+  Si $\{B_i\}_i$ es una partición de $\Omega$, y $A \in \mathcal F$ un evento, entonces
+  \[P(A) = \sum_{i = 1}^n P(A \cap B_i) = \sum_{i = 1}^n P(A \mid B_i)\,P(B_i)\]
 }
 
 \nt {
@@ -161,27 +163,29 @@ Dado \textit{A, B} eventos.
 }
 
 \ex{Probabilidad Total}{
-  Se tienen dos cajas con pelotas. La caja \textit{I} tiene 2 pelotas azules y 3 rojas. La caja \textit{II} tiene 8 pelotas azules y 2 rojas. Se lanza una moneda justa, si obtenemos \textit{sol} sacamos una pelota de la caja \textit{I}, y si se obtiene \textit{águila} se saca de la caja \textit{II}. ¿ Cuál es la probabilidad de sacar una pelota roja? \\
+  Se tienen dos cajas con pelotas. La caja \textit{I} tiene 2 pelotas azules y 3 rojas. La caja \textit{II} tiene 8 pelotas azules y 2 rojas. Se lanza una moneda justa. Si obtenemos \textit{sol} sacamos una pelota de la caja \textit{I}, y si se obtiene \textit{águila} se saca de la caja \textit{II}. ¿ Cuál es la probabilidad de sacar una pelota roja?
+  \newpara
   Sean \textit{A = "se saca una pelota roja"}, \textit{$B_1$ = "se saca la pelota de la caja I"}, \textit{$B_2$= "se saca la pelota de la caja II"} eventos.  Entonces
   \begin{align*}
     P(A) &= P(A \cap B_1) + P(A \cap B_2)\\
-         &= P(A \mid B_i)~P(B_i) + P(A \mid B_2)~ P(B_2)\\
-         &= \frac{3}{5} \frac{1}{2} + \frac{2}{10} \frac{1}{2} = \frac{3}{10} + \frac{2}{20} = \frac25\\
+         &= P(A \mid B_i)\,P(B_i) + P(A \mid B_2)\,P(B_2)\\
+         &= \frac{3}{5} \cdot \frac{1}{2} + \frac{2}{10} \cdot \frac{1}{2} = \frac{3}{10} + \frac{2}{20} = \frac25
   \end{align*}
 }
 
 \section{Teorema de Bayes}
+\subsection{Motivación}
 
-Siguiendo con el ejemplo anterior. Supongamos que durante el experimento se sacó una pelota azul. ¿Cuál es la probabilidad de que la pelota se sacara de la caja \textit{II}? Se tiene que
-\[P(B_2 \mid A^c) = \frac{B_2 \cap A^c}{P(A^c)} = \frac{P(A^c \mid B_2)~P(B_2)}{\sum_{i = 1}^2 P(A^c \mid B_i)~ P(B_i)}\]
+Siguiendo con el ejemplo anterior. Supongamos que durante el experimento se sacó una pelota azul. ¿Cuál es la probabilidad de que la pelota se haya sacado de la caja \textit{II}? Se tiene que
+\[P(B_2 \mid A^c) = \frac{B_2 \cap A^c}{P(A^c)} = \frac{P(A^c \mid B_2)\,P(B_2)}{\sum_{i = 1}^2 P(A^c \mid B_i)\,P(B_i)}\]
 
 Donde 
-\[P(A^c) = P(A^c \cap B_1) + P(A^c \cap B_2) = P(A^c \mid B_1)~P(B_1) + P(A^c \mid B_2)~P(B_2)\]
+\[P(A^c) = P(A^c \cap B_1) + P(A^c \cap B_2) = P(A^c \mid B_1)\,P(B_1) + P(A^c \mid B_2)\,P(B_2)\]
 
-
+\subsection{Definición}
 \dfn{Teorema de Bayes}{
-  Si $\{B_i\}_i$ es una partición de $\Omega$ y $A \in \mathcal F$ un evento. Entonces
-  \[P(B_j \mid A) = \frac{P(B_j \cap A)}{P(A)}= \frac{P(A \mid B_j)~P(B_j)}{\sum_{i = 1}^n P(A \mid B_i)~P(B_i)}\]
+  Sea $\{B_i\}_i$ es una partición de $\Omega$ y $A \in \mathcal F$ un evento. Entonces
+  \[P(B_j \mid A) = \frac{P(B_j \cap A)}{P(A)}= \frac{P(A \mid B_j)\,P(B_j)}{\sum_{i = 1}^n P(A \mid B_i)\,P(B_i)}\]
 }
 
 \nt {
@@ -189,102 +193,108 @@ Donde
 }
 
 \ex{Teorema de Bayes}{
-  Una prueba de sagre es 95\% efectiva en detectar cierta enfermedad cuando esta enfermedad está presente. Sin embargo, la prueba también puede dar falsos positivos para el 1\% de quienes se hacen la prueba y están sanos. Si el 0.5\% de la población tiene la enfermedad, ¿Cuál es la probabilidad de que una persona que dió positivo a la prueba tenga enta enfermedad?\\
+  Una prueba de sagre es 95\% efectiva en detectar cierta enfermedad cuando esta enfermedad está presente. Sin embargo, la prueba también puede dar falsos positivos para el 1\% de quienes se hacen la prueba y están sanos. Si el 0.5\% de la población tiene la enfermedad, ¿Cuál es la probabilidad de que una persona que dió positivo a la prueba tenga esta enfermedad?
+  \newpara
   Sea \textit{A = "la persona dió positivo"}, \textit{B = "la persona tiene la enfermedad"} eventos.\\
-  Además, $\Omega = B \cup B^c$ donde $P(B) = 0.5\% = 0.005$. $P(A \mid B) = 0.95$, $P(A \mid B^c) = 0.1$
+  Además, $\Omega = B \cup B^c$ donde $P(B) = 0.5\% = 0.005$. $P(A \mid B) = 0.95$. $P(A \mid B^c) = 0.1$.
   Entonces
   \begin{align*}
     P(B \mid A) &= \frac{P(B \cap A)}{P(A)} = \frac{P(A \mid B)~ P(B)}{P(A)}\\
              &= \frac{P(A \mid B)~P(B)}{P(A | B)~P(B) + P(A \mid B^c)~ P(B^c)}\\
              &= \frac{(0.95) (0.005)}{(0.95) (0.005) + (0.1) (1 - 0.005)}\\
-             &= \frac{19}{417}\\
+             &= \frac{19}{417}
   \end{align*}
 }
 
-\qs{}{
+\ex{Teorema de Bayes}{
   Tengo una bolsa con 3 dados, donde uno es de 4 caras, uno de 6 caras, y una de 12 caras. Tomo aleatoriamente un de ellos y lo lanzo. Dado que se obtuvo un 4, ¿Cuál es la probabilidad de que haya lanzado el dado de 6 caras?
+  \newpara
+  Sean \textit{A = "lanzar el dado de 4 caras"}, \textit{B = "lanzar el dado de 6 caras"}, \textit{C = "lanzar el dado de 12 caras."}, \textit{D = "obtener un 4"} eventos.
 
-  \sol{
-    Sean \textit{A = "lanzar el dado de 4 caras"}, \textit{B = "lanzar el dado de 6 caras"}, \textit{C = "lanzar el dado de 12 caras."}, \textit{D = "obtener un 4"} eventos.\\
-    De lo anterior tenemos que $P(A) = P(B) = P(C) = \frac{1}{3}$. $P(D \mid A) = \frac14,~ P(D \mid B) = \frac16,~ P(D \mid C) = \frac{1}{12}$\\
-    Entonces
-    \begin{align*}
-      P(B \mid D) &= \frac{P(B \cap D)}{P(D)}\\
-               &= \frac{P(D \mid B)~P(B)}{P(D)}\\
-               &= \frac{P(D \mid B)~P(B)}{ P(D \mid A)~P(A) + P(D \mid B)~P(B) + P(D \mid C)~P(D)}\\
-               &= \frac{\frac16}{ \frac16 + \frac14 + \frac1{12}} = \frac{\frac16}{\frac12} = \frac13\\
-    \end{align*}
-  }
+  De lo anterior tenemos que $P(A) = P(B) = P(C) = \frac{1}{3}$. $P(D \mid A) = \frac14,~ P(D \mid B) = \frac16,~ P(D \mid C) = \frac{1}{12}$\\
+  Entonces
+  \begin{align*}
+    P(B \mid D) &= \frac{P(B \cap D)}{P(D)}\\
+              &= \frac{P(D \mid B)~P(B)}{P(D)}\\
+              &= \frac{P(D \mid B)~P(B)}{ P(D \mid A)~P(A) + P(D \mid B)~P(B) + P(D \mid C)~P(D)}\\
+              &= \frac{\sfrac16}{\sfrac16 + \sfrac14 + \sfrac1{12}} = \frac{\sfrac16}{\sfrac12} = \frac13
+  \end{align*}
 }
 
-\qs{}{
-  Una bolsa contiene 4 pelotas blancas y 2 negras. Otra bolsa contiene 3 blancas y 5 negras. Si se lanza un dado y si sale \textit{1, 2, 3 ó 4} se toma la pelota de la bolsa 1, de lo contrario se toma de la bolsa 2. Encuentra la probabilidad de que la pelota extraida sea negra.\\
-  \sol{
-    Sean \textit{A = "la pelota es negra"}, \textit{B = "se extrae de I"}, \textit{C = "se extrae de II"} eventos. \\
-    Con lo anterior tenemos que $P(B) = \frac46,~ P(C) = \frac26$\\
-    Entonces
-    \begin{align*}
-      P(A) &= P(A \mid B)~P(B) + P(A \mid C)~P(C)\\
-           &= \frac26 \frac46 + \frac58 \frac26 = \frac26( \frac46 + \frac58) = 
-           \frac{62}{48} \frac13 = \frac{62}{144} = \frac{31}{72}\\
-    \end{align*}
-  }
+\ex{Teorema de Bayes}{
+  Una bolsa contiene 4 pelotas blancas y 2 negras. Otra bolsa contiene 3 blancas y 5 negras. Si se lanza un dado y si sale \textit{1, 2, 3 ó 4} se toma la pelota de la bolsa 1, de lo contrario se toma de la bolsa 2. Encuentra la probabilidad de que la pelota extraida sea negra.
+  \newpara
+  Sean \textit{A = "la pelota es negra"}, \textit{B = "se extrae de I"}, \textit{C = "se extrae de II"} eventos.
+  Con lo anterior tenemos que $P(B) = \frac46,~ P(C) = \frac26$\\
+  Entonces
+  \begin{align*}
+    P(A) &= P(A \mid B)~P(B) + P(A \mid C)~P(C)\\
+          &= \frac26 \cdot \frac46 + \frac58 \cdot \frac26 = \frac26(\frac46 + \frac58) = 
+          \frac{62}{48} \cdot \frac13 = \frac{62}{144} = \frac{31}{72}
+  \end{align*}
 }
 
-\section{Sucesiones monótonas}
+\section{Sucesiones Monótonas}
+\subsection{Límite de una Sucesión Creciente}
 
-\dfn{Limite de una sucesión creciente}{
+\dfn{Límite de una Sucesión Creciente}{
   Sea $A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots A_n \subseteq \cdots$ una sucesión de eventos creciente. Definimos 
   \[\lim_{n \rightarrow \infty} A_n = \bigcup_{i=1}^{\infty} A_i\]
 }
 
-
-\dfn{Limite de una sucesión decreciente}{
+\subsection{Límite de una Sucesión Decreciente}
+\dfn{Limite de una Sucesión Decreciente}{
 Sea $A_1 \supseteq A_2 \supseteq A_3 \supseteq \cdots A_n \supseteq \cdots$ una sucesión de eventos decreciente. Definimos
 \[\lim_{n \rightarrow \infty} A_n = \bigcap_{i=1}^{\infty} A_i\]
 }
 
+\subsection{Definición}
 \dfn{Sucesión Monótona}{
   Si la sucesión $\{A_n\}_{n \ge 1}$ es creciente o decreciente, la llamamos \textbf{sucesión monótona}.
 }
 
-
 \thm{}{
-  Sea $\{A_n\}_{n \ge 1}$ una sucesión monótona de eventos, entonces
-  \[\lim\limits_{n \to \infty} P(A_n) = P\left( \lim\limits_{n \to \infty} A_n \right) =
-  \begin{cases}
-  P\left(\bigcup\limits_{i=1}^{\infty} A_i ~~~~~\{A_{n} \} \text{ es creciente}  \right) & \\
-  P\left(\bigcap\limits_{i=1}^{\infty} A_i ~~~~~\{ A_{n} \} \text{ es decreciente} \right) & \\
-  \end{cases}\]
+  Sea $\{A_n\}_{n \ge 1}$ una sucesión monótona de eventos. Entonces
+  \[
+    \lim_{n \to \infty} P(A_n) = P \parens*{\lim_{n \to \infty} A_n} =
+    \begin{cases}
+      P\parens*{\bigcup_{i=1}^{\infty} A_i}& \{A_{n}\} \text{ es creciente}\\[1em]
+      P\parens*{\bigcap_{i=1}^{\infty} A_i} & \{A_{n}\} \text{ es decreciente}
+    \end{cases}
+  \]
 }
 
 \begin{myproof}
-  Supongamos que $\{A_n\}$ es creciente. Es decir, $A_1 \subset A_2 \subset A_3 \subset \cdots$\\
+  Supongamos que $\{A_n\}$ es creciente, es decir, $A_1 \subset A_2 \subset A_3 \subset \cdots$\\
   Consideremos la partición $\{B_n\}$ donde $B_1 = A_1,~ B_2 = A_2 - A_1, ~ B_3 = A_3 - A_2, \cdots,~ B_n = A_n - A_{n-1}$, tal que cumple lo siguiente.
   \begin{itemize}
     \item $\forall i \neq j,~ B_i \cap B_j = \varnothing$
     \item $\bigcup_{i = 1}^n B_i = A_n$
     \item $\bigcup_{i = 1}^{\infty} B_i = \bigcup_{i = 1}^{\infty} A_i$
   \end{itemize}
+
   Entonces
   \begin{align*}
-    \lim_{n \to \infty} P(A_n) &= \lim_{n \to \infty} P(\bigcup_{i = 1}^n B_i)\\
-                               &= \lim_{n \to \infty} \sum_{i = 1}^n P(B_i) ~~~~~ \text{(axiomas de probabilidad)} \\
-                               &= \sum_{i = 1}^{\infty} P(B_i)\\ 
-                               &= P(\bigcup_{i = 1}^{\infty}B_i) ~~~~~ \text{(axiomas de probabilidad)}\\ 
-                               &= P(\bigcup_{i = 1}^{\infty}A_i) = P(\lim_{n \to \infty} A_n)\\
+    \lim_{n \to \infty} P(A_n) &= \lim_{n \to \infty} P\parens*{\bigcup_{i = 1}^n B_i}\\
+                               &= \lim_{n \to \infty} \sum_{i = 1}^n P(B_i) \quad \text{(axiomas de probabilidad)}\\
+                               &= \sum_{i = 1}^{\infty} P(B_i)\\
+                               &= P\parens*{\bigcup_{i = 1}^{\infty}B_i}
+                               \quad \text{(axiomas de probabilidad)}\\ 
+                               &= P\parens*{\bigcup_{i = 1}^{\infty}A_i}= P\parens*{\lim_{n \to \infty} A_n)}
   \end{align*}
-  Ahora Supongamos que $\{A_n\}$ es decreciente. Es decir, $A_1^c \subset A_2^c \subset A_3^c \cdots$. Como $\{A_n\}$ es decreciente, entonces $\{A^c\}$ es creciente. Así que
+  Ahora supongamos que $\{A_n\}$ es decreciente, es decir, $A_1^c \subset A_2^c \subset A_3^c \cdots$. Como $\{A_n\}$ es decreciente, entonces $\{A^c\}$ es creciente. Así que
   \begin{align*}
-    \lim_{n \to \infty} P(A_n^c) &= P(\lim_{n \to \infty}A_n^c) \\
-                        &= P(\bigcup_{i = 1}^{\infty}A_i^c) \\
+    \lim_{n \to \infty} P(A_n^c) &= P\parens*{\lim_{n \to \infty}A_n^c}\\
+                        &= P\parens*{\bigcup_{i = 1}^{\infty}A_i^c}\\
                         &= \lim_{n \to \infty} 1 - P(A_n) \\
-                        &= 1 - P(\bigcap^{\infty}A_n)\\
+                        &= 1 - P\parens*{\bigcap^{\infty}A_n}\\
   \end{align*}
+
   De la anterior se obtiene que 
-  \[1 - \lim_{n \to \infty} P(A_n) = 1 - P(\bigcap^{\infty}A_n)\]
+  \[1 - \lim_{n \to \infty} P(A_n) = 1 - P\parens*{\bigcap^{\infty}A_n}\]
+
   Por tanto
-  \[\lim_{n \to \infty}P(A_n) = P(\bigcap^{\infty}A_n) = P(\lim_{n \to \infty}A_n)\]
+  \[\lim_{n \to \infty}P(A_n) = P\parens*{\bigcap^{\infty}A_n} = P\parens*{\lim_{n \to \infty}A_n}\]
 \end{myproof}
 
 \newpage
