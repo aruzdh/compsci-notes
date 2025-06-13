@@ -1,18 +1,18 @@
-\chapter{Teorema del límite central}
-\section{Vectores aleatorios y función de probabilidad conjunta}
-\subsection{Vector aleatorio}
+\chapter{Teorema del Límite Central}
+\section{Vectores Aleatorios y Función de Probabilidad Conjunta}
+\subsection{Vector Vleatorio}
 
 Se sabe que una \textit{variable aleatoria es una función} que tiene \textit{dominio en el espacio muestral} $\Omega$ y \textit{toma valores en} $\mathbb R$. Sin embargo, este concepto se puede expandir a $\mathbb R^n$, y por tanto, definir una función $f: \Omega \longrightarrow \mathbb R^n$. Visto de otra manera:
 \[w \mapsto (\mathcal X_1(w), \mathcal X_2(w), \cdots, \mathcal X_n(w)) = \mathcal X(w)\]
 A esta nueva función se le conoce como \textit{vector aleatorio}.
 
-\dfn{Vector aleatorio}{
+\dfn{Vector Aleatorio}{
   Decimos que $\mathcal X$ es un \textbf{vector aleatorio} si
   \[\mathcal X = (\mathcal X_1(w), \mathcal X_2(w), \cdots, \mathcal X_n(w))\]
   donde cada $\mathcal X_i$ es una variable aleatoria.
 }
 
-\ex{Vector aleatorio}{
+\ex{Vector Aleatorio}{
   Se lanza un dado 2 veces. Definimos las siguientes variables aleatorias.
   \[\mathcal X_1 := \text{Valor máximo de los lanzamientos}\]
   \[\mathcal X_2 := \text{Valor mínimo de los lanzamientos}\]
@@ -31,25 +31,25 @@ A esta nueva función se le conoce como \textit{vector aleatorio}.
   \end{matrix}
   \right\}
 \]
-Supongamos que en los dados obtuvimos los valores de 4 y 3. En este caso nuestro vector $\mathcal X$ se ve como:
-\[\mathcal X((4,3)) = (\mathcal X_1((3,4)), \, \mathcal X_2((3,4)), \, \mathcal X_3((3,4))) = (4,3,7)\]
-Notese que se obtuvo un vector en $\mathbb R^3$.
+  Supongamos que en los dados obtuvimos los valores de 4 y 3. En este caso nuestro vector $\mathcal X$ se ve como:
+  \[\mathcal X((4,3)) = (\mathcal X_1((3,4)), \, \mathcal X_2((3,4)), \, \mathcal X_3((3,4))) = (4,3,7)\]
+  Notese que se obtuvo un vector en $\mathbb R^3$.
 }
 
 Al igual que las variables aleatorias, los vectores aleatorios se dividen en \textit{discretos} y \textit{continuos} de acuerdo con las variables que los definen. 
 
-\dfn{Vector aleatorio discreto}{
+\dfn{Vector Aleatorio Discreto}{
   Decimos que un \textit{vector aleatorio} $\mathcal X = (\mathcal X_1, \mathcal X_2, \cdots, \mathcal X_n)$ es \textbf{discreto} si $\forall i = 1, \cdots, n, \, \mathcal X_i$ es una variable aleatoria discreta.
 }
 
-\dfn{Vector aleatorio continuo}{
+\dfn{Vector Aleatorio Continuo}{
   Decimos que un \textit{vector aleatorio} $\mathcal X = (\mathcal X_1, \mathcal X_2, \cdots, \mathcal X_n)$ es \textbf{continuo} si $\forall i = 1, \cdots, n, \, \mathcal X_i$ es una variable aleatoria continua.
 }
 
-\subsection{Función de probabilidad conjunta}
-De la misma manera, podemos calcular la probabilidad de que el vector aleatorio tome ciertos valores con la siguiente Definición.
+\subsection{Función de Probabilidad Conjunta}
+De la misma manera, podemos calcular la probabilidad de que el vector aleatorio tome ciertos valores con la siguiente definición.
 
-\dfn{Función de probabilidad conjunta}{
+\dfn{Función de Probabilidad Conjunta}{
   La \textbf{función de probabilidad conjunta} de dos variables aleatorias $\mathcal X$ y $\mathcal Y$, denotada $f_{\mathcal X, \mathcal Y}(x,y)$, es la función que asigna a cada par de valores $(x,y)$ la probabilidad de que las variables aleatorias $\mathcal X$ y $\mathcal Y$ tomen esos valores simultáneamente.
 
   \[
@@ -62,7 +62,7 @@ De la misma manera, podemos calcular la probabilidad de que el vector aleatorio 
   La definición anterior está dada para 2 variables aleatorias, pero se puede extender para \textit{n} variables con $P(\mathcal X_1 = x_1, \, \mathcal X_2 = x_2, \, \cdots, \, \mathcal X_n = x_n)$
 }
 
-\ex{Función de probabilidad conjunta}{
+\ex{Función de Probabilidad Conjunta}{
   Se lanza una moneda justa tres veces consecutivas y deseamos analizar el comportamiento de las siguientes variables aleatorias.
 
   \[\mathcal Y = \text{Número de soles obtenidos en las primeros dos lanzamientos}\]
@@ -94,13 +94,13 @@ De la misma manera, podemos calcular la probabilidad de que el vector aleatorio 
   \end{align*}
 }
 
-\section{Independencia y distribuciones marginales}
+\section{Independencia y Distribuciones Marginales}
 
-\subsection{Definición de variables aleatorias independientes}
+\subsection{Variables Aleatorias Dndependientes}
 Recordemos que si dos eventos $A, B \in \mathcal F$ son independientes, entonces
 \[P(A \cap B) = P(A)P(B)\]
 
-\dfn{Variables aleatorias independientes}{
+\dfn{Variables Aleatorias Independientes}{
   Decimos que las variables aleatorias $\mcX$ y $\mcY$ son \textbf{variables aleatorias independientes} si 
   \[\forall B, C \subseteq \bbR,\, P(\mcX \in B, \, \mcY \in C) = P(\mcX \in B)P(\mcY \in C)\]
 }
@@ -114,9 +114,9 @@ Ademas, podemos extenderlo de la siguiente manera.
   Si $\mcX$ y $\mcY$ son variables aleatorias \textit{continuas}, entonces $f_{\mcX}$, y $f_{\mcY}$ son funciones de densidad y $f_{\mcX, \mcY}$ es la función de densidad conjunta.
 }
 
-\subsection{Distribuciones marginales}
+\subsection{Distribuciones Marginales}
 
-\dfn{Distribuciones marginales}{
+\dfn{Distribuciones Marginales (caso discreto)}{
   Sea ($\mcX, \mcY$) un vector aleatorio \textit{discreto}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
 
   \[f_{\mcX}(x) = P(\mcX = x) = \sum_j f(x,j) = \sum_j P(\mcX = x, \, \mcY = j)\]
@@ -125,7 +125,7 @@ Ademas, podemos extenderlo de la siguiente manera.
   Donde $j$ son todos los valores que toma $\mcY$, mientras que $i$ son todos los valores que toma $\mcX$.
 }
 
-\dfn{Distribuciones marginales}{
+\dfn{Distribuciones marginales (caso continuo)}{
   Sea ($\mcX, \mcY$) un vector aleatorio \textit{continuo}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
 
   \[f_{\mcX}(x) = \int_{-\infty}^{\infty} f_{\mcX, \mcY}(x,y) \,dy \]
@@ -134,7 +134,7 @@ Ademas, podemos extenderlo de la siguiente manera.
   Donde $j$ son todos los valores que toma $\mcY$, mientras que $i$ son todos los valores que toma $\mcX$.
 }
 
-\ex{Distribuciones marginales}{
+\ex{Distribuciones Marginales}{
   Consideremos el mismo experimento del ejemplo anterior (lanzar 3 monedas justas) y las mismas variables aleatorias. Las probabilidades marginales se calculan como sigue.
 
   \begin{align*}
@@ -165,54 +165,54 @@ Así, podemos afirmar que, dadas dos variables aleatorias independientes $\mcX$ 
   \item Caso continuo: $f_{\mcX, \mcY}(x,y) = f_{\mcX}(x) f_{\mcY}(y)$
 \end{itemize}
 
-\section{Independencia y valor esperado}
+\section{Independencia y su Relación con el Valor Esperado}
 Podemos establecer una relación entre la independencia y la esperanza (valor esperado). Si consideramos dos variables aleatorias discretas independientes con $g,h : \bbR \longrightarrow \bbR$ funciones reales, entones podemos desallorar
 
 \begin{align*}
-  \bbE(g(\mcX)h(\mcY)) &= \sum_i \sum_j g(i)h(j)P(\mcX = i, \, \mcY = j)\\
+  \E(g(\mcX)h(\mcY)) &= \sum_i \sum_j g(i)h(j)P(\mcX = i, \, \mcY = j)\\
                        &= \sum_i \sum_j g(i)h(j)P(\mcX = i)P(\mcY = j) \qquad (\text{por independencia}) \\
                        &= \sum_i g(i) P(\mcX = i) \sum_j h(j) P(\mcY = j)\\
-                       &= \bbE(g(\mcX))\bbE(h(\mcY))
+                       &= \E(g(\mcX))\E(h(\mcY))
 \end{align*}
 
-\dfn{Independencia y esperanza}{
+\mprop{Independencia y su Relación con el Valor Esperado}{
   Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
-  \[\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))\]
+  \[\E(g(\mcX)h(\mcY)) = \E(g(\mcX))\E(h(\mcY))\]
 }
 
 \nt{
-  Tener $\bbE(g(\mcX)h(\mcY)) = \bbE(g(\mcX))\bbE(h(\mcY))$, no necesariamente implica independencia.
+  Tener $\E(g(\mcX)h(\mcY)) = \E(g(\mcX))\bbE(h(\mcY))$, no necesariamente implica independencia.
 }
 
 Así, cuando hay independiencia
 \begin{itemize}
-  \item $\bbE(\mcX \mcY) = \bbE(\mcX) \bbE(\mcY)$
-  \item $\bbE(\mcX + \mcY) = \bbE(\mcX) + \bbE(\mcY)$
+  \item $\E(\mcX \mcY) = \E(\mcX) \E(\mcY)$
+  \item $\E (\mcX + \mcY) = \E (\mcX) + \E(\mcY)$
 \end{itemize}
 
-\subsection{Propiedad de la varianza cuando hay independiencia}
+\subsection{Varianza cuando hay Independiencia}
 Con las últimas observaciones podemos demostrar la siguiente proposición.
 
-\mprop{Varianza e Independencia}{
+\mprop{Varianza cuando hay Independencia}{
   Sean $\mcX$ y $\mcY$ variables aleatorias independientes, entonces
   \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
 }
 
 \begin{myproof}
   De forma general sabemos que
-  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY) + 2(\bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY)) \neq \Var(\mcX) + \Var(\mcY)\]
+  \[\Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY) + 2(\E(\mcX \mcY) - \E(\mcX)\E(\mcY)) \neq \Var(\mcX) + \Var(\mcY)\]
 
   Sin embargo, por independencia tenemos
-  \[\bbE(\mcX \mcY) = \bbE(\mcX)\bbE(\mcY) \Longrightarrow \bbE(\mcX \mcY) - \bbE(\mcX)\bbE(\mcY) = 0\]
+  \[\E(\mcX \mcY) = \E(\mcX)\E(\mcY) \Longrightarrow \E(\mcX \mcY) - \E(\mcX)\E(\mcY) = 0\]
 
   \[\therefore \Var(\mcX + \mcY) = \Var(\mcX) + \Var(\mcY)\]
 \end{myproof}
 
 De manera general, se cumple que si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variables aleatorias independientes, entonces
 \[
-  \bbE(f_1(\mcX_1)f_2(\mcX_2) \cdots f_n(\mcX_n)) = \prod_{i = 1}^n \bbE(f_i(\mcX_i)) = \bbE(f_1(\mcX_1))\bbE(f_2(\mcX_2))\cdots \bbE(f_n(\mcX_n))
+  \E(f_1(\mcX_1)f_2(\mcX_2) \cdots f_n(\mcX_n)) = \prod_{i = 1}^n \E(f_i(\mcX_i)) = \E(f_1(\mcX_1))\E(f_2(\mcX_2))\cdots \E(f_n(\mcX_n))
 \]
-\subsection{Propiedad de la función generadora de momentos cuando hay independencia}
+\subsection{Función Generadora de Momentos cuando hay Independencia}
 
 \mprop{Independencia y Función generadora de momentos}{
   Sean $\mcX$ y $\mcY$ variables aleatorias independientes con funciones generadoras do momentos $M_{\mcX}(t)$ y $M_{\mcY}(t)$, entonces
@@ -226,9 +226,9 @@ De manera general, se cumple que si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variab
 
 \begin{myproof}
   \begin{align*}
-    M_{\mcX + \mcY}(t) &= \bbE(e^{t(\mcX + \mcY)})\\
-                       &= \bbE(e^{t\mcX}e^{t\mcY})\\
-                       &= \bbE(e^{t\mcX})\bbE(e^{t\mcY}) \quad (\text {por independencia})\\
+    M_{\mcX + \mcY}(t) &= \E(e^{t(\mcX + \mcY)})\\
+                       &= \E(e^{t\mcX}e^{t\mcY})\\
+                       &= \E(e^{t\mcX})\E(e^{t\mcY}) \quad (\text {por independencia})\\
                        &= M_{\mcX}(t)M_{\mcY}(t)
   \end{align*}
 
@@ -284,19 +284,19 @@ De manera general, se cumple que si $\mcX_1, \mcX_2, \cdots , \mcX_n$ son variab
 
 \mprop{Desigualdad de Markov}{
   Si $\mcX$ es una variable aleatoria que solo toma valores no negativos, entonces para cualquier $a > 0$ se cumple lo siguiente.
-  \[P(\mcX \ge a) \le \frac{\bbE(\mcX)}a \]
+  \[P(\mcX \ge a) \le \frac{\E(\mcX)}a \]
 }
 
 \begin{myproof}
   \begin{align*}
-  \bbE(\mcX) &= \int_{0}^{\infty} x f(x)dx = \int_{0}^{a} x f(x)dx + \int_{a}^{\infty} x f(x)dx \\[2ex]
+  \E(\mcX) &= \int_{0}^{\infty} x f(x)dx = \int_{0}^{a} x f(x)dx + \int_{a}^{\infty} x f(x)dx \\[2ex]
   &\geq \underbrace{\int_{0}^{a} x f(x)dx}_{\geq 0} + a \int_{a}^{\infty} f(x)dx \geq a \int_{a}^{\infty} f(x)dx \\
   \end{align*}
-  \[\therefore \, P(\mcX \ge a) \le \frac{\bbE(\mcX)}a \]
+  \[\therefore \, P(\mcX \ge a) \le \frac{\E(\mcX)}a \]
 \end{myproof}
 
 \nt{
-  Si $\mcX = (\mcY - \mu)^2$ y $a = k^2 \sigma^2$ donde $\sigma^2 = \Var(\mcX) > 0$ se puede deducir el teorema de Chebyshev.
+  Si $\mcX = (\mcY - \mu)^2$ y $a = k^2 \sigma^2$ donde $\sigma^2 = \Var(\mcX) > 0$ se puede deducir el Teorema de Chebyshev.
 }
 
 Estas desigualdades nos permiten encontrar cotas para las probabilidades cuando solo la esperanza y/o la varianza son conocidas.
@@ -309,11 +309,11 @@ Estas desigualdades nos permiten encontrar cotas para las probabilidades cuando 
   2. Si la varianza de esta producción semanal es 100, ¿qué podemos decir sobre la probabilidad de que la producción semanal esté entre 400  y 600?
 
   Primero definimos una variable aleatoria.
-  \[\mcX = \text{ \# productos fabricados por semana} \quad \text{ con } \quad \bbE(\mcX) = 500 \quad \text{ y } \quad \Var(\mcX) = 100\]
+  \[\mcX = \text{ \# productos fabricados por semana} \quad \text{ con } \quad \E(\mcX) = 500 \quad \text{ y } \quad \Var(\mcX) = 100\]
 
   1. $P(\mcX \ge 1000) = \frac{\bbE(\mcX)}{1000} = \frac{500}{1000} = \frac12$
 
-  2. $\sigma^2 = \bbE(\abs*{\mcX - \mu}^2) = 100$
+  2. $\sigma^2 = \E(\abs*{\mcX - \mu}^2) = 100$
 
   Queremos calcular $P(400 \le \mcX \le 600)$. Usando el teorema de Chebyshev.
   \[P(\abs*{\mcX - \mu} \le k\sigma) \ge 1 - \frac1{k^2}\]
@@ -324,25 +324,25 @@ Estas desigualdades nos permiten encontrar cotas para las probabilidades cuando 
   \[P(400 \le \mcX \le 600) = 1 - \frac{1}{100} = \frac{99}{100} = 0.99\]
 }
 
-\section{Ley fuerte de los grandes números}
+\section{Ley Fuerte de los Grandes Números}
 Antes de presentar el resultado principal de este aparto se da la siguiente definición.
 
-\subsection{Media muestral}
-\dfn{Media muestral}{
+\subsection{Media Muestral}
+\dfn{Media Muestral}{
   Sea $\{\mcX_n\}_{n = 1,2,\cdots}$ usa sucesión de variables aleatorias independientes e idénticamente distribuidas. Se define la \textbf{media muestral} como sigue.
   \[\overline{\mcX} = \frac{S_n}n\]
 donde 
 \[S_n = \sum_{i=1}^n \mcX_i\]
 }
 
-\ex{Media muestral}{
+\ex{Media Muestral}{
   Sea $\mcX_i \sim Ber(p)$ que vale 1 cuando ganamos un volado, y 0 cuando perdemos.
   En este caso, la información que nos da $S_n$ es el número de volados ganados.
 }
 
-\subsection{Teorema} 
+\subsection{Teorema: Ley Fuerte de los Grandes Números}
 \thm{Ley fuerte de los grandes números}{
-  Sea $\{\mcX_n\}$ variables aleatorias independientes e idénticamente distribuidas con media común $\mu \in \bbR,~ (\bbE(\mcX_n) = \mu~ \forall n \in \bbN)$. Entonces,
+  Sea $\{\mcX_n\}$ variables aleatorias independientes e idénticamente distribuidas con media común $\mu \in \bbR,~ (\E(\mcX_n) = \mu~ \forall n \in \bbN)$. Entonces,
   \[\overline{\mcX} \to \mu \qquad \text{casi seguramente}\]
 
   Es decir,
@@ -354,9 +354,9 @@ Otra manera de observar el teorema es la siguiente.
 \[P\parens*{\lim_{n \to \infty} \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n}n = \mu} = 1\]
 Donde la convergencia dentro de la probabilidad es puntual.
 
-\ex{Ley fuerte de los grandes números}{
+\ex{Ley Fuerte de los Grandes Números}{
   Supongamos que lanzamos un dado justo muchas veces. Sean $\mcX_i$ las variables aleatorias que representan el resultado del \textit{i}-ésimo lanzamiento. Como el dado es justo, el valor esperado de cada $\mcX_i$ es
-  \[\mu = \bbE(\mcX_i) = \frac{1 + 2 + 3 + 4 + 5 + 6}6 = 3.5\]
+  \[\mu = \E(\mcX_i) = \frac{1 + 2 + 3 + 4 + 5 + 6}6 = 3.5\]
   
   En este caso, la Ley de los grandes números nos asegura que
   \[\lim_{n \to \infty} \frac1n \sum_{i=1}^n \mcX_i = 3.5 \quad \text{casi seguramente}\]
@@ -368,8 +368,8 @@ Donde la convergencia dentro de la probabilidad es puntual.
   Se llama ley "Fuerte" porque la convergencia es casi seguramente. La convergencia casi seguramente significa que la convergencia es puntual salvo en un conjunto $N$ tal que $P(N) = 0$
 }
 
-\subsection{Convergencia puntual}
-\dfn{Convergencia puntual}{
+\subsection{Convergencia Puntual}
+\dfn{Convergencia Puntual}{
   Sean $\{\mcX_n\}_{n \ge 1}$ una sucesión de variables aleatorias definidas sobre el mismo espacio de probabilidad, y sea $\mcX$ una variable aleatoria también definida en el mismo espacio.
 
   $\mcX_n \to \mcX$ puntualmente si
@@ -377,11 +377,11 @@ Donde la convergencia dentro de la probabilidad es puntual.
   Dados $w \in \Omega$ y $\epsilon > 0$, $\exists N = N(w, \epsilon) \in \bbN$ tal que si $n \ge N \Longrightarrow \abs*{\mcX_n(w) - \mcX(w)} < \epsilon$
 }
 
-\section{Teorema del límite central}
+\section{Teorema del Límite Central}
 Además de su importancia e interés teórica, este teorema nos proporciona un método simple para aproximar probabilidades de sumas de variables aleatorias independientes.
 
 \thm{Teorema del límite central}{
-  Sean $\mcX_1, \mcX_2, \cdots$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con $\bbE(\mcX_i) = \mu ~ \forall i$, y $\Var(\mcX_i) = \sigma^2~ \forall i$. Entonces la función de distribución de $F_n$ de la variable aleatoria $\mcY_n$ con
+  Sean $\mcX_1, \mcX_2, \cdots$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con $\E(\mcX_i) = \mu ~ \forall i$, y $\Var(\mcX_i) = \sigma^2~ \forall i$. Entonces la función de distribución de $F_n$ de la variable aleatoria $\mcY_n$ con
   \[\mcY_n = \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n - n\mu}{\sigma \sqrt n}\]
   converge a la distribución $N(0,1)$ si $n \to \infty$, es decir,
   \[\lim_{n \to \infty}P\parens*{\frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n - n\mu}{\sigma \sqrt n} \le a} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-\frac{x^2}2} \,dx\]
