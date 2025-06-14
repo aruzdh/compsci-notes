@@ -1,0 +1,53 @@
+\section{Ley Fuerte de los Grandes Números}
+Antes de presentar el resultado principal de este aparto se da la siguiente definición.
+
+\subsection{Media Muestral}
+\dfn{Media Muestral}{
+  Sea $\{\mcX_n\}_{n = 1,2,\cdots}$ usa sucesión de variables aleatorias independientes e idénticamente distribuidas. Se define la \textbf{media muestral} como sigue.
+  \[\overline{\mcX} = \frac{S_n}n\]
+donde 
+\[S_n = \sum_{i=1}^n \mcX_i\]
+}
+
+\ex{Media Muestral}{
+  Sea $\mcX_i \sim Ber(p)$ que vale 1 cuando ganamos un volado, y 0 cuando perdemos.
+  En este caso, la información que nos da $S_n$ es el número de volados ganados.
+}
+
+\subsection{Teorema: Ley Fuerte de los Grandes Números}
+\thm{Ley fuerte de los grandes números}{
+  Sea $\{\mcX_n\}$ variables aleatorias independientes e idénticamente distribuidas con media común $\mu \in \bbR,~ (\E(\mcX_n) = \mu~ \forall n \in \bbN)$. Entonces,
+  \[\overline{\mcX} \to \mu \qquad \text{casi seguramente}\]
+
+  Es decir,
+  \[\lim_{n \to \infty} \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n}n = \mu\]
+  Salvo un conjunto $N \in \mcF$ tal que $P(N) = 0$
+}
+
+Otra manera de observar el teorema es la siguiente.
+\[P\parens*{\lim_{n \to \infty} \frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n}n = \mu} = 1\]
+Donde la convergencia dentro de la probabilidad es puntual.
+
+\ex{Ley Fuerte de los Grandes Números}{
+  Supongamos que lanzamos un dado justo muchas veces. Sean $\mcX_i$ las variables aleatorias que representan el resultado del \textit{i}-ésimo lanzamiento. Como el dado es justo, el valor esperado de cada $\mcX_i$ es
+  \[\mu = \E(\mcX_i) = \frac{1 + 2 + 3 + 4 + 5 + 6}6 = 3.5\]
+  
+  En este caso, la Ley de los grandes números nos asegura que
+  \[\lim_{n \to \infty} \frac1n \sum_{i=1}^n \mcX_i = 3.5 \quad \text{casi seguramente}\]
+
+  Graficamente, se puede observar la convergencia del promedio $\frac1n \sum_{i=1}^n \mcX_i$ hacia $\mu = 3.5$ a medida que aumenta el número de lanzamientos $n$.
+}
+
+\nt{
+  Se llama ley "Fuerte" porque la convergencia es casi seguramente. La convergencia casi seguramente significa que la convergencia es puntual salvo en un conjunto $N$ tal que $P(N) = 0$
+}
+
+\subsection{Convergencia Puntual}
+\dfn{Convergencia Puntual}{
+  Sean $\{\mcX_n\}_{n \ge 1}$ una sucesión de variables aleatorias definidas sobre el mismo espacio de probabilidad, y sea $\mcX$ una variable aleatoria también definida en el mismo espacio.
+
+  $\mcX_n \to \mcX$ puntualmente si
+  \[\forall w \in \Omega \text{ se satisface que } \lim_{n \to \infty} \mcX_n(w) = \mcX(w)\]
+  Dados $w \in \Omega$ y $\epsilon > 0$, $\exists N = N(w, \epsilon) \in \bbN$ tal que si $n \ge N \Longrightarrow \abs*{\mcX_n(w) - \mcX(w)} < \epsilon$
+}
+

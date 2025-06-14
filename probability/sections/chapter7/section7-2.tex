@@ -1,0 +1,72 @@
+\section{Independencia y Distribuciones Marginales}
+
+\subsection{Variables Aleatorias Independientes}
+Recordemos que si dos eventos $A, B \in \mathcal F$ son independientes, entonces
+\[P(A \cap B) = P(A)P(B)\]
+
+\dfn{Variables Aleatorias Independientes}{
+  Decimos que las variables aleatorias $\mcX$ y $\mcY$ son \textbf{variables aleatorias independientes} si 
+  \[\forall B, C \subseteq \bbR,\, P(\mcX \in B, \, \mcY \in C) = P(\mcX \in B)\,P(\mcY \in C)\]
+}
+
+Ademas, podemos extenderlo de la siguiente manera.
+\[f_{\mcX, \mcY}(x,y) = P(\mcX = x, \, \mcY = y) = P(\mcX = x)P(\mcY = y) = f_{\mcX}(x) f_{\mcY}(y)\]
+
+\nt{
+  Si $\mcX$ y $\mcY$ son variables aleatorias \textit{discretas}, entonces $f_{\mcX}$, y $f_{\mcY}$ son funciones de probabilidad y $f_{\mcX, \mcY}$ es la función de probabilidad conjunta.
+  \newpara
+  Si $\mcX$ y $\mcY$ son variables aleatorias \textit{continuas}, entonces $f_{\mcX}$, y $f_{\mcY}$ son funciones de densidad y $f_{\mcX, \mcY}$ es la función de densidad conjunta.
+}
+
+\subsection{Distribuciones Marginales}
+
+\dfn{Distribuciones Marginales (caso discreto)}{
+  Sea ($\mcX, \mcY$) un vector aleatorio \textit{discreto}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
+
+  \[f_{\mcX}(x) = P(\mcX = x) = \sum_j f(x,j) = \sum_j P(\mcX = x, \, \mcY = j)\]
+  \[f_{\mcY}(y) = P(\mcY = y) = \sum_i f(i,y) = \sum_i P(\mcX = i, \, \mcY = y)\]
+
+  Donde $j$ son todos los valores que toma $\mcY$, mientras que $i$ son todos los valores que toma $\mcX$.
+}
+
+\dfn{Distribuciones marginales (caso continuo)}{
+  Sea ($\mcX, \mcY$) un vector aleatorio \textit{continuo}. Definimos la \textbf{función de probabilidad marginal} de $\mcX$ y $\mcY$ de la siguiente forma.
+
+  \[f_{\mcX}(x) = \int_{-\infty}^{\infty} f_{\mcX, \mcY}(x,y) \,dy \]
+  \[f_{\mcY}(y) = \int_{-\infty}^{\infty} f_{\mcX, \mcY}(x,y) \,dx \]
+
+}
+
+\ex{Distribuciones Marginales}{
+  Consideremos el mismo experimento del ejemplo anterior (lanzar 3 monedas justas) y las mismas variables aleatorias.
+  \newpara
+  Las probabilidades marginales se calculan como sigue.
+
+  \begin{align*}
+    f_{\mcX}(0) &= \sum_{i=0}^2 f_{\mcX}(0,i)\\ 
+                &= \sum_{i=0}^2 P(\mcX = 0, \, \mcY = i)\\
+                &= P(\mcX = 0, \, \mcX = 0) + P(\mcX = 0, \, \mcX = 1) + P(\mcX = 0, \, \mcX = 2)\\
+                &= \frac18 + \frac18 + 0 = \frac14
+  \end{align*}
+  El resultado anterior nos dice que la probabilidad de obtener 0 soles en los últimos dos lanzamientos es de $\frac14$.
+
+  Usando el mismo método se obtiene lo siguiente.
+  \[
+    P(\mcX = 0) = P(\mcX = 0, \, \mcX = 0) + P(\mcX = 0, \, \mcX = 1) + P(\mcX = 0, \, \mcX = 2) = \frac18 + \frac18 + 0 = \frac14
+  \]
+  \[
+    P(\mcX = 1) = P(\mcX = 1, \, \mcX = 0) + P(\mcX = 1, \, \mcX = 1) + P(\mcX = 1, \, \mcX = 2) = \frac18 + \frac14 + \frac18 = \frac12
+  \]
+  \[
+    P(\mcX = 2) = P(\mcX = 2, \, \mcX = 0) + P(\mcX = 2, \, \mcX = 1) + P(\mcX = 2, \, \mcX = 2) = 0 + \frac18 + \frac18 = \frac14
+  \]
+  El caso para la variables aleatorias $\mcY$ es análogo.
+}
+
+Así, podemos afirmar que, dadas dos variables aleatorias independientes $\mcX$ y $\mcY$, se tiene que
+
+\begin{itemize}
+  \item Caso discreto: $P(\mcX = x, \, \mcY = y) = P(\mcX = x)P(\mcY = y)$
+  \item Caso continuo: $f_{\mcX, \mcY}(x,y) = f_{\mcX}(x) f_{\mcY}(y)$
+\end{itemize}
+

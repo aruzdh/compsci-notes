@@ -29,7 +29,6 @@ Lo que implica que $M_{\mathcal X} (t)$ se encuentra bien definida para valores 
 
 \ex{Función Generadora de Momentos}{
   Calculemos $M_{\mathcal X}(t)$ si $\mathcal X \sim \Gamma(\alpha, \lambda)$ con $\alpha, \lambda > 0$.
-
   \[
     f_{\mathcal X}(x) =
     \begin{cases}
@@ -47,7 +46,7 @@ Lo que implica que $M_{\mathcal X} (t)$ se encuentra bien definida para valores 
     M_{\mathcal X} (t) &= \frac{\lambda^\alpha}{(\lambda - t)^\alpha} \int_0^{\infty} \frac{(\lambda - t)^\alpha}{\Gamma(\alpha)}x^{\alpha -1}e^{-(\lambda - t)x} dx = \frac{\lambda^\alpha}{(\lambda - t)^\alpha} \int_0^{\infty} f_{\mathcal X'}(x)dx = \frac{\lambda^\alpha}{(\lambda - t)^\alpha}
   \end{align*}
   Donde $\mathcal X' \sim \Gamma(\alpha, \lambda - t)$ y además $\lambda - t > 0 \Rightarrow \lambda > t$. Por lo tanto, la función generadora de momentos de $\mathcal X$ es
-  \[M_{\mathcal X} (t) = (\frac{\lambda}{\lambda - t})^2, \quad \lambda > t\]
+  \[\therefore \,M_{\mathcal X} (t) = \parens*{\frac{\lambda}{\lambda - t}}^{\alpha}, \quad \lambda > t\]
 }
 
 \ex{Función Generadora de Momentos}{
@@ -59,8 +58,18 @@ Lo que implica que $M_{\mathcal X} (t)$ se encuentra bien definida para valores 
   \[M_{\mathcal X}(t) = \E(e^{-\lambda \mathcal X}) = \sum_{i = 0}^\infty \frac{e^{ti}e^{-\lambda}\lambda^i}{i!} = e^{-\lambda} \sum_{i = 0}^\infty \frac{e^{ti}\lambda^i}{i!} = e^{-\lambda} \sum_{i = 0}^\infty \frac{(e^t \lambda)^i}{i!} = e^{-\lambda}e^{e^t\lambda}\]
   Esto último se obtuvo usando la serie de la exponencial: 
   \[e^x = \sum_{k = 0}^\infty \frac{x^k}{k!}\]
-  \[\therefore M_{\mathcal X}(t) = e^{-\lambda}e^{e^t \lambda} = e^{-\lambda(1 - e^t)}\]
+  \[\therefore \,M_{\mathcal X}(t) = e^{-\lambda}e^{e^t \lambda} = e^{-\lambda(1 - e^t)}\]
 }
+
+Consideremos $\mcX$ una variable aleatoria discreta que toma valores en $\{0,1,\cdots,n\}$. Tenemos lo siguiente.
+\[M_{\mcX}(t) = E(e^{t\mcX}) = \sum_{i=0}^n e^{ti}P(\mcX = i) \Longrightarrow \frac{d}{dt}M_{\mcX}(t) = \sum_{i=0}^n P(\mcX = i) \frac{d}{dt}e^{ti} = \sum_{i=0}^n P(\mcX = i) ie^{ti} = \E(e^{t\mcX}\mcX)\]
+\[M'_{\mcX}(t) = \E(e^{t\mcX}\mcX) \Longrightarrow M'_{\mcX}(0) = \E(e^{0 \cdot\mcX}\mcX) = \E(\mcX)\]
+
+Usando un procedimiento análogo se tiene que
+\[M''_{\mcX}(t) = \E(e^{t\mcX}\mcX^2) \Longrightarrow M''_{\mcX}(0) = \E(e^{0 \cdot\mcX}\mcX^2) = \E(\mcX^2)\]
+
+Así, por medio de inducción se puede probar que
+\[M^{(n)}_{\mcX}(0) = \E(\mcX^n)\]
 
 \subsection{Propiedades de la Función Generadora de Momentos}
 
@@ -71,6 +80,14 @@ Lo que implica que $M_{\mathcal X} (t)$ se encuentra bien definida para valores 
     \item \[\E(\mathcal X^n) < \infty \text{ cuando } t \in (-s, s) \text{ con } s > 0 \text{ suficientemente pequeño}\]
     \item \[M_{\mathcal X}(t) = \sum_{n = 0}^\infty \frac{t^n}{n!} \E(\mathcal X^n) \leftarrow \quad \text{Serie de Taylor} \]
   \end{enumerate}
+}
+
+\ex{Propiedades de la Función Generadora de Momentos}{
+  Sea $\mcX \sim \Gamma(\alpha, \lambda)$. Sabemos que
+  \[M_{\mcX}(t) = \parens*{\frac{\lambda}{\lambda - t}}^{\alpha}\]
+  Entonces
+  \[M'_{\mcX}(t) = \alpha \parens*{\frac{\lambda}{\lambda - t}}^{\alpha-1} \lambda(\lambda - t)^{-2} \Longrightarrow
+  M'_{\mcX}(0) = \alpha \parens*{\frac{\lambda}{\lambda - 0}}^{\alpha-1} \lambda(\lambda - 0)^{-2} = \alpha \lambda^{-1} = \frac{\alpha}{\lambda} = \E(\mcX)\]
 }
 
 \subsection{Función Característica}

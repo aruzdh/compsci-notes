@@ -10,8 +10,7 @@
   Calculemos la función generadora de probabilidad para $\mathcal X \sim \text{Poi}(\lambda)$
 
   \begin{align*}
-    G(t) &= \E(t^{\mathcal X}) = \sum_{n=0}^{\infty} t^n P(X = n) = \sum_{n=0}^{\infty} t^n \frac{e^{-\lambda}\lambda^n}{n!} \\
-  &= e^{-\lambda} \sum_{n=0}^{\infty} \frac{(t\lambda)^n}{n!} = e^{-\lambda}e^{\lambda t} = e^{-\lambda(1-t)}
+    G(t) &= \E(t^{\mathcal X}) = \sum_{n=0}^{\infty} t^n P(X = n) = \sum_{n=0}^{\infty} t^n \frac{e^{-\lambda}\lambda^n}{n!} = e^{-\lambda} \sum_{n=0}^{\infty} \frac{(t\lambda)^n}{n!} = e^{-\lambda}e^{\lambda t} = e^{-\lambda(1-t)}
   \end{align*}
 }
 Esta función nos sirve principalmente para conocer los momentos factoriales de una variable aleatoria $\mathcal X$, es decir:
@@ -40,15 +39,15 @@ Definimos los siguientes experimentos:
     \end{cases}$
 
     \item Al lanzar un dado justo, $\mathcal Z=\begin{cases}
-        1 & \text{si sale un número no par}\\
+        1 & \text{si sale un número impar}\\
         0 & \text{si sale un número par}
     \end{cases}$
 \end{itemize}
 En este caso observamos que $\mathcal X \neq \mathcal Y \neq \mathcal Z$, sin embargo, $\mathcal X \sim \text{Ber}(1/2)$, $\mathcal Y \sim \text{Ber}(1/2)$, $\mathcal Z \sim \text{Ber}(1/2)$. Lo anterior significa que las variables son iguales en distribución y lo denotamos por $\mathcal X \stackrel{d}{\sim} \mathcal Y \stackrel{d}{\sim} \mathcal Z$, es decir $F_{\mathcal X}(y)=F_{\mathcal Y}(y)=F_{\mathcal Z}(y) \quad \forall y \in \mathbb{R}$.
 
 \dfn{Variables Aleatorias Iguales en Distribución}{
-  Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias. Se dice que son iguales en distribución si
-  \[P(\mathcal X \in B) = P(\mathcal Y \in B),\]
+  Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias. Se dice que son \textbf{iguales en distribución} si
+  \[P(\mathcal X \in B) = P(\mathcal Y \in B),\, \forall B \subset \bbR\]
   Esto último también se denota como $\mathcal X \stackrel{d}{=} \mathcal Y$.
 }
 
@@ -56,8 +55,8 @@ En este caso observamos que $\mathcal X \neq \mathcal Y \neq \mathcal Z$, sin em
   Uno de los ejemplos más comunes de esta propiedad es que las variables aleatorias $\mathcal X \sim \Gamma(1, \lambda)$ y $\mathcal Y \sim \text{Exp}(\lambda)$ son iguales en distribución ($\mathcal X \stackrel{d}{=} \mathcal Y$)
 }
 
-\subsection{Propiedad de igualdad en distribución}
-\mprop{Igualdad en distribución}{
+\subsection{Propiedad de Igualdad en Distribución}
+\mprop{Igualdad en Distribución}{
   Sean $\mathcal X$ y $\mathcal Y$ dos variables aleatorias con función generadora de momentos $M_{\mathcal X}(t)$ y $M_{\mathcal Y} (t)$, respectivamente, y además se cumple que $M_{\mathcal X}(t) = M_{\mathcal Y}(t)$ para todo $t \in (-s, s), s > 0$. Entonces
   \[\mathcal X \stackrel{d}{=} \mathcal Y\]
 }

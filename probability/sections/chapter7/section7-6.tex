@@ -1,0 +1,14 @@
+\section{Teorema del Límite Central}
+Además de su importancia e interés teórica, este teorema nos proporciona un método simple para aproximar probabilidades de sumas de variables aleatorias independientes.
+
+\thm{Teorema del límite central}{
+  Sean $\mcX_1, \mcX_2, \cdots$ una sucesión de variables aleatorias independientes e idénticamente distribuidas con $\E(\mcX_i) = \mu ~ \forall i$, y $\Var(\mcX_i) = \sigma^2~ \forall i$. Entonces la función de distribución de $F_n$ de la variable aleatoria $\mcY_n$ con
+
+  \[\mcY_n = \frac{\overbrace{\mcX_1 + \mcX_2 + \cdots + \mcX_n}^{S_n} - n\mu}{\sigma \sqrt n}\]
+  converge a la distribución $N(0,1)$ si $n \to \infty$, es decir,
+  \[\lim_{n \to \infty}P\parens*{\frac{\mcX_1 + \mcX_2 + \cdots + \mcX_n - n\mu}{\sigma \sqrt n} \le a} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{a} e^{-\frac{x^2}2} \,dx\]
+}
+
+\nt{
+  Notemos que no necesitamos saber la distribución de las $\mcX_i$.
+}
