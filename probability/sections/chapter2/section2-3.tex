@@ -1,0 +1,60 @@
+\section{Combinaciones}
+
+\subsection{Coeficiente Binomial}
+
+Supongamos que estamos interesados en contar cuantos subconjuntos de \textit{r} elementos podemos tomar de \textit{n} objetos totales ($r \le n)$. Este número es el \textbf{coeficiente binomial}.
+\[\binom{n}{r} = \frac{n!}{r!(n - r)!}\]
+
+\nt{
+  Cuando hablamos de combinaciones, el orden de la selección \textbf{no} importa. Es decir, si eliges un grupo de objetos, y ese mismo grupo de objetos es reordenado, sigue siendo la misma combinación.
+}
+
+\ex{Coeficiente Binomial}{
+  ¿Cuántos subconjuntos de 3 letras se pueden formar de las letras \textit{A,B,C,D,E}?
+  \newpara
+  Podemos observar las siguientes etapas del experimento.
+  \begin{enumerate}
+    \item Tenemos cinco posibilidades (todas las letras disponibles).
+    \item Tenemos cuatro posibilidades.
+    \item Tenemos tres posibilidades.
+  \end{enumerate}
+  Dado que dentro de estas tres etapas existen repeticiones (el conjunto \textit{ABC} es igual que \textit{BCA}), tenemos lo siguiente.
+  \[\frac{5 \cdot 4 \cdot 3}{3 \cdot 2 \cdot 1} \cdot \frac{2 \cdot 1}{2 \cdot 1} = \frac{5!}{3! \cdot 2!} = \binom53\]
+}
+
+\ex{Coeficiente Binomial}{
+  Si tenemos 5 mujeres y 7 hombres. ¿Cuántos comités de 2 mujeres y 3 hombres se pueden formar?
+  \newpara
+  Por un lado tenemos $\binom52$ combinaciones de 2 mujeres. Por otro, $\binom73$ de hombres.\\ Por tanto tenemos \[\binom52 \cdot \binom73\] comités totales.
+}
+
+\ex{Coeficiente Binomial}{
+  ¿Cuántos subconjuntos tiene un conjunto de 5 elementos?
+  \newpara
+  Dado que buscamos \textbf{cada} posible subconjunto, tenemos
+  \begin{align*}
+    \sum_{i = 0}^5 \binom5i\ &= \binom50 + \binom51 + \binom52 + \binom53 + \binom54 + \binom55\\
+    &= \frac{5!}{0! 5!} + \frac{5!}{1!4!} + \frac{5!}{2!3!} + \frac{5!}{3!2!} + \frac{5!}{4! 1!} + \frac{5!}{5! 0!}\\
+    &= 1 + 5 + 10 + 10 + 5 + 1 = 32
+  \end{align*}
+}
+
+\subsection {Coeficiente Multinomial}
+Un conjunto de \textit{n} distintos objetos va a ser dividido en \textit{r} distintos subgrupos de tamaño $n_1, n_2, \cdots, n_r$ donde $n_1 + n_2 + \cdots + n_r = n$. ¿De cuántas formas podemos hacer esto?
+\[\binom{n}{n_1,n_2,\cdots,n_r} = \frac{n!}{n_1!n_2!\cdots n_r!}\]
+
+\ex{Coeficiente Multinomial}{
+  Tenemos el conjunto de letras \textit{A,B,C,D,E} y queremos dos grupos con 3 y 2 elementos cada uno.
+  \newpara
+  Entonces, tenemos lo siguiente para el primer grupo.
+  \[\frac{5 \cdot 4 \cdot 3}{3!}\]
+  Para el segundo grupo se tiene lo siguiente.
+  \[\frac{2 \cdot 1}{2!}\]
+  Por tanto, el total es 
+  \[\frac{5!}{3! \cdot 2!}\]
+}
+
+\thm{}{
+  \[(x_1 + x_2 + \cdots + x_r)^n = \sum_{n_1,\cdots, n_r} \binom{n}{n_1, \cdots,n_r} x_1^{n_1}x_2^{n_2}\cdots x_r^{n_r} \]
+  Es decir, sumamos sobre todos los vectores cuyas entradas son enteras no negativas tales que $n_1 + \cdots + n_r = n$
+}

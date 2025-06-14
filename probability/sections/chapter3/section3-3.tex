@@ -1,0 +1,32 @@
+\section{Probabilidad Condicional}
+\dfn{Probabilidad Condicional}{
+  Sean $A, B \in \mathcal F$. La \textbf{probabilidad condicional} del evento \textit{A} \textit{dado} el evento \textit{B} se define como sigue.
+  \[P(A \mid B) = \frac{P(A \cap B)}{P(B)} \]
+  donde necesariamente $P(B) > 0$.
+}
+
+\nt {
+  Lo anterior se puede leer como la \textbf{probabilidad de $A$ dado $B$}
+}
+
+\nt {
+  De la definicón anterior se tiene que 
+  \[P(A \cap B) = P(A \mid B)\,P(B)\]
+}
+
+\ex{Probabilidad Condicional}{
+  Se extraen 2 cartas en sucesión de una baraja de 52. Encuentra la \textit{probabilidad de que ambas cartas sean ases si}
+  \begin{itemize}
+    \item Se reemplaza la carta (se regresa la carta sacada).
+    \item No se reemplaza la carta.
+  \end{itemize}
+
+  Sea \textit{$A_1$ = "La primera carta es un As"}, \textit {$A_2$ = "La segunda carta es un As"} eventos. Entonces\\
+  $P(A_2 \cap A_1) = P(A_2 \mid A_1) ~P(A_1) = P(A_2 \mid A_1)~ \frac{4}{52}$
+
+  Si se reemplaza la carta tenemos que 
+  \[P(A_2 \cap A_1) = \parens*{\frac{4}{52}}^2 = \frac{1}{169}\]
+  Si no se reemplaza tenemos que
+  \[P(A_2 \cap A_1) = \frac{3}{51} \cdot \frac{4}{52} = \frac{1}{221} \]
+}
+

@@ -1,0 +1,21 @@
+\section{Variables Aleatorias Absolutamente Continuas}
+\subsection{Definición}
+
+\dfn{Variables Aleatorias Absolutamente Continuas}{
+  Sea $\mathcal X$ una \textit{variable aleatoria continua} con función de distribución $F_{\mathcal X}$, se le llama \textbf{absolutamente continua} \textit{si existe} una función \textit f tal que
+  \[F_{\mathcal X}(a) = \int_{-\infty}^a f(x)_{\mcX}~dx = P(\mathcal X \le a)\]
+}
+
+\subsection{Función de Densidad y sus Propiedades}
+
+A la función $f_{\mcX}$ se le conoce como \textbf{función de densidad} de la variable aleatoria $\mathcal X$.
+
+\begin{enumerate}
+  \item \[ f_{\mcX}(x) \ge 0, ~ \forall x \in \mathbb R \]
+  \item \[ \int_{-\infty}^{\infty}f_{\mcX}(x)~dx = 1 \]
+\end{enumerate}
+
+\nt{
+  Si la función de densidad $f_{\mcX}$ es continua, el \textit{Teorema Fundamental del Cálculo} nos dice que
+  \[\frac{d}{dx} F_{\mcX}(x) = f_{\mcX}(x)\]
+}

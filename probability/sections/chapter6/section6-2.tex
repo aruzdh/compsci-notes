@@ -1,0 +1,121 @@
+\section{Varianza}
+\subsection{Definicion}
+
+\dfn{Varianza}{
+  La \textbf{varianza} de una variable aleatoria $\mathcal X$, denotada por $\Var(\mathcal X)$, se define de la siguiente forma.
+  \[\Var(\mathcal X) = \E([\mathcal X - \E(\mathcal X)]^2)\]
+  Cuando dicha esperanza existe.
+  \newpara
+  De este modo, existen dos casos.
+  \begin{itemize}
+    \item Caso discreto.
+      \[\Var(\mathcal X) = \E([\mathcal X - \E(\mathcal X)]^2) = \sum_i (i - \E(\mathcal X))^2 P(\mathcal X = i)\]
+    \item Caso continuo.
+      \[\Var(\mathcal X) = \E([\mathcal X - \E(\mathcal X)]^2) = \int_{-\infty}^\infty (x - \E(\mathcal X))^2 f_{\mathcal X} (x)\,dx\]
+  \end{itemize}
+}
+
+\nt {
+  Retomando el ejemplo de una variable aleatoria normal, podemos decir que la varianza ($\sigma ^2$) nos indica que tanto se alejan los datos del valor esperado (esperanza).
+}
+
+\subsection{Propiedades}
+Las siguientes son propiedades de la varianza. Sean $\mathcal X, \mathcal Y$ variables aleatorias con varianza finita y $c \in \mathbb R$.
+
+\begin{enumerate}
+\item $\Var(\mathcal X) \ge 0$
+  \begin{myproof}
+    $\Var(\mathcal X) = \E([\mathcal X - \E(\mathcal X)]^2)$ donde podemos notar que $(\mathcal X - \E(\mathcal X))^2 \ge 0$
+    \[\therefore \, \E([\mathcal X - \mathbb E(\mathcal X)]^2) \ge 0 \]
+  \end{myproof}
+\item $\Var(c) = 0$
+  \begin{myproof}
+    \[\Var(c) = \E([c - \mathbb E(c)]^2) = \E([c - c]^2) = \E(0) = 0\]
+  \end{myproof}
+\item $\Var(c \mathcal X) = c^2 \Var(\mathcal X)$
+  \begin{myproof}
+    \[\Var(c\mathcal X) = \E([c\mathcal X - \E(c\mathcal X)]^2) = \E([c\mathcal X - c\E(\mathcal X)]^2) = \E(c^2[\mathcal X - \E(\mathcal X)]^2) = c^2\E([\mathcal X - \E(\mathcal X)]^2) = c^2 \Var(\mathcal X)\]
+  \end{myproof}
+\item $\Var(\mathcal X + c) = \Var(\mathcal X)$
+  \begin{myproof}
+    \[\Var(\mathcal X + c) = \E([\mathcal X + c - \E(\mathcal X + c)]^2) = \E([\mathcal X + c - \E(\mathcal X) - c]^2) = \E([\mathcal X - \E(\mathcal X)]^2) = \Var(\mathcal X)\]
+  \end{myproof}
+\item $\Var(\mathcal X) = \E(\mathcal X^2) - [\E(\mathcal X)]^2$
+  \begin{myproof}
+    \begin{align*}
+      \Var(\mathcal X) &= \E([\mathcal X - \E(\mathcal X)]^2)\\
+                             &= \E(\mathcal X^2 - 2\mathcal X\E(\mathcal X) + (\E(\mathcal X))^2)\\
+                             &= \E(\mathcal X^2) - 2 \E(\mathcal X) \E(\mathcal X) + (\E(\mathcal X))^2 = \E(\mathcal X) - (\E(\mathcal X))^2
+    \end{align*}
+  \end{myproof}
+\item En general, $\Var(\mathcal X + \mathcal Y) \neq \Var(\mathcal X) +\Var(\mathcal Y)$
+  \begin{myproof}
+    \begin{align*}
+      \Var(\mathcal X + \mathcal Y) &= \E \left([(\mathcal X + \mathcal Y) - \E(\mathcal X + \mathcal Y)]^2\right) \\
+                      &= \E \left([(\mathcal X + \mathcal Y)]^2 - 2(\mathcal X + \mathcal Y)\E(\mathcal X + \mathcal Y) + (\E(\mathcal X + \mathcal Y))^2\right) \\
+                      &= \E \left([\mathcal X^2 + 2\mathcal X \mathcal Y + \mathcal Y^2] - 2(\mathcal X + \mathcal Y)(\E(\mathcal X) + \E(\mathcal Y)) + (\E(\mathcal X)^2 + 2\E(\mathcal X)\E(\mathcal Y) + \E(\mathcal Y)^2)\right) \\
+                      &= \E \left(\mathcal X^2 + 2\mathcal X \mathcal Y + \mathcal Y^2 - [2\mathcal X\E(\mathcal X) + 2\mathcal X\E(\mathcal Y) + 2\mathcal Y\E(\mathcal X) + 2\mathcal Y\E(\mathcal Y)] \right. \\
+                      &\qquad\qquad \left. + [\E(\mathcal X)^2 + 2\E(\mathcal X)\E(\mathcal Y) + \E(\mathcal Y)^2]\right) \\
+                      &= \E \left([\mathcal X - \E(\mathcal X)]^2 + [\mathcal Y - \E(\mathcal Y)]^2 + 2\mathcal X \mathcal Y - 2\mathcal X\E(\mathcal Y) - 2\mathcal Y\E(\mathcal X) + 2\E(\mathcal X)\E(\mathcal Y)\right) \\
+                      &= \Var(\mathcal X) + \Var(\mathcal Y) + 2\E(\mathcal X \mathcal Y) - 2\E(\mathcal X)\E(\mathcal Y) - 2\E(\mathcal X)\E(\mathcal Y) + 2\E(\mathcal X)\E(\mathcal Y) \\
+                      &= \Var(\mathcal X) + \Var(\mathcal Y) + 2(\E(\mathcal X \mathcal Y) - \E(\mathcal X)\E(\mathcal Y)) \neq \Var(\mathcal X) + \Var(\mathcal Y)
+    \end{align*}
+  \end{myproof}
+\end{enumerate}
+
+\ex{Varianza}{
+  Calcular $\Var(\mathcal X)$ si $\mathcal X \sim \text{exp}(\lambda)$.
+  \newpara
+  De un ejemplo anterior sabemos que $\E(\mathcal X) = \frac1\lambda$. Usando la propiedad 5 podemos hacer lo siguiente.
+  \[\Var(\mathcal X) = \E(\mathcal X^2) - [\E(\mathcal X)]^2 = \E (\mathcal X^2) = (\frac1\lambda)^2\]
+
+  Por otro lado,
+  \[
+    \E(\mathcal X^2) = \int_{-\infty}^\infty x^2 \lambda e^{-\lambda x}\mathbb 1_{(0, \infty)}^{(x)}dx = \lambda \int_0^\infty x^2 e^{-\lambda x}dx
+  \]
+  Usando la siguiente sustitución
+  \[
+    u = x^2 \Longrightarrow du = 2xdx \qquad dv = e^{-\lambda x}dx \Longrightarrow v = -\frac{e^{-\lambda x}}\lambda
+  \]
+  obtenemos
+  \begin{align*}
+    \E (X^2) &= \lambda \left[-\frac{x^2e^{-\lambda x}}{\lambda}\bigg|_0^\infty + \frac{2}{\lambda}\int_0^\infty xe^{-\lambda x}dx\right] = \lambda\left[\frac{2}{\lambda^2}\int_0^\infty x\lambda e^{-\lambda x}dx\right] \\
+    &= \lambda\left[\frac{2}{\lambda^2}\int_0^\infty xf_X(x)dx\right] = \lambda\left[\frac{2}{\lambda^2}\mathbb{E}(X)\right] = \lambda\left[\frac{2}{\lambda^2}\frac{1}{\lambda}\right] = \frac{2}{\lambda^2} = \mathbb{E}(X^2)
+  \end{align*}
+
+  \[
+  \therefore \Var(\mathcal X) = \E(\mathcal X^2) - (\frac1\lambda)^2 = \frac2{\lambda^2} - \frac1{\lambda^2} = \frac1{\lambda^2}
+  \]
+}
+
+\ex{Esperanza y Varianza}{
+  Sea $\mcX \sim \Gamma(\alpha, \lambda)$. Calcula $\E (\mcX)$ y $\Var(\mcX)$.
+  \begin{itemize}
+  \item Por un lado
+  \begin{align*}
+    \E(\mcX) &= \int_{-\infty}^{\infty} x\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}\mathbb 1_{(0,\infty)}^{(x)}dx = \int_0^{\infty} x\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}dx \\
+  &= \frac{1}{\lambda}\int_0^{\infty} \frac{\lambda^{\alpha+1}}{\Gamma(\alpha)}x^{\alpha+1-1}e^{-\lambda x}dx \quad \text{Usando que } \Gamma(\alpha+1) = \alpha\Gamma(\alpha) \text{ sustituimos,}\\
+  &= \frac{\alpha}{\lambda}\int_0^{\infty} \frac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)}x^{\alpha+1-1}e^{-\lambda x}dx = \frac{\alpha}{\lambda}\int_0^{\infty} f_{X'}(x)dx \quad \text{Donde } \mcX' \sim \Gamma(\alpha+1,\lambda)\\
+  &= \frac{\alpha}{\lambda}\int_0^{\infty} f_{\mcX'}(x)dx = \frac{\alpha}{\lambda}
+  \end{align*}
+
+  \item Por otro lado para calcular $\Var(X)$ primero calculamos lo siguiente,
+  \begin{align*}
+  \E (X^2) &= \int_0^{\infty} \frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha+2-1}e^{-\lambda x}dx = \frac{1}{\lambda^2}\int_0^{\infty} \frac{\lambda^{\alpha+2}}{\Gamma(\alpha)}x^{\alpha+2-1}e^{-\lambda x}dx
+  \end{align*}
+  Realizamos una sustitución similar a la del inciso anterior usando que:
+
+  \[\Gamma(\alpha + 2) = (\alpha + 1)\Gamma(\alpha + 1) = (\alpha + 1)(\alpha)\Gamma(\alpha)\]
+
+  \[\E (X^2) = \frac{\alpha(\alpha + 1)}{\lambda^2} \underbrace{\int_0^{\infty} \frac{\lambda^{\alpha+2}}{\Gamma(\alpha+2)}x^{\alpha+2-1}e^{-\lambda x}dx}_{1}\]
+
+  Usando el mismo argumento del inciso anterior: $(\mcX' \sim \Gamma(\alpha + 2, \lambda))$.
+
+  \[\E(\mathcal X^2) = \frac{\alpha(\alpha + 1)}{\lambda^2}\]
+  Finalmente usamos la propiedad 5 de la varianza.
+
+  \[\Var(X) = \E (X^2) - [\E (X)]^2 = \frac{\alpha(\alpha + 1)}{\lambda^2} - \left(\frac{\alpha}{\lambda}\right)^2 = \frac{\alpha}{\lambda^2}\]
+
+  \end{itemize}
+}
+

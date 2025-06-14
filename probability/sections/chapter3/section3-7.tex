@@ -1,0 +1,58 @@
+\section{Sucesiones Monótonas}
+\subsection{Límite de Sucesiones}
+Definimos los siguientes limites para sucesiones crecientes y decrecientes.
+
+\dfn{Límite de una Sucesión Creciente}{
+  Sea $A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots A_n \subseteq \cdots$ una sucesión de eventos creciente. Definimos 
+  \[\lim_{n \rightarrow \infty} A_n = \bigcup_{i=1}^{\infty} A_i\]
+}
+\dfn{Limite de una Sucesión Decreciente}{
+Sea $A_1 \supseteq A_2 \supseteq A_3 \supseteq \cdots A_n \supseteq \cdots$ una sucesión de eventos decreciente. Definimos
+\[\lim_{n \rightarrow \infty} A_n = \bigcap_{i=1}^{\infty} A_i\]
+}
+
+\subsection{Definición}
+\dfn{Sucesión Monótona}{
+  Si la sucesión $\{A_n\}_{n \ge 1}$ es creciente o decreciente, la llamamos \textbf{sucesión monótona}.
+}
+
+\subsection{Teorema de Limite de una Sucesión}
+\thm{}{
+  Sea $\{A_n\}_{n \ge 1}$ una sucesión monótona de eventos. Entonces
+  \[
+    \lim_{n \to \infty} P(A_n) = P \parens*{\lim_{n \to \infty} A_n} =
+    \begin{cases}
+      P\parens*{\bigcup_{i=1}^{\infty} A_i}& \text{si }\{A_{n}\} \text{ es creciente}\\[1em]
+      P\parens*{\bigcap_{i=1}^{\infty} A_i} & \text{si }\{A_{n}\} \text{ es decreciente}
+    \end{cases}
+  \]
+}
+
+\begin{myproof}
+  Supongamos que $\{A_n\}$ es creciente, es decir, $A_1 \subset A_2 \subset A_3 \subset \cdots$\\
+  Consideremos la partición $\{B_n\}$ donde $B_1 = A_1,~ B_2 = A_2 - A_1, ~ B_3 = A_3 - A_2, \cdots,~ B_n = A_n - A_{n-1}$, tal que cumple lo siguiente.
+  \begin{itemize}
+    \item $\forall i \neq j,~ B_i \cap B_j = \varnothing$
+    \item $\bigcup_{i = 1}^n B_i = A_n$
+    \item $\bigcup_{i = 1}^{\infty} B_i = \bigcup_{i = 1}^{\infty} A_i$
+  \end{itemize}
+
+  Entonces
+  \begin{align*}
+    \lim_{n \to \infty} P(A_n) &= \lim_{n \to \infty} P\parens*{\bigcup_{i = 1}^n B_i} = \lim_{n \to \infty} \sum_{i = 1}^n P(B_i) \quad \text{(axiomas de probabilidad)}\\
+                               &= \sum_{i = 1}^{\infty} P(B_i)\\
+                               &= P\parens*{\bigcup_{i = 1}^{\infty}B_i}
+                               \quad \text{(axiomas de probabilidad)}\\ 
+                               &= P\parens*{\bigcup_{i = 1}^{\infty}A_i}= P\parens*{\lim_{n \to \infty} A_n)}
+  \end{align*}
+  Ahora supongamos que $\{A_n\}$ es decreciente, es decir, $A_1^c \subset A_2^c \subset A_3^c \cdots$. Como $\{A_n\}$ es decreciente, entonces $\{A^c\}$ es creciente. Así que
+  \begin{align*}
+    \lim_{n \to \infty} P(A_n^c) &= P\parens*{\lim_{n \to \infty}A_n^c} = P\parens*{\bigcup_{i = 1}^{\infty}A_i^c} = \lim_{n \to \infty} 1 - P(A_n) = 1 - P\parens*{\bigcap^{\infty}A_n}\\
+  \end{align*}
+
+  De la anterior se obtiene que 
+  \[1 - \lim_{n \to \infty} P(A_n) = 1 - P\parens*{\bigcap^{\infty}A_n}\]
+
+  Por tanto
+  \[\lim_{n \to \infty}P(A_n) = P\parens*{\bigcap^{\infty}A_n} = P\parens*{\lim_{n \to \infty}A_n}\]
+\end{myproof}

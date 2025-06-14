@@ -1,0 +1,23 @@
+\nt{
+  Recordemos que los subconjuntos de $\Omega$ se llaman \textbf{eventos.}
+}
+
+\nt{
+  Una $\sigma$-algebra es una \textbf{familia de subconjuntos} que satisface lo siguiente.
+  \begin{itemize}
+    \item $\Omega \in \mathcal F$
+    \item $A \in \mathcal F \Rightarrow A^c \in \mathcal F$
+    \item $A_1, A_2, \cdots \in \mathcal F \Rightarrow \bigcup_n A_n \in \mathcal F$
+
+  \end{itemize}
+}
+
+\section{Axiomas de Probabilidad}
+
+Sea $A$ un evento, $\Omega$ el espacio muestral, y $\mathcal F$ una $\sigma$-algebra.
+
+\begin{enumerate}
+  \item $0 \le P(A) \le 1$
+  \item $P(\Omega) = 1$
+  \item Sean $A_1, A_2, \cdots \in \mathcal F \text{ (eventos) tales que } A_i \cap A_j = \varnothing, ~\forall i \neq j.$ Entonces $$P\parens*{\bigcup A_i} = \sum_i P(A_i)$$
+\end{enumerate}

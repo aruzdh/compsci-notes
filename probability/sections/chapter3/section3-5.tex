@@ -1,0 +1,36 @@
+\section{Probabilidad Total}
+\subsection{Partición del Espacio Muestral}
+
+\dfn{Partición del Espacio Muestral}{
+  Sean $B_1, B_2, \cdots, B_n \in \mathcal F$. Decimos que $\{B_i\}_i$ es una \textbf{partición de $\Omega$} si se satisface lo siguiente.
+  \begin{itemize}
+    \item $\forall i,j;~ B_i \cap B_j = \varnothing$
+    \item $\Omega = \bigcup_i B_i$
+  \end{itemize}
+}
+
+\subsection{Probabilidad Total}
+\dfn{Probabilidad Total}{
+  Si $\{B_i\}_i$ es una partición de $\Omega$, y $A \in \mathcal F$ un evento, entonces
+  \[P(A) = \sum_{i = 1}^n P(A \cap B_i) = \sum_{i = 1}^n P(A \mid B_i)\,P(B_i)\]
+}
+
+\nt {
+  A lo anterior también se le llama \textbf{Ley de probabilidad total}.
+}
+
+\nt {
+  De la definicón anterior se tiene que \textit{\textit A está distribuido sobre diferentes partes \textbf{disjuntas} de la partición}.
+}
+
+\ex{Probabilidad Total}{
+  Se tienen dos cajas con pelotas. La caja \textit{I} tiene 2 pelotas azules y 3 rojas. La caja \textit{II} tiene 8 pelotas azules y 2 rojas. Se lanza una moneda justa. Si obtenemos \textit{sol} sacamos una pelota de la caja \textit{I}, y si se obtiene \textit{águila} se saca de la caja \textit{II}. ¿ Cuál es la probabilidad de sacar una pelota roja?
+  \newpara
+  Sean \textit{A = "se saca una pelota roja"}, \textit{$B_1$ = "se saca la pelota de la caja I"}, \textit{$B_2$= "se saca la pelota de la caja II"} eventos.  Entonces
+  \begin{align*}
+    P(A) &= P(A \cap B_1) + P(A \cap B_2)\\
+         &= P(A \mid B_i)\,P(B_i) + P(A \mid B_2)\,P(B_2)\\
+         &= \frac{3}{5} \cdot \frac{1}{2} + \frac{2}{10} \cdot \frac{1}{2} = \frac{3}{10} + \frac{2}{20} = \frac25
+  \end{align*}
+}
+

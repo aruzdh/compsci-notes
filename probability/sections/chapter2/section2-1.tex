@@ -1,0 +1,50 @@
+\section{Principios de Conteo}
+Si tenemos \textit m objetos de tipo $A$, y \textit n objetos de tipo $B$ ($A$ y $B$ tipos arbitrarios y distintos), entonces tenemos $m + n$ objetos en total.
+
+Si tenemos \textit m objetos diferentes de tipo $A$, y \textit n objetos diferentes de tipo $B$ ($A$ y $B$ tipos arbitrarios y distintos), entonces tenemos \textit{mn} distintas maneras de tener un objeto de tipo $A$ y uno de tipo $B$.
+
+\ex{Principios de Conteo}{
+  Supongamos que tenemos 4 dados. ¿De cuantas maneras se pueden obtener \textit{4 números diferentes} al lanzar los 4 dados?
+  \newpara
+  Notemos que en el primer lanzamiento tenemos 6 números diferentes ($1,2, \cdots, 6$), en el segundo tendremos 5 opciones, y así sucesivamente. \\
+  Por tanto, tenemos $6 \cdot 5 \cdot 4 \cdot 3 = 360$ diferentes formas.
+}
+
+Dado un problema como el anterior, podemos analizarlo de la siguiente manera.\\
+Supongamos que 2 etapas de un experimento se van a desarrollar. Entonces, si la etapa 1 puede resultar en cualquiera de \textit{m} posibilidades, y para cada salida de la etapa 1 hay \textit{n} posibles salidas de la etapa 2, entonces hay \textit{mn} posibles salidas de las dos etapas.
+
+\ex{Principios de Conteo}{
+  Una familia se acaba de cambiar a una ciudad nueva y requiere los servicios tanto de un obstetra como de un pediatra. Existen dos clínicas médicas fácilmente accesibles y cada una tiene 2 obstetras y 3 pediatras. La familia obtendrá los máximos beneficios del seguro de salud si se une a una clínica y selecciona a ambos especialistas de dicha clínica. ¿De cuántas maneras se puede hacer lo anterior?
+  \newpara
+  El experimento consta de seleccionar 1 obstetra y 1 pediatra de una clínica. Entonces podemos considerar las siguientes etapas del experimento.
+  \begin{enumerate}
+    \item Elegir una clínica: 2 posibilidades.
+    \item Elegir el obstetra: 2 posibilidades.
+    \item Elegir el pediatra 3 posibilidades.
+  \end{enumerate}
+  Por tanto, hay $2 \cdot 2 \cdot 3 = 12$ maneras.\\
+  Ahora, si suponemos que no importa la clínica elegida, tenemos $4 \cdot 6$ formas.
+}
+
+\ex{Principios de Conteo}{
+  ¿Cuántas placas son posibles formar si las primeras 3 posiciones deben estar ocupadas por letras y las últimas 4 por dígitos?
+  \newpara
+  Se tienen las siguientes etapas.
+  \begin{itemize}
+    \item Primera posición: 27 posibilidades.
+    \item Segunda posición: 27 posibilidades.
+    \item Tercera posición: 27 posibilidades.
+    \item Cuarta posición: 10 posibilidades.
+    \item Quinta posición: 10 posibilidades.
+    \item Sexta posición: 10 posibilidades.
+    \item Séptima posición: 10 posibilidades.
+  \end{itemize}
+  Así, son posibles $27 \cdot 27 \cdot 27 \cdot 10 \cdot 10 \cdot 10 \cdot 10 = 27^3 \cdot 10^4$ placas.
+}
+
+\ex{Principios de Conteo}{
+  Se lanza un dado y una moneda. ¿Cuántos elementos tiene $\Omega$?
+  \newpara
+Tenemos 6 posibilidades para el dado, y 2 para la moneda. Por tanto $\abs*{\Omega} = 12$
+}
+

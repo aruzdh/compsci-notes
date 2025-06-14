@@ -1,0 +1,221 @@
+\section{Distribuciones Discretas}
+\subsection{Destribución Bernoulli}
+
+\dfn{Distribución Bernoulli}{
+  Sea $\mathcal X$ una \textit{variable aleatoria discreta}. Diremos que $\mathcal X$ tiene \textbf{distribución Bernoulli} ($\mathcal X \sim Ber(p)$) con parámetro \textit p, donde $p \in [0,1]$ si satisface lo siguiente.
+  \[
+    \mathcal X = 
+    \begin{cases}
+      0 , & \text{con probabilidad } (1 - p) \\
+      1  ,& \text{con probabilidad } p \\
+    \end{cases}
+  \]
+}
+Generalmente decimos que si $\mathcal X(w) = 1$, entonces "\textit{ocurrió un éxito}", y si $\mathcal X(w) = 0$, "\textit{ocurrió un fracaso"}.
+
+\nt{
+  A \textit p se le conoce como la \textbf{probabilidad de éxito}
+}
+
+\ex{Distribución Bernoulli}{
+  Sea el experimento de lanzar una moneda. Se tiene que
+  \[\mathcal X (w) = 
+    \begin{cases}
+      1 & w = \text{águila}\\
+      0 & w = \text{sol}\\
+    \end{cases},
+    \text{ donde } p = \frac12
+  \]
+}
+
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = 
+ \begin{cases}
+   p &\text{si } k = 1 \\
+   1-p &\text{si } k = 0\\
+ \end{cases}\]
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X \sim Ber(p)$. Definimos su \textbf{función de distribución} como
+  \[
+  F_{\mathcal X}(k) = P(\chi \le k)= 
+  \begin{cases}
+    0  &\text{si } k < 0  \\
+    1 - p  &\text{si } 0 \le k < 1  \\
+    1 &\text{si } 1 \le k \\
+  \end{cases}
+\]
+}
+
+\subsection{Distribución Binomial}
+\dfn{Distribución Binomial}{
+  Sea $\mathcal X$ una \textit{variable aleatoria} tal que cuenta el número de éxitos en \textit {n experimentos Bernoulli independientes}. Entonces $\mathcal X$ tiene \textbf{distribución Binomial} con parámetros $n,p$. Se denota como
+  \[\mathcal X \sim Bin(n,p)\]
+  donde \textit n es el \textit{número de experimentos Bernoulli}, y \textit p es la \textit{probabilidad de éxito de cada experimento}.
+}
+
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \binom{n}{k}p^k(1-p)^{n - k}\]
+  con $k = 0, 1, 2, \cdots, n$
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X \sim Bin(n,p)$. Definimos su \textbf{función de distribución} como
+  \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k \binom{n}{i}p^i(1-p)^{n - i}\]
+}
+
+\ex{Distribución Binomial}{
+  Es sabido que los tornillos producidos por una compañia serán defectuosos con probabilidad del $0.01\%$ y que esto es \textit{independiente} de un tornillo a otro. La compañia vende tornillos en paquetes de 10 y ofrece una garantía de devolver el dinero si al menos 1 de los 10 tornillos está defectuoso. Si compras un paquete de tornillos, ¿Cuál es la probabilidad de que te devuelvan el dinero?
+  \newpara
+  Sea $\mathcal X = \text{"\# de tornillos defectuosos"}$, donde $\mathcal X(w) \in \{0, 1, \cdots, 10\}$. Entonces $\mathcal X \sim Bin(10, 0.01)$.
+  Así,
+  \begin{align*}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X \le 0) \\
+             &= 1 - F_{\mathcal X}(0)\\
+             &= 1 - P(\mathcal X = 0)\\
+             &= 1 - \parens*{\binom n0 p^0 (1-p)^{n-0}}\\
+             &= 1 - ((1-p)^n)\\
+             &= 1 - (1-0.01)^{10}\\
+             &= 0.0956
+  \end{align*}
+  De manera equivalente, podemos calcularlo de la siguiente manera.
+  \[P(\mathcal X \ge 1) = \sum_{i = 1}^{10} \binom{10}i (0.01)^i (1 - 0.01)^{10 - i} = 0.0956 \]
+}
+
+\subsection{Distribución Poisson}
+
+\dfn{Distribución Poisson}{
+  Sea $\mathcal Y \sim Bin(n, \frac{\lambda}{n})$ con $\lambda > 0$, es decir, \textit {$\mathcal Y$ es una variable aleatorial binomial} donde la probabilidad de éxito es $\frac{\lambda}{n}$.
+  \[ \lim_{n \to \infty}P (\mathcal Y = k) = \frac{\lambda^k}{k!}e^{-\lambda} = P(Z = k) = f(k)\]
+  donde \textit f es la función de probabilidad de masa de una variable aleatoria $Z \sim Poi(\lambda)$, es decir, $X$ tiene \textbf{distribución Poisson}.
+}
+
+\nt{
+  Sea $\mathcal Y \sim Bin(n,p)$. Si \textit {p es pequeño} y \textit {n suficientemente grande}, entonces se puede calcular la distribución de $\mathcal Y$ usando la \textbf{distribución Poisson}.
+}
+
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \frac{e^{-\lambda}\lambda^k}{k!}\]
+  con $k = 0, 1, \cdots$
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X \sim Poi(\lambda)$ con $\lambda > 0$. Definimos su \textbf{función de distribución} como
+  \[F_{\mcX}(k) = P(\mathcal X \le k) = \sum_{i=0}^k \frac{e^{-\lambda}\lambda^i}{i!}\]
+  con $k = 0, 1, \cdots$
+}
+
+\nt {
+  Efectivamente $f_{\mcX}(k) = \frac{e^{-\lambda}\lambda^k}{k!}$ es una función de probabilidad.
+  \begin{itemize}
+    \item $f_{\mcX}(k) \ge 0$
+    \item $\sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} = 1$
+  \[
+    \sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}e^{-\lambda} = e^{-\lambda} \underbrace{\sum_{k = 0}^{\infty} \frac{\lambda^k}{k!}}_{\substack{\text{Expansión en series} \\ \text{de Taylor de } e^{\lambda}}} = e^{-\lambda}e^{\lambda} = e^0 = 1
+  \]
+  \end{itemize}
+}
+
+\ex{Distribución Poisson}{
+  Supangamos que la probabilidad de que un objeto producido por una máquina sea defectuoso es de \textit{0.01} y que el hecho de que un objeto salga defectuoso o no, no afecta a los demás objetos. Se toman 10 objetos al azar. Encuentra la probabilidad de que al menos uno de ellos sea defectuoso.
+  \newpara
+  Sea $\mathcal X = \text{"número de objetos defectuosos"}$ una variable aleatoria.
+
+  Tenemos dos opciones.
+
+  Usando la distribución Binomial se tiene que $X \sim Bin(10, 0.01)$ y por tanto
+  \begin{align*}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X < 1)
+                        = 1 - P(\mathcal X = 0)\\
+                        &= 0.956 ~\text{(resultado de ejemplo anterior)}
+  \end{align*}
+  Usando la distribución Poisson se tiene que $\frac{\lambda}{10} = 0.01 \Rightarrow \lambda = 0.1$, y entonces $\mathcal X \sim Poi(0.1)$. Se sigue que
+  \begin{align*}
+    P(\mathcal X \ge 1) &= 1 - P(\mathcal X = 0)
+                        = 1 - \frac{e^{-0.1}(0.1)^0}{0!}\\
+                        &= 1 - e^{-0.1} = 0.095
+  \end{align*}
+  Por tanto, el resultado es practicamente el mismo.
+}
+
+\subsection{Distribución Geométrica}
+Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
+
+\dfn{Distribución Geométrica}{
+  Sea $\mcX$ una variable aleatoria. $\mcX \sim Geo(p)$ tiene \textbf{distribución Geométrica} y se define como
+  \[\mathcal X = \text{"El \# de fracasos antes de obtener el primer éxito"}\]
+}
+
+Dado lo anterior, tenemos el siguiente resultado.
+\begin{align*}
+  &f(0) = P(\mathcal X = 0) = P(\text{"Éxito"}) = p \\
+  &f(1) = P(\mathcal X = 1) = P(\text{F~E}) = (1 - p) p \\
+  &f(2) = P(\mathcal X = 2) = P(\text{F~F~E}) = (1 - p)^2 p \\
+  &\cdots \\
+  &f(k) = P(\mathcal X = k) = (1-p)^k p
+\end{align*}
+
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X \sim Geo(p)$. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = (1-p)^k p\]
+  con $k = 0, 1, \cdots$
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X \sim Geo(p)$. Definimos su \textbf{función de distribución} como
+  \[F_{\mathcal X}(k) = P(\mathcal X \le k) = \sum_{i = 0}^k(1-p)^i p\]
+  con $k = 0, 1, \cdots$
+}
+
+Se tiene que $f_{\mcX}$ satisface las propiedades de una función de probabilidad.
+\begin{enumerate}
+  \item \[f_{\mcX}(k) \ge 0\]
+  \item \[\sum_{k = 0}^{\infty} f_{\mcX}(k) = 1\]
+\end{enumerate}
+
+\subsection{Distribución Binomial Negativa}
+
+Supongamos que van a desarrollarse experimentos Bernoulli independientes con parámetro de éxito \textit p.
+\dfn{Distribución Binomial Negativa}{
+  Sea $\mcX$ una variable aleatoria. $\mcX$ tiene \textbf{distribución Binomial Negativa} y se define como
+  \[\mathcal X = \text{El "\# de ensayos hasta obtener $r$ éxitos"}\]
+}
+
+\dfn{Función de Probabilidad}{
+  Sea $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de probabilidad} como
+  \[f_{\mcX}(k) = P(\mathcal X = k) = \binom{k-1}{r-1}p^r(1-p)^{k-r} = \frac{(k-1)!}{(k-r)!(r-1)!}p^r(1-p)^{k-r} \]
+  donde $r$ es el número de éxitos, y $k$ número de ensayos.
+}
+
+\dfn{Función de Distribución}{
+  Sea $\mathcal X$ en una \textit{variable aleatoria binomial negativa}. Definimos su \textbf{función de distribución} como
+
+  \[F_{\mathcal X}(k) = P(\mathcal X \le k) =\sum_{i = 0}^k \binom{i-1}{r-1}p^r(1-p)^{i-r} = \sum_{i = 0}^k \frac{(i-1)!}{(i-r)!(r-1)!}p^r(1-p)^{i-r} \]
+  donde \textit r es el número de éxitos, y \textit k el número de ensayos.
+}
+
+\subsection{Distribución Uniforme}
+\dfn{Distribución Uniforme}{
+  Sea $\mcX$ una variable aleatoria. $\mcX \sim Uni(a_1, a_n)$ tiene \textbf{distribución Uniforme} sobre $\{a_1, a_2, \cdots, a_n\}$ donde $a_i \in \mathbb R$ si
+  \[P(\mathcal X = a_i) = \frac{1}{n},\, \forall i \in \{1, 2, \cdots n\}\]
+}
+
+\ex{Distribución Uniforme}{
+  Lanzar un dado justo.
+  \newpara
+  $\mathcal X \in \{1, \cdots 6\}$, es decir, $a_1 = 1, a_2 = 2, \cdots, a_6 = 6$\\
+    $P(\mathcal X = i) = \frac16,~ \forall i = 1, \cdots 6$
+}
+
+\subsection{Distribución Hipergeométrica}
+
+Supongamos que en una caja hay \textit N pelotas, \textit m azules y \textit{N - m} amarillas. Se escogen \textit n pelotas al azar.  Sea $\mathcal X = \text{"El \#pelotas azules seleccionadas"}$. Se tiene lo siguiente.
+
+\[P(\mathcal X = k) = \frac{\binom{m}{k} \binom{N - m}{n-k} }{\binom{N}{n}}\]
+
+Todos los experimentos que tengan un contexto similar se modelan con una variable aleatoria hipergeométrica.
+
