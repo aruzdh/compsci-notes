@@ -1,6 +1,6 @@
 # 🖥️ Comp. Sci. Notes 📓
 
-Computer science notes organized by subject, each as a separate LaTeX project with modular structure. Includes a robust LaTeX template for consistent formatting across all subjects.
+Computer science notes organized by subject, each as a separate LaTeX or Typst project with modular structure. Includes a robust Typst template for consistent formatting across all subjects.
 
 ![preview](preview.png)
 
@@ -9,14 +9,20 @@ Computer science notes organized by subject, each as a separate LaTeX project wi
 - `automata/`: Automata theory notes and assignments
 - `linear-algebra/`: Linear Algebra notes
 - `probability/`: Probability notes
-- `template/`: Reusable LaTeX template
+- `template/`: Reusable Typst template
 
 ## ⚠️ Compilation Requirements
 
-> [!CAUTION]  
-> **This template MUST be compiled with XeLaTeX or LuaLaTeX.** Standard `pdflatex` will not work as it does not support OpenType fonts or the advanced features of `fontspec` and `unicode-math`.
+### LaTeX
 
-## Font Configuration
+> [!CAUTION]  
+> **The LaTeX files MUST be compiled with XeLaTeX or LuaLaTeX.** Standard `pdflatex` will not work as it does not support OpenType fonts or the advanced features of `fontspec` and `unicode-math`.
+
+### Typst
+
+The unique requirement is to have installed the Typst compiler.
+
+## Font Configuration (LaTeX)
 
 - **Text Font:** STIX Two Text - High-quality font designed for technical and scientific publishing
 - **Math Font:** STIX Two Math - Ensures seamless visual integration between text and mathematical expressions
@@ -26,32 +32,26 @@ Computer science notes organized by subject, each as a separate LaTeX project wi
 
 ```
 template/
-├── preamble/
-│   ├── preamble.tex       # Main loader
-│   ├── packages.tex       # Package imports
-│   ├── fonts.tex          # Font configuration
-│   ├── colors.tex         # Color definitions
-│   ├── box-definitions.tex# Theorem/definition boxes
-│   ├── macros.tex         # Custom commands
-│   └── toc.tex           # Table of contents styling
+├── lib.typ/               # Modules and the main template function
+├── .typst_main_file/      # File to have a dynamic compilation
 ├── chapters/              # Chapter files
 ├── sections/              # Section files
-└── template.tex           # Main document
+└── template.typ           # Main document
 ```
 
-## Prerequisites
+## Prerequisites (LaTeX)
 
 1. Full LaTeX distribution ([TeX Live](https://www.tug.org/texlive/) recommended)
 2. STIX Two fonts installed system-wide
 
 ## Usage
 
-Each subject directory contains a main `.tex` file for compilation. The template provides consistent formatting with custom environments for theorems, definitions, and notes.
+Each subject directory contains a main `.tex` or `.typ` file for compilation. The template provides consistent formatting with custom environments for theorems, definitions, and notes.
 
-A `script.zsh` is provided to quickly create new projects. Execute the script with the project name as an argument to automatically generate all necessary files:
+A `create_typst_project.zsh` is provided to quickly create new projects. Execute the script with the project name as an argument to automatically generate all necessary files:
 
 ```bash
-./script.zsh linear-algebra
+./create_typst_project.zsh linear-algebra
 ```
 
 This creates a new directory with the specified name and sets up all required files to start writing notes.
