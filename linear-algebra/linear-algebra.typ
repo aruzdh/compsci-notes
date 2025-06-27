@@ -22,6 +22,10 @@
   colortab: true,
 )
 
+#align(center)[
+  _*All the proofs are omitted since they can be consulted in the book.*_
+]
+
 = Vector Spaces
 
 #include "./chapters/chapter1.typ"
