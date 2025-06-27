@@ -46,7 +46,7 @@
   cols: 1,
 
   // The text and code font. Must be a valid font name.
-  text_font: "STIX Two Text",
+  text_font: "STIXTwoText",
   code_font: "Fira Mono",
   math_font: "STIX Two Math",
   
