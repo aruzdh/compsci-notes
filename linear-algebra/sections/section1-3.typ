@@ -16,11 +16,11 @@ Expressions of the form $s u + t v$, where $s$ and $t$ are scalars, and $u$ and 
 Throughout this course, we form the set of all linear combinations of some set of vectors. We now name such set.
 
 #definition(title: "Span")[
-  Let $V$ be a vector space, and $S != emptyset subset.eq V$. The *span* of $S$, denoted span($S$) or $<S>$, is the set consisting of all linear combinations of the vectors in $S$. For convenience, we define $"span"(emptyset) = {0}$.
+  Let $V$ be a vector space, and $S != emptyset subset.eq V$. The *span* of $S$, denoted by span($S$) or $<S>$, is the set consisting of all linear combinations of the vectors in $S$. For convenience, we define $"span"(emptyset) = {0}$.
 ]
 
 #example[
-  In $RR^3$, for instance, the span of the set ${(1,0,0), (0,1,0)}$ consists of all vectors in $RR^3$ that have the form $lambda(1,0,0) + beta(0,1,0) = (lambda, beta, 0)$ for some $lambda, beta$ scalars. Thus, the span of ${(1,0,0), (0,1,0)}$ contains all the points in the _xy_-plane. In the case, the span of the set _is a subspace_ of $RR^3$. This fact is true in general.
+  In $RR^3$, for instance, the span of the set ${(1,0,0), (0,1,0)}$ consists of all vectors in $RR^3$ that have the form $lambda(1,0,0) + alpha(0,1,0) = (lambda, alpha, 0)$ for some $lambda, alpha$ scalars. Thus, the span of ${(1,0,0), (0,1,0)}$ contains all the points in the _xy_-plane. In the case, the span of the set _is a subspace_ of $RR^3$. This fact is true in general.
 ]
 
 #theorem[
@@ -35,4 +35,9 @@ Throughout this course, we form the set of all linear combinations of some set o
   The vectors $(1,0,0),(0,1,0)$, and $(0,0,1)$ generate $RR^3$ since an arbitrary vector $(a_1, a_2, a_3) in RR^3$ is a linear combination of the three given vectors.
 ]
 
+#example[
+  The polynomials $x^2 + 3x - 2, 2x^2 + 5x - 3$, and $-x^2 - 4x + 4$ generate $P_(2)(RR)$ since each of the three polynomials belong to $P_(2)(RR)$ and each polynomial $alpha x^2 + lambda x + gamma in P_(2)(RR)$ is a linear combination of these three, namely
+  $ (-8 alpha + 5 lambda + 3 gamma)(x^2 + 3x - 2) &+ (4 alpha - 2 lambda - gamma)(2x^2 + 5x - 3) \
+  &+ (-alpha + lambda + gamma)(-x^2 - 4x + 4) = alpha x^2 = lambda x + gamma $
+]
 Usually there are many different subsets that generates a subspace $W$. It is natural to seek a subset of $W$ that generates $W$ and is as small as possible. In the next section we explore the circumstances under which a vector can be removed from a generating set to obtain a smaller generating set.

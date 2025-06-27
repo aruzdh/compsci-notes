@@ -5,7 +5,7 @@
 The appropriate notion of substructure for vector spaces is introduced right below.
 
 #definition(title: "Subspace")[
-  A subset $W$ of a vector space $V$ over a field $K$ is called a *subspace* of $V$ (sometimes denoted by $W <= V$) if $W$ is a vector space over $K$ with the operations of addition and scalar multiplication defined on $V$.
+  A subset $W$ of a vector space $V$ over a field $KK$ is called a *subspace* of $V$ (sometimes denoted by $W <= V$) if $W$ is a vector space over $KK$ with the operations of addition and scalar multiplication defined on $V$.
 ]
 
 #note-box[
@@ -23,17 +23,16 @@ The next theorem shows that the zero vector of $W$ must be the same as the zero 
 
 #theorem[
   Let $V$ be a vector space and $W subset.eq V$. Then $W$ is a subspace of $V$ if and only if the following three conditions hold for the operations defined in $V$.
-  + $0 in W$
+  + $0 in W$ (the same zero vector of $V$)
   + $forall x,y in W, x + y in W$
   + $forall x in W "and" forall lambda in K, lambda x in W$
 ] <thm:subspace>
 
 #tip-box[
-  The preceding theorem provides a simple method for determining whether or not a given subset of a vector space is a subspace. Normally it is this result that is used to prove that a subset is, in fact, a subspace.
+  @thm:subspace provides a simple method for determining whether or not a given subset of a vector space is a subspace. Normally it is this result that is used to prove that a subset is, in fact, a subspace.
 ]
 
-Below, there are some important concepts, and examples or subspaces.
-
+Below, there are some important concepts, and examples of subspaces.
 
 #definition(title: "Transpose of a Matrix")[
   The *transpose* $A^t$ of an $m times n$ matrix $A$ is the $n times m$ matrix obtained from $A$ by interchanging the rows with the columns, that is, $(A^t)_(i j) = A_(j i)$
@@ -48,7 +47,8 @@ Below, there are some important concepts, and examples or subspaces.
   mat(
     1,0;
     -2, 5;
-    3, -1) "and"
+    3, -1) 
+  space.quad "and" space.quad
   mat(
     1,2;
     2,3
@@ -80,7 +80,7 @@ Below, there are some important concepts, and examples or subspaces.
 ]
 
 #definition(title: "Trace of a matrix")[
-  The *Trace* of an $n times n$ matrix $M$, denoted $"tr"(M)$, is the sum of the diagonal entries of $M$; that is, $ "tr"(M) = M_(11) + M_(22) + dots + M_(n n) $
+  The *Trace* of an $n times n$ matrix $M$, denoted by $"tr"(M)$, is the sum of the diagonal entries of $M$; that is, $ "tr"(M) = M_(11) + M_(22) + dots + M_(n n) $
 ]
 
 #example[
@@ -97,6 +97,6 @@ The next theorem shows how to form a new subspace from other subspace.
   Any intersection of subspaces of a vector space $V$ is a subspace of $V$.
 ]
 
-It is easily seen that the union of subspaces mush contain the zero vector and be closed under scalar multiplication, but in general, the union of subspaces of $V$ need not be closed under addition. In fact, it can be readily shown that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other.
+It is easily seen that the union of subspaces must contain the zero vector and be closed under scalar multiplication, but in general, the union of subspaces of $V$ need not be closed under addition. In fact, it can be readily shown that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other.
 
 //TODO: write the definitions from the exercises section
