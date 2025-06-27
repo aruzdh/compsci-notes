@@ -5,38 +5,38 @@
 First, we define a very important type of algebraic structure.
 
 #definition(title: "Vector Space or Linear Space")[
-  A *vector space* (or *linear space*) $V$ over a field $K$ consists of a set on which two operations (called _addition_ and _scalar multiplication_, respectively) are defined so that for each par or elements $x,y in V$ there is a unique element $x + y in V$, and for each element $lambda in K$ and each element $x in V$ there is a unique element $lambda x in V$, such that the following conditions hold.
+  A *vector space* (or *linear space*) $V$ over a field $KK$ consists of a set on which two operations (called _addition_ and _scalar multiplication_, respectively) are defined so that for each par or elements $x,y in V$ there is a unique element $x + y in V$, and for each element $lambda in KK$ and each element $x in V$ there is a unique element $lambda x in V$, such that the following conditions hold.
 
   - (VS 1) $forall x,y in V, x + y = y + x$ (_commutativity of addition_)
   - (VS 2) $forall x,y,z in V, (x + y) + z = x + (y + z)$ (_associativity of addition_)
   - (VS 3) There exists an element in $V$ denoted by $accent(0,arrow)$ (or juts 0) such that $forall x in V, x + accent(0,arrow) = x$
   - (VS 4) For each element in $V$ there exists an element $y$ such that $x + y = accent(0,arrow)$
   - (VS 5) $forall x in V, 1x = x$
-  - (VS 6) $forall lambda, beta in K$ and $forall x in V, (lambda beta)x = lambda (beta x)$
-  - (VS 7) $forall lambda in K$ and $forall x,y in V, lambda (x + y) = lambda x + lambda y$
-  - (VS 8) $forall lambda, beta in K$ and $forall x in V, (lambda + beta) x = lambda x + beta x$
+  - (VS 6) $forall lambda, beta in KK$ and $forall x in V, (lambda beta)x = lambda (beta x)$
+  - (VS 7) $forall lambda in KK$ and $forall x,y in V, lambda (x + y) = lambda x + lambda y$
+  - (VS 8) $forall lambda, beta in KK$ and $forall x in V, (lambda + beta) x = lambda x + beta x$
   The elements $x + y$ and $lambda x$ are called the *sum* of $x$ and $y$, and the *product* of $lambda$ and $x$, respectively.
 ] <def:vector-space>
 
 #note-box[
-  Sometimes we denote a vector space $V$ over a field $K$ as $(V, K, +, dot)$
+  Sometimes we denote a vector space $V$ over a field $KK$ as $(V, KK, +, dot)$
   
-  The elements of the field $K$ are called *scalars*, and the elements of the vector space $V$ are called *vectors*.
+  The elements of the field $KK$ are called *scalars*, and the elements of the vector space $V$ are called *vectors*.
 ]
 
 The following are examples of different vector spaces.
 
-An object of the form $(lambda_1, lambda_2, dots lambda_n)$ where the entries are elements of a field $K$, is called an *_n_-tuple* (or just a tuple), and each $lambda_i$ is called an *entry* or a *component* of the tuple. Two n-tuples are _equal_ if $lambda_i = beta_i$ for $i = 1,2,dots,n$.
+An object of the form $(lambda_1, lambda_2, dots lambda_n)$ where the entries are elements of a field $KK$, is called an *_n_-tuple* (or just a tuple), and each $lambda_i$ is called an *entry* or a *component* of the tuple. Two n-tuples are _equal_ if $lambda_i = beta_i$ for $i = 1,2,dots,n$.
 
 #example[
-  The set of all _n_-tuples with entries from a field $K$ is denoted by $K^n$. This set is a vector space over $K$ with the following operations.
+  The set of all _n_-tuples with entries from a field $KK$ is denoted by $KK^n$. This set is a vector space over $K$ with the following operations.
   
-  If $u = (lambda_1, lambda_2, dots, lambda_n), v = (beta_1, beta_2, dots, beta_n) in K^n$, and $gamma in K$, then
+  If $u = (lambda_1, lambda_2, dots, lambda_n), v = (beta_1, beta_2, dots, beta_n) in K^n$, and $gamma in KK$, then
   $ u + v = (lambda_1 + beta_1, lambda_2 + beta_2,dots, lambda_n + beta_n) "and" gamma u = (gamma lambda_1, gamma lambda_2, dots, gamma lambda_n) $
 ]
 
 #example[
-  Let $S$ be any nonempty set and $K$ be any field, and let $cal(F)(S,K)$ denoted the set of all functions from $S$ to $K$. Two functions $f$ and $g$ in this set are called *equal* if $forall s in S, f(s) = g(s)$. The set $cal(F)(S,K)$ is a vector space with the following operations defined for $f,g in cal(F)(S,K), lambda in K$ and $forall s in S$.
+  Let $S$ be any nonempty set and $KK$ be any field, and let $cal(F)(S,KK)$ denoted the set of all functions from $S$ to $KK$. Two functions $f$ and $g$ in this set are called *equal* if $forall s in S, f(s) = g(s)$. The set $cal(F)(S,KK)$ is a vector space with the following operations defined for $f,g in cal(F)(S,KK), lambda in KK$ and $forall s in S$.
   
   $ (f + g)(s) = f(s) + g(s) "and" (lambda f)(s) = lambda (f(s)) $
   Note that these are the familiar operations of addition and scalar multiplication for functions used in algebra and calculus.
@@ -46,32 +46,32 @@ Let's consider the usual definition of a *polynomial*.
 
 #example[
   Let $ f(x) = lambda_n x^n + lambda_(n-1) x^(n-1) + dots + lambda_1 x + lambda_0 "and" g(x) = beta_m x^m + beta_(m-1) x^(m-1) + dots + beta_1 x + beta_0 $
-  be polynomials with coefficients from a field $K$. Suppose that $m <= n$, and define $b_(m+1) = b_(m+2) = dots = b_n = 0$. Then $g(x)$ can be written as $ g(x) = beta_n x^n + beta_(n-1) x^(n-1) + dots + beta_1 x + beta_0 $
+  be polynomials with coefficients from a field $KK$. Suppose that $m <= n$, and define $b_(m+1) = b_(m+2) = dots = b_n = 0$. Then $g(x)$ can be written as $ g(x) = beta_n x^n + beta_(n-1) x^(n-1) + dots + beta_1 x + beta_0 $
 
-  Define $ f(x) + g(x) = (lambda_n + beta_n)x^n + (lambda_(n-1) + beta_(n-1)) x^(n-1) + dots + (lambda_1 + beta_1)x + (lambda_0 + beta_0) $ and for any $gamma in K$, define $ gamma f(x) = f(x) = gamma lambda_n x^n + gamma lambda_(n-1) x^(n-1) + dots + gamma lambda_1 x + gamma lambda_0 $
+  Define $ f(x) + g(x) = (lambda_n + beta_n)x^n + (lambda_(n-1) + beta_(n-1)) x^(n-1) + dots + (lambda_1 + beta_1)x + (lambda_0 + beta_0) $ and for any $gamma in KK$, define $ gamma f(x) = f(x) = gamma lambda_n x^n + gamma lambda_(n-1) x^(n-1) + dots + gamma lambda_1 x + gamma lambda_0 $
 
-  With these operations, the set of all polynomials with coefficients form the $K$ is a vector space, with is denoted by $P(K)$.
+  With these operations, the set of all polynomials with coefficients form the $KK$ is a vector space, with is denoted by $P(KK)$.
 ]
 
 Let's consider the next definition.
 
 #definition(title: "Matrix")[
-  An $m times n$ matrix with entries from a field $F$ is a rectangular array of the form
+  An $m times n$ matrix with entries from a field $KK$ is a rectangular array of the form
   $ mat(
     lambda_(11), lambda_(12), ..., lambda_(1n);
     lambda_(21), lambda_(22), ..., lambda_(2n);
     dots.v, dots.v, dots.down, dots.v;
     lambda_(m 1), lambda_(m 2), ..., lambda_(m n);
   ), $
-  where each entry $lambda_(i j) in K space.nobreak (1 <= i <= m, 1 <= j <= n)$. 
+  where each entry $lambda_(i j) in KK space.nobreak (1 <= i <= m, 1 <= j <= n)$. 
 ]<def:matrix>
 
-We call the entries $a_(i j)$ with $i = j$ the *diagonal entries* of the matrix. The entries $lambda_(i 1), lambda_(i 2), dots, lambda(i n)$ compose the *_i_**th row* of the matrix, and the entries $lambda_(1 j), lambda_(2 j), dots, lambda(m j)$ compose the *_j_**th column* of the matrix. The rows of the preceding matrix are regarded as vectors in $K^n$, and the columns are regarded as vectors in $K^m$. The $m times n$ matrix in which each entry equals zero is called the *zero matrix* and is denoted by $O$. 
+We call the entries $a_(i j)$ with $i = j$ the *diagonal entries* of the matrix. The entries $lambda_(i 1), lambda_(i 2), dots, lambda_(i n)$ compose the *_i_**th row* of the matrix, and the entries $lambda_(1 j), lambda_(2 j), dots, lambda_(m j)$ compose the *_j_**th column* of the matrix. The rows of the preceding matrix are regarded as vectors in $KK^n$, and the columns are regarded as vectors in $KK^m$. The $m times n$ matrix in which each entry equals zero is called the *zero matrix* and is denoted by $O$. 
 We denote the entry of a matrix $A$ that lies in row _i_ and column _j_ by $A_(i j)$. In addition, if the number of rows and columns are equal, the matrix is called *square*.
 Two $m times n$ matrices $A$ and $B$ are called *equal* if all their corresponding entries are equal, that is, if $A_(i j) = B_(i j) "for" 1 <= i <= m "and" 1 <= j <= n$.
 
 #example[
-  The set of all $m times n$ matrices with entries from a field $K$ is a vector space, which denote by $M_(m times n)(K)$, with the following operations of *matrix addition* and *scalar multiplication* for $A, B  in M_(m times n)(K)$ and $lambda in K$.
+  The set of all $m times n$ matrices with entries from a field $KK$ is a vector space, which denote by $M_(m times n)(KK)$, with the following operations of *matrix addition* and *scalar multiplication* for $A, B  in M_(m times n)(KK)$ and $lambda in KK$.
   $ (A + B)_(i j) = A_(i j) + B_(i j) "and" (lambda A)_(i j) = lambda A_(i j) $
   for $1 <= i <= m "and" 1 <= j <= n$.
 ]
@@ -101,7 +101,7 @@ The next result contains some of the elementary properties of scalar multiplicat
 #theorem[
   In any vector space $V$, the following statements are true.
   - $forall x in V, 0x = 0$
-  - $forall lambda in K "and" forall x in V, (-lambda x) = - (lambda x) = a(-lambda)$.
-  - $forall lambda in K, lambda 0 = 0$.
+  - $forall lambda in KK "and" forall x in V, (-lambda x) = - (lambda x) = a(-lambda)$.
+  - $forall lambda in KK, lambda 0 = 0$.
 ]<thm:vector-space-props>
 

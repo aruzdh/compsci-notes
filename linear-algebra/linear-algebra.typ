@@ -12,11 +12,11 @@
       link: "https://aruzdh.netlify.app",
     ),
   ),
-  
+
   bibliography_file: "./bibliography/friedberg.bib",
   paper_size: "a4",
   cols: 1,
-  
+ 
   accent: "#0b4934",
   h1-prefix: "Chapter",
   colortab: true,
