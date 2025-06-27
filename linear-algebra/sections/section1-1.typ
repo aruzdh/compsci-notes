@@ -33,6 +33,12 @@ An object of the form $(lambda_1, lambda_2, dots, lambda_n)$ where the entries a
   $ u + v = (lambda_1 + alpha_1, lambda_2 + alpha_2 ,dots, lambda_n + alpha_n) space.quad "and" space.quad gamma u = (gamma lambda_1, gamma lambda_2, dots, gamma lambda_n) $
 ]
 
+#note-box[
+  Vectors in $KK^n$ can be written as *column vectors*
+  $ mat(a_1;a_2;dots.v; a_n) $
+  rather than as *row vectors* $(a_1,a_2,dots, a_n)$
+]
+
 #example[
   Let $S$ be any nonempty set and $KK$ be any field, and let $cal(F)(S,KK)$ denoted the set of all functions from $S$ to $KK$. Two functions $f$ and $g$ in this set are called *equal* if $forall s in S, f(s) = g(s)$. The set $cal(F)(S,KK)$ is a vector space with the following operations defined for $f,g in cal(F)(S,KK), lambda in KK$ and $forall s in S$.
   
