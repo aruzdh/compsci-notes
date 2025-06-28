@@ -1,4 +1,4 @@
-// Imports =============================================================
+//// Imports =============================================================
 
 #import "@preview/whalogen:0.2.0": ce
 #import "@preview/theorion:0.3.3": *
@@ -8,19 +8,11 @@
 // Template ============================================================
 
 #let template(
-  // The title of the lecture notes
+  // Basic information
   title: "Lecture Notes Title",
-
-  // The short_title is shown in the running header
-  short_title: none, // string
-
-  // The description of the lecture notes; is optional. Example:
-  // description: [A template for lecture notes]
+  short_title: none,
   description: none,
-
-  // The date of the lecture notes; is optional. Example
-  // datetime(year: 2020, month: 02, day: 02)
-  date: none,
+  date: none, // format: (year: 2020, month: 02, day: 02)
 
   // An array of authors. For each author you can specify a name, orcid, and affiliations.
   // affiliations should be content, e.g. "1", which is shown in superscript and should match the affiliations list.
@@ -32,41 +24,28 @@
   lot: false,
   lol: false,
 
-  // The path to a bibliography file if you want to cite some external works.
+  // Bibliography 
   bibliography_file: none,
-  // Citation style
   bibstyle: "apa",
 
-  // The article's paper size. Also affects the margins.
+  // Document's properties
   paper_size: "a4",
-  // page orientation
   landscape: false,
-
-  // The number of columns to be used in the page
+  paper_color: "#ffffff",
+  paragraph_indent: 1em, 
+  heading_numbering: "1.1", // Default heading numbering format
+  math_equation_numbering: none,
+  h1-prefix: "Lecture",
+  text_lang: "en", 
   cols: 1,
+  accent: "#DC143C", // The color of the lecture notes' accent color
+  colortab: false,
 
-  // The text and code font. Must be a valid font name.
+  // Font
   text_font: "STIXTwoText",
   code_font: "Fira Mono",
   math_font: "STIX Two Math",
-  
-  // Paragraph's indentation
-  paragraph_indent: 1em, 
-  
-  // Default heading numbering format
-  heading_numbering: "1.1", 
-  
-  // Default lang
-  text_lang: "en", 
-  
-  // The color of the lecture notes' accent color. Must be a valid HEX color.
-  accent: "#DC143C",
-  h1-prefix: "Lecture",
-  colortab: false,
-  
-  // Math equations numbering
-  math_equation_numbering: none,
-  
+
   // The lecture notes' content.
   body
 ) = {
@@ -77,7 +56,7 @@
     } else if type(accent) == "color" {
       accent
     } else {
-      rgb("#DC143C") // Default accent color if invalid type
+      rgb("#DC143C")
     }
   }
 
@@ -126,6 +105,7 @@
   // Configure the page layout and header
   set page(
     paper: paper_size,
+    fill: rgb(paper_color),
     columns: cols,
     flipped: landscape,
     numbering: "1",
@@ -163,7 +143,7 @@
 
   // Configure footer for boxes (e.g. def, thm, cor)
   show: show-theorion 
-  
+
   // Configure equation numbering and spacing.
   set math.equation(numbering: math_equation_numbering)
   show math.equation: eq => {
