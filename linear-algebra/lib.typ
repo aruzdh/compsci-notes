@@ -1,9 +1,8 @@
-// Imports =============================================================
+//// Imports =============================================================
 
 #import "@preview/whalogen:0.2.0": ce
 #import "@preview/theorion:0.3.3": *
 #import cosmos.fancy: *
-#show: show-theorion
 
 // Template ============================================================
 
@@ -326,3 +325,16 @@
      bibliography(bibliography_file, title: [References], style: bibstyle)
    }
 }
+
+#let example = note-box.with(
+  fill: rgb("#ff9e40"),
+  title: theorion-i18n-map.at("example"),
+  icon-name: "beaker",
+)
+
+#let exercise = note-box.with(
+  fill: rgb("#316ccc"),
+  title: theorion-i18n-map.at("exercise"),
+  icon-name: "apps",
+)
+
