@@ -1,4 +1,4 @@
-#import "../lib.typ":*
+#import "../../lib.typ":*
 
 == Bases and Dimension
 
@@ -35,8 +35,8 @@ We saw in the previous section that if $S$ is a generating set for a subspace $W
 The next theorem establishes the most significant property of a basis.
 
 #theorem[
-  Let $V$ be a vector space and $beta = {u_1, u_2, dots, u_n} subset.eq V$. Then $beta$ is a basis for $V$ *if and only if* each $v in V$ can be uniquely expressed as a linear combination of vectors of $beta$, that is, can be expressed is the form 
-  $ v = lambda_1 u_1 + lambda_2 u_2 + dots + lambda_n u_n $
+  Let $V$ be a vector space and $beta = {u_1, u_2, dots, u_n} subset.eq V$. Then $beta$ is a basis for $V$ *if and only if* each $v in V$ can be uniquely expressed as a linear combination of vectors of $beta$, that is, can be expressed in the form 
+  $ v = lambda_1 u_1 + lambda_2 u_2 + dots.c + lambda_n u_n $
   for *unique* scalars $lambda_i in KK$.
 ] <thm:basis-thm>
 
@@ -104,18 +104,22 @@ Just as no linearly independent subset of a finite-dimensional vector space $V$ 
 ]
 
 #example[
-  ${x^2 + 3x - 2, 2x^2 + 5x - 3, -x^2 -4x + 4}$ is a basis for $P_(2)(RR)$
+  $ {x^2 + 3x - 2, 2x^2 + 5x - 3, -x^2 -4x + 4}$ is a basis for $P_(2)(RR) $
 ]
 
 #example[
-  ${
+  $ {
     mat(1,1;1,0), mat(1,1;0,1),mat(1,0;1,1),mat(0,1;1,1)
-  }$
+  } $
   is a basis for $M_(2 times 2)(RR)$.
 ]
 
 #example[
-  ${(1,0,0,-1),(0,1,0,-1),(0,0,1,-1),(0,0,0,1)}$ is a basis for $RR^4$.
+  $ {(1,0,0,-1),(0,1,0,-1),(0,0,1,-1),(0,0,0,1)}$ is a basis for $RR^4 $.
+]
+
+#tip-box[
+  Let's say we need to prove that $<beta> = V$, where $V$ is a vector space and $beta subset.eq V$. We only need to prove $ V subset.eq <beta>$, since $<beta> subset.eq V$ always holds.
 ]
 
 === An Overview of Dimension and Its Consequences
@@ -157,4 +161,5 @@ The next theorem relates the dimension of a subspace to the dimension of the vec
 ]
 
 // TODO: The Lagrange Interpolation Formula
+// TODO: Maximal Linearly Independent Subsets
 

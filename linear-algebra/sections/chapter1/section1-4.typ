@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "../../lib.typ": *
 
 == Linear Dependence and Linear Independence
 
@@ -6,15 +6,14 @@ Suppose that $V$ is a vector space over an infinite field and that $W <= V$. Unl
 
 #definition(title: "Linearly Dependent Set")[
   A subset $S$ of a vector space $V$ is called *linearly dependent* if there exist a finite number of distinct vectors $u_1, u_2, dots, u_n in S$ and scalars $lambda_1, lambda_2, dots, lambda_n in KK$ (not all zero), such that 
-  $ lambda_1 u_1 + lambda_2 u_2 + dots + lambda_n u_n = 0 $
+  $ lambda_1 u_1 + lambda_2 u_2 + dots.c + lambda_n u_n = 0 $
   In this case we also say that the vectors of $S$ are linearly dependent.
 ]
 
 #tip-box[
   Thus, rather than asking whether some vector in $S$ is a linear combination of the other vectors in $S$, it is more efficient to ask whether the zero vector can be expressed as a linear combination of the vectors in $S$ with coefficients that are *not all zero*.
 ]
-
-  For any vectors $u_1, u_2, dots, u_n$, we have $lambda_1 u_1 + lambda_2 u_2 + dots + lambda_n u_n = 0$ if $lambda_1 = lambda_2 = dots = lambda_n = 0$. We call this the *trivial representation* of $0$ as a linear combination of the given vectors. Thus, for a set to be linearly dependent, there must exist a nontrivial representation of $0$ as a linear combination of the vectors in the set.
+  For any vectors $u_1, u_2, dots, u_n$, we have $lambda_1 u_1 + lambda_2 u_2 + dots.c  + lambda_n u_n = 0$ if $lambda_1 = lambda_2 = dots.c = lambda_n = 0$. We call this the *trivial representation* of $0$ as a linear combination of the given vectors. Thus, for a set to be linearly dependent, there must exist a nontrivial representation of $0$ as a linear combination of the vectors in the set.
 
   #note-box[
     Consequently, any subset of a vector space that contains the zero vector is linearly dependent, because $ 0 = 1 dot 0 $ is a nontrivial representation of $0$ as a linear combination of vectors is the set.
@@ -58,8 +57,8 @@ Suppose that $V$ is a vector space over an infinite field and that $W <= V$. Unl
   #proposition[
     The following facts about linearly independent sets are true in any vector space.
     + The empty set is linearly independent, for linearly dependent sets must be nonempty.
-    + A set consisting of a single nonzero vector is linearly independent. For if ${u}$ is linearly dependent, then $lambda u = 0$ for some $lambda != 0$. Thus $ u = a^(-1)(a u) = a^(-1)0 = 0$.
-    + A set is linearly independent *if and only if* the *only* representation of the zero vector as linear combination of its vectors are trivial representations.
+    + A set consisting of a single nonzero vector is linearly independent. For if ${u}$ is linearly dependent, then $lambda u = 0$ for some $lambda != 0$. Thus $ u = lambda^(-1)(lambda u) = lambda^(-1)0 = 0$.
+    + A set is linearly independent *if and only if* the *only* representation of the zero vector as linear combinations of its vectors are trivial representations.
   ]
 
   #tip-box[
@@ -90,7 +89,7 @@ Suppose that $V$ is a vector space over an infinite field and that $W <= V$. Unl
 
   Earlier in this section, we remarked that the issue of whether $S$ is the smallest generating set for its span is related to the question of whether some vector in $S$ is a linear combination of the other vectors in $S$. Thus the issue of whether $S$ is the smallest generating set for its span is related to the question of whether $S$ is linearly dependent.
 
-  Suppose that $S$ is any linearly dependent set containing two or more vectors. Then some vector $v in S$ can be written as a linear combination of the other vectors in $S$, and the subset obtain by removing $v$ from $S$ has the same span as $S$. It follows that if no proper subset of $S$ generates the span of $S$, the $S$ must be linearly independent. This idea is presented is the following theorem.
+  Suppose that $S$ is any linearly dependent set containing two or more vectors. Then some vector $v in S$ can be written as a linear combination of the other vectors in $S$, and the subset obtain by removing $v$ from $S$ has the same span as $S$. It follows that if no proper subset of $S$ generates the span of $S$, the $S$ must be linearly independent. This idea is presented in the following theorem.
 
   #theorem[
     Let $S$ be a linearly independent subset of a vector space $V$, and let $v in V$ and $v in.not S$. Then $S union {v}$ is linearly dependent if and only if $v in "span"(S)$.
