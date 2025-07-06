@@ -17,7 +17,7 @@
   cols: 1,
   text_lang: "es",
   accent: "#0b4934",
-  h1-prefix: "Capítulo",
+  h1-prefix: "chapter",
   colortab: true,
 )
 

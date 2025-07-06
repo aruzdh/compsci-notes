@@ -2,7 +2,7 @@
 
 == Espacio Muestral
 
-#definition(title: "Espacio Muestral")[
+#definition("Espacio Muestral")[
   Es el conjunto de _todos los posibles resultados_ de un experimento aleatorio. Se denota por $Omega$.
 ]
 

@@ -2,11 +2,11 @@
 
 == Eventos
 
-#definition(title: "Eventos")[
+#definition("Eventos")[
   Se le denomina *evento* a _cualquier subconjunto_ de $Omega$.
 ]
 
-#note-box[
+#note[
   Los _eventos_ suelen denotarse con letras mayúsculas.
 ]
 
@@ -25,7 +25,7 @@
 
 Decimos que un _evento ocurrió_ si al realizar el experimento aleatorio, el elemento $w in Omega$ ocurre y $w in A$. Entonces decimos que _A ocurrió_.
 
-#note-box[
+#note[
   $Omega$ es el evento seguro (dado que todo elemento pertecene a $Omega$).
 ]
 

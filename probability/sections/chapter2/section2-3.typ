@@ -7,7 +7,7 @@
 Supongamos que estamos interesados en contar cuantos subconjuntos de $r$ elementos podemos tomar de $n$ objetos totales ($r <= n$). Este número es el *coeficiente binomial*.
 $ binom(n, r) = (n!) / (r! (n - r)!) $
 
-#note-box[
+#note[
   Cuando hablamos de combinaciones, el orden de la selección *no* importa. Es decir, si eliges un grupo de objetos, y ese mismo grupo de objetos es reordenado, sigue siendo la misma combinación.
 ]
 

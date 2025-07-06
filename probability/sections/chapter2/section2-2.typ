@@ -13,7 +13,7 @@ $ n! = n dot (n - 1) dot (n - 2) dot dots.c dot 2 dot 1 $
 Existen situaciones donde debemos ordenar $n$ objetos en $r$ distintas posiciones, con $r < n$. Para estos casos usamos la siguiente formula.
 $ (n!)/((n-r)!) $
 
-#note-box[
+#note[
   Si $n = r$, $(n-r)! = 0! = 1$. Por tanto se obtiene la primera formula.
 ]
 
@@ -45,11 +45,11 @@ $ (n!)/((n-r)!) $
   Se tienen $24 dot 23 dot 22 dot 21 = (24!)/(20!)$
 ]
 
-#note-box[
+#note[
   En este último ejemplo se usa la formula donde $n != r$.
 ]
 
-#note-box[
+#note[
   Sean _A, B, C_ elementos. Los ordenamientos _ABC_ y _CBA_ son distintos y ambos deben considerse.
   Esta observación toma más sentido en el subsección de _combinaciones_.
 ]
@@ -61,7 +61,7 @@ A diferencia de las permutaciones lineales (donde hay un "principio" y un "fin")
 Para calcular el número de permutaciones circulares de n objetos distintos, se utiliza la siguiente fórmula
 $ (n - 1)! $
 
-#note-box[
+#note[
   La lógica detrás de esta fórmula es que, para evitar contar los arreglos rotados como distintos, se "fija" la posición de uno de los elementos. Una vez que un elemento está fijo, los n−1 elementos restantes se pueden ordenar de (n−1)! maneras diferentes, como si estuvieran en una línea recta.
 ]
 
