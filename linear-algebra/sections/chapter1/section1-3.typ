@@ -4,18 +4,18 @@
 
 Expressions of the form $s u + t v$, where $s$ and $t$ are scalars, and $u$ and $v$ are vectors, play a central role in the theory of vector spaces. The generalization of such expressions is presented below.
 
-#definition(title:"Linear Combination")[
+#definition("Linear Combination")[
   Let $V$ be a vector space and $S != emptyset subset.eq V$. A vector $v in V$ is called a *linear combination* of vectors of $S$ if there exist a finite number of vectors $u_1, u_2, dots, u_n in S$ and scalars $lambda_1, lambda_2, dots, lambda_n in KK$ such that $ v = sum_(i = 1)^n lambda_i u_i =lambda_1 u_1 + lambda_2 u_2 + dots.c + lambda_n u_n $
   In this case we also say that $v$ is a linear combination of $u_1, u_2, dots, u_n$ and call $lambda_1, lambda_2, dots, lambda_n$ the *coefficients* of the linear combination.
 ]
 
-#note-box[
+#note[
   Observe that in any vector space $V$, $0v = 0$ for each $v in V$. Thus the zero vector is a linear combination of any nonempty subset of $V$.
 ]
 
 Throughout this course, we form the set of all linear combinations of some set of vectors. We now name such set.
 
-#definition(title: "Span")[
+#definition("Span")[
   Let $V$ be a vector space, and $S != emptyset subset.eq V$. The *span* of $S$, denoted by span($S$) or $<S>$, is the set consisting of all linear combinations of the vectors in $S$, that is,
   $ "span"(S) = {sum_(i = 1)^n lambda_i v_i : lambda_i in KK and v_i in S} $
   For convenience, we define $"span"(emptyset) = {0}$.
@@ -29,7 +29,7 @@ Throughout this course, we form the set of all linear combinations of some set o
   The span of any subset $S$ of a vector space $V$ is a subspace of $V$. Moreover, any subspace of $V$ that contains $S$ must also contain the span of $S$.
 ]
 
-#definition(title: "Generating Set")[
+#definition("Generating Set")[
   A subset $S$ of a vector space $V$ *generates* (or *spans*) $V$ if $"span"(S) = V$. In this case, we also say that the vectors of $S$ generate (or span) $V$.
 ]
 

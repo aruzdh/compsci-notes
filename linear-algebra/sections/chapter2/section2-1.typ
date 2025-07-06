@@ -4,13 +4,13 @@
 
 Recall that a function $T$ with domain $V$ and codomain $W$ is denoted by $T : V arrow.long W$
 
-#definition(title: "Linear Transformation")[
+#definition("Linear Transformation")[
   Let $V$ and $W$ be vector spaces (over $KK$). We call a function $T : V arrow.long W$ a *linear transformation from $V$ to $W$* if, $forall x,y in V$, and $forall lambda in KK$, we have
   - $T(x + y) = T(x) + T(y)$ and 
   - $T(lambda x) = lambda T(x)$
 ]
 
-#note-box[
+#note[
   We often simply call $T$ *linear*.
 ]
 
@@ -23,8 +23,8 @@ Recall that a function $T$ with domain $V$ and codomain $W$ is denoted by $T : V
   $ T(sum_(i = 1)^n lambda_i x_i) = sum_(i = 1)^n lambda_i T(x_i) $
 ]
 
-#tip-box[
-  We generellay use property 2 to prove that a given transformation is linear.
+#tip[
+  We generally use property 2 to prove that a given transformation is linear.
 ]
 
 #example[
@@ -48,12 +48,12 @@ Recall that a function $T$ with domain $V$ and codomain $W$ is denoted by $T : V
   Then $T$ is linear because the definite integral of a linear combination of functions is the same as the linear combination of the definite integral of the functions.
 ]
 
-#definition(title: "Identity, and Zero Transformation")[
+#definition("Identity, and Zero Transformation")[
   For vector spaces $V$ and $W$ (over $KK$), we define the *identity transformation* $I_v : V arrow.long V$ by $I_(v)(x) = x, forall x in V$, and the *zero transformation* $T_(0) : V arrow.long W$ by $T_(0)(x) = 0, forall x in V$.
   We often write $I$ instead of $I_v$.
 ]
 
-#definition(title: "Null Space (Kernel), and Range (image)")[
+#definition("Null Space (Kernel), and Range (image)")[
   Let $V$ and $W$ be vector spaces, and let $T: V arrow.long W$ be linear. 
   We define the *null space* (or *kernel*) of $T$ as follows: $ "N"(T) = {x in V : T(x) = 0} subset.eq V. $
 

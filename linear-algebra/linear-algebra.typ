@@ -19,7 +19,7 @@
   cols: 1,
  
   accent: "#0b4934",
-  h1-prefix: "Chapter",
+  h1-prefix: "chapter",
   colortab: true,
 )
 

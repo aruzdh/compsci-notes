@@ -4,7 +4,7 @@
 
 First, we define a very important type of algebraic structure.
 
-#definition(title: "Vector Space or Linear Space")[
+#definition("Vector Space or Linear Space")[
   A *vector space* (or *linear space*) $V$ over a field $KK$ consists of a set on which two operations (called _addition_ and _scalar multiplication_, respectively) are defined so that for each par of elements $x,y in V$ there is a unique element $x + y in V$, and for each element $lambda in KK$ and each element $x in V$ there is a unique element $lambda x in V$, such that the following conditions hold.
 
   - (VS 1) $forall x,y in V, x + y = y + x$ (_commutativity of addition_)
@@ -18,7 +18,7 @@ First, we define a very important type of algebraic structure.
   The elements $x + y$ and $lambda x$ are called the *sum* of $x$ and $y$, and the *product* of $lambda$ and $x$, respectively.
 ] <def:vector-space>
 
-#note-box[
+#note[
   Sometimes we denote a vector space $V$ over a field $KK$ as $(V, KK, +, dot)$. The elements of the field $KK$ are called *scalars*, and the elements of the vector space $V$ are called *vectors*.
 ]
 
@@ -33,7 +33,7 @@ An object of the form $(lambda_1, lambda_2, dots, lambda_n)$ where the entries a
   $ u + v = (lambda_1 + alpha_1, lambda_2 + alpha_2 ,dots, lambda_n + alpha_n) space.quad "and" space.quad gamma u = (gamma lambda_1, gamma lambda_2, dots, gamma lambda_n) $
 ]
 
-#note-box[
+#note[
   Vectors in $KK^n$ can be written as *column vectors*
   $ mat(a_1;a_2;dots.v; a_n) $
   rather than as *row vectors* $(a_1,a_2,dots, a_n)$
@@ -59,7 +59,7 @@ Let's consider the usual definition of a *polynomial*.
 
 Let's consider the next definition.
 
-#definition(title: "Matrix")[
+#definition("Matrix")[
   An $m times n$ matrix with entries from a field $KK$ is a rectangular array of the form
   $ mat(
     lambda_(11), lambda_(12), ..., lambda_(1n);
@@ -80,13 +80,13 @@ Two $m times n$ matrices $A$ and $B$ are called *equal* if all their correspondi
   for $1 <= i <= m "and" 1 <= j <= n$.
 ]
 
-#tip-box[
+#tip[
   Observe that in describing a vector space, it is necessary to specify not only the vectors but also the operations of addition and scalar multiplication.
 ]
 
 In order to conclude the section, some elementary consequences of the definition of a vector space will be presented.
 
-#theorem(title:"Cancellation Law for Vector Addition")[
+#theorem("Cancellation Law for Vector Addition")[
   Let $V$ be a vector space. If $x,y,z in V$ such that $x + z = y + z$, then $x = y$
 ]<thm:cancellation-law>
 
