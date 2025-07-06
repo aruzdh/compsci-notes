@@ -333,6 +333,16 @@
   }
 ).with(numbering: boxnumbering)
 
+#let corollary = thmenv(
+  "corollary", boxcounting, none, (name, number, body, ..args) => {
+    showybox(
+      frame: (border-color: navy, title-color: navy.lighten(30%), body-color: navy.lighten(95%), footer-color: navy.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
+      title: [#get_translation(translated_terms.corollary) #number *#name*], ..args.named(), body
+    )
+  }
+).with(numbering: boxnumbering)
+
 #let proposition = thmenv(
   "proposition", boxcounting, none, (name, number, body, ..args) => {
     showybox(
@@ -395,6 +405,16 @@
   }
 ).with(numbering: boxnumbering)
 
+#let important = thmenv(
+  "important", boxcounting, none, (name, number, body, ..args) => {
+    showybox(
+      frame: (border-color: rgb("#DC143C"), title-color: rgb("#DC143C").lighten(30%), body-color: rgb("#DC143C").lighten(95%), footer-color: rgb("DC143C").lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
+      title: [#get_translation(translated_terms.important) *#name*], ..args.named(), body
+    )
+  }
+).with(numbering: boxnumbering)
+
 #let exercise = thmenv(
   "exercise", boxcounting, 0, (name, number, body, ..args) => {
     showybox(
@@ -412,6 +432,16 @@
       frame: (border-color: black, title-color: black.lighten(30%), body-color: black.lighten(95%), footer-color: black.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
       title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
       title: [#get_translation(translated_terms.quote) #number *#name*], ..args.named(), body
+    )
+  }
+).with(numbering: boxnumbering)
+
+#let tip = thmenv(
+  "tip", boxcounting, none, (name, number, body, ..args) => {
+    showybox(
+      frame: (border-color: yellow, title-color: yellow.lighten(30%), body-color: yellow.lighten(95%), footer-color: yellow.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      title-style: (color: black, boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
+      title: [#get_translation(translated_terms.tip) *#name*], ..args.named(), body
     )
   }
 ).with(numbering: boxnumbering)
