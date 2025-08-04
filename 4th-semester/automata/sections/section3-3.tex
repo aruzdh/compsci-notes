@@ -1,0 +1,276 @@
+\section{Autómatas Finitas No Deterministas con \texorpdfstring{$\varepsilon$-transiciones}{ε-transiciones}}
+
+\dfn{Autómata Finito No Determinista con $\varepsilon$-transiciones}{
+  Un \textbf{Autómata Finito No Determinista con $\varepsilon$-transiciones }(\textit{AF$N_{\varepsilon}$}) es una \textit{5-tupla}
+  \[M = (Q, \Sigma, \delta, q_0, F),\]
+  donde
+  \begin{itemize}
+  \item \textit{Q} es un \textit{conjunto finito y no vacío de estados}.
+    \item $\Sigma$ es el \textit{alfabeto} de entrada.
+    \item $\delta$ es una \textit{función de transición} definida como
+      \[\delta : Q \times (\Sigma \cup \{\varepsilon\}) \longrightarrow \mathcal P(Q)\]
+    \item $q_0$ es el \textit{estado inicial}.
+    \item \textit{F} es el conjunto de \textit{estados finales} ($F \subseteq Q$).
+  \end{itemize}
+}
+
+\nt{
+  Se observa que la única diferencia entre un \textit{AFN} y un \textit{AF$N_{\varepsilon}$} es el el dominio de $\delta$. Es decir, las transiciones de la forma $\delta(q, \varepsilon) = p$ son validas y significa que el autómata puede cambiar de estado \textbf{sin} leer algún símbolo.
+}
+
+\nt{
+  Aunque lo anterior es bastante útil, a su vez introduce un \textit{no-determinismo} más complicado de modelar matemáticamente.
+}
+
+Algunas caracteristicas de estos autómatas son las siguientes.
+\begin{itemize}
+  \item Se permiten múltiples cómputos para una cadena de entrada.
+  \item Puede existir cómputos bloqueados o "muertos".
+  \item A diferencia de los \textit{AFD} y los \textit{AFN}, pueden existir cómputos infititos, es decir, surge la \textbf{no-terminación}.
+  \item La presencia de transiciones $\varepsilon$ permite mayor libertad en el diseño del autómata.
+\end{itemize}
+
+\subsection{\texorpdfstring{$\varepsilon$-cerradura}{ε-cerradura}}
+
+\dfn{$\varepsilon$-cerradura}{
+  Dado un estado \textit{q}, se define la \textbf{$\varepsilon$-cerradura} de \textit{q} como el conjunto de \textit{estados alcanzables} desde \textit{q mediante 0 o más transiciones $\varepsilon$}. Es decir
+  \[Cl_{\varepsilon}(q) = \{s \in Q \mid \exists p_1,\cdots, p_n \text{ con } p_1 = q,~ p_n = s,~ p_i \in \delta(p_{i - 1}, \varepsilon)\}\]
+
+  Recursivamente se tiene 
+
+  \begin{itemize}
+    \item $q \in Cl_{\varepsilon}(q)$
+    \item Si $r \in Cl_{\varepsilon}(q)$ y $\delta(r, \varepsilon) = s$, entonces $s \in Cl_{\varepsilon}(q)$
+  \end{itemize}
+
+  Esta definición se \textit{extiende a conjuntos de estados} como 
+  \[Cl_{\varepsilon}(S) = \bigcup_{q \in S}Cl_{\varepsilon}(q)\]
+}
+
+\subsection{Función extendida \texorpdfstring{$\delta^*$}{delta*}}
+
+\dfn{Función extendida $\delta^*$}{
+  Se define la \textbf{función extendida $\delta^*$} de la siguiente forma.
+  \[ \delta^* : Q \times (\Sigma^* \cup \{\varepsilon\}) \longrightarrow \mathcal P(Q)\]
+  tal que
+  \begin{itemize}
+    \item \[\delta^*(q, \varepsilon) = Cl_{\varepsilon}(q)\]
+  \item \[\delta^*(q, wa) = Cl_{\varepsilon}(\bigcup_{p \in \delta^*(q,w)}\delta(q,a))\]
+  \end{itemize}
+}
+
+\subsection{Lenguaje de un AFN\texorpdfstring{$_{\varepsilon}$}{ε}}
+\dfn{Lenguaje de un AF$N_{\varepsilon}$}{
+  Sea $M = (Q, \Sigma, \delta, q_0, F$ un \textit{AF$N_{\varepsilon}$}, el \textbf{lenguaje aceptado} por \textit{M} se define como
+  \[L(M) = \{w \in \Sigma^* \mid \delta^*(q_0,w) \cap F \neq \varnothing \}\]
+}
+
+\ex{AF$N_{\varepsilon}$}{
+  Dado \textit{M} el autómata siguiente:
+  \begin{center}
+      \begin{tabular}{c|c c c}
+          & $\varepsilon$ & $a$ & $b$ \\
+          \hline
+          $\rightarrow q_1$ & $\emptyset$ & $\{q_2\}$ & $\emptyset$ \\
+          $q_2$ & $\{q_3\}$ & $\{q_2\}$ & $\{q_4\}$ \\
+          $q_3$ & $\emptyset$ & $\{q_4\}$ & $\{q_3, q_4\}$ \\
+          $q_4$ & $\{q_5\}$ & $\{q_4\}$ & $\emptyset$ \\
+          * $q5$ & $\emptyset$ & $\emptyset$ & $\emptyset$
+      \end{tabular}
+  \end{center}
+
+  Se calcula paso a paso el reconocimiento de la siguiente cadena y se determina si es o no aceptada: $\delta^*(q_1, abba)$\\
+  Por un lado tenemos:
+  \begin{align*}
+    &\delta^*(q_1, abba) = Cl_{\varepsilon}(\bigcup_{q' \in \delta^*(q_1, abb)} \delta(q',a)) \\
+    &\delta^*(q_1, abb) = Cl_{\varepsilon}(\bigcup_{q' \in \delta^*(q_1, ab)} \delta(q',b)) \\
+    &\delta^*(q_1, ab) = Cl_{\varepsilon}(\bigcup_{q' \in \delta^*(q_1, a)} \delta(q',b)) \\
+    &\delta^*(q_1, a) = Cl_{\varepsilon}(\bigcup_{q' \in \delta^*(q_1, \varepsilon)} \delta(q',a)) \\
+    &\delta^*(q_1, \varepsilon) = Cl_{\varepsilon}(q_1) \\
+  \end{align*}
+
+  Sustituyendo de abajo hacia arriba:
+  \begin{align*}
+    &\delta^*(q_1, \varepsilon) = Cl_{\varepsilon}(q_1) = \{q_1\} \\
+    &\delta^*(q_1, a) = Cl_{\varepsilon}(\delta(q_1,a)) = Cl_{\varepsilon}(\{q_2\}) = \{q_2, q_3\} \\
+    &\delta^*(q_1, ab) = Cl_{\varepsilon}(\bigcup_{q' \in\{q_2, q_3\}}\delta(q',b)) = Cl_{\varepsilon}(\delta(q_2,b) \cup \delta(q_3,b)) = Cl_{\varepsilon}(\{q_3,q_4\}) = \{q_3, q_4, q_5\} \\
+    &\delta^*(q_1, abb) = Cl_{\varepsilon}(\bigcup_{q' \in\{q_3, q_4, q_5\}}\delta(q',b)) = Cl_{\varepsilon}(\delta(q_3,b) \cup \delta(q_4,b) \cup \delta(q_5, b)) = Cl_{\varepsilon}(\{q_3,q_4\}) = \{q_3, q_4,q_5\} \\
+    &\delta^*(q_1, abba) = Cl_{\varepsilon}(\bigcup_{q' \in\{q_3, q_4, q_5\}}\delta(q',a)) = Cl_{\varepsilon}(\delta(q_3,a) \cup \delta(q_4,a) \cup \delta(q_5, a)) = Cl_{\varepsilon}(\{q_4\}) = \{q_4,q_5\}
+  \end{align*}
+  \underline{La cadena $abba$ \textbf{si} es aceptada.}
+}
+
+\subsection{Eliminación de \texorpdfstring{$\varepsilon$-transiciones}{ε-transiciones}}
+Esta eliminación implica que un \textit{AFN} es un \textit{AF$N_{\varepsilon}$} con la particularidad de que no tiene $\varepsilon$-transiciones.
+
+\dfn{AFN a partir de un AF$N_{\varepsilon}$}{
+  Un \textit{AFN} \textbf{construido a partir} de un \textit{AF$N_{\varepsilon}$} $M_{\varepsilon}= (Q_{\varepsilon}, \Sigma, \delta_{\varepsilon}, q_0^{\varepsilon}, F_{\varepsilon})$ es una \textit{5-tupla}
+  \[M = (Q, \Sigma, \delta, q_0, F),\]
+  donde
+  \begin{itemize}
+  \item $Q = Q_{\varepsilon}$
+    \item $\Sigma$ es el \textit{alfabeto} de entrada.
+    \item $\delta(q,a)= \delta_{\varepsilon}^*(q,a) =  CL_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q)}\delta_{\varepsilon}(p,a))$
+    \item $q_0 = q_0^{\varepsilon}$
+    \item $
+      F = \begin{cases}
+        F_1 \cup \{q_0\} \text{ si } Cl_{\varepsilon}(q_0) \cap F \neq \varnothing\\
+        F_1 \text{ en caso contrario}\\
+          \end{cases}
+        $
+  \end{itemize}
+}
+
+\ex{Eliminación de $\varepsilon$-transiciones}{
+  Dado el autómata del ejemplo anterior.
+  Se eliminan las transiciones $\varepsilon$ para obtener un AFN $M'$ tal que $\mathcal{L}(M) = \mathcal{L}(M')$\\
+  Autómata con $\varepsilon$-transiciones:
+  \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+          \tikzset{initial text={}}
+
+          % INITIAL STATE
+          \node[state, initial] (q1) {$q_1$}; 
+
+          % STATES
+          \node[state] (q2) [right=of q1] {$q_2$}; 
+          \node[state] (q3) [right=of q2] {$q_3$}; 
+          \node[state] (q4) [below=of q3] {$q_4$};
+          \node[state, accepting] (q5) [right=of q4] {$q_5$}; 
+
+          % TRANSITIONS
+          \path[->]
+              (q1) edge node {a} (q2) 
+              (q2) edge [loop above] node {a} (q2) 
+              (q2) edge node {b} (q4)
+              (q2) edge node {$\epsilon$} (q3)
+              (q3) edge node {a,b} (q4)
+              (q3) edge [loop above] node {b} (q3)
+              (q4) edge node {$\varepsilon$} (q5)
+              (q4) edge [loop below] node {a} (q4);
+
+          \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
+
+      \end{tikzpicture}
+  \end{center}
+
+  Autómata sin $\varepsilon$-transiciones:\\
+  - Tabla con las $\varepsilon$-transiciones de cada estado:
+
+  \begin{center}
+      \begin{tabular}{c|c}
+          & $Cl_{\varepsilon}(q_i)$ \\
+          \hline
+          $q_1$ & $\{q_1\}$ \\
+          $q_2$ & $\{q_2,q_3\}$ \\
+          $q_3$ & $\{q_3\}$ \\
+          $q_4$ & $\{q_4,q_5\}$ \\
+          $q_5$ & $\{q_5\}$ \\
+      \end{tabular}
+  \end{center}
+
+  Aplicando la nueva delta del AFN definida como: 
+  $$\delta(q,a) = \delta^*(q,a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q)} \delta_{\varepsilon}(p,a))$$
+
+  \begin{align*}
+    &\delta(q_1, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_1)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_1,a)) = Cl_\varepsilon(\{q_2\}) = \{q_2, q_3\} \\
+    &\delta(q_1, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_1)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_1,b)) = Cl_\varepsilon(\varnothing) = \varnothing \\
+    &\delta(q_2, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_2)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_2,a)\cup \delta_\varepsilon(q_3, a)) = Cl_\varepsilon(\{q_2,q_4\}) = \{q_2, q_3, q_4, q_5\} \\
+    &\delta(q_2, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_2)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_2,b)\cup \delta_\varepsilon(q_3, b)) = Cl_\varepsilon(\{q_3,q_4\}) = \{q_3, q_4, q_5\} \\
+  \end{align*}
+  \begin{align*}
+    &\delta(q_3, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_3)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_3, a)) = Cl_\varepsilon(\{q_4\}) = \{q_4, q_5\} \\
+    &\delta(q_3, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_3)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_3, b)) = Cl_\varepsilon(\{q_3,q_4\}) = \{q_3,q_4, q_5\} \\
+    &\delta(q_4, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_4)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_4, a)\cup \delta_\varepsilon(q_5,a)) = Cl_\varepsilon(\{q_4\}) = \{q_4, q_5\} \\
+    &\delta(q_4, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_4)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_4, b)\cup \delta_\varepsilon(q_5,b)) = Cl_\varepsilon(\varnothing) = \varnothing\\
+    &\delta(q_5, a) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_5)} \delta_{\varepsilon}(p,a)) = Cl_\varepsilon(\delta_\varepsilon(q_5,a)) = Cl_\varepsilon(\varnothing) = \varnothing \\
+    &\delta(q_5, b) = Cl_{\varepsilon}(\bigcup_{p \in Cl_{\varepsilon}(q_5)} \delta_{\varepsilon}(p,b)) = Cl_\varepsilon(\delta_\varepsilon(q_5,b)) = Cl_\varepsilon(\varnothing) = \varnothing \\
+  \end{align*}
+  Con lo anterior se puede construir el siguiente $AFN$ sin $\varepsilon$-transiciones
+  \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+          \tikzset{initial text={}}
+
+          % INITIAL STATE
+          \node[state, initial] (q1) {$q_1$}; 
+
+          % STATES
+          \node[state] (q2) [right=of q1] {$q_2$}; 
+          \node[state] (q3) [right=of q2] {$q_3$}; 
+          \node[state] (q4) [below=4cm of q3] {$q_4$};
+          \node[state, accepting] (q5) [right=of q4] {$q_5$}; 
+
+          % TRANSITIONS
+          \path[->]
+              (q1) edge node {a} (q2) 
+              (q1) edge [bend left=60] node {a} (q3)
+              (q2) edge [loop below] node {a} (q2)
+              (q2) edge node {a,b} (q3)
+              (q2) edge [bend right=15] node {a,b} (q4)
+              (q2) edge node {a,b} (q5)
+              (q3) edge [loop above] node {b} (q3)
+              (q3) edge [bend left=50] node {a,b} (q4)
+              (q3) edge [bend left=50] node {a,b} (q5)
+              (q4) edge node {a} (q5)
+              (q4) edge [loop below] node {a} (q4);
+
+          \draw[->] ([xshift=-.5cm] qi.west) -- (qi.west) node[midway, above] {};
+      \end{tikzpicture}\\
+  \end{center}
+}
+
+\ex{AFD a partir de AFN}{
+  Dado el \textit{AFN} obtenido en el ejemplo previo. 
+  Se elimina el no-determinismo para encontrar un AFD $M''$ tal que $\mathcal{L}(M') = \mathcal{L}(M'')$\\
+    Los conjuntos quedan definidos de la siguiente manera:
+
+    \begin{center}
+      \begin{tabular}{c|c|c}
+        \hline
+          & a & b \\
+        \hline
+        $\rightarrow q_1$ & $q_2\,q_3$ & $\varnothing$ \\
+        $q_2$          & $q_2\,q_3\,q_4\,q_5$      & $q_3\,q_4\,q_5$ \\
+        $q_3$             & $q_4\,q_5$ & $q_3\,q_4\,q_5$ \\
+        $q_4$          & $q_4\,q_5$ & $\varnothing$ \\
+        $*q_5$             & $\varnothing$      & $\varnothing$ \\
+        \hline
+        $q_2\,q_3$             & $q_2\,q_3\,q_4\,q_5$      & $q_3\,q_4\,q_5$ \\
+        $*q_2\,q_3\,q_4\,q_5$             & $q_2\,q_3\,q_4\,q_5$      & $q_3\,q_4\,q_5$ \\
+        $*q_3\,q_4\,q_5$             & $q_4\,q_5$      & $q_3\,q_4\,q_5$ \\
+        $*q_4\,q_5$             & $q_4\,q_5$      & $\varnothing$ \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  Así, el autómata queda de la siguiente manera
+  \begin{center}
+      \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto]
+          \tikzset{initial text={}}
+
+          % Estados
+          \node[state, initial] (q1) {$q_1$}; 
+          \node[state] (q23) [right=of q1] {$q_2 q_3$}; 
+          \node[state, accepting] (q2345) [right=of q23] {$q_2 q_3 q_4 q_5$};
+          \node[state, accepting] (q345) [below=of q2345] {$q_3 q_4 q_5$};
+          \node[state, accepting] (q45) [below=of q345] {$q_4 q_5$};
+
+          % Transiciones
+          \path[->]
+              (q1) edge node {a} (q23)
+              (q23) edge [loop above] node {a} (q23)
+              (q23) edge node {b} (q345)
+              (q23) edge node {a} (q2345)
+              (q2345) edge [loop right] node {a} (q2345)
+              (q2345) edge [bend left] node {b} (q345)
+              (q345) edge [loop right] node {b} (q345)
+              (q345) edge node {a} (q45)
+              (q45) edge [loop right] node {a} (q45);
+      \end{tikzpicture}
+  \end{center}
+}
+
+\subsection{Equivalencias}
+\textbf{Cualquier} tipo de \textit{autómata finito} puede convertirse en un \textit{AFD} y viceversa, es decir
+\[AFD \Longleftrightarrow AFN \Longleftrightarrow AFN_{\varepsilon}\]
+Los ejemplos dados a lo largo de esta sección son la prueba de esto.

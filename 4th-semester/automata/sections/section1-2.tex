@@ -1,0 +1,133 @@
+\section{Lenguajes}
+\subsection{Concepto}
+\dfn{Lenguaje}{
+  Un \textbf{lenguaje} es un \textit{conjunto de cadenas} sbre un alfabeto $\Sigma$
+}
+
+\ex{Lenguaje}{
+  Dado $\Sigma = \{m,u\}$. Los siguientes son lenguajes.
+  \begin{itemize}
+    \item $\varnothing$ es un lenguaje sobre $\Sigma$.
+    \item $\Sigma^*$ es un lenguaje sobre $\Sigma$.
+    \item $L_1 = \{w :~ \mid w \mid = 2n,~ n \ge 0 \} $
+    \item $L_2 = \{w \mid w = w^R \land \mid w \mid = 3 \} $
+  \end{itemize}
+}
+\subsection{Operaciones de Lenguajes}
+Sean $L_1, L_2$ dos lenguajes sobre $\Sigma^*$ ($L_1, L_2 \subseteq \Sigma^*$). Las siguientes son operaciones entre lenguajes.
+\begin{itemize}
+  \item Unión: \[L_1 \cup L_2 = \{w \in \Sigma^* \mid w \in L_1 \lor w \in L_2\}\]
+\item Intersección: \[L_1 \cap L_2 = \{w \in \Sigma^* \mid w \in L_1 \land w \in L_2\}\]
+\item Diferencia: \[L_1 - L_2 = \{w \in \Sigma^* \mid w \in L_1 \land w \notin L_2\}\]
+\item Complemento: \[\overline L = \{w \in \Sigma^* \mid w \notin L\}\]
+  \item Concatenación
+    \[L_1 \cdot L_2 = \{w = xy \mid x \in L_1 \land y \in L_2\}\]
+  \item Reversa de un Lenguaje
+    \[L^R = \{w^R \mid w \in L\}\]
+\end{itemize}
+
+\ex{Operaciones de Lenguajes}{
+  Consideremos los lenguajes $L_1$ y $L_2$ del ejemplo anterior. Se tiene que
+  \begin{itemize}
+    \item $L_1 \cup L_2 = \{mum, umu, uuu, \varepsilon, mm, mu, um, \cdots\}$ 
+    \item $L_1 \cap L_2 = \varnothing$
+    \item $L_1 - L_2 = L_1$
+    \item $\overline{L_1} = \{m, u, mmm, mmu, \cdots\} = \{w \in \{m,u\}^* :~ \mid w \mid = 2n + 1,~ n \ge 0\}$
+    \item $L_1 \cdot L_2 = \{m^3, u^3, mum, umu, m^5, m^2u^3, m^2mum, \cdots\}$
+  \end{itemize}
+}
+
+Las siguientes son propiedades de las operaciones anteriores. Sean \textit{L, M, N} lenguajes.
+\begin{itemize}
+  \item Asociatividad 
+    \[(L \cup M) \cup N = L \cup (M \cup N)\] 
+    \[(L \cap M) \cap N = L \cap (M \cap N)\]
+  \item Conmutatividad de Unión e Intersección
+    \[L \cup M = M \cup L\]
+    \[L \cap M = M \cap L\]
+  \item Elemento Neutro
+    \[L \cup \varnothing = L\]
+    \[L \cap \Sigma^* = L\]
+  \item Casos especiales
+    \[L \cap \varnothing = \varnothing\]
+    \[L \cup \Sigma^* = \Sigma^*\]
+  \item Distributividad
+    \[L \cup(M \cap N) = (L \cup M) \cap (L \cup N)\]
+    \[L \cap(M \cup N) = (L \cap M) \cup (L \cap N)\]
+  \item De Morgan
+    \[\overline{L \cap M} = \overline L \cup \overline M\]
+    \[\overline{L \cup M} = \overline L \cap \overline M\]
+  \item Complemento como una diferencia
+    \[\overline L = \Sigma^* - L\]
+  \item Concatenación con $\varnothing$
+    \[L \cdot \varnothing = \varnothing \cdot L = \varnothing\]
+  \item Concatenación con $\{\varepsilon\}$
+    \[L \cdot \{\varepsilon\} = \{\varepsilon\} \cdot L = L\]
+  \item Conmutatividad de la Concatenación
+    \[(LM) N = L(MN)\]
+  \item Distributividad de la Concatenación y Unión
+    \[L(M \cup N) = LM \cup LN \neq (M \cup N) L = ML \cup NL\]
+  \item Potencia
+    \[L^n = \underbrace{L \cdot L \cdot \cdots \cdot L}_{\text{n veces}}\]
+  \item Reversa de la Reversa de L
+    \[(L^R)^R = L\]
+  \item Reversa de la Concatenación
+    \[(LM)^R = M^R L^R\]
+  \item Reversa de la Unión
+    \[(L \cup M)^R = L^R \cup M^R\]
+  \item Reversa de la Intersección
+    \[(L \cap M)^R = L^R \cap M^R\]
+\end{itemize}
+
+\subsection{Cerradura de Klenne y Cerradura Positiva}
+
+\dfn{Cerradura de Klenne}{
+  La \textbf{Cerradura o Estrella de Klenne} de un \textit{lenguaje} es el \textit{conjunto de todas las potencias de L}, y se denota por
+  \[L^* = \bigcup_{i = 0}^{\infty}L^i\]
+}
+
+\ex{Cerradura de Klenne}{
+  Sea $L = \{aa, b\}$. Se tiene que
+  \begin{align*}
+    &L^0 = \{\varepsilon\}\\
+    &L^1 = \{aa, b\}\\
+    &L^2 = \{aaaa, aab, baa, bb\}\\
+    &L^3 = \{a^6, a^2a^2b, a^2ba^2, a^2b^2, \cdots\}\\
+    &\cdots
+  \end{align*}
+}
+
+\nt{
+  Dado \textit{L} un lenguaje arbitrario. Se tiene que
+  \begin{itemize}
+    \item $L^0 = \{\varepsilon\}$
+    \item $L^1 = L$
+  \end{itemize}
+}
+
+\dfn{Cerradura Positiva}{
+  La \textbf{Cerradura Positiva} de un lenguaje \textit{L} es denotada por
+  \[L^+ = \bigcup_{i = 1}^{\infty}L^i\]
+}
+
+\nt{
+  Se tiene que
+  \begin{itemize}
+    \item $\varnothing^+ = \varnothing$
+    \item $\{\varepsilon\}^+ = \{\varepsilon\}$
+  \end{itemize}
+}
+
+Las siguientes son propiedades de la Cerradura de Klenne / Positiva.
+
+\begin{enumerate}
+  \item \[L^* = \{\varepsilon\} \cup L^+\]
+  \item \[L^+ = L^* \cdot L\]
+  \item \[L^* = L^+ \text{si y solo si } \varepsilon \in L\]
+  \item \[(L^*)^* = L^*\]
+  \item \[(L^+)^* = (L^*)^+ = L^*\]
+  \item \[L^* \cdot L^* = L^*\]
+  \item \[(L^+)^+ = L^+\]
+  \item \[L^+ \cdot L^+ \subseteq L^+\]
+\end{enumerate}
+

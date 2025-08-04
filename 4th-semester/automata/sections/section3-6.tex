@@ -1,0 +1,65 @@
+
+\section{Lema de Bombeo}
+\mlemma{Lema de Bombeo}{
+  Si \textit{L} es un lenguaje regular infinito, entonces \textit{existe un número} $n \in \mathbb N$, llamado \textit{constante de bombeo} para \textit{L}, tal que para cualquier cadena \textit{w} de \textit{L} con $\mid w \mid~ \ge n$ existen cadenas \textit{u,v,x} tales que
+  \begin{itemize}
+    \item $w = uvx$
+    \item $\mid v \mid ~ > 0~ (v \neq \varepsilon)$ 
+    \item $\mid uv \mid~ \le n$
+    \item $\forall i \ge 0,~ uv^ix \in L$
+  \end{itemize}
+}
+
+El siguiente diagrama resume el lema.
+
+\begin{center}
+    \begin{tikzpicture}[shorten >=1pt, node distance=2cm, on grid, auto]
+        \tikzset{initial text={}}
+        
+        \node[state, initial, accepting] (qi) {$q_i$}; 
+        \node[state] (q1) [right=of qi] {$q_1$}; 
+        \node[state, accepting] (q2) [right=of q1] {$q_2$};
+
+        \path[->, dashed]
+            (qi) edge node {u} (q1)
+            (q1) edge [loop above] node {v} (q1)
+            (q1) edge node {x} (q2);
+        
+        \node (start) [left=of qi] {};
+        \draw[->] (start) -- (qi);
+
+    \end{tikzpicture}
+\end{center}
+
+El \textit{Lema de Bombeo} es usado para demostrar que un lenguaje \textit{L} \textbf{no} es regular. Se procede por contradicción de la siguiente manera.
+
+\begin{enumerate}
+  \item Si \textit{L} fuera un lenguaje regular, entonces existe una constante de bombeo \textit{n}.
+  \item Para cualquier $w \in L,~ \mid w \mid ~ \ge n$ se descompone como $w = uvx$ donde $v \neq \varepsilon,~ \mid uv \mid ~ \le n$.
+  \item Se busca llegar a una contradicción como sigue: Por el \textit{Lema de Bombeo}, la cadena $uv^ix \in L,~ \forall i \ge 0$. Pero por la definición particular de \textit{L} se puede mostrar alguna \textit{i} tal que $uv^ix \notin L$.
+\end{enumerate}
+
+\nt{
+  En este tipo de demostraciones no hay un método o camio marcado para encontrar la cadena que genere la contradicción, sino que depende completamente del contexto.
+}
+
+\nt{
+  A veces es útil probar con $i = 0$.
+}
+
+\ex{Lema de Bombeo}{
+  Se demuestra que $L= \{0^n1^m \mid 1 < n \leq m \leq 2n\}$ no es regular.
+
+  Por contradicción. Suponemos que $L$ es lenguaje regular. Entonces, por \textit{Lema de Bombeo}, existe $l > 0~(l \in \mathbb{N})$ tal que para toda $w \in L$ con $\mid w \mid ~ \ge l$ existen cadenas $u,v,x$ tales que
+  \begin{enumerate}[i)]
+    \item $w = uvx$
+    \item $\mid v \mid ~ > 0$
+    \item $\mid uv \mid ~ \le l$
+    \item $\forall i \in \mathbb N, ~ uv^ix \in L$
+  \end{enumerate}
+
+  Sea $w = 0^l1^l$ con $\mid w \mid = 2l > l$. Consideremos $u = 0^k, ~ v = 0^s ~(s \ge 1),~ x = 0^{l - (k + s)}1^l$. 
+  Al hacer $s = 2$ debemos tener a $w = uv^2x \in L$. Pero, por otra parte tenemos que
+  $$uv^2x= 0^k0^s0^s0^{l - k - s}1^l = 0^{l + s} 1^l \notin L ~(s \ge 1)$$
+  $$\boxed{\therefore L \text{\textbf{ no} es lenguaje regular}}$$
+}

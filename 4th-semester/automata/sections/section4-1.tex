@@ -1,0 +1,76 @@
+\section{Gramáticas}
+
+\dfn{Gramática}{
+  Una \textbf{gramática} es una 4-tupla $G = (V, T, S, P)$ donde
+  \begin{itemize}
+    \item \textit{V} es un \textit{conjunto no vacío de variables}, denotadas por mayúsculas.
+    \item \textit{T} es un \textit{conjunto no vacío de símbolos terminales}, denotados por minúsculas.
+    \item $S \in V$, y se llama \textit{símbolo inicial}.
+    \item \textit{P} es una \textit{conjunto de reglas de producción} que son pares $<\alpha, \beta>$ tal que
+      \begin{itemize}
+        \item $\alpha \in (V \cup T)^* - T^*$ (tiene al menos una variable, es decir, del lado izquierdo aparece una variable)
+        \item $\beta \in (V \cup T)^*$
+      \end{itemize}
+  \end{itemize}
+  Con $T \cap V = \varnothing$
+}
+
+En lugar de escribir $<\alpha, \beta >$ escribimos 
+\[\alpha \rightarrow \beta\]
+  y decimos que \textbf{$\alpha$ produce $\beta$}, o \textbf{$\beta$ reescribe a $\alpha$}.
+
+\dfn{Pasos}{
+  Dadas dos cadenas $w, u \in (V \cup T)^*$, decimos que \textit{u} es \textbf{derivable en un paso} \textit{si existe una regla}
+  \[\alpha \rightarrow \beta \in P\]
+  y cadenas $\gamma_1, \gamma_2 \in (V \cup T)^*$ tales que
+  \[w = \gamma_1 \alpha \gamma_2 \qquad \text{y} \qquad u = \gamma_1 \beta \gamma_2\]
+  Es decir, se ha reescrito \textit{u} desde \textit{w}.
+}
+
+\dfn{lenguaje de una gramática}{
+  Dada una gramática \textit{G}, definimos el \textbf{lenguaje generado por \textit{G}}, denotado $\mathcal L(G)$, como el  conjunto de palabras de símbolos \textit{terminales} derivables a partir des símbolo inicial. Es decir,
+  \[\mathcal L(G) = \{w \in T^* \mid S \rightarrow^* w \}\]
+}
+
+\ex{Gramática}{
+  Sea $G = (\{S, A, B\}, \{a,b\}, S, P)$ con $P = \{S \rightarrow aA, A \rightarrow bB, A \rightarrow a, A \rightarrow aA, B \rightarrow bB, B \rightarrow b\}$.
+
+  Se tiene, de manera más simplificada pero equivalente lo siguiente.
+
+  $S \rightarrow aA$\\
+  $A \rightarrow bB \mid a \mid aA$\\
+  $B \rightarrow bB \mid b$
+
+  Así,$\mathcal L(G)$ es $aaa^*b^* + ab^+$
+  \newpara
+  Para producir $aaabb$ se hace de la siguiente forma.
+  \begin{align*}
+    S & \rightarrow aA \\
+      & \rightarrow aaA ~(A \rightarrow aA)\\
+      & \rightarrow aaaA~ (A \rightarrow aA)\\
+      & \rightarrow aaabB~(A \rightarrow bB)\\
+      & \rightarrow aaabb~ (B \rightarrow b)\\
+  \end{align*}
+}
+
+\ex{Gramática}{
+  Sea $L = \{a^nb^ma^mb^n \mid n, m \ge 0\}$. Se puede crear la siguiente gramática para genera el lenguaje anterior.\\
+  $S \rightarrow \varepsilon \mid aSb \mid bBa$\\
+  $B \rightarrow bBa \mid \varepsilon$
+  \newpara
+  Donde $aabbaabb$ se obtiene de
+  \begin{align*}
+    S &\rightarrow aSb\\
+      &\rightarrow aaSbb\\
+      &\rightarrow aabBabb\\
+      &\rightarrow aabbBaabb\\
+      &\rightarrow aabb \varepsilon aabb
+  \end{align*}
+}
+
+\subsection{Diseño de gramáticas}
+Auque el diseño de una gramática \textit{G} para un lenguaje dado \textit{L} es intuitivamente claro y correcto, debe mostrarse formalmente, provando, que $L = \mathcal L(G)$. Dicho de otra manera, se debe provar lo siguiente.
+\begin{itemize}
+  \item \textbf{Correctud} la gramática \textit{G} genera \textit{únicamente} las cadenas de \textit{L}, es decir, $\mathcal L(G) \subseteq L$
+  \item \textbf{Completud}: toda cadena de \textit{L} es generada por \textit{G}, es decir, $L \subseteq \mathcal L(G)$
+\end{itemize}

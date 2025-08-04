@@ -1,0 +1,515 @@
+\setlength{\parindent}{1cm}
+
+%================================
+% THEOREM BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\usetikzlibrary{arrows,calc,shadows.blur}
+
+\newtcbtheorem[number within=section]{Theorem}{\theoremnametcb}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{thm}
+
+\newtcbtheorem[number within=chapter]{theorem}{\theoremnametcb}
+{%
+	enhanced,
+	breakable,
+	colback = mytheorembg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mytheoremfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mytheoremfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mytheoremfr},
+}
+{thm}
+
+\newtcolorbox{Theoremcon}
+{%
+	enhanced
+	,breakable
+	,colback = mytheorembg
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{mytheoremfr}
+	,sharp corners
+	,description font = \mdseries
+	,separator sign none
+}
+
+%================================
+% Corollary
+%================================
+
+\newtcbtheorem[number within=section]{Corollary}{\corollaryname}
+{%
+	enhanced
+	,breakable
+	,colback = myp!10
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{myp!85!black}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = myp!85!black
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, myp!85!black}
+}
+{cor}
+
+\newtcbtheorem[number within=chapter]{corollary}{\corollaryname}
+{%
+	enhanced
+	,breakable
+	,colback = myp!10
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{myp!85!black}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = myp!85!black
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, myp!85!black}
+}
+{cor}
+
+%================================
+% LEMMA
+%================================
+
+\newtcbtheorem[number within=section]{Lemma}{\lemmaname}
+{%
+	enhanced,
+	breakable,
+	colback = mylemmabg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mylemmafr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mylemmafr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mylemmafr},
+}
+{lem}
+
+\newtcbtheorem[number within=chapter]{lemma}{\lemmaname}
+{%
+	enhanced,
+	breakable,
+	colback = mylemmabg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mylemmafr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mylemmafr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mylemmafr},
+}
+{lem}
+
+%================================
+% Exercise
+%================================
+
+\newtcbtheorem[number within=section]{Exercise}{\exercisename}
+{%
+	enhanced,
+	breakable,
+	colback = myexercisebg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{myexercisefg},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = myexercisefg,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, myexercisefg},
+}
+{ex}
+
+\newtcbtheorem[number within=chapter]{exercise}{\exercisename}
+{%
+	enhanced,
+	breakable,
+	colback = myexercisebg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{myexercisefg},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = myexercisefg,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, myexercisefg},
+}
+{ex}
+
+%================================
+% PROPOSITION
+%================================
+
+\newtcbtheorem[number within=section]{Prop}{\propositionname}
+{%
+	enhanced,
+	breakable,
+	colback = mypropbg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mypropfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mypropfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mypropfr},
+}
+{prop}
+
+\newtcbtheorem[number within=chapter]{prop}{\propositionname}
+{%
+	enhanced,
+	breakable,
+	colback = mypropbg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{mypropfr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = mypropfr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, mypropfr},
+}
+{prop}
+
+%================================
+% CLAIM
+%================================
+
+\newtcbtheorem[number within=section]{claim}{\claimname}
+{%
+	enhanced
+	,breakable
+	,colback = myg!10
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{myg}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = myg!85!black
+	,fonttitle = \bfseries\sffamily,
+  description font = \mdseries,
+  separator sign none,
+  segmentation style={solid, myg!85!black}
+}
+{claim}
+
+%================================
+% EXAMPLE BOX
+%================================
+
+\newtcbtheorem[number within=section]{Example}{\examplename}
+{%
+	colback = myexamplebg
+	,breakable
+	,colframe = myexamplefr
+	,coltitle = myexampleti
+	,boxrule = 1pt
+	,sharp corners
+	,detach title
+	,before upper=\tcbtitle\par\smallskip
+	,fonttitle = \bfseries
+	,description font = \mdseries
+	,separator sign none
+	,description delimiters parenthesis
+}
+{eg}
+
+\newtcbtheorem[number within=chapter]{example}{\examplename}
+{%
+	colback = myexamplebg
+	,breakable
+	,colframe = myexamplefr
+	,coltitle = myexampleti
+	,boxrule = 1pt
+	,sharp corners
+	,detach title
+	,before upper=\tcbtitle\par\smallskip
+	,fonttitle = \bfseries
+	,description font = \mdseries
+	,separator sign none
+	,description delimiters parenthesis
+}
+{eg}
+
+%================================
+% DEFINITION BOX
+%================================
+
+\newtcbtheorem[number within=section]{Definition}{\definitionname}
+{
+  enhanced,
+	before skip=2mm,
+  after skip=2mm,
+  colback=red!5,
+  colframe=red!80!black,
+  boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm, yshift*=1mm-\tcboxedtitleheight},
+  varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+					\path[fill=tcbcolback]
+					([yshift=-1mm,xshift=-1mm]frame.north west)
+					arc[start angle=0,end angle=180,radius=1mm]
+					([yshift=-1mm,xshift=1mm]frame.north east)
+					arc[start angle=180,end angle=0,radius=1mm];
+					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+						middle color=tcbcolback!80!black]
+					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+					-- (frame.south east) -- (frame.south west)
+					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+					[sharp corners]-- cycle;
+				},interior engine=empty,
+		},
+	fonttitle=\bfseries,
+	title={#2},#1
+}
+{def}
+
+\newtcbtheorem[number within=chapter]{definition}{\definitionname}
+{
+  enhanced,
+	before skip=2mm,
+  after skip=2mm,
+  colback=red!5,
+  colframe=red!80!black,
+  boxrule=0.5mm,
+	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+  varwidth boxed title*=-3cm,
+	boxed title style={frame code={
+					\path[fill=tcbcolback]
+					([yshift=-1mm,xshift=-1mm]frame.north west)
+					arc[start angle=0,end angle=180,radius=1mm]
+					([yshift=-1mm,xshift=1mm]frame.north east)
+					arc[start angle=180,end angle=0,radius=1mm];
+					\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+						middle color=tcbcolback!80!black]
+					([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+					[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+					-- (frame.south east) -- (frame.south west)
+					-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+					[sharp corners]-- cycle;
+				},interior engine=empty,
+		},
+	fonttitle=\bfseries,
+	title={#2},#1
+}
+{def}
+
+%================================
+% EXERCISE BOX
+%================================
+
+\newcounter{questioncounter}
+\counterwithin{questioncounter}{chapter}
+% \counterwithin{questioncounter}{section}
+
+\makeatletter
+\newtcbtheorem[use counter=questioncounter]{question}{\questionname}
+{
+  enhanced,
+	breakable,
+	colback=white,
+	colframe=myb!80!black,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}{qs}
+
+\makeatother
+
+%================================
+% SOLUTION BOX
+%================================
+
+\makeatletter
+\newtcolorbox{solution}{
+  enhanced,
+	breakable,
+	colback=white,
+	colframe=myg!80!black,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	title=\solutionname,
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+}
+\makeatother
+
+%================================
+% QUESTION BOX
+%================================
+
+\makeatletter
+\newtcbtheorem{qstion}{\questionname}
+{
+  enhanced,
+	breakable,
+	colback=white,
+	colframe=mygr,
+	attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+	fonttitle=\bfseries,
+	title={#2},
+	boxed title size=title,
+	boxed title style={%
+			sharp corners,
+			rounded corners=northwest,
+			colback=tcbcolframe,
+			boxrule=0pt,
+		},
+	underlay boxed title={%
+			\path[fill=tcbcolframe] (title.south west)--(title.south east)
+			to[out=0, in=180] ([xshift=5mm]title.east)--
+			(title.center-|frame.east)
+			[rounded corners=\kvtcb@arc] |-
+			(frame.north) -| cycle;
+		},
+	#1
+}
+{q}
+\makeatother
+
+%================================
+% WRONG CONCEPT
+%================================
+
+\newtcbtheorem[number within=chapter]{wconc}{\wrongconceptname}
+{
+	breakable,
+	enhanced,
+	colback=white,
+	colframe=myr,
+	arc=0pt,
+	outer arc=0pt,
+	fonttitle=\bfseries\sffamily\large,
+	colbacktitle=myr,
+	attach boxed title to top left={},
+	boxed title style={
+			enhanced,
+			skin=enhancedfirst jigsaw,
+			arc=3pt,
+			bottom=0pt,
+			interior style={fill=myr}
+		},
+	#1
+}
+{wconc}
+
+%================================
+% NOTE BOX
+%================================
+
+\newtcolorbox{note}[1][]{%
+	enhanced jigsaw,
+	colback=orange!10!white, % light orange background
+	colframe=orange!80!black, % darker orange frame
+	size=small,
+	boxrule=1pt,
+	title=\textbf{\notename:-},
+	halign title=flush center,
+	coltitle=black, % can be changed to orange!50!black if desired
+	breakable,
+	drop shadow=black!50!white,
+	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
+	minipage boxed title=1.5cm,
+	boxed title style={%
+		colback=orange!30!white, % orange title box background
+		size=fbox,
+		boxrule=1pt,
+		boxsep=2pt,
+		underlay={%
+			\coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
+			\coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
+			\begin{scope}
+				\clip (interior.north west) rectangle ([xshift=3ex]interior.east);
+				\filldraw [white, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
+			\end{scope}
+			\begin{scope}[orange!80!black] % orange dots
+				\fill (dotA) circle (2pt);
+				\fill (dotB) circle (2pt);
+			\end{scope}
+		},
+	},
+	#1,
+}

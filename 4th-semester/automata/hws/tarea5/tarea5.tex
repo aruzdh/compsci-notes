@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[fleqn]{amsmath}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+
+\title{Automátas y Lenguajes Formales 25-2 \\ Tarea 5: Lema de Bombeo}
+\author{Hernández Vázquez Carlos Arturo }
+\date{Miërcoles 9 de Abril del 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+  \item (\textbf{4 pts.}) Utilizando el Lema de Bombeo demuestra que los siguientes lenguajes no son regulares:
+    \begin{enumerate}[a)]
+        \item $L_1 = \{0^n1^m \mid 1 < n \leq m \leq 2n\}$
+
+          Por contradicción. Suponemos que $L_1$ es lenguaje regular. Entonces, por Lema de Bombeo, existe $l > 0~(l \in \mathbb{N})$ tal que para toda $w \in L_1$ con $\mid w \mid ~ \ge l$ existen cadenas $u,v,x$ tales que
+          \begin{enumerate}[i)]
+            \item $w = uvx$
+            \item $\mid v \mid ~ > 0$
+            \item $\mid uv \mid ~ \le l$
+            \item $\forall i \in \mathbb N, ~ uv^ix \in L_1$
+          \end{enumerate}
+
+          Sea $w = 0^l1^l$ con $\mid w \mid = 2l > l$. Consideremos $u = 0^k, ~ v = 0^s ~(s \ge 1),~ x = 0^{l - (k + s)}1^l$. 
+          Al hacer $s = 2$ debemos tener a $w = uv^2x \in L_1$. Pero, por otra parte tenemos que
+          $$uv^2x= 0^k0^s0^s0^{l - k - s}1^l = 0^{l + s} 1^l \notin L_1 ~(s \ge 1)$$
+          $$\boxed{\therefore L_1 \text{\textbf{ no} es lenguaje regular}}$$
+        \item $L_2 = \{ ww \mid w \in \{0,1\}^* \}$
+
+          Por contradicción. Suponemos que $L_2$ es lenguaje regular. Entonces, por Lema de Bombeo, existe $n > 0~(n \in \mathbb{N})$ tal que para toda $s \in L_2$ con $\mid s \mid ~ \ge n$ existen cadenas $u,v,x$ tales que
+          \begin{enumerate}[i)]
+            \item $s = uvx$
+            \item $\mid v \mid ~ > 0$
+            \item $\mid uv \mid ~ \le n$
+            \item $\forall i \in \mathbb N, ~ uv^ix \in L_2$
+          \end{enumerate}
+
+          Sea $s = w^nw^n$ con $\mid s \mid = 2n \ge n$ y $w = w_1w_2 \cdots w_n$. Consideremos $u = w_1w_2 \cdots w_k, ~ v = w_{k+1}...w_{s}~(s \ge k+1), x = w_{s+1}w_{s+2}...w_nw$.
+          Al hacer $v^0$ debemos tener a $uv^0x \in L_2$. Pero, por otra parte tenemos que:
+          $$uv^0x = ux = w_1w_2\cdots w_k w_{s+1}w_{s+2}\cdots w_nw \notin L_2$$,
+          ya que $w_1w_2 \cdots w_kw_{s+1}w_{s+2}wn \neq w$ (tiene menos caracteres que \textit w), así que la cadena resultante no cumple con la condición de ser de la forma \textit{ww}
+          $$\boxed{\therefore L_2 \text{\textbf{ no} es lenguaje regular}}$$
+
+        \item $L_3 = \{0^n \mid n = k^3\}$ 
+
+          Por contradicción. Suponemos que $L_3$ es lenguaje regular. Entonces, por Lema de Bombeo, existe $l > 0~(l \in \mathbb{N})$ tal que para toda $w \in L_3$ con $\mid w \mid ~ \ge l$ existen cadenas $u,v,x$ tales que
+          \begin{enumerate}[i)]
+            \item $w = uvx$
+            \item $\mid v \mid ~ > 0$
+            \item $\mid uv \mid ~ \le l$
+            \item $\forall i \in \mathbb N, ~ uv^ix \in L_3$
+          \end{enumerate}
+
+          Sea $w = 0^{l^3} $. Consideremos  $u = 0^k, ~ v = 0^s~ (s \ge 1), ~ x = 0^{l^3 - k - s}$. Al hacer $ s = 0$ debemos tener a $uv^0x \in L_3$. Pero, por otra parte tenemos que:
+          $$uv^0x = ux = 0^k0^{l^3 - k - s} = 0^{l^3 - s} \notin L_3$$,
+          ya que $s \le l$ y no en todos los casos $l^3 - s$ es igual a un natural elevado a cubo.
+          $$\boxed{\therefore L_3 \text{\textbf{ no} es lenguaje regular}}$$
+
+        \item $L_4 = \{w \in \{0,1\}^* \mid \#0(w) > \#1(w)^2\}$
+
+          Por contradicción. Suponemos que $L_4$ es lenguaje regular. Entonces, por Lema de Bombeo, existe $n > 0~(n \in \mathbb{N})$ tal que para toda $s \in L_4$ con $\mid s \mid ~ \ge n$ existen cadenas $u,v,x$ tales que
+          \begin{enumerate}[i)]
+            \item $s = uvx$
+            \item $\mid v \mid ~ > 0$
+            \item $\mid uv \mid ~ \le n$
+            \item $\forall i \in \mathbb N, ~ uv^ix \in L_4$
+          \end{enumerate}
+
+          Sea $w = 0^{l^2 + 1}1^l$. Consideremos $u = 0^k,~ v = 0^s ~ (s \ge 1), x = 0^{l^2+1 - k - s}1^l$. Al hacer $s = 0$ debemos tener a $uv^0x \in L_4$. Pero, por otra parte tenemos que:
+          $$uv^0x = ux = 0^k0^{l^2 + 1 - k - s}1^l = 0^{l^2 + 1 - s} \notin L_4$$,
+          ya que $s \ge 1$ se tiene que $l^2 - 1 - s \le l^2$.
+
+          $$\boxed{\therefore L_4 \text{\textbf{ no} es lenguaje regular}}$$
+
+      \end{enumerate}
+
+    \item (\textbf{3 pts.}) Para cada una de las siguientes expresiones, decide si es verdadera o falsa. En caso de ser verdadera, demuéstralo, y en caso de contrario, da un contraejemplo:
+      \begin{enumerate}[a)]
+        \item $L_1 \subseteq L_2$ y $L_1$ no es regular, entonces $L_2$ tampoco lo es.
+
+          Consideremos $L_1 = \{a^nb^n \mid n \ge 0\}$ un lenguaje no regular, y $L_2 = \{a,b\}^*$ un lenguaje regular. Claramente $L_1 \subseteq L_2$, siendo este un contraejemplo al enunciado a demostrar.
+          
+          $$\boxed{\therefore L_2 \text{\textbf{ es} lenguaje regular}}$$
+
+        \item $L_1$ y $L_2$ no son regulares, entonces $L_1 \cup L_2$ tampoco lo es.
+
+          Consideremos $L_1 = \{a^nb^n \mid n \ge 0\}$, $L_2 = \{a^nb^m \mid n \neq m\ \land n,m \ge 0 \}$ lenguajes no regulares. Pero $L_1 \cup L_2 = \{a^na^m \ge 0\} = \{a,b\}^*$ un lenguaje regular.
+
+          $$\boxed{\therefore L_1 \cup L_2 \text{\textbf{ es} lenguaje regular}}$$
+
+        \item $L_1$ no es regular, entonces $L_1^*$ tampoco lo es.
+          
+          % Consideremos $L_1 = \{a^p \mid p \text{ es primo}\}$. Debido a que todo número mayor a 1 puede expresarse como una descomposición en primos, y concatenar cadenas de longitud primas generan una longitud \textit n, donde ese se puede descomponer como se mencionó antoriormenet, $L_1^* = \{a^n \mid n > 3\} \cup \{\varepsilon\}$ un lenguaje regular.
+
+          % $$\boxed{\therefore L_1^* \text{\textbf{ es} lenguaje regular}}$$
+
+      \end{enumerate}
+    \item (\textbf{3 pts.}) Escribe algoritmos de decisión para responder las siguientes preguntas:
+      \begin{enumerate} [a)]
+      \item Dada una expresión regular \textit r y un autómata finito \textit M, decidir is reconocen el mismo lenguaje, es decir ¿$L(r) = L(M)$?
+
+        Dada \textit r, y usando el teorema de Kleene, se contruye un autómata finito \textit{M'} que acepte a \textit r. \\
+        Se procede a minimizar tanto a \textit M como a \textit{M'}, y se compara entre sí las transiciones y estados de ambos autómatas.\\
+        Si los autómatas minimos solo difieren en los nombres de sus estados y/o forma (en caso de tener la representación por su diagrama), entonces la expresión regular \textit r reconocen el mismo lenguaje que el autómata \textit M. En cualquier otro caso (diferente cantidad de estados, diferente estado inicial y estados finales, etc.), el lenguaje aceptado por cada uno de ellos es diferente.
+
+      \item Dado un autómata finito \textit M y una cadena \textit w ¿es \textit w una subcadena de un elemento de \textit{L(M)}?
+
+        Se construye un autómata finito \textit{M'} que acepte cadenas del mismo alfabeto que \textit M pero que contengan a \textit w como subcadena.\\
+        Se construye un autómata finito $M_{int}$ que acepte $L(M) \cap L(M')$.\\
+        Si el $L(M_{int}) \neq \varnothing$, entonces \textit w es una subcadena de un elemento de \textit{L(M)}. En caso contrario, \textit w no es subcadena de ningún elemento de \textit{L(M)}.
+
+    \item Dado un autómata finito \textit M, ¿es finito \textit {L(M)} ?
+
+      Usando el Lema de Arden se encuentra una expresión regular \textit r que describa es lenguaje aceptado por \textit M.\\
+      Se analiza la expresión regular obetenida. Si \textit r contiene alguna estrella (normal, positiva, o alguna variación) de Kleene diferente a $\varnothing^*$ o $\varepsilon^*$, entonces el lenguaje es infinito. En caso contrario, el lenguaje es finito.
+      \end{enumerate}
+\end{enumerate}
+
+\end{document}                                                                               s
+
