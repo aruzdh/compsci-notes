@@ -343,6 +343,16 @@
   }
 ).with(numbering: boxnumbering)
 
+#let lemma = thmenv(
+  "lemma", boxcounting, none, (name, number, body, ..args) => {
+    showybox(
+      frame: (border-color: fuchsia, title-color: fuchsia.lighten(30%), body-color: fuchsia.lighten(95%), footer-color: fuchsia.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
+      title: [#get_translation(translated_terms.lemma) #number *#name*], ..args.named(), body
+    )
+  }
+).with(numbering: boxnumbering)
+
 #let proposition = thmenv(
   "proposition", boxcounting, none, (name, number, body, ..args) => {
     showybox(
