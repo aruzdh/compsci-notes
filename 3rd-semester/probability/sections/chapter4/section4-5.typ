@@ -14,8 +14,11 @@
 
 A la función $f_cal(X)$ se le conoce como *función de densidad* de la variable aleatoria $cal(X)$, y cumple las siguientes propiedades.
 
-- $ f_cal(X)(x) >= 0, space.med forall x in RR $
-- $ integral_(- infinity)^infinity f_cal(X)(x) dif x = 1 $
+$
+f_cal(X)(x) >= 0, space.med forall x in RR
+space.quad "y" space.quad
+integral_(- infinity)^infinity f_cal(X)(x) dif x = 1 
+$
 
 #note()[
   Si la función de densidad $f_cal(X)$ es continua, el _Teorema Fundamental del Cálculo_ nos dice que

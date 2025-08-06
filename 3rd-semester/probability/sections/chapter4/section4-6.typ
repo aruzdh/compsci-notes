@@ -33,7 +33,7 @@
 
 #exercise()[
   Determina la $c$ tal que la función pueda servir como la distribución de probabilidad de una variable aleatoria con el intervalo dado.
-  - $f(x) = c x, space.med  x = 1, dots 5$
+  - $f(x) = c x, space.med  x = 1, dots , 5$
   - $f(x) = c binom(5,x), space.med x = 0,1, dots, 5$
   - $f(x) = c x^2, space.med x = 1, 2, dots, k$
 ]

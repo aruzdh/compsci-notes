@@ -6,7 +6,7 @@
 #definition("Función de Distribución")[
   Dada $cal(X)$ una variable aleatoria _discreta o continua_, su *función de distribución* se define como
   $
-  F_(cal(X))(a) = P(cal(X) <= a) = P({w in Omega bar.v cal(X) <= a}) space.quad "con" space.quad a in RR
+  F_(cal(X))(a) = P(cal(X) <= a) = P({w in Omega bar.v cal(X)(w) <= a}) space.quad "con" space.quad a in RR
   $
 ]
 
@@ -31,6 +31,7 @@
 #note()[
   Notese que esta función es *acumulativa*.
 ]
+
 === Propiedades 
 
 Las siguientes son propiedades de las funciones de distribución.
@@ -64,38 +65,38 @@ $
 
   Tenemos que
   $
-  lim_(x arrow infinity} F_cal(X)(x) = lim_(n arrow infinity) F_cal(X)(a_n) = lim_(n arrow infinity) P(cal(X) <= a_n)
+  lim_(x arrow infinity) F_cal(X)(x) = lim_(n arrow infinity) F_cal(X)(a_n) = lim_(n arrow infinity) P(cal(X) <= a_n)
   $
   Observemos que ${cal(X) <= a_n} subset.eq {cal(X) <= a_(n+1)}$ es una sucesión de conjuntos monótona creciente. Entonces
   $
   lim_(n arrow infinity) P(cal(X) <= a_n) = P(lim_(n arrow infinity){cal(X) <= a_n}) = P(union.big_(n=1)^infinity {cal(X) <= a_n}) = P(Omega) = 1
   $
   $
-  therefore lim_(n arrow infinity) F_cal(X)(x) = 0
+  therefore lim_(n arrow infinity) F_cal(X)(x) = 1
   $
 ]
 
 -
 $ lim_(x arrow -infinity} F_cal(X)(x) = 0 $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 -
 $ "Es una función continua por la derecha." $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 -
 $ P(cal(X) < a) = F_cal(X)(a^-) " limite por la izquierda" $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 - 
 $ P(cal(X) = a) = P( cal(X) <= a) - P(cal(X) < a) = F_cal(X)(a) - F_cal(X)(a^-) $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 -
-$ P(a < cal(X) \le b) = P(cal(X) <= b) - P(cal(X) <= a) = F_cal(X)(b) - F_cal(X)(a) $
-#proof()[ Ejercicion $qed$]
+$ P(a < cal(X) <= b) = P(cal(X) <= b) - P(cal(X) <= a) = F_cal(X)(b) - F_cal(X)(a) $
+#proof()[ Ejercicio $qed$]
 -
 $ P(a <= cal(X) <= b) = P(cal(X) <= b) - P(cal(X) < a) = F_cal(X)(b) - F_cal(X)(a^-) $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 -
 $ P(a < cal(X) < b) = P(cal(X) < b) - P(cal(X) <= a) = F_cal(X)(b^-) - F_cal(X)(a) $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]
 - 
 $ P(a <= cal(X) < b) = P(cal(X) < b) - P(cal(X) < a) = F_cal(X)(b^-) - F_cal(X)(a^-) $
-#proof()[ Ejercicion $qed$]
+#proof()[ Ejercicio $qed$]

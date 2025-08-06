@@ -25,7 +25,7 @@
   - $f_cal(Y) (0) = P(cal(Y) = 0) = 1 slash 8$
   - $f_cal(Y) (1) = P(cal(Y) = 1) = 3 slash 8$
   - $f_cal(Y) (2) = P(cal(Y) = 2) = 3 slash 8$
-  - $f_cal(Y) (3) = P(cal(Y) = 3) = 3 slash 8$
+  - $f_cal(Y) (3) = P(cal(Y) = 3) = 1 slash 8$
   $$
 ]
 
@@ -36,8 +36,12 @@
 === Propiedades
 
 Las siguientes son propiedades de las funciones de probabilidad.
-- $ f_cal(X)(k) >= 0 $
-- $ sum_k f_cal(X)(k) = 1, $ donde _k_ representa todos los valores que toma la variable aleatoria.
+$
+f_cal(X)(k) >= 0
+space.quad "y" space.quad
+sum_k f_cal(X)(k) = 1,
+$
+donde _k_ representa todos los valores que toma la variable aleatoria.
 
 #example()[
   Sea $f_cal(X) (0) = 1/2 >= 0$ y $f_cal(X) (1) = 1/2 >= 0$. Se tiene que 
