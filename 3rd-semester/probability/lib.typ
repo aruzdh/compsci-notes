@@ -461,7 +461,7 @@
       color: black,
       boxed-style: (anchor: (x: left, y: horizon))
     ),
-    [*_#get_translation(translated_terms.proof)._*] + body
+    [*_#get_translation(translated_terms.proof)._*] + body + [#place(bottom + right, $qed$)]
   )
 }
 ).with(numbering(boxcounting))
