@@ -10,7 +10,7 @@
 ]
 
 #note()[
-  De la definicón anterior se tiene que 
+  De la definición anterior se tiene que 
   $
   P(A inter B) = P(A) space.med P(B)
   $
@@ -21,6 +21,6 @@
   Dado $P(A bar.v B) = P(A)$, se puede decir que *la occurrencia de $B$ no afecta en la probabilidad de $A$*.
 ]
 
-#note()[
+#important()[
   La independencia *no* implica que $A inter B = emptyset$
 ]

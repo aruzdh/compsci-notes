@@ -13,7 +13,7 @@ Definimos los siguientes limites para sucesiones crecientes y decrecientes.
 ]
 
 #definition("Límite de una Sucesión Decreciente")[
-  Sea $A_1 supset.eq A_2 supset.eq A_3 supset.eq dots A_n supset eq dots$ una sucesión de eventos decreciente. Definimos
+  Sea $A_1 supset.eq A_2 supset.eq A_3 supset.eq dots A_n supset.eq dots$ una sucesión de eventos decreciente. Definimos
   $
   lim_(n arrow infinity) A_n = inter.big_(i=1)^infinity A_i
   $
@@ -51,8 +51,8 @@ Definimos los siguientes limites para sucesiones crecientes y decrecientes.
   $
   lim_(n arrow infinity) P(A_n) &= lim_(n arrow infinity) P(union.big_(i=1)^n B_i) = lim_(n arrow infinity) sum_(i=1)^n P(B_i) space.quad "(axiomas de probabilidad)"\
   &= sum_(i=1)^infinity P(B_i)\
-  &= P(union.big_(i=1) B_i) space.quad "(axiomas de probabilidad)"\
-  &= P(union.big_(i=1) A_i) = P(lim_(n arrow infinity) A_n)
+  &= P(union.big_(i=1)^infinity B_i) space.quad "(axiomas de probabilidad)"\
+  &= P(union.big_(i=1)^infinity A_i) = P(lim_(n arrow infinity) A_n)
   $
 
   Ahora supongamos que ${A_n}$ es decreciente, es decir, $A_1^c subset.eq A_2^c subset.eq A_3^c dots$. Como ${A_n}$ es decreciente, entonces ${A^c}$ es creciente. Así que

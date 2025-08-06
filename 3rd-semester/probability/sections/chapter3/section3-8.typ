@@ -40,7 +40,7 @@
 
 #exercise()[
   Demuestre o proporcione un contraejemplo:
-  - Si $A inter B= emptyset$ entonces $P(A) <= P(B^epsilon)$.
+  - Si $A inter B= emptyset$ entonces $P(A) <= P(B^c)$.
   - Si $P(A)=P(B)=1$, entonces $P(A inter B)=0$.
 ]
 

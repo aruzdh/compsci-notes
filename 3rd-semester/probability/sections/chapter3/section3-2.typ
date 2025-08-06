@@ -9,6 +9,7 @@ Dados $A, B$ eventos.
   Sabemos que $Omega = A union A^c$ y $A inter A^c = emptyset$.
 
   Usando los _axiomas de probabilidad_ se tiene que $P(Omega) = P(A) + P(A^c)$.
+
   De lo anterior se sigue que $1 = P(A) + P(A^c)$
   $ therefore P(A^c) = 1 - P(A) $
 ]
@@ -25,7 +26,7 @@ Dados $A, B$ eventos.
 - $P(A union B) = P(A) + P(B) - P(A inter B)$
 
 #proof()[
-  Se tiene que $A union B = (A - B) union (A inter B) union (B - A)$ donde cada uniendo es ajeno
+  Se tiene que $A union B = (A - B) union (A inter B) union (B - A)$ donde cada uniendo es ajeno.
 
   Entonces
   $
@@ -42,9 +43,9 @@ Dados $A, B$ eventos.
   Se tienen 12 pelotas en total. Sea _A = "obtener 3 pelotas azules"_ un evento.
   Entonces 
   $
-  P(A) &= abs(A)/abs(Omega) = binom(5,3)/binom(12,3)\
-  &= ((5!)/(3! 2!)) / ((12!)/(3!9!)) = ((5 dot.c 4 dot.c 3)/(3! dot.c 2 dot.c 1))/((12 dot.c 11 dot.c 10 dot.c 9!)/(3 dot.c 2 dot.c 1 dot.c 9!))\
-  &= (20 slash 2)/(1320 slash 6) = 10/220 = 1/22
+  P(A) = abs(A)/abs(Omega) = binom(5,3)/binom(12,3)
+       = ((5!)/(3! 2!)) / ((12!)/(3!9!)) = ((5 dot.c 4 dot.c 3)/(3! dot.c 2 dot.c 1))((12 dot.c 11 dot.c 10 dot.c 9!)/(3 dot.c 2 dot.c 1 dot.c 9!))
+       = (20 slash 2)/(1320 slash 6) = 10/220 = 1/22
   $
 ]
 
@@ -55,6 +56,6 @@ Dados $A, B$ eventos.
 
   Entonces 
   $
-  P(A) = (abs(A) abs(B))/abs(Omega) = (binom(6,1) binom(5,2))/binom(11,3) = ((!)/(6!) (5!)/2!3!)/((11!)/(3!8!)) = 60/165 = 4/11
+  P(A) = (abs(A) abs(B))/abs(Omega) = (binom(6,1) binom(5,2))/binom(11,3) = ((6!)/(6!) (5!)/(2!3!))/((11!)/(3!8!)) = 60/165 = 4/11
   $
 ]

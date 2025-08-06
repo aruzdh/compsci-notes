@@ -5,7 +5,7 @@
 
 #definition("Partición del Espacio Muestral")[
   Sean $B_1, B_2, dots, B_n in cal(F)$. Decimos que ${B_i}_i$ es una *partición de $Omega$* si se satisface lo siguiente.
-  - $forall i,j, space.med B_i inter B_j = emptyset$
+  - $forall i,j; space.med B_i inter B_j = emptyset$
   - $Omega = union.big_i B_i$
 ]
 
@@ -31,8 +31,8 @@
 
   Sean _A = "se saca una pelota roja"_, _$B_1$ = "se saca la pelota de la caja I"_, _$B_2$= "se saca la pelota de la caja II"_ eventos.  Entonces
   $
-  P(A) &= P(A inter B_1) + P(A inter B_2)\
-       &= P(A bar.v B_1) space.med P(B_1) + P(A bar.v B_2) space.med P(B_2)\
-       &= 3/5 dot.c 1/2 + 2/10 dot.c 1/2 = 3/10 + 2/20 = 2/5
+  P(A) &= P(A inter B_1) + P(A inter B_2)
+       = P(A bar.v B_1) space.med P(B_1) + P(A bar.v B_2) space.med P(B_2)
+       = 3/5 dot.c 1/2 + 2/10 dot.c 1/2 = 3/10 + 2/20 = 2/5
   $
 ]
