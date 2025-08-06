@@ -2,8 +2,8 @@
 
 #show: template.with(
   title: [Probabilidad I],
-  short_title: "A bunch of defs and theorems",
-  description: [Notes based on a regular math course.],
+  short_title: "Probabilidad I",
+  description: [Notas basadas en el curso impartido en la Facultad de Ciencias, UNAM.],
   date: datetime(year: 2025, month: 07, day: 03),
   authors: (
     (
@@ -24,3 +24,4 @@
 #include "./chapters/chapter2.typ"
 #include "./chapters/chapter3.typ"
 #include "./chapters/chapter4.typ"
+#include "./chapters/chapter5.typ"
