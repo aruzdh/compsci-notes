@@ -387,7 +387,7 @@
 #let example = thmenv(
   "example", boxcounting, 0, (name, number, body, ..args) => {
     showybox(
-      frame: (border-color: purple, title-color: purple.lighten(30%), body-color: purple.lighten(95%), footer-color: purple.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      frame: (border-color: orange, title-color: orange.lighten(30%), body-color: orange.lighten(95%), footer-color: orange.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
       title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
       title: [#get_translation(translated_terms.example) #number *#name*], ..args.named(), body
     )
@@ -397,7 +397,7 @@
 #let note = thmenv(
   "note", boxcounting, none, (name, number, body, ..args) => {
     showybox(
-      frame: (border-color: blue, title-color: blue.lighten(30%), body-color: blue.lighten(95%), footer-color: blue.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      frame: (border-color: eastern, title-color: eastern.lighten(30%), body-color: eastear.lighten(95%), footer-color: eastern.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
       title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
       title: [#get_translation(translated_terms.note) *#name*], ..args.named(), body
     )
@@ -428,7 +428,7 @@
 #let exercise = thmenv(
   "exercise", boxcounting, 0, (name, number, body, ..args) => {
     showybox(
-      frame: (border-color: blue, title-color: blue.lighten(30%), body-color: blue.lighten(95%), footer-color: blue.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      frame: (border-color: olive, title-color: olive.lighten(30%), body-color: blue.lighten(95%), footer-color: olive.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
       title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
       title: [#get_translation(translated_terms.exercise) #number *#name*], ..args.named(), body
     )
