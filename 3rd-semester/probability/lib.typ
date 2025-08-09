@@ -397,7 +397,7 @@
 #let note = thmenv(
   "note", boxcounting, none, (name, number, body, ..args) => {
     showybox(
-      frame: (border-color: eastern, title-color: eastern.lighten(30%), body-color: eastear.lighten(95%), footer-color: eastern.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
+      frame: (border-color: eastern, title-color: eastern.lighten(30%), body-color: eastern.lighten(95%), footer-color: eastern.lighten(80%), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt)),
       title-style: (boxed-style: (anchor: (x: center, y: horizon), radius: (top-left: 10pt, bottom-right: 10pt, rest: 0pt))),
       title: [#get_translation(translated_terms.note) *#name*], ..args.named(), body
     )
