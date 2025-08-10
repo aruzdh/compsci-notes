@@ -1,9 +1,9 @@
 #import "lib.typ": *
 
 #show: template.with(
-  title: [Usual Notes],
-  short_title: "Usual Notes",
-  description: [Usual description],
+  title: [Matemáticas para las Ciencias Aplicadas IV],
+  short_title: "Matemáticas para las Ciencias Aplicadas IV",
+  description: [2026-1],
   date: datetime(year: 2025, month: 08, day: 11),
   authors: (
     (
@@ -15,7 +15,7 @@
   paper_size: "a4",
   cols: 1,
   h1-prefix: "lecture", // chapter or lecture
-  text_lang: "en",
+  text_lang: "es",
   accent: orange,
   colortab: true,
 )
