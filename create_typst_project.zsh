@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # This script creates a new Typst project directory structure.
 # It expects a template directory named 'template' in the same location.
@@ -6,8 +6,27 @@
 # Usage: ./create_typst_project.zsh <new_project_name>
 # Example: ./create_typst_project.zsh linear-algebra
 
-new_dir_name="$1" # Get the desired new directory name from the first argument
-template_dir="template" # Define the name of your Typst template directory
+readonly TEMPLATE_BY_LECTURES="template-by-lectures"
+readonly TEMPLATE_BY_CHAPTERS="template-by-chapters"
+
+new_dir_name="$1"
+
+echo "Notes by"
+echo "(0) - Lectures"
+echo "(1) - Chapters"
+echo -n "\nChoose a format: "
+read format
+
+if (( format == 0 )); then
+  template_dir=$TEMPLATE_BY_LECTURES
+elif (( format == 1 )); then
+  template_dir=$TEMPLATE_BY_CHAPTERS
+else
+  echo "Invalid format selected. Defaulting to Lectures."
+  template_dir=$TEMPLATE_BY_LECTURES
+fi
+
+echo "Selected template directory is: $template_dir"
 
 # --- Input Validation ---
 
