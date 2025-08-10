@@ -17,9 +17,9 @@ echo "(1) - Chapters"
 echo -n "\nChoose a format: "
 read format
 
-if (( format == 0 )); then
+if ((format == 0)); then
   template_dir=$TEMPLATE_BY_LECTURES
-elif (( format == 1 )); then
+elif ((format == 1)); then
   template_dir=$TEMPLATE_BY_CHAPTERS
 else
   echo "Invalid format selected. Defaulting to Lectures."
@@ -68,7 +68,7 @@ fi
 # Create the .typst_main_file and write the new main Typst file name into it
 typst_marker_file="$new_dir_name/.typst_main_file"
 echo "Creating .typst_main_file with content '$new_dir_name.typ'..."
-echo "$new_dir_name.typ" > "$typst_marker_file"
+echo "$new_dir_name.typ" >"$typst_marker_file"
 
 echo "---------------------------------------------------------"
 echo "Successfully created Typst project structure in '$new_dir_name'."
