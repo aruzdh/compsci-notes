@@ -2,7 +2,7 @@
 
 #import "@preview/cetz:0.4.1":*
 
-= lorem
+= 
 
 #definition("Grafica")[
 Una *grafica* es una pareja $G = (V(G),A(G))$ que consiste de
@@ -13,6 +13,16 @@ y
 $
 A(G) arrow.long "Conjunto de parejas de " V(G) "llamado aristas"
 $
+]
+
+#note()[
+  Dada $G$ una grafica.
+  - No se consideran multiaristas:
+  $ (x,y) = (y,x), "con" (x,y) in A(G) $
+  - No se consideran lazos:
+  $ (x,x) in.not A(G) $
+  - No se consideran aristas dirigidas.
+
 ]
 
 //TODO: fix 
@@ -60,16 +70,6 @@ $
 })
 
 
-//TODO: anadir el punto 3
-//
-#note()[
-  Dada $G$ una grafica.
-  - No se consideran multiaristas:
-  $ (x,y) = (y,x), "con" (x,y) in A(G) $
-  - No se consideran lazos:
-  $ (x,x) in.not A(G) $
-
-]
 
 #definition("Orden de una Grafica")[
   Dada $G$ una grafica. El número de vertices de $G$, denotado por $abs(V(G))$, es el *orden* de $G$.
