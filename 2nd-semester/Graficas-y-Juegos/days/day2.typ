@@ -170,6 +170,9 @@ Lo anterior se establece en el siguiente teorema.
     #align(center)[
     #raw-render(```
       graph {
+        Jose [fixedsize=true, width=0.5, height=0.5, shape=circle]
+        Luis [fixedsize=true, width=0.5, height=0.5, shape=circle]
+        Pedro [fixedsize=true, width=0.5, height=0.5, shape=circle]
         Jose -- Luis
         Pedro
       }
