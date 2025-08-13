@@ -1,4 +1,5 @@
 #import "../lib.typ":*
+#import "@preview/diagraph:0.3.3": *
 
 = 
 
@@ -50,19 +51,46 @@ ya que no se consideran lazos, multiaristas, ni aristas dirigidas.
   Además, la arista $a$ *incide* en $v in V(G)$ si $a=(v,x)$ para otro $x in V(G)$
 ]
 
-//TODO: Poner ejemplos
+//TODO: Poner ejemplo para una grafica regular
 == Tipos de Graficas
 Sea $G$ una grafica.
 - Trivial: $G$ tiene solo un vértice.
+  #align(center)[
+    #raw-render(```
+      graph {
+        A
+      }
+    ```) 
+  ]
 - Vacía: $G$ no tiene aristas
+  #align(center)[
+    #raw-render(```
+      graph {
+        A B C
+      }
+    ```) 
+  ]
 - Completa, denotada por $K_n$: Todos los vértices de $G$ están conectados.
+  #align(center)[
+    #raw-render(```
+      graph {
+        A -- B
+        A -- C
+        A -- D
+        B -- C
+        B -- D
+        C -- D
+      }
+    ```) 
+  ]
 - Regular, denotada por $k-"regular"$: $d_G (v) = K, space.med forall v in V(G)$
+
 
 == Suma de Grados de G
 
 Considerando lo siguiente. Sea $G$ una grafica con $"orden" = abs(v(G)) = n$ y $"tamaño" = abs(A(G)) = m > 0$. Además, $V(G) = {v_1, v_2, dots, v_n}$.
 
-Si $v_i!= v_j$, pero son tales que hay una arista entre si, entonces $v_i$ es vecino de $v_j$ (y $v_j$ vecino de $v_i$).
+Si $v_i!= v_j$, pero son tales que hay una arista entre si, entonces $v_i$ es vecino de $v_j$, y $v_j$ vecino de $v_i$.
 Con lo anterior se observa que
 $
 sum_(v in V(G)) d_G (v) = 2m
@@ -122,20 +150,36 @@ Lo anterior se establece en el siguiente teorema.
 ]
 
 #definition("Subgrafica Inducida")[
-  Sea $G = (V(G), A(G))$ una grafica, $S subset.eq V(G)$, y $(u,v) in A(G)$ tales que $u,v in S$. Se dice que $G_([S])$ es la *subgrafica inducida* por $S$.
+  Sea $G = (V(G), A(G))$ una grafica, $S subset.eq V(G)$, y $(u,v) in A(G)$ tales que $u,v in S$. Se dice que $G_[S]$ es la *subgrafica inducida* por $S$.
 ]
 
 #example()[
-  Considerando el ejemplo 1. Sea $S = {"Nombres que empiezan con \"L\""} = {"Lupita", "Luis"}$
+  Considerando el ejemplo 1. Sea $S = {"Nombres que empiezan con \"L\""} = {"Lupita", "Luis"}$. $G_[S]$ queda de la siguiente manera.
+    #align(center)[
+    #raw-render(```
+      graph {
+        Luis Lupita
+      }
+    ```) 
+  ]
+
+]
+
+#example()[
+  Considerando el ejemplo 1. Sea $S = {"Personas del sexo masculino"} = {"Luis", "Jose", "Pedro"}$.$G_[S]$ queda de la siguiente manera.
+    #align(center)[
+    #raw-render(```
+      graph {
+        Jose -- Luis
+        Pedro
+      }
+    ```) 
+  ]
+
 ]
 
 //TODO: hacer grafica
 
-#example()[
-  Considerando el ejemplo 1. Sea $S = {"Personas del sexo masculino"} = {"Luis", "Jose", "Pedro"}$
-]
-//TODO: hacer grafica
-//
 #example()[
   Considerando el ejemplo 2, y considerando una grafica $H$ tal que:
   - $V(G) = V(H)$

@@ -1,6 +1,5 @@
 #import "../lib.typ": *
-
-#import "@preview/cetz:0.4.1":*
+#import "@preview/diagraph:0.3.3": *
 
 = 
 
@@ -27,49 +26,73 @@ $
 
 //TODO: fix 
 #example()[
-  $V(G) = {"Ana", "María", "Luis", "Jos", "Lupita", "Pedro"}$
+  $V(G) = {"Ana", "María", "Luis", "Jose", "Lupita", "Pedro"}$
 
   $A(G) = {
     ("Ana","María"), ("Ana","Luis"),("Ana","Jose"),("Ana","Lupita"),("Ana","Pedro"),\
     ("María", "Ana"), ("María", "Pedro"),("Luis", "Ana"),("Luis", "Jose"),\
     ("Lupita", "Pedro"),
   }$
+
+  #align(center)[
+    #raw-render(```
+      graph {
+        Ana -- Pedro
+        Ana -- María
+        Ana -- Lupita
+        Ana -- Luis
+        Ana -- Jose
+        Pedro -- María
+        Pedro -- Lupita
+        Jose -- Luis
+      }
+    ```) 
+  ]
 ]
 
 #example()[
   $V(G) = {"Delegaciones de la CDMX"}$
 
   $A(G) = {(x,y) in A(G) bar.v x "es vecino de" y}$
+  #align(center)[
+    #raw-render(```
+      graph {
+        GAM -- Azcapo
+        GAM -- Cua
+        GAM -- VC
+        Azcapo -- Cua
+        Azcapo -- MH
+        VC -- Cua
+        VC -- Izta
+        Cua -- BJ
+        Cua -- MH
+        Cua -- Izta
+        MH -- AO
+        MH -- BJ
+        Izta -- BJ
+        Izta -- Iztap
+        BJ -- Coyo
+        BJ -- Iztap
+        BJ -- AO
+        AO -- MC
+        AO -- Coyo
+        Iztap -- Coyo
+        Iztap -- Tlah
+        Iztap -- Xoch
+        Coyo -- Tlalpan
+        Coyo -- Xoch
+        Tlalpan -- MC
+        Tlalpan -- Xoch
+        Tlalpan -- MilpaA
+        Tlah -- Xoch
+        Tlah -- MilpaA
+        Xoch -- MilpaA
+      }
+    ```,
+    height: 55em,
+  ) 
+  ]
 ]
-
-//TODO: Representacion grafica de los dos ejemplos
-
-#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
-
-#let nodes = ("Ana", "Pedro", "María", "Lupita", "Luis", "Jose", "G")
-#let edges = (
-	(3, 2),
-	(4, 1),
-	(1, 4),
-	(0, 4),
-	(3, 0),
-	(5, 6),
-	(6, 5),
-)
-
-#diagram({
-	for (i, n) in nodes.enumerate() {
-		let θ = 90deg - i*360deg/nodes.len()
-		node((θ, 18mm), n, stroke: 0.5pt, name: str(i))
-	}
-	for (from, to) in edges {
-		let bend = if (to, from) in edges { 10deg } else { 0deg }
-		// refer to nodes by label, e.g., <1>
-		edge(label(str(from)), label(str(to)), "-|>", bend: bend)
-	}
-})
-
-
 
 #definition("Orden de una Grafica")[
   Dada $G$ una grafica. El número de vertices de $G$, denotado por $abs(V(G))$, es el *orden* de $G$.
