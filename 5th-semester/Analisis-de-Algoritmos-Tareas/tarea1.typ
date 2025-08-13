@@ -10,12 +10,18 @@
 ]
 
 #align(center)[
-  = Tarea 1. Inducción
-  Análisis de Algoritmos 2026-1
+  #text(18pt)[
+    = Tarea 1. Inducción
+  ]
+  #text(13pt)[
+    Análisis de Algoritmos 2026-1
+
+    Hernández Vázquez Carlos Arturo
+  ]
 ]
 
 == Instrucciones
-Resuelve cada problema utilizando inducción matemática o inducción estructural, según corresponda. Justifica claramente el caso base y el paso induictivo.
+Resuelve cada problema utilizando inducción matemática o inducción estructural, según corresponda. Justifica claramente el caso base y el paso inductivo.
 
 *Problema 1* (Suma de enteros consecutivos). _Demuestra que para todo_ $n >= 1$:
 $
@@ -65,7 +71,7 @@ $
 
   Reescribiendo $1$ como $2/2$ y resolviendo:
   $
-  (k+1) (k/2 + 2/2) = (k+1) ((k+2)/2) = ((k+1)(k+2))/2
+  (k+1)(k/2 + 1) = (k+1) (k/2 + 2/2) = (k+1) ((k+2)/2) = ((k+1)(k+2))/2
   $
 ]
 
@@ -82,15 +88,14 @@ $
 *Caso Base:* Sea $n = 0$.
 
 Por demostrar:
+
 $
 2^0 = 2^(0+1) - 1
 $
 
 #dem[
-  $
-  1= 2^0 = 2^(0+1) - 1 = 2^1 - 1 = 1
-  $
-  $$
+
+  Resolviendo: $1= 2^0 = 2^(0+1) - 1 = 2^1 - 1 = 1 space.quad$ 
 ]
 
 *Hipotesis Inductiva:* Supongamos que para $k$ > 0, se cumple
@@ -122,7 +127,6 @@ $
   Usando $a^n dot.c a^m = a^(n+m)$:
   $
   2 dot.c 2^(k+1) - 1 &= 2^(1 +(k+1)) - 1 \
-  &= 2^(k+2) - 1 \
   &= 2^((k+1)+1) - 1
   $
 ]
@@ -141,12 +145,10 @@ $
 #dem[
 
 Resolviendo:
-$4^0 - 1 = 0 = 0 dot.c 3$, por tanto es divisible por 3.
-
-$$
+$4^0 - 1 = 0 = 0 dot.c 3$, por tanto es divisible por 3 $space.quad$.
 ]
 
-*Hipotesis de Inducción:* Supongamos que para $k$ > 1, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
+*Hipotesis de Inducción:* Supongamos que para $k$ > 0, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
 
 *Paso Inductivo:* Sea $n = k + 1$
 
@@ -197,12 +199,8 @@ $
 $
 
 #dem[
-
 Resolviendo:
-$
-1! >= 2^(1-1) arrow.r.l.double.long 1 >= 1
-$
-$$
+$1! >= 2^(1-1) arrow.r.l.double.long 1 >= 1 space.quad$
 ]
 *Hipotesis de Inducción:* Supongamos que para $k$ > 1, se cumple
 $
@@ -239,6 +237,8 @@ $
 
   Dado que $k > 1, space.med 2^(k-1) > 1$. Así, dividiendo por $2^(k-1)$ en la desigualdal derecha:
   $
+   2^(k-1) dot.c (k+1) >= 2^(k-1) dot.c 2
+  arrow.long.double.r.l
   k+1 >=  2
   $
   como $k>1$, la desigualdal es correcta.
@@ -255,7 +255,7 @@ therefore forall n>=1, space.med
 n! >= 2^(n-1)
 $
 
-*Problema 5* (Número de unos en un patrón binario). _Sea $S_n$ la cadena formada repitiendo "10" $n$ veces (por ejemplo, $S_3 = "'101010'"$). Demuestra que la canditad de caracteres '1' en $S_n$ es exactamente $n$_.
+*Problema 5* (Número de unos en un patrón binario). _Sea $S_n$ la cadena formada repitiendo "10" $n$ veces (por ejemplo, $S_3 = "\"101010\""$). Demuestra que la canditad de caracteres '1' en $S_n$ es exactamente $n$_.
 
 *Caso Base:* Sea $n = 0$
 
@@ -296,7 +296,7 @@ $
 abs("rev"(w)) = abs(w)
 $
 
-*Caso Base:* Sea w = $epsilon$ = la cadena vacia. 
+*Caso Base:* Sea w = $epsilon$ (la cadena vacia)
 
 Por demostrar:
 $
@@ -313,12 +313,12 @@ $
 ]
 
 
-*Hipotesis de Inducción:* Supongamos que para alguna cadena $x$ diferente a $epsilon$ (la cadena vacia), se tiene cumple que
+*Hipotesis de Inducción:* Supongamos que para alguna cadena $x$ diferente a $epsilon$ (la cadena vacia), se cumple que
 $
 abs("rev"(x)) = abs(x)
 $
 
-*Paso Inductivo:* Sea $y = x a$, donde $a$ es un caractere concanetado extra y arbitrario.
+*Paso Inductivo:* Sea $y = x a$, donde $x$ es una cadena, y $a$ es un caracter concatenado arbitrario.
 
 Por demostrar:
 $
@@ -359,7 +359,7 @@ $
 "len"(A++B) = "len"(A) + "len"(B)
 $
 
-*Caso Base:* Sin perdida de generalidad, sean $B = []$ una lista vacia y $A$ una lista arbitraria.
+*Caso Base:* Sin perdida de generalidad, sean $B = []$ una lista vacia y $A$ una lista cualquiera.
 
 Por demostrar:
 
@@ -379,7 +379,7 @@ $
   A++B = A
   $
 
-  Entonces se tiene:
+  Entonces se tiene, aplicando la función len:
   $
   "len"(A++B) = "len"(A) = "len"(A) + "len"(B)
   $
@@ -399,9 +399,10 @@ $
 $
 
 #dem[
+
   Concatenando $A$ y $B$:
   $
-  A++B = A'++[a]++B
+  A++B = (A'++[a])++B
   $
 
   Dada la asociatividad de la concatenación:
@@ -431,7 +432,7 @@ $
 ]
 
 $
-therefore "para cualesquiera" A,B "lista, se cumple que"
+therefore "para cualesquiera" A,B "listas, se cumple que"
 "len"(A++B) = "len"(A) + "len"(B)
 $
 
@@ -474,7 +475,7 @@ $
   "reverse"(A) = "reverse"(A'++[a]) = [a] ++ "reverse"(A')
   $
 
-  Aplicando reverse por segunda vez:
+  Aplicando reverse por segunda vez y usando su definición:
   $
   "reverse"("reverse"(A)) = "reverse"("reverse"(A'++[a])) = "reverse"([a] ++ "reverse"(A'))
   $
@@ -494,5 +495,10 @@ $
   A' ++ "reverse"([a]) = A' ++ [a] = A
   $
 ]
+
+$
+therefore "para cualquier list" L, space.med
+"reverse"("reverse"(L)) = L
+$
 
 
