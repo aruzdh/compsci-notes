@@ -41,7 +41,7 @@ $
   1 = (1(1 + 1))/2 = 2/2
   $
 ]
-*Hipotesis de Inducción:* Supongamos que para $k$ > 1, se cumple
+*Hipotesis de Inducción:* Supongamos que para $k$ >= 1, se cumple
 $
 1 + 2 + 3 + dots.c + k = (k(k + 1))/2
 $
@@ -98,7 +98,7 @@ $
   Resolviendo: $1= 2^0 = 2^(0+1) - 1 = 2^1 - 1 = 1 space.quad$ 
 ]
 
-*Hipotesis Inductiva:* Supongamos que para $k$ > 0, se cumple
+*Hipotesis Inductiva:* Supongamos que para $k$ >= 0, se cumple
 $
 1 + 2 + 4 + dots.c + 2^k = 2^(k+1) - 1
 $
@@ -148,7 +148,7 @@ Resolviendo:
 $4^0 - 1 = 0 = 0 dot.c 3$, por tanto es divisible por 3 $space.quad$.
 ]
 
-*Hipotesis de Inducción:* Supongamos que para $k$ > 0, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
+*Hipotesis de Inducción:* Supongamos que para $k$ >= 0, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
 
 *Paso Inductivo:* Sea $n = k + 1$
 
@@ -202,7 +202,8 @@ $
 Resolviendo:
 $1! >= 2^(1-1) arrow.r.l.double.long 1 >= 1 space.quad$
 ]
-*Hipotesis de Inducción:* Supongamos que para $k$ > 1, se cumple
+
+*Hipotesis de Inducción:* Supongamos que para $k$ >= 1, se cumple
 $
 k! >= 2^(k-1)
 $
@@ -269,7 +270,8 @@ $
 Sea $S_0$ la cadena formada por 0 veces la cadena "10". Dicha cadena es la cadena vacia, y por tanto contiene exactamente 0 veces el caracteres '1'.
 
 ]
-*Hipotesis Inductiva:* Supongamos que para $k > 0$, se cumple que $S_k$, la cadena formada repitiendo "10" $k$ veces, tiene exactamente $k$ caracteres '1'.
+
+*Hipotesis Inductiva:* Supongamos que para $k >= 0$, se cumple que $S_k$, la cadena formada repitiendo "10" $k$ veces, tiene exactamente $k$ caracteres '1'.
 
 *Paso Inductivo:* Sea $n = k+1$
 
@@ -313,7 +315,7 @@ $
 ]
 
 
-*Hipotesis de Inducción:* Supongamos que para alguna cadena $x$ diferente a $epsilon$ (la cadena vacia), se cumple que
+*Hipotesis de Inducción:* Supongamos que para alguna cadena $x$ se cumple que
 $
 abs("rev"(x)) = abs(x)
 $
@@ -359,31 +361,31 @@ $
 "len"(A++B) = "len"(A) + "len"(B)
 $
 
-*Caso Base:* Sin perdida de generalidad, sean $B = []$ una lista vacia y $A$ una lista cualquiera.
+*Caso Base:* Sin perdida de generalidad, sean $A = []$ una lista vacia y $B$ una lista cualquiera.
 
 Por demostrar:
 
 $
-"len"(A++[]) = "len"(A) + "len"([])
+"len"([]++B) = "len"([]) + "len"(B)
 $
 
 #dem[
 
   Por la definición de longitud para listas, sabemos que
   $
-  "len"(B) = 0
+  "len"(A) = 0
   $
 
   Concatenar una lista vacia a otra lista nos da la lista original:
   $
-  A++B = A
+  A++B = B
   $
 
   Entonces se tiene, aplicando la función len:
   $
-  "len"(A++B) = "len"(A) = "len"(A) + "len"(B)
+  "len"(A++B) = "len"(B) = "len"(A) + "len"(B)
   $
-  debido a que la longitud de $B$ es 0 por ser una lista vacía.
+  debido a que la longitud de $A$ es 0 por ser una lista vacía.
 ]
 
 *Hipotesis de Inducción:* Supongamos que para una lista $A'$ y para cualquier lista $B$ se cumple
@@ -456,7 +458,7 @@ $
   $
 ]
 
-*Hipotesis de Inducción:* Supongamos que para $A'$ una lista no vacia, se cumple
+*Hipotesis de Inducción:* Supongamos que para $A'$ una lista, se cumple
 $
 "reverse"("reverse"(A')) = A'
 $
