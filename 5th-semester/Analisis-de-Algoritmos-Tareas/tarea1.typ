@@ -41,7 +41,8 @@ $
   1 = (1(1 + 1))/2 = 2/2
   $
 ]
-*Hipotesis de Inducción:* Supongamos que para $k$ >= 1, se cumple
+
+*Hipotesis de Inducción:* Supongamos que para $k >= 1$, se cumple
 $
 1 + 2 + 3 + dots.c + k = (k(k + 1))/2
 $
@@ -98,7 +99,7 @@ $
   Resolviendo: $1= 2^0 = 2^(0+1) - 1 = 2^1 - 1 = 1 space.quad$ 
 ]
 
-*Hipotesis Inductiva:* Supongamos que para $k$ >= 0, se cumple
+*Hipotesis Inductiva:* Supongamos que para $k >= 0$, se cumple
 $
 1 + 2 + 4 + dots.c + 2^k = 2^(k+1) - 1
 $
@@ -148,7 +149,7 @@ Resolviendo:
 $4^0 - 1 = 0 = 0 dot.c 3$, por tanto es divisible por 3 $space.quad$.
 ]
 
-*Hipotesis de Inducción:* Supongamos que para $k$ >= 0, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
+*Hipotesis de Inducción:* Supongamos que para $k >= 0$, se cumple que $4^k - 1$ es divisible por 3, es decir, $4^k - 1 = 3m$ o, equivalentemente, $4^k = 3m + 1$, con $m in ZZ$
 
 *Paso Inductivo:* Sea $n = k + 1$
 
@@ -203,7 +204,7 @@ Resolviendo:
 $1! >= 2^(1-1) arrow.r.l.double.long 1 >= 1 space.quad$
 ]
 
-*Hipotesis de Inducción:* Supongamos que para $k$ >= 1, se cumple
+*Hipotesis de Inducción:* Supongamos que para $k >= 1$, se cumple
 $
 k! >= 2^(k-1)
 $
@@ -242,7 +243,7 @@ $
   arrow.long.double.r.l
   k+1 >=  2
   $
-  como $k>1$, la desigualdal es correcta.
+  como $k >= 1$, la desigualdal es correcta.
 
   Por la transitividad de la desigualdal se tiene:
 
@@ -393,7 +394,7 @@ $
 "len"(A'++B) = "len"(A') + "len"(B)
 $
 
-*Paso inductivo:* Sean $A = A' ++ [a]$ una lista, $a$ en elemento arbitrario, y $B$ cualquier lista.
+*Paso inductivo:* Sean $A = [a] ++ A'$ una lista, $a$ en elemento arbitrario, y $B$ cualquier lista.
 
 Por demostrar:
 $
@@ -404,31 +405,33 @@ $
 
   Concatenando $A$ y $B$:
   $
-  A++B = (A'++[a])++B
+  A++B = ([a] ++ A')++B
   $
 
   Dada la asociatividad de la concatenación:
   $
-  A++B = A'++([a]++B)
+  A++B = [a] ++ (A'++B)
   $
 
   Aplicando la función len:
   $
-  "len"(A++B) = "len"(A'++([a]++B))
+  "len"(A++B) = "len"([a]++(A'++B))
   $
 
-  Notando que $[a]++B$ es una lista cualquiera arbitraria, usamos la Hipotesis de Inducción sobre dicha lista y $A'$:
+  Por definición de len:
   $
-  "len"(A++B) = "len"(A') + "len"([a]++B)
+  "len"(A++B) = 1 + "len"(A'++B)
   $
 
-  Como $[a]$ es una lista unitaria, por la definición de len:
+  Usando la Hipotesis de Inducción sobre $A'++B$:
   $
-  "len"(A++B) = "len"(A') + 1 + "len"(B) = "len"(A) + "len"([a]) + "len"(B) 
+  "len"(A++B) = 1 + "len"(A'++B) = 1 + "len"(A') + "len"(B)
   $
-  Reagrupando en A:
+
+  Usando la definición de len:
   $
-  "len"(A++B) &= "len"(A'++[a]) + "len"(B)\
+  "len"(A++B) &= 1 + "len"(A') + "len"(B)\
+  &= "len"([a]++A') + "len"(B) \
   &= "len"(A) + "len"(B)
   $
 ]
@@ -502,5 +505,4 @@ $
 therefore "para cualquier list" L, space.med
 "reverse"("reverse"(L)) = L
 $
-
 
