@@ -37,16 +37,17 @@ $
   #align(center)[
     #raw-render(```
       graph {
-        Ana -- Pedro
-        Ana -- María
-        Ana -- Lupita
-        Ana -- Luis
-        Ana -- Jose
-        Pedro -- María
-        Pedro -- Lupita
-        Jose -- Luis
-      }
-    ```) 
+          node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+
+          Ana -- Pedro;
+          Ana -- María;
+          Ana -- Lupita;
+          Ana -- Luis;
+          Ana -- Jose;
+          Pedro -- María;
+          Pedro -- Lupita;
+          Jose -- Luis;
+      }```) 
   ]
 ]
 
@@ -57,6 +58,8 @@ $
   #align(center)[
     #raw-render(```
       graph {
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+
         GAM -- Azcapo
         GAM -- Cua
         GAM -- VC

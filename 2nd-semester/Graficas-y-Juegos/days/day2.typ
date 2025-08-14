@@ -58,6 +58,7 @@ Sea $G$ una grafica.
   #align(center)[
     #raw-render(```
       graph {
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
         A
       }
     ```) 
@@ -66,6 +67,7 @@ Sea $G$ una grafica.
   #align(center)[
     #raw-render(```
       graph {
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
         A B C
       }
     ```) 
@@ -74,6 +76,7 @@ Sea $G$ una grafica.
   #align(center)[
     #raw-render(```
       graph {
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
         A -- B
         A -- C
         A -- D
@@ -158,6 +161,7 @@ Lo anterior se establece en el siguiente teorema.
     #align(center)[
     #raw-render(```
       graph {
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
         Luis Lupita
       }
     ```) 
@@ -170,9 +174,7 @@ Lo anterior se establece en el siguiente teorema.
     #align(center)[
     #raw-render(```
       graph {
-        Jose [fixedsize=true, width=0.5, height=0.5, shape=circle]
-        Luis [fixedsize=true, width=0.5, height=0.5, shape=circle]
-        Pedro [fixedsize=true, width=0.5, height=0.5, shape=circle]
+        node [fixedsize=true, width=0.5, height=0.5, shape=circle];
         Jose -- Luis
         Pedro
       }
