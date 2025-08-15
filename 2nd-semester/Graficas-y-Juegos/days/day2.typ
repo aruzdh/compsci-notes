@@ -1,7 +1,6 @@
 #import "../lib.typ":*
-#import "@preview/diagraph:0.3.3": *
 
-= 
+= 12 de Agosto de 2025 
 
 Retomando la definición del Grado de un Vértice.
 Dado que
@@ -68,6 +67,9 @@ Sea $G$ una grafica.
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+        graph [
+          layout = fdp
+        ]
         A B C
       }
     ```) 
@@ -77,6 +79,14 @@ Sea $G$ una grafica.
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+        graph [
+          layout = fdp
+        ]
+        A[pos="2,6"]
+        B[pos="9,1"]
+        C[pos="3,2"]
+        D[pos="9,2"]
+
         A -- B
         A -- C
         A -- D

@@ -1,7 +1,6 @@
 #import "../lib.typ": *
-#import "@preview/diagraph:0.3.3": *
 
-= 
+= 11 de Agosto de 2025 
 
 #definition("Grafica")[
 Una *grafica* es una pareja $G = (V(G),A(G))$ que consiste de
@@ -34,20 +33,50 @@ $
     ("Lupita", "Pedro"),
   }$
 
-  #align(center)[
-    #raw-render(```
-      graph {
-          node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+    #align(center)[
+    #raw-render(
+      ```
+      graph petersen_graph {
+        layout=neato;
+        bgcolor="transparent";
+        overlap=false; // Prevents nodes from overlapping
 
-          Ana -- Pedro;
-          Ana -- María;
-          Ana -- Lupita;
-          Ana -- Luis;
-          Ana -- Jose;
-          Pedro -- María;
-          Pedro -- Lupita;
-          Jose -- Luis;
-      }```) 
+        node [
+            shape=circle,
+            style=filled,
+            fillcolor="transparent", 
+            fontcolor=black,
+            penwidth=1,
+            color="#333333",
+            fixedsize=true,
+            width=0.5
+        ];
+
+        edge [
+            color="#666666",
+            penwidth=1.5
+        ];
+
+
+    Ana [pos="0,0.8!"];
+    María [pos="0.75,0.25!"];
+    Jose [pos="0.45,-0.85!"];
+    Lupita [pos="-0.75,-0.65!"];
+    Pedro [pos="-0.75,0.25!"];
+    Luis [pos="0.85,0!"]
+
+    Ana -- Pedro
+    Ana -- María
+    Ana -- Lupita
+    Ana -- Luis
+    Ana -- Jose
+    Pedro -- Lupita
+    Pedro -- María
+    Jose -- Luis
+    }
+      ```,
+      width: 19em
+    )
   ]
 ]
 
@@ -59,6 +88,9 @@ $
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+        graph [
+          layout = fdp
+        ]
 
         GAM -- Azcapo
         GAM -- Cua
@@ -92,7 +124,7 @@ $
         Xoch -- MilpaA
       }
     ```,
-    height: 55em,
+    height: 25em,
   ) 
   ]
 ]

@@ -1,6 +1,4 @@
 #import "../lib.typ":*
-#import "@preview/diagraph:0.3.3": *
-
 
 = 13 de Agosto de 2026
 
@@ -14,6 +12,10 @@
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+
+        graph [
+          layout = fdp
+        ]
 
         GAM -- Azcapo
         GAM -- Cua
@@ -39,7 +41,7 @@
         Xoch -- MilpaA
       }
     ```,
-    height: 55em,) 
+    height: 30em,) 
   ]
 ]
 
@@ -51,19 +53,21 @@
   + Si $(u,v) in A(G) arrow.long.r.l.double (u,v) in.not A(G^c)$
 ]
 
-//TODO: Arreglar aliniamiento de las nodos comentados
-
 #example()[
   Dada la grafica del ejemplo anterior. Su grafica complemento es la siguiente.
   #align(center)[
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle,];
+        graph [
+          layout = fdp
+        ]
+
         Cua
         BJ
-        // Coyo
-        // Xoch
-        // AO
+        Coyo
+        Xoch
+        AO
 
         GAM -- Azcapo
         GAM -- VC
@@ -77,7 +81,7 @@
         Tlah -- MilpaA
       }
     ```,
-    height: 55em,) 
+    height: 30em,) 
   ]
 ]
 
@@ -95,9 +99,14 @@ con $n$ el orden de la grafica $G$.
 
 #example()[
   Dado el ejemplo 1. $G$ es la grafica original, y $G^c$ (la siguiente grafica) es el complemento.
+  #align(center)[
+
     #raw-render(```
       graph {
           node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+          graph [
+            layout = fdp
+          ]
 
           Ana
           Pedro -- Luis
@@ -109,6 +118,7 @@ con $n$ el orden de la grafica $G$.
           Lupita -- Luis
 
       }```) 
+  ]
 ]
 
 De esta manera, intuitivamente,
@@ -154,11 +164,20 @@ $
     #raw-render(```
       graph {
         node [fixedsize=true, width=0.5, height=0.5, shape=circle];
+        graph [
+            layout = neato
+        ]
         A -- E
         E -- D
         D -- C
         C -- B
         B -- A
+
+        1[pos="3,2!"]
+        2[pos="3.5,0.5!"]
+        3[pos="2.2,1.5!"]
+        4[pos="3.8,1.5!"]
+        5[pos="2.5,0.5!"]
 
         1 -- 5
         1 -- 2
@@ -167,7 +186,7 @@ $
         5 -- 4
       }
     ```,
-    height: 35em,) 
+    height: 25em,) 
   ]
   La grafica derecha $H$ es isomorfa a $G$, es decir, $G tilde H$
 ]

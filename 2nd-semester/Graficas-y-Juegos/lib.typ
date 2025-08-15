@@ -4,6 +4,7 @@
 #import "translated_terms.typ": *
 #import "@preview/showybox:2.0.3": showybox
 #import "@preview/ctheorems:1.1.3": thmenv, thmrules
+#import "@preview/diagraph:0.3.3": *
 
 // =============================================================
 // Template
