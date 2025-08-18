@@ -1,6 +1,6 @@
 #import "../lib.typ":*
 
-= 15 de Agosto de 2026
+= 15 de Agosto de 2025
 
 #definition("Camino")[
   Sea $G$ una gráfica. Diremos que una sucesión de vértices $w = {v_0, v_1, dots, v_K}$ es un *camino*, denotado como $u v$-camino (donde $u,v$ son los extremos del camino), si la arista $(v_i, v_(i+1)) in A(G)$ para todo $i = (0, dots, k-1)$. 

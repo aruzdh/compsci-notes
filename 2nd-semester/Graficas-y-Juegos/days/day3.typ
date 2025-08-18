@@ -1,6 +1,6 @@
 #import "../lib.typ":*
 
-= 13 de Agosto de 2026
+= 13 de Agosto de 2025
 
 #example()[
   Dado el ejemplo 2. $V(H') = {u in V(G) bar.v u "colinda con otros estados"}$

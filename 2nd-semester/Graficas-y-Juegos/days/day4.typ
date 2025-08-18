@@ -1,6 +1,6 @@
 #import "../lib.typ":*
 
-= 14 de Agosto de 2026
+= 14 de Agosto de 2025
 
 == Ejemplo
 
