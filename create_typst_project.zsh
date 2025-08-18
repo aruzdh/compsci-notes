@@ -8,12 +8,14 @@
 
 readonly TEMPLATE_BY_LECTURES="template-by-lectures"
 readonly TEMPLATE_BY_CHAPTERS="template-by-chapters"
+readonly MINIMAL_TEMPLATE="minimal-template"
 
 new_dir_name="$1"
 
 echo "Notes by"
 echo "(0) - Lectures"
 echo "(1) - Chapters"
+echo "(2) - Minimal"
 echo -n "\nChoose a format: "
 read format
 
@@ -21,9 +23,11 @@ if ((format == 0)); then
   template_dir=$TEMPLATE_BY_LECTURES
 elif ((format == 1)); then
   template_dir=$TEMPLATE_BY_CHAPTERS
+elif ((format == 2)); then
+  template_dir=$MINIMAL_TEMPLATE
 else
-  echo "Invalid format selected. Defaulting to Lectures."
-  template_dir=$TEMPLATE_BY_LECTURES
+  echo "Invalid format selected. Defaulting to Minimal."
+  template_dir=$MINIMAL_TEMPLATE
 fi
 
 echo "Selected template directory is: $template_dir"
