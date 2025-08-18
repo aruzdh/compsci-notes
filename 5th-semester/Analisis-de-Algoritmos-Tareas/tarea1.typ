@@ -1,13 +1,4 @@
-#let dem(body) = [
-  #block(
-    inset: (left: 2em),
-    [
-    *_Demostración:_* 
-    #body 
-    #place(bottom + right, $qed$)
-    ]
-  )
-]
+#import "./utils.typ":*
 
 #align(center)[
   #text(18pt)[
