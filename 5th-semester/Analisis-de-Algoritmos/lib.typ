@@ -4,6 +4,8 @@
 #import "translated_terms.typ": *
 #import "@preview/showybox:2.0.3": showybox
 #import "@preview/ctheorems:1.1.3": thmenv, thmrules
+#import "@preview/codly:1.3.0": *
+#show: codly-init.with()
 
 // =============================================================
 // Template

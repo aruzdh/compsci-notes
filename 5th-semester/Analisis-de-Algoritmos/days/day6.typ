@@ -1,8 +1,9 @@
 #import "../lib.typ":*
+#show: codly-init.with()
 
 = 18 de Agosto de 2025
 
-== Definición de lProblema
+== Definición del Problema
 
 Dados dos naturales $a,b$ (no los dos simultaneamente cero) determinar $"MCD"(a,b)$, donde MCD es el _máxico común divisor_.
 
@@ -12,17 +13,19 @@ Dados dos naturales $a,b$ (no los dos simultaneamente cero) determinar $"MCD"(a,
 
 == Ejemplos de Instancias
 
-$"MCD"(8,6) = 2$
-
-$"MCD"(5,9) = 1$
-
-$"MCD"(0, 17) = 17$
+$
+"MCD"(8,6) = 2,
+space.quad
+"MCD"(5,9) = 1,
+space.quad
+"MCD"(0, 17) = 17
+$
 
 == Soluciones
 
 === Iterativo
 
-Exponencial en el número de bits de entrada
+El siguiente algoritmo tiene complejidad en tiempo *exponencial* en el *número de bits de entrada*.
 ```python
 def MCDexahustivo(a,b):
   acc = 1
@@ -34,20 +37,23 @@ def MCDexahustivo(a,b):
 
 === Algoritmo de Euclides - Recursivo
 
+Para este algoritmo se necesita el siguiente lema y corolario.
 #lemma()[
   Sean $a,b in ZZ$, con $a >= b$. Para todo divisor común $d$ de $a$ y $b$ se tiene que $d$ es multiplo de $a-b$.
 ]
 
 #proof()[
   Por definición de multiplo, $a = d dot.c e_(a c)$ y $b = d dot.c e_(b d)$, con $e_(a d), e_(b,d) in ZZ$. Restando las dos igualdades:
-  $a - b = d dot.c underbrace((e_(a d) - e_(b d)),[>= 0 in NN])$
+  $a - b = d dot.c overbrace((e_(a d) - e_(b d)),>= 0 in NN)$
+  $$
 ]
 
 #corollary()[
   Para todo $a>=b$, el $"MCD"(a,b)$ es divisor de $a-b$. Además, el $"MCD"(a,b) = "MCD"(b, a-b)$.
 ]
 
-//TODO: suma de a + b, por induccion fuerte
+Recordande el problema dado:
+
 Dados dos naturales $a>=b$ (no los dos simultaneamente cero y $b != 0$) determinar $"MCD"(a,b)$, donde MCD es el _máxico común divisor_.
 
 ```python
@@ -56,7 +62,22 @@ def MCD(a,b):
     MCD(b,a)
   if b == 0:
     return a
-  
   return MCD(b, a-b)
 ```
 
+//TODO: suma de a + b, por induccion fuerte
+#proof()[
+  Por induccion fuerte sobre $b$
+
+  *Caso Base.* $b = 0$
+
+  // b == )?
+  Si $b = 0$ y $a > 0$, el $"MCD"(a,b)$ ciertamente es $a$. Así que estamos devolviendo el valor correcto.
+
+  *Hipótesis de induccion.* Supongamos que el algoritmo es correcto para $a >= b$ enteros.
+
+  *Paso Inductivo.* $$
+
+  Por demostrar: El algoritmo es correcto para toda lista con $k + 1$ elementos.
+
+]

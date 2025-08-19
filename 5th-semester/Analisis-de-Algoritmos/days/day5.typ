@@ -1,4 +1,6 @@
 #import "../lib.typ":*
+#show: codly-init.with()
+
 
 = 15 de Agosto de 2025
 
