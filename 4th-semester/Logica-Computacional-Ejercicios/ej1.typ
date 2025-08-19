@@ -38,6 +38,8 @@
 
   ]
 
+#pagebreak()
+
 + Dadas las siguientes definiciones.
   $
   "con"(p) = 0, space.quad
@@ -69,7 +71,7 @@
   "con"(phi_i) < 2^("depth"(phi_i) + 1)
   $
 
-  *Paso Inductivo:* Sea $phi = phi_1$
+  *Paso Inductivo (1):* Sea $phi = phi_1$
 
   Por demostrar:  $"con"(not phi_1) < 2^("depth"(not phi_1) + 1)$
 
@@ -102,10 +104,54 @@
     $
   ]
 
+  *Paso Inductivo (2):* Sea $phi = phi_1 join phi_2$
 
   Por demostrar:  $"con"(phi_1 join phi_2) < 2^("depth"(phi_1 join phi_2) + 1)$
 
   #dem()[
 
-    h
+    Tenemos que $"con"(phi_1 join phi_2) = "con"(phi_1) + "con"(phi_2)$, 
+
+    Además, $2^("depth"(phi_1 join phi_2) + 1) = 2^("max"("depth"(phi_1), "depth"(phi_2)) + 1 + 1) = 2^2 dot.c 2^("max"("depth"(phi_1), "depth"(phi_2)))$
+
+    Por Hipótesis de Inducción tenemos lo siguiente:
+    $
+    "con"(phi_1) + "con"(phi_2) < 2^("depth"(phi_1) + 1) + 2^("depth"(phi_2) + 1)
+    space.quad\
+    arrow.r.l.double.long
+    space.quad\
+    "con"(phi_1) + "con"(phi_2) < 2 dot.c (2^("depth"(phi_1)) + 2^("depth"(phi_2)))
+    $
+
+    Buscamos que
+    $
+    2 dot.c (2^("depth"(phi_1)) + 2^("depth"(phi_2))) <
+    2^2 dot.c 2^("max"("depth"(phi_1), "depth"(phi_2)))
+    $
+
+    Dividimos por 2:
+    $
+     2^("depth"(phi_1)) + 2^("depth"(phi_2)) <
+    2 dot.c 2^("max"("depth"(phi_1), "depth"(phi_2)))
+    $
+
+    SPG, supongamos que $"depth"(phi_1) > "depth"(phi_2)$. Entonces //TODO: > (=?)
+    $
+    2^("depth"(phi_1)) + 2^("depth"(phi_2)) <
+    2 dot.c 2^("depth"(phi_1)) = 2^("depth"(phi_1)) + 2^("depth"(phi_1))
+    $
+
+    Restamos $2^("depth"(phi_1))$:
+    $
+    2^("depth"(phi_2)) < 2^("depth"(phi_1))
+    $
+
+    Dado que $"depth"(phi_1) > "depth"(phi_2)$, la igualdad es válida.
+
+    Por la transitividad de < se tiene:
+    $
+    "con"(phi_1 join phi_2) < 2^2 dot.c 2^("max"("depth"(phi_1), "depth"(phi_2))) = 2^("depth"(phi_1 join phi_2)+1)
+    $
+
+    $$
   ]
