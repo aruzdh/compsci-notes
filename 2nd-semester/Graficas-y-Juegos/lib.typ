@@ -476,3 +476,14 @@
   )
 }
 ).with(numbering(boxcounting)).with(numbering(boxcounting))
+
+// ------------- GRAPHS -------------
+
+#let graph(body) = [
+  #align(center)[
+    #raw-render(
+      body,
+      width: 35em
+    )
+  ]
+]
