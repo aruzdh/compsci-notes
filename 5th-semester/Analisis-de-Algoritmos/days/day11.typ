@@ -45,19 +45,8 @@ Complejidad: Lineal en $n$.
 
 == Algoritmo (3)
 
-*_Se usa el Algoritmo de la clase pasada: fastpow._* Con la modificación del caso base (para que aplique a matrices)
-
-==== Python
-
-//TODO: bien
-```python
-  M = [[3,2],[1,0]]
-  def ffast(n):
-    m_n = fastpow(M)
-    return (m_n * [2,1])[1]
-```
-==== Julia
+*_Se usa el Algoritmo de la clase pasada: fastpow._* Con la modificación del caso base (para que aplique a matrices). En el caso de _Julia_, ya se usa un algoritmo similar para la potencia. Así que el algoritmo final queda de la siguiente manera:
 
 ```julia
-f(n) = ([BigInt(3) 2 ; 1 0]^n) * [2 ; 1]
+f(n) = (([BigInt(3) 2 ; 1 0]^n) * [2 ; 1])[2]
 ```
