@@ -2,8 +2,7 @@
 
 = 22 de Agosto 2025
 
-== 
-hhthhthth
+== Proposición
 
 // #graph(
 //     ```
@@ -98,12 +97,56 @@ hhthhthth
   decimos que $E$ es un $m$-conjunto de corte por aristas.
 ]
 
-//TODO: gráfica
 #example()[
+  #align(center)[
+    #raw-render(
+      ```
+      graph camino {
+        layout=neato;
+        bgcolor="transparent";
+        overlap=false;
 
+      node [
+        shape=circle,
+        style=filled,
+        fillcolor="transparent", 
+        fontcolor=black,
+        penwidth=2,
+        color="#333333",
+        fixedsize=true,
+        width=0.5
+      ];
+
+      edge [
+        color="#666666",
+        penwidth=1.5
+      ];
+
+
+      a [pos="0,-2!"]
+      b [pos="1,-1!"]
+      f [pos="0,0!"]
+      c [pos="2,0!"]
+      d [pos="2,-1!"]
+      e [pos="2,-2!"]
+
+      a -- b -- f 
+      c -- d -- e
+      b -- c
+      b -- d
+      b -- e
+      
+
+    }
+    ```,
+    width: 13em
+    )
+  ]
+  - Si tomamos $F = {(a,b)}$, entonces $omega(G) = 1 < omega(G-F) = 2$, y por tanto $F$ es un 1-corte por aristas.
+  - Si tomamos $E = {(a,b), (b,c)}$, entonces $omega(G) < omega(G-E)$, y por tanto $E$ es un 2-corte por aristas.
 ]
 
-==
+== Teorema sobre Conexidad
 
 #theorem()[
   Sea $G$ una gráfica conexa, tal que $G$ tiene un ciclo (trayectoria cerrada). Sea $gamma$ el ciclo y $a in A(gamma)$. Entonces $G-{a}$ es conexa.

@@ -18,11 +18,82 @@
   $G$ tiene al menos 3 vértices.
 
   - Caso 1 -> 3 vértices
-  //TODO: gráfica
+    #align(center)[
+      #raw-render(
+        ```
+        graph camino {
+          layout=neato;
+          bgcolor="transparent";
+          overlap=false;
+
+        node [
+          shape=circle,
+          style=filled,
+          fillcolor="transparent", 
+          fontcolor=black,
+          penwidth=2,
+          color="#333333",
+          fixedsize=true,
+          width=0.5
+        ];
+
+        edge [
+          color="#666666",
+          penwidth=1.5
+        ];
+
+
+        1 [pos="0,-2!"]
+        2 [pos="-1,-3!"]
+        3 [pos="1,-3!"]
+
+        1 -- 2 -- 3
+
+      }
+      ```,
+          width: 10em
+        )
+      ]
   Si se toma cualquier arista $v$ y se quita, $G-{v}$ siguie siendo conexa.
 
   - Caso 2 -> 4 vértices
-  //TODO: gráfica
+    #align(center)[
+      #raw-render(
+        ```
+        graph camino {
+          layout=neato;
+          bgcolor="transparent";
+          overlap=false;
+
+        node [
+          shape=circle,
+          style=filled,
+          fillcolor="transparent", 
+          fontcolor=black,
+          penwidth=2,
+          color="#333333",
+          fixedsize=true,
+          width=0.5
+        ];
+
+        edge [
+          color="#666666",
+          penwidth=1.5
+        ];
+
+
+        1 [pos="0,-2!"]
+        2 [pos="-1,-3!"]
+        3 [pos="1,-3!"]
+        4 [pos="2,-2!"]
+
+        1 -- 2 -- 3 -- 4
+
+      }
+      ```,
+          width: 15em
+        )
+      ]
   $G_2$ es la subgráfica que buscamos.
 
   *Hipótesis de Inducción:* Fijamos $m$ y suponemos que se cumple para toda gráfica $abs(A(G)) < m$
