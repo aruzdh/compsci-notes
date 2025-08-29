@@ -2,7 +2,7 @@
 
 = 28 de Agosto 2025
 
-==
+== Demostraciones
 
 #exercise()[
   Demuestra que dada $G$ una gráfica, tal que $"d"(v) >=2$, $forall v in V(G)$, entonces $G$ tiene un ciclo.
