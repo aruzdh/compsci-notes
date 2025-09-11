@@ -1,6 +1,6 @@
 #include "../days/day21.typ"
 #include "../days/day22.typ"
 #include "../days/day23.typ"
-// #include "../days/day19.typ"
+#include "../days/day24.typ"
 // #include "../days/day20.typ"
 
