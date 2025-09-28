@@ -36,20 +36,25 @@ Considerando $C' = {u_i, u_n, u_(n-1), u_(n-2), u_(i+1), u_1, u_2, dots, u_(i-1)
 ]
 
 #definition("Cerradura")[
-  Sea $G$ una gráfica. Llamamos la cerradura de $G (G^-)$ a la gráfica que resulta de unir vértices *no* adyacentes cuya suma de grados sea mayor o igual al $abs(V(G))$
+  Sea $G$ una gráfica. Llamamos la cerradura de $G (overline(G))$ a la gráfica que resulta de unir vértices *no* adyacentes cuya suma de grados sea mayor o igual al $abs(V(G))$
 ]
 
-#example()[
+Sean $G_1$ y $G_2$(distintas) las gráficas obtenidas del proceso de la definición de cerradura. Sean $A = {a_1, a_2, dots, a_k}$ las aristas agregadas a $G$ para obtener $G_1$, $B = {b_1, b_2, dots, b_m}$ las aristas agregadas a $G$ para obtener $G_1$.
 
-  //TODO: gráfica
-]
+Sea $a_i$ una arista que no esté en $G_2$. Sean $x,y in V(G)$ tales que $a = (x,y)$. Como $a_i in G_1$, entonces $"d"_G (x) + "d"_(G^l)(y) >= abs(V(G))$, pero entonces la arista $(x,y) in G_2$. Por tanto, $A subset.eq B$.
 
-Sean $G_1$ y $G_2$(distintas) las gráficas obtenidas del proceso de la definición de cerradura
+Análogamente se concluye que $B subset.eq A$, y entonces $ G_1 = G_2$
 
 #theorem()[
-  $G$ es Hamiltoniana si y solo si la cerradura de $G$ es Hamiltoniana
+  $G$ es Hamiltoniana si y solo si $overline(G)$ es Hamiltoniana
+]
+
+#proof()[
+  $arrow.double$ Sea $G$ Hamiltoniana. Sean $A = {a_1, a_2, dots, a_k}$ las aristas (en orden)para obtener a $overline(G)$. Entonces $G + a_1$ es Hamiltoniana, $G + a_1 + a_2$ es Hamiltoniana, y por tanto $G + a_1 + dots + a_k = G + A = overline(G)$ es Hamiltoniana.
+
+  $arrow.double.l$ Sea $overline(G)$ Hamiltoniana. Entonces se tiene que $G + a_1 + dots + a_k-1$ es Hamiltoniana, $G + a_1 + dots + a_(k-2)$, y se sigue que $G - a_1 = G$ es Hamiltoniana.
 ]
 
 #corollary()[
-  Si la cerradura de $G^-$
+  Si$overline(G) tilde.equiv K_n$, entonces $G$ es Hamiltoniana.
 ]

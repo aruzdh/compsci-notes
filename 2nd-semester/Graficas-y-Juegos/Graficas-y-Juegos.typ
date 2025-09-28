@@ -26,4 +26,5 @@
 #include "./weeks/week4.typ"
 #include "./weeks/week5.typ"
 #include "./weeks/week6.typ"
+#include "./weeks/week7.typ"
 
