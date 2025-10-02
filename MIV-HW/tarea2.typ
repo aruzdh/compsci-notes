@@ -220,7 +220,7 @@ x y' + (1 + x)y = e^(-x) sin(2x) arrow.double.long
 y' + (1 + x)/x y = e^(-x) sin(2x)/x 
 $
 
-Calculande el factor integrante:
+Calculando el factor integrante:
 $
 e^(integral (1+x)/x dif x) = e^(integral 1/x dif + integral 1 dif x) = e^(ln(x) + x) = e^(ln x) e^x = x e^x space.quad forall x > 0
 $
@@ -252,17 +252,210 @@ y su intervalo de definición es $I = RR \\ {0} $
 
 (a) $ L (dif i)/(dif t) + R i = E; quad i(0) = i_0; $ con $L, R, E, " e " i_0$ constantes
 
-Primero tenemos que:
+Escribimos la ecuación en su forma estándar:
+$
+L (dif i)/(dif t) + R i = E arrow.double.long (dif i)/(dif t) + R/L i = E/L
+$
 
+Calculando el factor integrante:
 $
-L (dif i)/(dif t) + R i = E arrow.long.double (dif i) / (dif t) = (E - R i)/L
+e^(R/L integral dif t) = e^(R/L t)
 $
+
+Multiplicando el factor integrante por la ED:
+$
+e^(R/L t) [(dif i)/(dif t) + R/L i] = e^(R/L t) E/L arrow.double.long 
+e^(R/L t) (dif i)/(dif t) + e^(R/L t) R/L i = e^(R/L t) E/L arrow.double.long 
+(dif i)/(dif t) [e^(R/L t) i] = e^(R/L t) E/L
+$
+
+Integrando ambos lados:
+$
+integral (dif i)/(dif t) [e^(R/L t) i] dif t = E/L integral e^(R/L t) dif t
+arrow.double.long
+e^(R/L t) i = E/L L/R integral e^u dif u arrow.double.long e^(R/L i) = E/R e^(R/L t) + C
+$
+
+#align(center)[ con la substitución $u = R/L t, dif u = R/L dif t$ ]
+
+Entonces tenemos:
+$
+i = (E/R e^(R/L t) + C)/e^(R/L t) = E/R  + C/e^(R/L t)
+$
+
+De la condición inicial $i(0) = i_0$:
+$
+i(0) = E/R  + C/e^(R/L dot.c 0) = i_0 arrow.double.long i_0 - E/R = C
+$
+
+Por tanto, la solución del PVI es:
+$
+i(t)  = E/R  + (i_0 - E/R)/e^(R/L t)
+$
+
+y su intervalo de definición $I = RR$, solo es necesario que $R != 0$ y$L != 0$.
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
 (b) $ (1 + t^2) (dif y)/(dif t) + 4t y = t; quad y(1) = 1/4 $
 
+Primero tenemos que:
+$
+(1 + t^2) (dif y)/(dif t) + 4t y = t arrow.double.long (dif y)/(1-4y) = t/(1+t^2) dif t
+$
+
+Integrando ambos lados:
+$
+integral (dif y)/(1-4y) = integral t/(1+t^2) dif t
+arrow.double.long
+-1/4 ln(1-4y) = 1/2 ln(1+t^2) + C
+$
+#align(center)[ con $1/4 > y$]
+
+Entonces tenemos:
+$
+-1/4 ln(1-4y) = 1/2 ln(1+t^2) + C
+& arrow.double.long
+ln(1-4y) = -2 ln(1+t^2) + C \
+& arrow.double.long
+y = -(e^(-2 ln(1+t^2) + C) - 1)/4\
+& arrow.double.long
+y = -(e^(ln((1+t^2)^(-2)))e^C - 1)/4\
+& arrow.double.long
+y = -((1+t^2)^(-2)e^C - 1)/4\
+& arrow.double.long
+y = 1/4 - (e^C)/(4(1+t^2)^2)
+$
+
+Para simplificar los cálculos se agrupan la constante $-e^C/4$ en una sola llamada $K$, quedando:
+$
+y = 1/4 + K/(1+t^2)^2
+$
+
+De la condición inicial $y(1) = 1/4$:
+$
+y(1) = 1/4 + K/(1+1^2)^2 = 1/4 arrow.double.long
+K/4= 0 arrow.double.long K = 0
+$
+
+Por lo tanto, la solución del PVI es:
+$
+y = 1/4 + 0/(1+t^2)^2
+arrow.double.long
+y(t) = 1/4
+$
+
+y su intervalo de definición es $I = RR$.
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
+
 (c) $ x^3 y' + 4x^2 y = e^(-x); quad y(-1) = 0 $
 
+Escribimos la ecuación en su forma estándar:
+$
+x^3 y' + 4x^2 y = e^(-x)
+arrow.double.long
+y' + (4x^2)/x^3 y = e^(-x)/x^3
+$
+
+Calculando el factor integrante:
+$
+e^(4 integral x^2/x^3 dif x) = e^(4/3 ln(x^3)) = e^(4ln(x)) = x^4
+$
+
+Multiplicando el factor integrante por la ED:
+$
+x^4[y' + (4x^2)/x^3 y] = x^4 e^(-x)/x^3
+arrow.double.long
+x^4 y' + 4x^3 y = x e^(-x)
+arrow.double.long
+(dif y)/(dif x) [x^4 y] = x e^(-x)
+$
+
+Integrando ambos lados:
+$
+integral (dif y)/(dif x) [x^4 y] dif x = integral x e^(-x) dif x
+& arrow.double.long
+x^4 y = -x e^(-x) + integral e^(-x) dif x \
+& arrow.double.long
+x^4 y = -x e^(-x) - e^(-x) + C\
+& arrow.double.long
+x^4 y = -e^(-x)(x + 1) + C
+$
+
+#align(center)[ con la integración por partes usando:  $u = x, dif u = dif x, dif v = e^(-x), v = -e^(-x) $ ]
+
+Entonces tenemos:
+$
+y = (-e^(-x)(x + 1) + C)/x^4
+$
+
+De la condición inicial $y(-1) = 0$:
+$
+y(-1) = (-e^(-(-1))(-1 + 1) + C)/(-1)^4 = 0
+arrow.double.long
+C/1 = 0
+arrow.double.long
+C = 0
+$
+
+Por la tanto, la solución del PVI es:
+$
+y = (-e^(-x)(x + 1))/x^4
+$
+
+//TODO: Revisar el (y los demas intervalos)
+y el intervalo de definición es $I = RR \\ {0}$
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
+
 (d) $ y' + (2/x) y = (cos x)/x^2; quad y(π) = 0 $
+
+Calculando el factor integrante:
+$
+e^(2 integral 1/x dif x) = e^(ln(x^2)) = x^2
+$
+
+Multiplicando el factor integrante por la ED:
+$
+x^2 [y' + (2/x) y] = x^2 (cos x)/x^2 
+arrow.double.long
+x^2 y' + 2x y = cos x
+arrow.double.long
+(dif y)/(dif x)[x^2 y] = cos x
+$
+
+Integrando ambos lados:
+$
+integral (dif y)/(dif x)[x^2 y] dif x = integral cos x dif x
+arrow.double.long
+x^2 y = sin x + C
+$
+
+Entonces tenemos:
+$
+y = (sin(x) + C)/ x^2
+$
+
+De la condición inicial $y(pi) = 0$:
+$
+y(pi) = (sin(pi) + C)/ pi^2 = 0
+arrow.double.long
+C/ pi^2 = 0
+arrow.double.long
+C = 0
+$
+
+Por tanto, la solución del PVI es:
+$
+y(x) = (sin x)/x^2
+$
+
+//TODO: Revisar el intervalo
+
+y su intervalo de definición es $I = RR \\ {0}$.
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
 3. Resuelva los siguientes problemas con valores iniciales (PVI). Use un programa para graficar sus soluciones.
 
