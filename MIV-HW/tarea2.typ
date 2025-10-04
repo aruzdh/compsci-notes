@@ -464,12 +464,368 @@ y su intervalo de definición es $I = RR \\ {0}$.
    "con" quad f(x) = cases(x space.quad 0 <= x <= 1, 0space.quad x >= 1)
 $
 
+Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f$ está definida.
+
+- 
+  Para el intervalo $0 <= x <= 1$ tenemos la ED:
+  $
+    (dif y)/(dif x) + 2x y = x
+  $
+
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(2integral x dif x) = e^x^2
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^x^2[(dif y)/(dif x) + 2x y] = e^x^2 dot.c x
+  arrow.double.long
+  e^x^2(dif y)/(dif x) + 2e^x^2 x y = e^x^2 x
+  arrow.double.long
+  (dif y)/(dif x)[e^x^2 y] = e^x^2 x
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x)[e^x^2 y] dif x = integral e^x^2 x dif x
+  arrow.double.long
+  e^x^2 y = 1/2 e^x^2 + C
+  $
+  #align(center)[ (la integral del lado derecho se resolvió examinando los factores) ]
+
+  Entonces tenemos:
+  $
+  y = (1/2 e^x^2 + C)/e^x^2 
+  = 1/2  + C/e^x^2 
+  $
+
+  De la condición inicial $y(0) = 2$:
+  $
+  y(0) = 1/2  + C/e^0^2 = 2
+  arrow.double.long
+  C = 3/2
+  $
+
+  Así tenemos que:
+  $
+  y = 1/2  + 3/2e^(-x^2) space.quad space.quad forall 0 <= x <= 1
+  $
+-
+  Para el intervalo $x >= 1$ tenemos la ED:
+  $
+    (dif y)/(dif x) + 2x y = 0
+  $
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(2 integral x dif x) = e^x^2 space.quad ("es el mismo que antes")
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^x^2[(dif y)/(dif x) + 2x y] = e^x^2 dot.c 0
+  arrow.double.long
+  e^x^2(dif y)/(dif x) + 2e^x^2 x y = 0
+  arrow.double.long
+  (dif y)/(dif x)[e^x^2 y] = 0
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x)[e^x^2 y] dif x = integral 0 dif x 
+  arrow.double.long
+  e^x^2 y = K space.quad (K " constante")
+  $
+
+  Entonces tenemos:
+  $
+  y = K e^(-x^2)
+  $
+
+  Usando la definición de continuidad de una función determinamos el valor de $K$ suponiendo que $y(x)$ es continua en $x = 1$. Entonces tenemos:
+  $
+  lim_(x arrow a^-) f(x) = lim_(x arrow a^+) f(x)
+  & arrow.double.long
+  lim_(x arrow 1^-) y(x) = lim_(x arrow 1^+) y(x)\
+  & arrow.double.long
+  1/2 + 3/2 e^(-x^2) = K e^(-x^2) \
+  & arrow.double.long
+  1/2 + 3/2 e^(-1) = K e^(-1)\
+  $
+
+  Despejando $K$:
+  $
+  (1/2 + 3/2 e^(-1)) / e^(-1) = K 
+   arrow.double.long
+  e^1/2 + 3/2 = K 
+   arrow.double.long
+  K = (e + 3)/2
+  $
+
+  Así tenemos que:
+  $
+  y(x) = (e + 3)/2 e^(-x^2) space.quad space.quad forall x >= 1
+  $
+
+Por tanto:
+$
+y(x) = cases(
+  1/2  + 3/2e^(-x^2) space.quad space.quad 0 <= x <= 1,
+  (e+3)/2 e^(-x^2) space.quad space.quad space.quad space.quad x >= 1
+)
+$
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
+
 (b) $
   (dif y)/(dif x) + 2y = f(x); quad y(0) = 0 quad
   "con" quad f(x) = cases(1 space.quad  0 <= x <= 3, 0 space.quad  x > 3)
 $
 
+Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f$ está definida.
+
+- 
+  Para el intervalo $0 <= x <= 3$ tenemos la ED:
+  $
+    (dif y)/(dif x) + 2 y = 1
+  $
+
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(2integral dif x) = e^(2x)
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^(2x)[(dif y)/(dif x) + 2y] = e^(2x) dot.c 1
+  arrow.double.long
+  e^(2x) (dif y)/(dif x) + 2 e^(2x)y = e^(2x)
+  arrow.double.long
+  (dif y)/(dif x) [e^(2x) y] = e^(2x)
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x) [e^(2x) y] dif x = integral e^(2x) dif x
+  arrow.double.long
+  e^(2x) y = 1/2 e^(2x) + C
+  $
+
+  #align(center)[ (la integral del lado derecho se resolvió examinando los factores) ]
+
+  Entonces tenemos:
+  $
+  y = (1/2 e^(2x) + C)/e^(2x)
+  arrow.double.long
+  y = 1/2 + C/e^(2x)
+  $
+
+  De la condición inicial $y(0) = 0$:
+  $
+  y(0) = 1/2 + C/e^(2(0)) = 0
+  arrow.double.long
+  C = -1/2
+  $
+
+  Así tenemos que:
+  $
+  y(x) = 1/2 + (-1/2)/e^(2x) = (1 - e^(-2x))/2 space.quad space.quad forall 0 <= x <= 3
+  $
+
+- 
+  Para el intervalo $x > 3$ tenemos la ED:
+  $
+    (dif y)/(dif x) + 2 y = 0
+  $
+
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(2integral dif x) = e^(2x)
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^(2x)[(dif y)/(dif x) + 2y] = e^(2x) dot.c 0
+  arrow.double.long
+  e^(2x) (dif y)/(dif x) + 2 e^(2x)y = 0
+  arrow.double.long
+  (dif y)/(dif x) [e^(2x) y] = 0
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x) [e^(2x) y] dif x = integral 0 dif x
+  arrow.double.long
+  e^(2x) y = K space.quad (K " constante")
+  $
+
+  Entonces tenemos:
+  $
+  y = K e^(-2x)
+  $
+
+  Usando la definición de continuidad una función determinamos el valor de $K$ suponiendo que $y(x)$ es continua en $x = 3$. Entonces tenemos:
+  $
+  lim_(x arrow a^-) f(x) = lim_(x arrow a^+) f(x)
+  & arrow.double.long
+  lim_(x arrow 3^-) y(x) = lim_(x arrow 3^+) y(x)\
+  & arrow.double.long
+  (1 - e^(-2x))/2 = K e^(-2x)\
+  & arrow.double.long
+  (1 - e^(-2 dot.c 3))/2 = K e^(-2 dot.c 3)
+  $
+
+  Despejando $K$:
+  $
+  ((1 - e^(-2 dot.c 3))/2)/e^(-2 dot.c 3) = K
+  arrow.double.long
+  ((1 - e^(-6))/2)e^6 = K
+  arrow.double.long
+  K = (e^6 - 1)/2
+  $
+
+  Así tenemos que:
+  $
+  y(x) = (e^6 - 1)/2 e^(-2x) space.quad space.quad forall x > 3
+  $
+
+  Por tanto:
+  $
+  y(x) = cases(
+  (1 - e^(-2x))/2 space.quad space.quad&0 <= x <= 3,
+  (e^6 - 1)/2 e^(-2x) &x > 3
+  )
+  $
+
+#line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
+
 (c) $
   (dif y)/(dif x) + y = f(x); quad y(0) = 1 quad
    "con" quad f(x) = cases(1 space.quad  0 <= x <= 1, -1 space.quad x > 1)
 $
+
+Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f$ está definida.
+
+- 
+  Para el intervalo $0 <= x <= 1$ tenemos la ED:
+  $
+    (dif y)/(dif x) + y = 1
+  $
+
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(integral dif x) = e^x
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^x [(dif y)/(dif x) + y] = e^x dot.c 1
+  arrow.double.long
+  e^x (dif y)/(dif x) + e^x y = e^x
+  arrow.double.long
+  (dif y)/(dif x) [e^x y] = e^x
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x) [e^x y] dif x = integral e^x dif x
+  arrow.double.long
+  e^x y = e^x + C
+  $
+
+  Entonces tenemos:
+  $
+  e^x y = e^x + C
+  arrow.double.long
+  y = 1 + C e^(-x)
+  $
+
+  De la condición inicial $y(0) = 1$:
+  $
+  y(0) = 1 + C e^(-0) = 1
+  arrow.double.long
+  C = 0
+  $
+
+  Así tenemos que:
+  $
+  y(x) = 1 space.quad space.quad forall 0 <= x <= 1
+  $
+
+- 
+  Para el intervalo $x > 1$ tenemos la ED:
+  $
+    (dif y)/(dif x) + y = -1
+  $
+
+  que ya se encuentra en su forma estándar.
+
+  Calculando el factor integrante:
+  $
+  mu(x) = e^(integral dif x) = e^x
+  $
+
+  Multiplicando el factor integrante por la ED:
+  $
+  e^x [(dif y)/(dif x) + y] = e^x dot.c -1
+  arrow.double.long
+  e^x (dif y)/(dif x) + e^x y = -e^x
+  arrow.double.long
+  (dif y)/(dif x) [e^x y] = -e^x
+  $
+
+  Integrando ambos lados:
+  $
+  integral (dif y)/(dif x) [e^x y] dif x = - integral e^x dif x
+  arrow.double.long
+  e^x y = -e^x + K
+  $
+
+  Entonces tenemos:
+  $
+  y = (-e^x + K)/e^x = K e^(-x) - 1
+  $
+
+  Usando la definición de continuidad una función determinamos el valor de $K$ suponiendo que $y(x)$ es continua en $x = 1$. Entonces tenemos:
+  $
+  lim_(x arrow a^-) f(x) = lim_(x arrow a^+) f(x)
+  & arrow.double.long
+  lim_(x arrow 1^-) y(x) = lim_(x arrow 1^+) y(x)\
+  & arrow.double.long
+  1 = K e^(-x) - 1\
+  & arrow.double.long
+  1 = K e^(-1) - 1
+  $
+
+  Despejando $K$:
+  $
+  1 = K e^(-1) - 1
+  arrow.double.long
+  2/e^(-1)= K
+  arrow.double.long
+  K = 2e
+  $
+
+  Así tenemos que:
+  $
+
+  y = 2e e^(-x) - 1 = 2e^(1-x) - 1 space.quad space.quad forall x > 1
+  $
+
+  Por tanto:
+  $
+  y(x) = cases(
+  1 & 0 <= x <= 1,
+  2e^(1-x) - 1 space.quad space.quad &x > 1
+  )
+  $
