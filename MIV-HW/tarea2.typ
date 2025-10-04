@@ -579,6 +579,12 @@ y(x) = cases(
 )
 $
 
+Para graficar la solución se usó GeoGebra:
+
+#figure(
+  image("graficas/a.png", width: 66%),
+)
+
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
 (b) $
@@ -705,6 +711,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   )
   $
 
+Para graficar la solución se usó GeoGebra:
+
+#figure(
+  image("graficas/b.png", width: 100%),
+)
+
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
 (c) $
@@ -822,10 +834,16 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   y = 2e e^(-x) - 1 = 2e^(1-x) - 1 space.quad space.quad forall x > 1
   $
 
-  Por tanto:
-  $
-  y(x) = cases(
-  1 & 0 <= x <= 1,
-  2e^(1-x) - 1 space.quad space.quad &x > 1
-  )
-  $
+Por tanto:
+$
+y(x) = cases(
+1 & 0 <= x <= 1,
+2e^(1-x) - 1 space.quad space.quad &x > 1
+)
+$
+
+Para graficar la solución se usó GeoGebra:
+
+#figure(
+  image("graficas/c.png", width: 100%),
+)
