@@ -1,4 +1,6 @@
 #import "./utils.typ":*
+#set text(size: 12pt)
+#show math.equation: set text(size: 13pt)
 
 #align(center)[
   #text(18pt)[
@@ -39,25 +41,32 @@ $
 integral 1 - 2t dif t = integral 1 dif t - 2integral t dif t = t - t^2 + C
 $
 
-Por tanto, la solución es:
+Entonces tenemos:
 $
 ln (P - 2) = t + t^2 + C space.quad space.quad forall P > 2
 $
 
-//TODO: Revisar el intervalo
+Por tanto, la solución es:
+$
+P - 2 = e^(t + t^2 + C)
+arrow.double.long
+P = e^t e^t^2e^C+2
+
+space.quad space.quad forall P > 2
+$
 
 y su Intervalo es $I = RR$
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
 
-(b) $ cos^2 x dot.c sin x (dif y)/(dif x) + (cos^3 x) y = 1 $
+(b) $ cos^2 x dot.c sin x (dif y)/(dif x) + cos^3(x) y = 1 $
 
 Escribimos la ecuación en su forma estándar:
 $
 (cos^2 x dot.c sin x)/(cos^2 x dot.c sin x ) (dif y)/(dif x) + (cos^3 x) /( cos^2 x dot.c sin x) y = 1/(cos^2 x dot.c sin x)
 arrow.long.double
-(dif y)/(dif x) + (cot x) y = sec^2 (x) csc (x)
+(dif y)/(dif x) + cot (x) y = sec^2 (x) csc (x)
 $
 Identificamos $p(x)$ y $f(x)$:
 $
@@ -66,7 +75,7 @@ $
 
 Calculando el factor integrante:
 $
-mu(x) = e^(integral cot x dif x) = e^(ln sin x) = sin x space.quad forall sin x > 0
+mu(x) = e^(integral cot(x) dif x) = e^(ln (sin x)) = sin x space.quad forall sin x > 0
 $
 
 Multiplicando el factor integrante por la ED:
@@ -126,12 +135,12 @@ Integrando ambos lados:
 $
 integral (dif y)/(dif x)[y(1+x^2)^2] dif x = integral (1+x^2)^(-1) dif x
 arrow.double.long
-y(1+x^2)^2 = arctan x + C
+y(1+x^2)^2 = arctan (x) + C
 $
 
 Por tanto, la solución es:
 $
-y = (arctan x + C)/(1+x^2)^2
+y = (arctan(x) + C)/(1+x^2)^2
 $
 
 y su intervalo de definición es $I = RR$.
@@ -155,8 +164,11 @@ $
 
 Calculando el factor integrante:
 $
-e^(integral (t/(1+t^2) + t^3/(1+t^4)) dif t) = 
-e^(integral t/(1+t^2) dif t + integral t^3/(1+t^4) dif t) = e^(1/2ln(1+t^2)+ 1/4 ln(1+t^4)) = e^(ln((1+t^2)^(1/2)(1+t^4)^(1/4))) =(1+t^2)^(1/2)(1+t^4)^(1/4)
+mu(x) = e^(integral (t/(1+t^2) + t^3/(1+t^4)) dif t)
+&= e^(integral t/(1+t^2) dif t + integral t^3/(1+t^4) dif t) \
+&= e^(1/2ln(1+t^2)+ 1/4 ln(1+t^4)) \
+&= e^(ln((1+t^2)^(1/2)(1+t^4)^(1/4))) \
+&=(1+t^2)^(1/2)(1+t^4)^(1/4)
 $
 
 Multiplicando el factor integrante por la ED:
@@ -181,12 +193,12 @@ $
 
 Identificamos $p(x)$ y $f(x)$:
 $
-p(x) = 1/x space.quad space.quad 3 cos(2x)
+p(x) = 1/x space.quad space.quad f(x) = 3 cos(2x)
 $
 
 Calculando el factor integrante:
 $
-e^(integral 1/x dif x) = e^(ln x) = x space.quad forall x > 0
+mu(x) = e^(integral 1/x dif x) = e^(ln x) = x space.quad forall x > 0
 $
 
 Multiplicando el factor integrante por la ED:
@@ -201,6 +213,10 @@ integral (dif y)/(dif x) [x y] dif x = 3 integral x cos(2x) dif x arrow.double.l
 x y = 3 ((x sin(2x))/2 + (cos(2x))/4) + C
 $
 
+#align(center)[
+  (la integral $integral x cos(2x) dif x$ fue resuelta con el software _WolframAlpha_)
+]
+
 Por tanto, la solución es:
 $
 y  = (3/2 x sin(2x) + 3/4 cos(2x) + C)/x
@@ -208,7 +224,6 @@ $
 
 y su intervalo de definición es $I = RR \\ {0} $
 
-*NOTA*: la integral $integral x cos(2x) dif x$ fue resuelta con el software _WolframAlpha_.
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -222,7 +237,7 @@ $
 
 Calculando el factor integrante:
 $
-e^(integral (1+x)/x dif x) = e^(integral 1/x dif + integral 1 dif x) = e^(ln(x) + x) = e^(ln x) e^x = x e^x space.quad forall x > 0
+mu(x) = e^(integral (1+x)/x dif x) = e^(integral 1/x dif + integral 1 dif x) = e^(ln(x) + x) = e^(ln x) e^x = x e^x space.quad forall x > 0
 $
 
 Multiplicando el factor integrante por la ED:
@@ -290,7 +305,7 @@ $
 
 Por tanto, la solución del PVI es:
 $
-i(t)  = E/R  + (i_0 - E/R)/e^(R/L t)
+i(t)  = E/R  + (i_0 - E/R)/e^(R/L t) = E/R  + (i_0 - E/R)e^(-R/L t)
 $
 
 y su intervalo de definición $I = RR$, solo es necesario que $R != 0$ y$L != 0$.
@@ -401,7 +416,7 @@ $
 
 Por la tanto, la solución del PVI es:
 $
-y = (-e^(-x)(x + 1))/x^4
+y = -(e^(-x)(x + 1))/x^4
 $
 
 //TODO: Revisar el (y los demas intervalos)
