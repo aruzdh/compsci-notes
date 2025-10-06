@@ -43,19 +43,19 @@ $
 
 Entonces tenemos:
 $
-ln (P - 2) = t + t^2 + C space.quad space.quad forall P > 2
+ln (P - 2) = t - t^2 + C space.quad space.quad forall P > 2
 $
 
 Por tanto, la solución es:
 $
-P - 2 = e^(t + t^2 + C)
+P - 2 = e^(t - t^2 + C)
 arrow.double.long
-P = e^t e^t^2e^C+2
+P = e^(t-t^2)e^C+2
 
 space.quad space.quad forall P > 2
 $
 
-y su Intervalo es $I = RR$
+y su Intervalo de definición es $I = RR$
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -84,12 +84,12 @@ sin x[
 (dif y)/(dif x) + cot(x)y] = sec^2 (x)csc (x) sin(x) & arrow.long.double
 sin x (dif y)/(dif x) + sin(x) cot(x)y] = sec^2\
 &arrow.long.double
-(dif y)/(dif x) [sin x dot.c y] = sec^2(x)
+(dif )/(dif x) [sin x dot.c y] = sec^2(x)
 $
 
 Intagrando ambos lados:
 $
-integral (dif y)/(dif x) [sin x dot.c y] dif x = integral sec^2(x) dif x arrow.double.long
+integral (dif )/(dif x) [sin x dot.c y] dif x = integral sec^2(x) dif x arrow.double.long
 y sin x = tan x + C
 $
 
@@ -99,7 +99,7 @@ $
 y = (tan x + C) / (sin x) = sec (x) + C csc (x)
 $
 
-y su Intervalo es el conjunto de todos los $RR$ excepto los valores de $x$ para los cuales $sin x = 0$ o $cos x = 0$.
+y su Intervalo de definición es el conjunto de todos los $RR$ excepto los valores de $x$ para los cuales $sin x = 0$ o $cos x = 0$.
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -128,12 +128,12 @@ $
 & arrow.double.long
 (1+x^2)^2 y' + ((1+x^2)^2 4x)/(1 + x^2)y = (1 + x^2)^(-1)\
 & arrow.double.long
-(dif y)/(dif x)[y(1+x^2)^2]= (1+x^2)^(-1)
+(dif )/(dif x)[y(1+x^2)^2]= (1+x^2)^(-1)
 $
 
 Integrando ambos lados:
 $
-integral (dif y)/(dif x)[y(1+x^2)^2] dif x = integral (1+x^2)^(-1) dif x
+integral (dif )/(dif x)[y(1+x^2)^2] dif x = integral (1+x^2)^(-1) dif x
 arrow.double.long
 y(1+x^2)^2 = arctan (x) + C
 $
@@ -177,15 +177,22 @@ $
 \ arrow.double.long \
 (1+t^2)^(1/2)(1+t^4)^(1/4) (dif y)/(dif t) + (1+t^2)^(1/2)(1+t^4)^(1/4)(t/(1+t^2) + t^3/(1+t^4)) y = (1+t^2)^(1/2)(1+t^4)^(1/4)
 \ arrow.double.long \
-(dif y)/(dif t)[y(1+t^2)^(1/2)(1+t^4)^(1/4)] = (1+t^2)^(1/2)(1+t^4)^(1/4)
+(dif )/(dif t)[y(1+t^2)^(1/2)(1+t^4)^(1/4)] = (1+t^2)^(1/2)(1+t^4)^(1/4)
 $
 
 Integrando ambos lados:
 $
-integral  (dif y)/(dif t)[y(1+t^2)^(1/2)(1+t^4)^(1/4)] dif t = integral (1+t^2)^(1/2)(1+t^4)^(1/4) dif t
+integral  (dif )/(dif t)[y(1+t^2)^(1/2)(1+t^4)^(1/4)] dif t = integral (1+t^2)^(1/2)(1+t^4)^(1/4) dif t
 \ arrow.double.long \
-y(1+t^2)^(1/2)(1+t^4)^(1/4)] = integral (1+t^2)^(1/2)(1+t^4)^(1/4) dif t
+y(1+t^2)^(1/2)(1+t^4)^(1/4) = integral (1+t^2)^(1/2)(1+t^4)^(1/4) dif t
 $
+
+donde la integral del lado derecho no tiene una forma elemental. Debido a esto la solución es de la siguiente forma:
+$
+y = (C + integral (1+t^2)^(1/2)(1+t^4)^(1/4) dif t)/((1+t^2)^(1/2)(1+t^4)^(1/4))
+$
+
+y su intervalo de definición es $I = RR$.
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -204,12 +211,12 @@ $
 Multiplicando el factor integrante por la ED:
 $
 x [y' + (1/x) y] = 3x cos(2x) arrow.double.long 
-x y' + y = 3x cos(2x) arrow.double.long (dif y)/(dif x) [x y] = 3x cos(2x)
+x y' + y = 3x cos(2x) arrow.double.long (dif )/(dif x) [x y] = 3x cos(2x)
 $
 
 Integrando ambos lados:
 $
-integral (dif y)/(dif x) [x y] dif x = 3 integral x cos(2x) dif x arrow.double.long
+integral (dif )/(dif x) [x y] dif x = 3 integral x cos(2x) dif x arrow.double.long
 x y = 3 ((x sin(2x))/2 + (cos(2x))/4) + C
 $
 
@@ -244,12 +251,12 @@ Multiplicando el factor integrante por la ED:
 $
 x e^x [ y' + (1 + x)/x y] = x e^x e^(-x) sin(2x)/x arrow.double.long
 x e^x y' + e^x (1 + x) y = sin(2x) arrow.double.long
-(dif y)/(dif x)[x e^x y] = sin(2x)
+(dif )/(dif x)[x e^x y] = sin(2x)
 $
 
 Integrando ambos lados:
 $
-integral (dif y)/(dif x)[x e^x y] dif x = integral sin(2x) dif x arrow.double.long
+integral (dif )/(dif x)[x e^x y] dif x = integral sin(2x) dif x arrow.double.long
 x e^x y = 2 integral sin(x)cos(x) dif x arrow.double.long
 x e^x y = sin^2(x) + C
 $
@@ -281,12 +288,12 @@ Multiplicando el factor integrante por la ED:
 $
 e^(R/L t) [(dif i)/(dif t) + R/L i] = e^(R/L t) E/L arrow.double.long 
 e^(R/L t) (dif i)/(dif t) + e^(R/L t) R/L i = e^(R/L t) E/L arrow.double.long 
-(dif i)/(dif t) [e^(R/L t) i] = e^(R/L t) E/L
+(dif )/(dif t) [e^(R/L t) i] = e^(R/L t) E/L
 $
 
 Integrando ambos lados:
 $
-integral (dif i)/(dif t) [e^(R/L t) i] dif t = E/L integral e^(R/L t) dif t
+integral (dif )/(dif t) [e^(R/L t) i] dif t = E/L integral e^(R/L t) dif t
 arrow.double.long
 e^(R/L t) i = E/L L/R integral e^u dif u arrow.double.long e^(R/L i) = E/R e^(R/L t) + C
 $
@@ -384,12 +391,12 @@ x^4[y' + (4x^2)/x^3 y] = x^4 e^(-x)/x^3
 arrow.double.long
 x^4 y' + 4x^3 y = x e^(-x)
 arrow.double.long
-(dif y)/(dif x) [x^4 y] = x e^(-x)
+(dif)/(dif x) [x^4 y] = x e^(-x)
 $
 
 Integrando ambos lados:
 $
-integral (dif y)/(dif x) [x^4 y] dif x = integral x e^(-x) dif x
+integral (dif )/(dif x) [x^4 y] dif x = integral x e^(-x) dif x
 & arrow.double.long
 x^4 y = -x e^(-x) + integral e^(-x) dif x \
 & arrow.double.long
@@ -419,8 +426,7 @@ $
 y = -(e^(-x)(x + 1))/x^4
 $
 
-//TODO: Revisar el (y los demas intervalos)
-y el intervalo de definición es $I = RR \\ {0}$
+y el intervalo en el que está definida es $I = RR \\ {0}$, pero dada la condición inicial $y(-1) = 0$, se toma el intervalo $I = (- infinity, 0)$.
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -437,12 +443,12 @@ x^2 [y' + (2/x) y] = x^2 (cos x)/x^2
 arrow.double.long
 x^2 y' + 2x y = cos x
 arrow.double.long
-(dif y)/(dif x)[x^2 y] = cos x
+(dif )/(dif x)[x^2 y] = cos x
 $
 
 Integrando ambos lados:
 $
-integral (dif y)/(dif x)[x^2 y] dif x = integral cos x dif x
+integral (dif )/(dif x)[x^2 y] dif x = integral cos x dif x
 arrow.double.long
 x^2 y = sin x + C
 $
@@ -466,9 +472,7 @@ $
 y(x) = (sin x)/x^2
 $
 
-//TODO: Revisar el intervalo
-
-y su intervalo de definición es $I = RR \\ {0}$.
+y el intervalo en el que está definida es $I = RR \\ {0}$, pero dada la condición inicial $y(pi) = 0$, se toma el intervalo $I = (0, infinity)$.
 
 #line(length: 100%,stroke: (paint: gray, thickness: 1pt, dash: ("dot", 2pt, 4pt, 2pt)))
 
@@ -500,12 +504,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^x^2(dif y)/(dif x) + 2e^x^2 x y = e^x^2 x
   arrow.double.long
-  (dif y)/(dif x)[e^x^2 y] = e^x^2 x
+  (dif )/(dif x)[e^x^2 y] = e^x^2 x
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x)[e^x^2 y] dif x = integral e^x^2 x dif x
+  integral (dif )/(dif x)[e^x^2 y] dif x = integral e^x^2 x dif x
   arrow.double.long
   e^x^2 y = 1/2 e^x^2 + C
   $
@@ -546,12 +550,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^x^2(dif y)/(dif x) + 2e^x^2 x y = 0
   arrow.double.long
-  (dif y)/(dif x)[e^x^2 y] = 0
+  (dif )/(dif x)[e^x^2 y] = 0
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x)[e^x^2 y] dif x = integral 0 dif x 
+  integral (dif )/(dif x)[e^x^2 y] dif x = integral 0 dif x 
   arrow.double.long
   e^x^2 y = K space.quad (K " constante")
   $
@@ -628,12 +632,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^(2x) (dif y)/(dif x) + 2 e^(2x)y = e^(2x)
   arrow.double.long
-  (dif y)/(dif x) [e^(2x) y] = e^(2x)
+  (dif )/(dif x) [e^(2x) y] = e^(2x)
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x) [e^(2x) y] dif x = integral e^(2x) dif x
+  integral (dif )/(dif x) [e^(2x) y] dif x = integral e^(2x) dif x
   arrow.double.long
   e^(2x) y = 1/2 e^(2x) + C
   $
@@ -678,12 +682,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^(2x) (dif y)/(dif x) + 2 e^(2x)y = 0
   arrow.double.long
-  (dif y)/(dif x) [e^(2x) y] = 0
+  (dif )/(dif x) [e^(2x) y] = 0
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x) [e^(2x) y] dif x = integral 0 dif x
+  integral (dif )/(dif x) [e^(2x) y] dif x = integral 0 dif x
   arrow.double.long
   e^(2x) y = K space.quad (K " constante")
   $
@@ -760,12 +764,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^x (dif y)/(dif x) + e^x y = e^x
   arrow.double.long
-  (dif y)/(dif x) [e^x y] = e^x
+  (dif )/(dif x) [e^x y] = e^x
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x) [e^x y] dif x = integral e^x dif x
+  integral (dif )/(dif x) [e^x y] dif x = integral e^x dif x
   arrow.double.long
   e^x y = e^x + C
   $
@@ -808,12 +812,12 @@ Resolviendo el problema 2 partes correspondientes a los intervalos en los que $f
   arrow.double.long
   e^x (dif y)/(dif x) + e^x y = -e^x
   arrow.double.long
-  (dif y)/(dif x) [e^x y] = -e^x
+  (dif )/(dif x) [e^x y] = -e^x
   $
 
   Integrando ambos lados:
   $
-  integral (dif y)/(dif x) [e^x y] dif x = - integral e^x dif x
+  integral (dif )/(dif x) [e^x y] dif x = - integral e^x dif x
   arrow.double.long
   e^x y = -e^x + K
   $
