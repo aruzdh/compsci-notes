@@ -8,60 +8,149 @@
   // ]
 ]
 
-== Busqueda Binaria Alterada
-
-=== Invariante de Ciclo (IC)
-
-*IC:* Antes de la $k-$esima iteración, el indice $r$ a regresar cumple con la propiedad de ser $"low" <= r <= "high"$
-
-=== Demostración del IC
-
-Demostración por Inducción.
-
-_Caso Base $k = 1$._
-Antes de la primera iteración se tienen las siguientes asignaciones de valores:
 $
-"low" = 0 space.quad space.quad "high" = "A.length"
+"con"(phi) < 2^("depth"(phi) + 1)
 $
 
-Tenemos dos casos:
-+ El elemento $x$ está en $A$: Naturalmente, el indice $r$ está dentro del rango $[0,"A.length" - 1)$, y dadas las asignaciones de valores anteriores, $"low" <= r <= "high"$
-+ El elemento $x$ no está en $A$: 
-
-  – Si $x < A[0]$, el indice a regresar es $r = 0$ que cumple con la propiedad.
-
-  – Si $x < A["A.length" - 1]$, el indice a regresar es $r = "A.length"$ que cumple con la propiedad.
-
-  En ambos casos la propiedad se cumple.
-
-_Hipotesis de Inducción: la propiedad es cierta para la iteración $k$._
-
-_Paso Inductivo: Para $k + 1$_
-
-Durante la iteración $k$ se tienen las siguientes asignaciones de valores:
+B: $phi = p$
+$
+"con"(p) < 2^("depth"(p) + 1)
+$
 
 $
-m = ("low" + "high") / 2
+"con"(p) < 2^("depth"(p) + 1) arrow.double.l.r
+0 < 2^(0 + 1) arrow.double.l.r
+0 < 2
 $
-Y con ello los siguientes casos:
 
-+ $A[m] < x$: Como $x$ es menor que $A[m]$, el indice a regresar es necesariamente $r > m$ y se asigna $"low" = m + 1$. De lo anterior se sigue que $m + 1 = "low" <= r <= "high"$. Por tanto cumple la propiedad.
-+ $A[m] >= x$: Como $x$ es mayor o igual que $A[m]$, el indice a regresar es necesariamente $r >= m$ y se asigna $"high" = m + 1$. De lo anterior se sigue que $"low" <= r <= "high" = m$. Por tanto cumple la propiedad.
+HI:
 
-En ambos casos se tiene que $"low" <= r <= "high"$.
+$
+"con"(phi) < 2^("depth"(phi) + 1)
+space.quad space.quad
+"con"(psi) < 2^("depth"(psi) + 1)
+$
 
-Por tanto el Invariante de Ciclo se cumple durante todo el ciclo.
+Negación: $phi = not phi$
 
-=== Demostración de $I C and not C arrow "PostC"$
-=== Demostración de Finitud
+$
+"con"(not phi) = 1 + "con"(phi) & < 2^("depth"(phi) + 1) + 1\
+& < 2^("depth"(phi) + 1 + 1) \
+& < 2^("depth"(not phi) + 1)
+$
 
-== Suma de Elementos
+Necesitamos
+$
+ 2^("depth"(phi) + 1) + 1 <=  2^("depth"(phi) + 2)
+$
 
-== Factorial de $n$
+Entonces
+$
+ 2^("depth"(phi) + 1) + 1 <=  2^("depth"(phi) + 2)\
+arrow.double.l.r\
+ 2 dot.c 2^("depth"(phi)) + 1 <=  2^2 dot.c 2^("depth"(phi))\
+arrow.double.l.r\
+2^("depth"(phi)) + 1 <= 2 dot 2^("depth"(phi))\
+$
 
-== Decimal a Binario
+Si $"depth"(phi) > 0$, es inmediato que la desigualdad se cumple. Si $"depth"(phi) = 0$, llegos a que $0 <= 0$. En ambos casos la desigualdad es correcta.
 
-// === Invariante de Ciclo (IC)
-// === Demostración del IC
-// === Demostración de $I C and not C arrow "PostC"$
-// === Demostración de Finitud
+Por la transitividad de $<$, se cumple la desigualdad buscada.
+
+Binario:
+
+$
+"con"(phi triangle psi) = "con"(phi) + "con"(psi) + 1 
+&< 2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1\
+&< 2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1\
+$
+
+Necesitamos
+$
+2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1 <= 2^("depth"(phi triangle psi) + 1)
+$
+
+Entonces
+
+$
+2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1 <= 2^("max"("depth"(phi), "depth"(psi)) + 1+ 1)\
+$
+
+
+Suponiendo $"depth"(phi) > "depth"(psi)$
+
+$
+2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1 <= 2^("max"("depth"(phi), "depth"(psi)) + 2)\
+arrow.double.l.r\
+2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1 <= 2^("depth"(phi) + 2)\
+arrow.double.l.r\
+2^("depth"(phi) + 1) +  2^("depth"(psi) + 1) + 1 <= 2 dot.c 2^("depth"(phi) + 1)\
+arrow.double.l.r\
+2^("depth"(psi) + 1) + 1 <= 2^("depth"(phi) + 1)\
+arrow.double.l.r\
+2^("depth"(psi) + 1) - 1 < 2^("depth"(phi) + 1)\
+$
+
+Como $"depth"(phi) > "depth"(psi)$, lo anterior en cierto
+
+= sin + 1
+
+
+$
+"con"(phi) < 2^("depth"(phi))
+$
+
+B: $phi = p$
+$
+"con"(p) < 2^("depth"(p))
+$
+
+$
+"con"(p) < 2^("depth"(p)) arrow.double.l.r
+0 < 2^(0) arrow.double.l.r
+0 < 1
+$
+
+HI:
+
+$
+"con"(phi) < 2^("depth"(phi))
+space.quad space.quad
+"con"(psi) < 2^("depth"(psi))
+$
+
+Negación: $phi = not phi$
+
+$
+"con"(not phi) = 1 + "con"(phi) < 2^("depth"(phi)) + 1
+$
+
+Necesitamos
+$
+2^("depth"(phi)) + 1 <= 2^("depth"(not phi))
+$
+
+Entonces
+$
+2^("depth"(phi)) + 1 <= 2^("depth"(not phi))\
+arrow.l.r.double\
+2^("depth"(phi)) + 1 <= 2^("depth"(phi) + 1)\
+arrow.l.r.double\
+2^("depth"(phi)) + 1 <= 2 dot.c 2^("depth"(phi))\
+arrow.l.r.double\
+1 <= 2^("depth"(phi))\
+$
+
+Dado que $"depth"(phi) >= 0$, la desigualdad se cumple
+
+Binario:
+
+$
+"con"(phi triangle psi) = "con"(phi) + "con"(psi) + 1 
+&< 2^("depth"(phi)) +  2^("depth"(psi)) + 1\
+$
+
+Necesitamos
+$
+2^("depth"(phi)) +  2^("depth"(psi)) + 1 <= 2^("depth"(phi triangle psi))
+$
