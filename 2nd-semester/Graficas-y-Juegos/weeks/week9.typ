@@ -2,3 +2,4 @@
 #include "../days/day36.typ"
 #include "../days/day37.typ"
 #include "../days/day38.typ"
+#include "../days/day39.typ"

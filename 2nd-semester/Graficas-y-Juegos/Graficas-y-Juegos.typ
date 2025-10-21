@@ -29,4 +29,5 @@
 #include "./weeks/week7.typ"
 #include "./weeks/week8.typ"
 #include "./weeks/week9.typ"
+#include "./weeks/week10.typ"
 
