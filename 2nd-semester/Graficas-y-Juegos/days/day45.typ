@@ -24,7 +24,7 @@ Hay 1 turno y todos "tiran" al mismo tiempo.
   - Si ninguno confieza: 1 año de carcel
   - Si uno confieza y el otro no: Confieza- libre; No confieza- 10 años
   - Ambos confiezan: 5 años
-
+  // TODO: Hacer la tabla correcta
   #table(
     columns: (auto, auto, auto),
     inset: 10pt,
