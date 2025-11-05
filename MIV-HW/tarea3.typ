@@ -27,24 +27,24 @@ $
 Derivando parcialmente:
 
 $
-(diff M)/(diff y) = diff / (diff y) [- x y^2 + cos(x) sin(x)] = -2x y
+(partial M)/(partial y) = partial / (partial y) [- x y^2 + cos(x) sin(x)] = -2x y
 $
 
 $
-(diff N)/(diff x) = diff / (diff x) [y(1 - x^2)] = -2x y
+(partial N)/(partial x) = partial / (partial x) [y(1 - x^2)] = -2x y
 $
 
 Se tienen que
 $
-(diff M)/(diff y) = (diff N)/(diff x)
+(partial M)/(partial y) = (partial N)/(partial x)
 $
 , y por tanto la ED es exacta.
 
 Entonces existe una función $f$ tal que
 $
-(diff f)/(diff x) = M(x,y)= -x y^2 + cos(x)sin(x) 
+(partial f)/(partial x) = M(x,y)= -x y^2 + cos(x)sin(x) 
 space.quad space.quad space.quad space.quad
-(diff f)/(diff y) = N(x,y)= y(1-x^2)
+(partial f)/(partial y) = N(x,y)= y(1-x^2)
 $
 
 Integrando con respecto a $y$:
@@ -54,7 +54,7 @@ $
 
 Como
 $
-(diff f)/(diff x) =-x y^2 + cos(x)sin(x) = -x y^2 + h'(x) arrow.double.long h'(x) = cos(x)sin(x)
+(partial f)/(partial x) =-x y^2 + cos(x)sin(x) = -x y^2 + h'(x) arrow.double.long h'(x) = cos(x)sin(x)
 $
 
 Integrando con respecto a $x$:
@@ -86,7 +86,7 @@ $
 Derivando parcialmente:
 
 $
-(diff M)/(diff y) = diff / (diff y) [1/t + 1/t^2 - y/(t^2 + y^2)] &= - diff /(diff y) [y(t^2 + y^2)^(-1)] \
+(partial M)/(partial y) = partial / (partial y) [1/t + 1/t^2 - y/(t^2 + y^2)] &= - partial /(partial y) [y(t^2 + y^2)^(-1)] \
 &= -((t^2 + y^2)^(-1) - y (t^2 + y^2)^(-2) 2y)\
 &= -(t^2 + y^2)^(-1) +  2y^2 (t^2 + y^2)^(-2)\
 &= (-t^2 - y^2 + 2y^2)/(t^2 + y^2)^2
@@ -94,7 +94,7 @@ $
 $
 
 $
-(diff N)/(diff t) = diff / (diff t) [y e^y + t/(t^2 + y^2)] &= diff / (diff t) [t(t^2 + y^2)^(-1)]\
+(partial N)/(partial t) = partial / (partial t) [y e^y + t/(t^2 + y^2)] &= partial / (partial t) [t(t^2 + y^2)^(-1)]\
 &= (t^2 + y^2)^(-1) - t(t^2 + y^2)^(-2)2t \
 &= (t^2 + y^2)^(-1) - 2t^2(t^2 + y^2)^(-2)\
 &= (t^2 + y^2 - 2t^2)/(t^2 + y^2)^2
@@ -103,14 +103,14 @@ $
 
 Se tiene que
 $
-(diff M)/(diff y) = (diff N)/(diff t)
+(partial M)/(partial y) = (partial N)/(partial t)
 $, y por la tanto es exacta
 
 Entonces existe una función $f$ tal que
 $
-(diff f)/(diff t) = M(t,y) = 1/t + 1/t^2 - y/(t^2 + y^2)
+(partial f)/(partial t) = M(t,y) = 1/t + 1/t^2 - y/(t^2 + y^2)
 space.quad space.quad space.quad space.quad 
-(diff f)/(diff y) = N(t,y) = y e^y + t/(t^2 + y^2)
+(partial f)/(partial y) = N(t,y) = y e^y + t/(t^2 + y^2)
 $
 
 Integrando con respecto a $t$:
@@ -125,7 +125,7 @@ $
 
 Como
 $
-(diff f)/(diff y) = y e^y + 1/(t^2 + y^2) = 1/(t^2 + y^2) + g'(y)
+(partial f)/(partial y) = y e^y + 1/(t^2 + y^2) = 1/(t^2 + y^2) + g'(y)
 arrow.double.long g'(y) = y e^y
 $
 
@@ -162,17 +162,17 @@ $
 
 Derivando parcialmente
 $
-(diff M)/(diff y) = diff / (diff y) [-(2e^x - y/x + 6x)]
-= diff /(diff y) [-2e^x + y/x - 6x]
+(partial M)/(partial y) = partial / (partial y) [-(2e^x - y/x + 6x)]
+= partial /(partial y) [-2e^x + y/x - 6x]
 = 1/x
 $
 $
-(diff N)/(diff x) = diff / (diff x) 1 = 0
+(partial N)/(partial x) = partial / (partial x) 1 = 0
 $
 
 Se tiene que
 $
-(diff M)/(diff y) != (diff N)/(dif x)
+(partial M)/(partial y) != (partial N)/(dif x)
 $, y por tanto *no* es exacta.
 
 Entonces buscamos un factor integrante. Verificamos que el término que buscamos está en función de $x$:
@@ -192,20 +192,20 @@ $
 
 Verificando que ya es exacta:
 $
-(diff M)/(diff y) = diff / (diff y) [-(2 x e^x - y + 6x^2)]
-= diff /(diff y) [-2 x e^x + y - 6x^2]
+(partial M)/(partial y) = partial / (partial y) [-(2 x e^x - y + 6x^2)]
+= partial /(partial y) [-2 x e^x + y - 6x^2]
 = 1
 $
 $
-(diff N)/(diff x) = diff / (diff x) x  = 1
+(partial N)/(partial x) = partial / (partial x) x  = 1
 $
 
 Entonces existe una función $f$ tal que
 $
-(diff f)/(diff x) = M(x,y) = -2x e^x + y - 6x^2
+(partial f)/(partial x) = M(x,y) = -2x e^x + y - 6x^2
 $
 $
-(diff f)/(diff y) = N(x,y) = x
+(partial f)/(partial y) = N(x,y) = x
 $
 
 Integrando con respecto a $y$:
@@ -215,7 +215,7 @@ $
 
 Como
 $
-(diff f)/(diff x) = -2x e^x + y - 6x^2 = y + h'(x) arrow.double.long h'(x) = -2x e^x -6x^2
+(partial f)/(partial x) = -2x e^x + y - 6x^2 = y + h'(x) arrow.double.long h'(x) = -2x e^x -6x^2
 $
 
 Integrando con respecto a $x$:
@@ -246,15 +246,15 @@ $
 
 Derivando parcialmente:
 $
-(diff M)/(dif y) = diff/(diff y) [10 - 6y + 3e^(-3x)] = -6
+(partial M)/(dif y) = partial/(partial y) [10 - 6y + 3e^(-3x)] = -6
 $
 $
-(diff N)/(diff x) = dif/(diff x) [-2] = 0
+(partial N)/(partial x) = dif/(partial x) [-2] = 0
 $
 
 Se tiene que
 $
-(diff M)/(diff y) != (diff N)/(diff x)
+(partial M)/(partial y) != (partial N)/(partial x)
 $, y por tanto *no* es exacta.
 
 Consideramos
@@ -274,18 +274,18 @@ $
 
 Verificando que ya es exacta:
 $
-(diff M)/(diff y) = -6e^(3x)
+(partial M)/(partial y) = -6e^(3x)
 $
 $
-(diff N)/(diff x) = -6e^(3x)
+(partial N)/(partial x) = -6e^(3x)
 $
 
 Entonces existe una función $f$ tal que
 $
-(diff f)/(diff x) = M(x,y) = 10e^(3x) - 6e^(3x)y + 3
+(partial f)/(partial x) = M(x,y) = 10e^(3x) - 6e^(3x)y + 3
 $
 $
-(diff f)/(diff y) = N(x,y) = -2e^(3x)
+(partial f)/(partial y) = N(x,y) = -2e^(3x)
 $
 
 Integrando con respecto a $y$:
@@ -295,7 +295,7 @@ $
 
 Como
 $
-(diff f)/(diff x) = 10e^(3x) - 6e^(3x)y + 3 = -6e^(3x)y + h'(x) arrow.double.long h'(x) = 10e^(3x) + 3
+(partial f)/(partial x) = 10e^(3x) - 6e^(3x)y + 3 = -6e^(3x)y + h'(x) arrow.double.long h'(x) = 10e^(3x) + 3
 $
 
 Integrando con respecto a $x$:
@@ -318,28 +318,80 @@ $
 #horizontalrule(dashed: true)
 (b)
 $
-(y^2 + x y^3) dif x + (5 y^2 - x y + y^3 sin(x)) dif y = 0
+(y^2 + x y^3) dif x + (5 y^2 - x y + y^3 sin(y)) dif y = 0
 $
 
 Derivando parcialmente:
 $
-(diff M)/(diff y) = 2y + 3x y^2
+(partial M)/(partial y) = 2y + 3x y^2
 space.quad space.quad space.quad
-(diff N)/(diff x) = -y + y^3 cos(x)
+(partial N)/(partial x) = -y 
 $
 
 Se tiene que
 $
-(diff M)/(diff y) != (diff N)/(diff x)
+(partial M)/(partial y) != (partial N)/(partial x)
 $, y por tanto *no* es exacta
 
-// TODO: Esperar la respuesta
 Consideramos
 $
-(M_y - N_x)/N = (2y + 3x y^2 - (-y + y^3cos(x)))/(5y^2 - x y + y^3sin(x)) = (3y + 3x y^2 - y^3cos(x))/(5y^2 - x y + y^3sin(x))
+(N_x - M_y)/M = (-y - (2y + 3 x y^2))/(y^2 + x y^3) =
+(- 3y - 3 x y^2)/(y^2 + x y^3) =
+(-3y(1 + x y))/(y^2(1+ x y)) =
+-(3y)/(y^2) = -3/y
+$
+
+De lo anterior, el factor integrante correcto es:
+$
+mu(x) = e^(-3 integral 1/y dif y) = e^(-3 ln(y)) = y^(-3) = 1/y^3
+$
+
+Multiplicando el factor integrante por la ED no exacta:
+$
+1/y^3 (y^2 + x y^3) dif x + 1/y^3(5 y^2 - x y + y^3 sin(y)) dif y = 0\
+arrow.double.long\
+(1/y + x) dif x + (5/y - x/y^2 + sin(y)) dif y = 0
+$
+
+Verificando que ya es exacta:
+$
+(partial M)/(partial y) = partial/(partial y) [1/y + x] = -1/y^2
 $
 $
-(N_x - M_y)/M = (-y + y^3cos(x) - (2y + 3x y^2))/(y^2 + x y^3) = (-3y + y^3cos(x) - 3x y^2)/(y^2 + x y^3)
+(partial N)/(partial x) = partial/(partial x) [5/y - x + sin(y)] = -1/y^2
+$
+
+Entonces existe una función $f$ tal que
+$
+(partial f)/(partial x) = M(x,y) = 1/y + x
+$
+$
+(partial f)/(partial y) = N(x,y) = 5/y - x/y^2 + sin(y)
+$
+
+Integrando con respecto a $x$:
+$
+f(x,y) = x/y + x^2/2 + g(y)
+$
+
+
+Como
+$
+(partial f)/(partial y) = 5/y - x/y^2 + sin(y) = -x/y^2 + g'(y) arrow.double.long g'(y) = 5/y + sin(y)
+$
+
+Integrando con respecto a $y$:
+$
+g(y) = 5 integral 1/y dif y + integral sin(y) dif y = 5 ln abs(y) - cos(y)
+$
+
+$
+therefore f(x,y) = x/y + x^2/2 + 5 ln abs(y) - cos(y)
+$
+
+Las curvas solución son de la forma:
+$
+f(x,y) = x/y + x^2/2 + 5 ln abs(y) - cos(y) = C arrow.double.long 2x/y + x^2 + 10 ln abs(y) - 2cos(y) = K
 $
 
 #horizontalrule(dashed: true)
@@ -349,18 +401,25 @@ $
 M(x,y) dif x + (x e^(x y) + 2x y + 1/x) dif y = 0
 $
 
-Consideramos
+La idea es buscar que funciones, una vez derivadas con respecto a $y$, nos dan $(partial N)/(partial x)$. Para los términos $2y$ y $-1/x^2$ la solución es bastante inmediata. Para $e^(x y) + x y e^(x y)$, que proviene de $x e^(x y)$, el término que buscamos debe ser muy similar a este último, y en particular, contener a $e^(x y)$ (por como se deriva la exponencial). Pensando en la regla de la cadena, podemos ver que solo falta multiplicar a $e^(x y)$ por $y$ para obtener ambos sumando.
+
+Dicho lo anterior, consideramos
 $
 M(x,y) =  y e^(x y) + y^2 - y/x^2
 $
 
 Derivando parcialmente:
 $
-(diff M)/(diff y) = e^(x y) + x y e^(x y) + 2y -1/x^2
+(partial M)/(partial y) = e^(x y) + x y e^(x y) + 2y -1/x^2
 $
 $
-(diff N)/(diff x) = e^(x y) + x y e^(x y) + 2y -1/x^2
+(partial N)/(partial x) = e^(x y) + x y e^(x y) + 2y -1/x^2
 $
+
+Se tiene que
+$
+(partial M)/(partial y) = (partial N)/(partial x)
+$, y por tanto es exacta.
 
 #horizontalrule(dashed: true)
 4. Resuelva la siguiente ecuación usando una sustitución adecuada.
@@ -397,14 +456,12 @@ $
 
 Como $u = x/y$
 $
- -y/x -2 ln(1-x/y) + ln(x/y) = ln(y) + C_1 &arrow.double.long -y/x -2 ln((y-x)/y) + ln(x)-ln(y) = ln(y) + C_1 \
+ &-y/x -2 ln(1-x/y) + ln(x/y) = ln(y) + C_1\ &arrow.double.long -y/x -2 ln((y-x)/y) + ln(x)-ln(y) = ln(y) + C_1 \
  &arrow.double.long -y/x -2(ln(y-x) - ln(y)) + ln(x) - ln(y) = ln(y) + C_1\
  &arrow.double.long -y/x -2ln(y-x) +2ln(y) + ln(x) - ln(y) = ln(y) + C_1\
  &arrow.double.long y/x +2ln(y-x) - ln(x) = C
 $
 
-// TODO: Preguntar forma explicita
-// La solución implicita es
 $
 therefore y/x +2ln(y-x) - ln(x) = C
 $
