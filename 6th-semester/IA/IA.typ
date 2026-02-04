@@ -1,10 +1,10 @@
 #import "lib.typ": *
 
 #show: template.with(
-  title: [Non-boring notes],
-  short_title: "Usual Notes",
-  description: [An usual description],
-  date: datetime(year: 2025, month: 08, day: 11),
+  title: [Inteligencia Artificial],
+  short_title: "Inteligencia Artificial",
+  description: [Inteligencia Artificial],
+  date: datetime(year: 2026, month: 02, day: 03),
   authors: (
     (
       name: "Aru",

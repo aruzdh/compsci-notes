@@ -2,6 +2,8 @@
 
 = 03 - Febrero - 2026
 
+== Introducción General
+
 Inteligencia Artificial: Reacciona a estímulos, incorpora conocimiento (memoria), aprendizaje, optimización, resolver problemas no-deterministas.
 
 Historia condensada:
