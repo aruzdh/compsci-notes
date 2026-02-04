@@ -6,7 +6,7 @@
 == Definiciones básicas: Introducción
 
 #definition("Compilador")[
-  Un *compilador* es un programa que "lee" un programa en un _lenguaje fuente_ y lo "traduce" a un programa *equivalente* en un _lenguaje objetivo_.
+  Un *compilador* es un programa que "lee" un programa en un _lenguaje fuente_ y lo "traduce" a un programa *equivalente* en un _lenguaje objetivo_ de bajo nivel.
 ]
 
 #definition("Intérprete")[
@@ -23,3 +23,8 @@
   _Java_ es un lenguaje que trabaja a partir de un compilador híbrido. La entrada es un programa escrito en _Java_ que se compila para obtener un programa en código de bytes, el cual es una forma intermedia que se ejecutará en la máquina virtual de _Java_ (JMV).
 ]
 
+#definition("Transpilador")[
+  Es una "especie" de compilador que "traduce" entre lenguajes de alto nivel.
+
+  _Jython_ es un ejemplo.
+]
