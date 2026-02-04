@@ -1,10 +1,10 @@
 #import "lib.typ": *
 
 #show: template.with(
-  title: [Non-boring notes],
-  short_title: "Usual Notes",
-  description: [An usual description],
-  date: datetime(year: 2025, month: 08, day: 11),
+  title: [Lógica Matemática II],
+  short_title: "Lógica Matemática II",
+  description: [Lógica Matemática II],
+  date: datetime(year: 2026, month: 02, day: 04),
   authors: (
     (
       name: "Aru",
@@ -15,7 +15,7 @@
   paper_size: "a4",
   cols: 1,
   h1-prefix: "lecture", // chapter or lecture
-  text_lang: "en",
+  text_lang: "es",
   accent: "#282828",
   colortab: true,
 )
