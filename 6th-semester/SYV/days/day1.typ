@@ -1,5 +1,4 @@
 #import "../lib.typ": *
-#import "../bibliography/bibliography.bib": *
 
 = 06 - Febrero - 2026
 
